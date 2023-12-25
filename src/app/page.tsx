@@ -8,6 +8,15 @@ import { Badge } from "../components/ui/badge";
 import { CommandMenu } from "../components/command-menu";
 import { Metadata } from "next";
 import { Section } from "../components/ui/section";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+  PhoneCallIcon,
+  PhoneIcon,
+  TwitterIcon,
+} from "lucide-react";
+import { Button } from "../components/ui/button";
 
 const RESUME_DATA = {
   name: "Bartosz Jarocki",
@@ -25,14 +34,17 @@ const RESUME_DATA = {
       {
         name: "GitHub",
         url: "https://github.com/BartoszJarocki",
+        icon: GithubIcon,
       },
       {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/bjarocki/",
+        icon: LinkedinIcon,
       },
       {
-        name: "Twitter",
-        url: "https://twitter.com/BartoszJarocki",
+        name: "X",
+        url: "https://x.com/BartoszJarocki",
+        icon: TwitterIcon,
       },
     ],
   },
@@ -106,7 +118,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container mx-auto p-1 md:p-12 relative overflow-auto scroll-mb-12">
+    <main className="container mx-auto p-4 md:p-16 print:p-12 relative overflow-auto">
       <section className="w-full max-w-2xl mx-auto bg-white space-y-8">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1">
@@ -114,7 +126,33 @@ export default function Page() {
             <p className="text-muted-foreground font-mono text-sm max-w-md text-pretty">
               {RESUME_DATA.about}
             </p>
-            <div className="text-muted-foreground font-mono flex flex-col text-sm gap-x-1">
+            <div className="print:hidden flex text-muted-foreground font-mono text-sm gap-x-1 pt-1">
+              {RESUME_DATA.contact.email ? (
+                <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                  <Button className="h-8 w-8" variant="outline" size="icon">
+                    <MailIcon className="h-4 w-4" />
+                  </Button>
+                </a>
+              ) : null}
+              {RESUME_DATA.contact.tel ? (
+                <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                  <Button className="h-8 w-8" variant="outline" size="icon">
+                    <PhoneIcon className="h-4 w-4" />
+                  </Button>
+                </a>
+              ) : null}
+              {RESUME_DATA.contact.social.map((social) => (
+                <Button
+                  key={social.name}
+                  className="h-8 w-8"
+                  variant="outline"
+                  size="icon"
+                >
+                  <social.icon className="h-4 w-4" />
+                </Button>
+              ))}
+            </div>
+            <div className="hidden print:flex text-muted-foreground font-mono flex-col text-sm gap-x-1">
               {RESUME_DATA.contact.email ? (
                 <a href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
