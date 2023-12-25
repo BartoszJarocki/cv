@@ -118,7 +118,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container mx-auto p-4 md:p-16 print:p-12 relative overflow-auto">
+    <main className="container mx-auto p-4 md:p-16 print:p-12 relative overflow-auto scroll-my-12">
       <section className="w-full max-w-2xl mx-auto bg-white space-y-8">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1">
@@ -148,7 +148,9 @@ export default function Page() {
                   variant="outline"
                   size="icon"
                 >
-                  <social.icon className="h-4 w-4" />
+                  <a href={social.url}>
+                    <social.icon className="h-4 w-4" />
+                  </a>
                 </Button>
               ))}
             </div>
