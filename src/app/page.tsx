@@ -1,5 +1,3 @@
-import { Inter } from "next/font/google";
-
 import ClevertechLogo from "../images/logos/clevertech.png";
 import JojoMobileLogo from "../images/logos/jojomobile.png";
 import NSNLogo from "../images/logos/nsn.svg";
@@ -7,15 +5,17 @@ import ParabolLogo from "../images/logos/parabol.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Card, CardHeader, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import Link from "next/link";
-
-import { PrintButton } from "../components/print-button";
+import { CommandMenu } from "../components/command-menu";
 
 const ResumeData = {
   name: "Bartosz Jarocki",
-  email: "bartosz.jarocki@hey.com",
-  about: "I am a software engineer with a passion for building things.",
+  initials: "BJ",
+  about:
+    "Full Stack Engineer focused on building products with extra attention to details",
+  summary:
+    "As a Full Stack Engineer specializing in TypeScript/JavaScript, I have successfully taken multiple products from start to finish. I lead teams effectively, ensuring an environment where poeple can do their best work. 8+ years of working remotely with companies all around the world.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "bartosz.jarocki@hey.com",
     tel: "+48530213401",
@@ -78,6 +78,14 @@ const ResumeData = {
       description: "Creating and testing software for LTE base stations",
     },
   ],
+  skills: [
+    "JavaScript",
+    "TypeScript",
+    "React/Next.js/Remix",
+    "Node.js",
+    "GraphQL",
+    "WebRTC",
+  ],
 } as const;
 
 const getResumeData = async () => {
@@ -89,21 +97,25 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto p-1 md:p-6 relative overflow-auto">
-      <section className="w-full max-w-3xl mx-auto bg-white p-6 space-y-12">
+      <section className="w-full max-w-2xl mx-auto bg-white p-6 space-y-6">
         <div className="flex items-center justify-between mb-6">
-          <div className="flex-1">
+          <div className="flex-1 space-y-1">
             <h1 className="text-2xl font-bold">{resumeData.name}</h1>
-            <p className="text-gray-500">Software Engineer</p>
+            <p className="text-muted-foreground font-mono text-base max-w-md text-pretty">
+              {resumeData.about}
+            </p>
           </div>
 
           <Avatar className="h-28 w-28">
             <AvatarImage alt={resumeData.name} src={resumeData.avatarUrl} />
-            <AvatarFallback>BJ</AvatarFallback>
+            <AvatarFallback>{resumeData.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <section>
-          <h2 className="text-xl font-bold mb-4">Summary</h2>
-          <p className="text-gray-600 font-mono text-sm">{resumeData.about}</p>
+        <section className="space-y-1">
+          <h2 className="text-xl font-bold">Summary</h2>
+          <p className="text-muted-foreground font-mono text-sm text-pretty">
+            {resumeData.summary}
+          </p>
         </section>
         <section className="flex flex-col min-h-0 gap-y-5">
           <h2 className="text-xl font-bold my-2">Work Experience</h2>
@@ -111,19 +123,18 @@ export default async function Home() {
             return (
               <Card key={work.company}>
                 <CardHeader>
-                  <h3 className="text-lg font-semibold leading-none">
-                    {work.company}
-                  </h3>
-                  <h4 className="text-sm leading-none">{work.title}</h4>
-                  <div className="text-gray-500 text-sm">
-                    {work.start} - {work.end}
+                  <div className="flex items-center justify-between gap-x-2 text-lg">
+                    <h3 className="font-semibold leading-none">
+                      {work.company}
+                    </h3>
+                    <div className="text-gray-500 text-sm">
+                      {work.start} - {work.end}
+                    </div>
                   </div>
+
+                  <h4 className="text-sm leading-none">{work.title}</h4>
                 </CardHeader>
-                <CardContent className="mt-2">
-                  <p className="text-gray-600 font-mono text-sm text-pretty">
-                    {work.description}
-                  </p>
-                </CardContent>
+                <CardContent className="mt-2">{work.description}</CardContent>
               </Card>
             );
           })}
@@ -146,30 +157,42 @@ export default async function Home() {
         <section>
           <h2 className="text-xl font-bold mb-4">Skills</h2>
           <div className="flex flex-wrap gap-2">
-            <Badge>JavaScript</Badge>
-            <Badge>React</Badge>
-            <Badge>Node.js</Badge>
-            <Badge>Angular</Badge>
-            <Badge>Git</Badge>
+            {resumeData.skills.map((skill) => {
+              return <Badge key={skill}>{skill}</Badge>;
+            })}
           </div>
         </section>
         <section>
           <h2 className="text-xl font-bold mb-4">Contact</h2>
-          <div className="flex flex-col gap-2">
-            <Link className="text-blue-500 hover:underline" href="#">
-              your-email@example.com
-            </Link>
-            <Link className="text-blue-500 hover:underline" href="#">
-              +1234567890
-            </Link>
-            <Link className="text-blue-500 hover:underline" href="#">
-              your-website.com
-            </Link>
+          <div className="flex flex-col gap-2 text-sm">
+            {resumeData.contact.email ? (
+              <a href={`mailto:${resumeData.contact.email}`}>
+                Mail:{" "}
+                <span className="underline">{resumeData.contact.email}</span>
+              </a>
+            ) : null}
+            {resumeData.contact.tel ? (
+              <a href={`tel:${resumeData.contact.tel}`}>
+                Mobile:{" "}
+                <span className="underline">{resumeData.contact.tel}</span>
+              </a>
+            ) : null}
           </div>
         </section>
       </section>
 
-      <PrintButton />
+      <CommandMenu
+        links={[
+          {
+            url: resumeData.personalWebsiteUrl,
+            title: "Personal Website",
+          },
+          ...resumeData.contact.social.map((socilaMediaLink) => ({
+            url: socilaMediaLink.url,
+            title: socilaMediaLink.name,
+          })),
+        ]}
+      />
     </main>
   );
 }

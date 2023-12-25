@@ -14,6 +14,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "cmdk": "^0.2.0",
     "lucide-react": "^0.300.0",
     "next": "14.0.4",
     "react": "^18",
