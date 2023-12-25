@@ -1,115 +1,13 @@
-import ClevertechLogo from "../images/logos/clevertech.png";
-import JojoMobileLogo from "../images/logos/jojomobile.png";
-import NSNLogo from "../images/logos/nsn.svg";
-import ParabolLogo from "../images/logos/parabol.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Card, CardHeader, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { CommandMenu } from "../components/command-menu";
 import { Metadata } from "next";
 import { Section } from "../components/ui/section";
-import {
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-  PhoneCallIcon,
-  PhoneIcon,
-  TwitterIcon,
-} from "lucide-react";
+import { MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
-
-const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  about:
-    "Full Stack Engineer focused on building products with extra attention to details",
-  summary:
-    "As a Full Stack Engineer specializing in TypeScript/JavaScript, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where poeple can do their best work. 8+ years of working remotely with companies all around the world.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
-  contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
-    social: [
-      {
-        name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
-        icon: GithubIcon,
-      },
-      {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
-        icon: LinkedinIcon,
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: TwitterIcon,
-      },
-    ],
-  },
-  education: [
-    {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
-    },
-  ],
-  work: [
-    {
-      company: "Parabol",
-      link: "https://parabol.co",
-      badges: ["Remote"],
-      title: "Senior Full Stack Developer",
-      logo: ParabolLogo,
-      start: "2021",
-      end: "Present",
-      description: "React, TypeScript, GraphQL",
-    },
-    {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote"],
-      title: "Lead Android Developer → Full Stack Developer",
-      logo: ClevertechLogo,
-      start: "2015",
-      end: "2021",
-      description:
-        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Worked with technologies like Android, Kotlin, React, TypeScript, GraphQL",
-    },
-    {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: [],
-      title: "Android Developer → Lead Android Developer",
-      logo: JojoMobileLogo,
-      start: "2012",
-      end: "2015",
-      description:
-        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
-    },
-    {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: [],
-      title: "C/C++ Developer",
-      logo: NSNLogo,
-      start: "2010",
-      end: "2012",
-      description: "Creating and testing software for LTE base stations",
-    },
-  ],
-  skills: [
-    "JavaScript",
-    "TypeScript",
-    "React/Next.js/Remix",
-    "Node.js",
-    "GraphQL",
-    "Relay",
-    "WebRTC",
-  ],
-} as const;
+import { RESUME_DATA } from "../data/resume-data";
+import { ProjectCard } from "../components/project-card";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -244,6 +142,23 @@ export default function Page() {
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
               return <Badge key={skill}>{skill}</Badge>;
+            })}
+          </div>
+        </Section>
+
+        <Section className="print-force-new-page scroll-mb-16">
+          <h2 className="text-xl font-bold">Projects</h2>
+          <div className="grid grid-cols-1 gap-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3 -mx-3 print:grid-cols-3">
+            {RESUME_DATA.projects.map((project) => {
+              return (
+                <ProjectCard
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.techStack}
+                  link={"link" in project ? project.link.href : undefined}
+                />
+              );
             })}
           </div>
         </Section>
