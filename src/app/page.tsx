@@ -72,7 +72,7 @@ export default function Page() {
           </Avatar>
         </div>
         <Section>
-          <h2 className="text-xl font-bold">Summary</h2>
+          <h2 className="text-xl font-bold">About</h2>
           <p className="text-muted-foreground font-mono text-sm text-pretty">
             {RESUME_DATA.summary}
           </p>
