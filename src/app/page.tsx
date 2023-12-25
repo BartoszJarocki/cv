@@ -6,14 +6,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Card, CardHeader, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { CommandMenu } from "../components/command-menu";
+import { Metadata } from "next";
+import { Section } from "../components/ui/section";
 
-const ResumeData = {
+const RESUME_DATA = {
   name: "Bartosz Jarocki",
   initials: "BJ",
   about:
     "Full Stack Engineer focused on building products with extra attention to details",
   summary:
-    "As a Full Stack Engineer specializing in TypeScript/JavaScript, I have successfully taken multiple products from start to finish. I lead teams effectively, ensuring an environment where poeple can do their best work. 8+ years of working remotely with companies all around the world.",
+    "As a Full Stack Engineer specializing in TypeScript/JavaScript, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where poeple can do their best work. 8+ years of working remotely with companies all around the world.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
@@ -45,32 +47,40 @@ const ResumeData = {
   work: [
     {
       company: "Parabol",
-      title: "Full Stack Developer",
+      link: "https://parabol.co",
+      badges: ["Remote"],
+      title: "Senior Full Stack Developer",
       logo: ParabolLogo,
       start: "2021",
       end: "Present",
-      description: "",
+      description: "React, TypeScript, GraphQL",
     },
     {
       company: "Clevertech",
+      link: "https://clevertech.biz",
+      badges: ["Remote"],
       title: "Lead Android Developer → Full Stack Developer",
       logo: ClevertechLogo,
       start: "2015",
       end: "2021",
       description:
-        "Creating mobile apps for companies like Vision Media, DKMS, AAA and Evercast",
+        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Worked with technologies like Android, Kotlin, React, TypeScript, GraphQL",
     },
     {
       company: "Jojo Mobile",
+      link: "https://bsgroup.eu/",
+      badges: [],
       title: "Android Developer → Lead Android Developer",
       logo: JojoMobileLogo,
       start: "2012",
       end: "2015",
       description:
-        "Built an Android team, created Android apps for Polish biggest companies like LOT, Polskie Radio, Agora, PolskaPress",
+        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
     },
     {
       company: "Nokia Siemens Networks",
+      link: "https://www.nokia.com",
+      badges: [],
       title: "C/C++ Developer",
       logo: NSNLogo,
       start: "2010",
@@ -84,110 +94,128 @@ const ResumeData = {
     "React/Next.js/Remix",
     "Node.js",
     "GraphQL",
+    "Relay",
     "WebRTC",
   ],
 } as const;
 
-const getResumeData = async () => {
-  return ResumeData;
+export const metadata: Metadata = {
+  title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
+  description: RESUME_DATA.summary,
 };
 
-export default async function Home() {
-  const resumeData = await getResumeData();
-
+export default function Page() {
   return (
-    <main className="container mx-auto p-1 md:p-6 relative overflow-auto">
-      <section className="w-full max-w-2xl mx-auto bg-white p-6 space-y-6">
-        <div className="flex items-center justify-between mb-6">
+    <main className="container mx-auto p-1 md:p-12 relative overflow-auto scroll-m-6">
+      <section className="w-full max-w-2xl mx-auto bg-white space-y-8">
+        <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1">
-            <h1 className="text-2xl font-bold">{resumeData.name}</h1>
-            <p className="text-muted-foreground font-mono text-base max-w-md text-pretty">
-              {resumeData.about}
+            <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
+            <p className="text-muted-foreground font-mono text-sm max-w-md text-pretty">
+              {RESUME_DATA.about}
             </p>
+            <div className="text-muted-foreground font-mono flex flex-col text-sm gap-x-1">
+              {RESUME_DATA.contact.email ? (
+                <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                  <span className="underline">{RESUME_DATA.contact.email}</span>
+                </a>
+              ) : null}
+              {RESUME_DATA.contact.tel ? (
+                <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                  <span className="underline">{RESUME_DATA.contact.tel}</span>
+                </a>
+              ) : null}
+            </div>
           </div>
 
           <Avatar className="h-28 w-28">
-            <AvatarImage alt={resumeData.name} src={resumeData.avatarUrl} />
-            <AvatarFallback>{resumeData.initials}</AvatarFallback>
+            <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
+            <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <section className="space-y-1">
+        <Section>
           <h2 className="text-xl font-bold">Summary</h2>
           <p className="text-muted-foreground font-mono text-sm text-pretty">
-            {resumeData.summary}
+            {RESUME_DATA.summary}
           </p>
-        </section>
-        <section className="flex flex-col min-h-0 gap-y-5">
-          <h2 className="text-xl font-bold my-2">Work Experience</h2>
-          {resumeData.work.map((work) => {
+        </Section>
+        <Section>
+          <h2 className="text-xl font-bold">Work Experience</h2>
+          {RESUME_DATA.work.map((work) => {
             return (
               <Card key={work.company}>
                 <CardHeader>
-                  <div className="flex items-center justify-between gap-x-2 text-lg">
-                    <h3 className="font-semibold leading-none">
-                      {work.company}
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="font-semibold leading-none inline-flex items-center justify-center gap-x-1">
+                      <a className="hover:underline" href={work.link}>
+                        {work.company}
+                      </a>
+
+                      <span className="inline-flex gap-x-1">
+                        {work.badges.map((badge) => (
+                          <Badge
+                            variant="secondary"
+                            className="text-xs align-middle"
+                            key={badge}
+                          >
+                            {badge}
+                          </Badge>
+                        ))}
+                      </span>
                     </h3>
-                    <div className="text-gray-500 text-sm">
+                    <div className="text-gray-500 text-sm tabular-nums">
                       {work.start} - {work.end}
                     </div>
                   </div>
 
-                  <h4 className="text-sm leading-none">{work.title}</h4>
+                  <h4 className="text-sm leading-none font-mono">
+                    {work.title}
+                  </h4>
                 </CardHeader>
-                <CardContent className="mt-2">{work.description}</CardContent>
+                <CardContent className="mt-2 text-xs">
+                  {work.description}
+                </CardContent>
               </Card>
             );
           })}
-        </section>
-        <section>
-          <h2 className="text-xl font-bold mb-4">Education</h2>
-          {resumeData.education.map((education) => {
+        </Section>
+        <Section>
+          <h2 className="text-xl font-bold">Education</h2>
+          {RESUME_DATA.education.map((education) => {
             return (
               <Card key={education.school}>
                 <CardHeader>
-                  <h3 className="text-lg font-semibold">{education.school}</h3>
-                  <p className="text-gray-500">
-                    {education.degree}, {education.start} - {education.end}
-                  </p>
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="font-semibold leading-none">
+                      {education.school}
+                    </h3>
+                    <div className="text-gray-500 text-sm tabular-nums">
+                      {education.start} - {education.end}
+                    </div>
+                  </div>
                 </CardHeader>
+                <CardContent className="mt-2">{education.degree}</CardContent>
               </Card>
             );
           })}
-        </section>
-        <section>
-          <h2 className="text-xl font-bold mb-4">Skills</h2>
-          <div className="flex flex-wrap gap-2">
-            {resumeData.skills.map((skill) => {
+        </Section>
+        <Section>
+          <h2 className="text-xl font-bold">Skills</h2>
+          <div className="flex flex-wrap gap-1">
+            {RESUME_DATA.skills.map((skill) => {
               return <Badge key={skill}>{skill}</Badge>;
             })}
           </div>
-        </section>
-        <section>
-          <h2 className="text-xl font-bold mb-4">Contact</h2>
-          <div className="flex flex-col gap-2 text-sm">
-            {resumeData.contact.email ? (
-              <a href={`mailto:${resumeData.contact.email}`}>
-                Mail:{" "}
-                <span className="underline">{resumeData.contact.email}</span>
-              </a>
-            ) : null}
-            {resumeData.contact.tel ? (
-              <a href={`tel:${resumeData.contact.tel}`}>
-                Mobile:{" "}
-                <span className="underline">{resumeData.contact.tel}</span>
-              </a>
-            ) : null}
-          </div>
-        </section>
+        </Section>
       </section>
 
       <CommandMenu
         links={[
           {
-            url: resumeData.personalWebsiteUrl,
+            url: RESUME_DATA.personalWebsiteUrl,
             title: "Personal Website",
           },
-          ...resumeData.contact.social.map((socilaMediaLink) => ({
+          ...RESUME_DATA.contact.social.map((socilaMediaLink) => ({
             url: socilaMediaLink.url,
             title: socilaMediaLink.name,
           })),

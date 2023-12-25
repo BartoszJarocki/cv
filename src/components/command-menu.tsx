@@ -48,8 +48,8 @@ export const CommandMenu = ({ links }: Props) => {
           <CommandGroup heading="Actions">
             <CommandItem
               onSelect={() => {
-                window.print();
                 setOpen(false);
+                window.print();
               }}
             >
               <span>Print</span>
@@ -60,8 +60,8 @@ export const CommandMenu = ({ links }: Props) => {
               <CommandItem
                 key={url}
                 onSelect={() => {
-                  window.open(url, "_blank");
                   setOpen(false);
+                  window.open(url, "_blank");
                 }}
               >
                 <span>{title}</span>
