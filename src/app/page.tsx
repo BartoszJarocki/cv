@@ -106,7 +106,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container mx-auto p-1 md:p-12 relative overflow-auto scroll-m-6">
+    <main className="container mx-auto p-1 md:p-12 relative overflow-auto scroll-mb-12">
       <section className="w-full max-w-2xl mx-auto bg-white space-y-8">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1">
