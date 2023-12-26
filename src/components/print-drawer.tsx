@@ -17,7 +17,7 @@ export const PrintDrawer = () => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button className="rounded-full h-16 w-16 fixed bottom-4 right-4 shadow-2xl print:hidden">
+        <Button className="fixed bottom-4 right-4 h-16 w-16 rounded-full shadow-2xl print:hidden">
           <PrinterIcon />
         </Button>
       </DrawerTrigger>

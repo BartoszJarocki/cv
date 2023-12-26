@@ -20,6 +20,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 export const RESUME_DATA = {
   name: "Bartosz Jarocki",
   initials: "BJ",
+  location: "Wrocław, Poland, CET",
   about:
     "Full Stack Engineer focused on building products with extra attention to details",
   summary:
