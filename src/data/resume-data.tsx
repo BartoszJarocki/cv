@@ -15,7 +15,9 @@ import ParabolLogo from "../images/logos/parabol.svg";
 import TastyCloudLogo from "../images/logos/tastycloud.png";
 import YearProgressLogo from "../images/logos/yearprogress.svg";
 import Minimal from "../images/logos/minimal.svg";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { GitHubIcon } from "../components/icons/GitHubIcon";
+import { LinkedInIcon } from "../components/icons/LinkedInIcon";
+import { XIcon } from "../components/icons/XIcon";
 
 export const RESUME_DATA = {
   name: "Bartosz Jarocki",
@@ -35,17 +37,17 @@ export const RESUME_DATA = {
       {
         name: "GitHub",
         url: "https://github.com/BartoszJarocki",
-        icon: GithubIcon,
+        icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/bjarocki/",
-        icon: LinkedinIcon,
+        icon: LinkedInIcon,
       },
       {
         name: "X",
         url: "https://x.com/BartoszJarocki",
-        icon: TwitterIcon,
+        icon: XIcon,
       },
     ],
   },
