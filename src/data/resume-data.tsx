@@ -21,6 +21,7 @@ export const RESUME_DATA = {
   name: "Bartosz Jarocki",
   initials: "BJ",
   location: "Wrocław, Poland, CET",
+  locationLink: "https://www.google.com/maps/place/Wrocław",
   about:
     "Full Stack Engineer focused on building products with extra attention to details",
   summary:
