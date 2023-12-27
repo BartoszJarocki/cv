@@ -46,6 +46,16 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Buenbit",
+      link: "https://buenbit.com",
+      badges: ["Product"],
+      title: "Head of Product",
+      start: "2024",
+      end: "Present",
+      description:
+        'Construyendo la mejor app de ahorro e inversiones de latam.',
+    },
+    {
       company: "Pedidos Ya",
       link: "https://pedidosya.com",
       badges: ["Product"],
