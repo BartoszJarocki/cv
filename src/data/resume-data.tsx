@@ -1,19 +1,4 @@
 import ConsultlyLogo from "../images/logos/consultly.svg";
-import AmbitLogo from "../images/logos/ambit.png";
-import BarepapersLogo from "../images/logos/barepapers.svg";
-import BimLogo from "../images/logos/bim.png";
-import CDGOLogo from "../images/logos/cdgo.png";
-import ClevertechLogo from "../images/logos/clevertech.png";
-import EvercastLogo from "../images/logos/evercast.svg";
-import Howdy from "../images/logos/howdy.png";
-import JarockiMeLogo from "../images/logos/jarocki.svg";
-import JojoMobileLogo from "../images/logos/jojomobile.png";
-import MonitoLogo from "../images/logos/monito.svg";
-import MobileVikingsLogo from "../images/logos/mv.png";
-import NSNLogo from "../images/logos/nsn.svg";
-import ParabolLogo from "../images/logos/parabol.svg";
-import TastyCloudLogo from "../images/logos/tastycloud.png";
-import YearProgressLogo from "../images/logos/yearprogress.svg";
 import Minimal from "../images/logos/minimal.svg";
 import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
@@ -65,7 +50,6 @@ export const RESUME_DATA = {
       link: "https://pedidosya.com",
       badges: ["Product"],
       title: "Group Product Manager",
-      logo: ParabolLogo,
       start: "2022",
       end: "2023",
       description:
@@ -76,7 +60,6 @@ export const RESUME_DATA = {
       link: "https://belo.app",
       badges: ["Product"],
       title: "Head of Product",
-      logo: ClevertechLogo,
       start: "2021",
       end: "2022",
       description:
@@ -87,7 +70,6 @@ export const RESUME_DATA = {
       link: "https://mercadopago.com/",
       badges: ["Product"],
       title: "Product Manager",
-      logo: JojoMobileLogo,
       start: "2019",
       end: "2021",
       description:
@@ -98,7 +80,6 @@ export const RESUME_DATA = {
       link: "https://www.medialab.agency/",
       badges: ["Growth"],
       title: "Growth Analyst",
-      logo: NSNLogo,
       start: "2017",
       end: "2019",
       description: "Automatizacion de los flujos de ventas b2b con web scrapping, armado de reportes automatico y cold emailing.",
@@ -108,7 +89,6 @@ export const RESUME_DATA = {
       link: "https://www.behance.net/gallery/60831397/iBillionaire-UI-UX-IOS-app?locale=es_ES/",
       badges: ["Growth"],
       title: "Growth Analyst",
-      logo: NSNLogo,
       start: "2016",
       end: "2017",
       description: "A cargo de marketing/growth y algunos aspectos del producto para la aplicación y la plataforma de inversión.",
@@ -130,7 +110,6 @@ export const RESUME_DATA = {
         "Cloudflare Workers",
       ],
       description: "Un solo lugar en donde comparar todas las opciones para comprar y tener tus USDC, USDT y Bitcoins.",
-      logo: ConsultlyLogo,
       link: {
         label: "usdc.ar",
         href: "https://usdc.ar/",
@@ -143,7 +122,6 @@ export const RESUME_DATA = {
         "Svelte.js",
       ],
       description: "Un sitio en donde conocer los cedears que cotizan en el mercado y hacer un seguimiento de tu portfolio.",
-      logo: ConsultlyLogo,
       link: {
         label: "cedears.ar",
         href: "https://cedears.ar/",
@@ -157,7 +135,6 @@ export const RESUME_DATA = {
         "JS"
       ],
       description: "Una herramienta simple para ejercitar la respiracion conciente. Como experimento de SEO.",
-      logo: ConsultlyLogo,
       link: {
         label: "https://breathingexercises.xyz/",
         href: "https://breathingexercises.xyz/",
