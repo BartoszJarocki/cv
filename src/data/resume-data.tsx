@@ -103,6 +103,16 @@ export const RESUME_DATA = {
       end: "2019",
       description: "Automatizacion de los flujos de ventas b2b con web scrapping, armado de reportes automatico y cold emailing.",
     },
+    {
+      company: "iBillionaire",
+      link: "https://www.behance.net/gallery/60831397/iBillionaire-UI-UX-IOS-app?locale=es_ES/",
+      badges: ["Growth"],
+      title: "Growth Analyst",
+      logo: NSNLogo,
+      start: "2016",
+      end: "2017",
+      description: "A cargo de marketing/growth y algunos aspectos del producto para la aplicación y la plataforma de inversión.",
+    },
   ],
   skills: [
     "JavaScript",
