@@ -18,6 +18,7 @@ import Minimal from "../images/logos/minimal.svg";
 import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 import { XIcon } from "../components/icons/XIcon";
+import FPTISLogo from "../images/logos/fptis.png"
 
 export const RESUME_DATA = {
   name: "Đinh Duy Phong",
@@ -29,7 +30,7 @@ export const RESUME_DATA = {
   summary:
     "As a seasoned software developer with a cumulative 5 years of experience, I have a specialized focus on the Laravel framework for the past 3 years and the FastAPI framework for 2 years. My skill set extends to DevOps such as Linux System Administration, Docker, and CI/CD, and I have also delved into frontend development using JavaScript frameworks such as Vue.js.",
   avatarUrl: "https://avatars.githubusercontent.com/u/15725832?v=4",
-  personalWebsiteUrl: "",
+  personalWebsiteUrl: "https://phong-cv.vercel.app/",
   contact: {
     email: "fonger900@gmail.com",
     tel: "+84969022470",
@@ -65,7 +66,7 @@ export const RESUME_DATA = {
       link: "https://www.fis.com.vn/",
       badges: [],
       title: "Senior Back End Developer",
-      logo: ParabolLogo,
+      logo: FPTISLogo,
       start: "2021",
       end: "2023",
       description:
