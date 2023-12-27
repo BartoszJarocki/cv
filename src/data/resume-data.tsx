@@ -126,5 +126,32 @@ export const RESUME_DATA = {
         href: "https://usdc.ar/",
       },
     },
+    {
+      title: "Cedears.ar",
+      techStack: [
+        "Side Project",
+        "Svelte.js",
+      ],
+      description: "Un sitio en donde conocer los cedears que cotizan en el mercado y hacer un seguimiento de tu portfolio.",
+      logo: ConsultlyLogo,
+      link: {
+        label: "cedears.ar",
+        href: "https://cedears.ar/",
+      },
+    },
+    {
+      title: "Breathing Exercises",
+      techStack: [
+        "Side Project",
+        "Cloudflare Workers",
+        "JS"
+      ],
+      description: "Una herramienta simple para ejercitar la respiracion conciente. Como experimento de SEO.",
+      logo: ConsultlyLogo,
+      link: {
+        label: "https://breathingexercises.xyz/",
+        href: "https://breathingexercises.xyz/",
+      },
+    },
   ],
 } as const;
