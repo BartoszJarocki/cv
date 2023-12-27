@@ -22,7 +22,7 @@ import FPTISLogo from "../images/logos/fptis.png"
 
 export const RESUME_DATA = {
   name: "Đinh Duy Phong",
-  initials: "BJ",
+  initials: "PD",
   location: "Nam Tu Liem, Hanoi, VN",
   locationLink: "https://www.google.com/maps/place/Wrocław",
   about:
@@ -77,7 +77,7 @@ export const RESUME_DATA = {
       link: "https://www.fis.com.vn/",
       badges: [],
       title: "Full Stack Developer",
-      logo: ClevertechLogo,
+      logo: FPTISLogo,
       start: "2017",
       end: "2021",
       description:
@@ -108,7 +108,18 @@ export const RESUME_DATA = {
         "PostgreSQL",
       ],
       description: "A set of RESTful API endpoints designed to handle supportive functions for security operations. These include tasks such as synchronizing data between databases, managing on-call shift schedules, and providing data to reporting services.",
-      logo: ConsultlyLogo,
+      logo: FPTISLogo,
+      link: {
+        label: "",
+        href: "",
+      },
+    },
+    {
+      title: "Incident Management Web Portal",
+      techStack: ["Full Stack Developer", "Laravel", "Javascript", "jQuery", "Bootstrap 4", "NodeJS", "MySQL", "Nginx", "Docker"],
+      description:
+        "Effectively oversee security incidents through the web portal. Key functionalities include incident management, user administration, and email notifications, among others.",
+      logo: FPTISLogo,
       link: {
         label: "",
         href: "",
@@ -119,7 +130,7 @@ export const RESUME_DATA = {
       techStack: ["Back End Developer", "Python"],
       description:
         "A Python script that creates a monthly on-call shift schedule that complies with intricate requirements, including random and equitable distribution of shifts, and generating schedule to CSV format.",
-      logo: MonitoLogo,
+      logo: FPTISLogo,
       link: {
         label: "",
         href: "",
@@ -130,7 +141,7 @@ export const RESUME_DATA = {
       techStack: ["Back End Developer", "Python", "RESTful API", "PostgreSQL", "Asterisk"],
       description:
         "Notify on-call users of phone calls according to schedule and escalation policy.",
-      logo: JarockiMeLogo,
+      logo: FPTISLogo,
       link: {
         label: "",
         href: "",
@@ -141,22 +152,12 @@ export const RESUME_DATA = {
       techStack: ["Back End Developer", "FastAPI", "RabbitMQ", "Docker"],
       description:
         "A microservice is responsible for managing the email-sending functionality by exposing a RESTful API to other services. It operates in a queue-style fashion, effectively mitigating the risk of request loss to the SMTP server caused by exceeding the maximum number of requests per second.",
-      logo: Minimal,
+      logo: FPTISLogo,
       link: {
         label: "",
         href: "",
       },
     },
-    {
-      title: "Incident Management Web Portal",
-      techStack: ["Full Stack Developer", "Laravel", "Javascript", "jQuery", "Bootstrap 4", "NodeJS","MySQL", "Nginx", "Docker"],
-      description:
-        "Effectively oversee security incidents through the web portal. Key functionalities include incident management, user administration, and email notifications, among others.",
-      logo: BarepapersLogo,
-      link: {
-        label: "",
-        href: "",
-      },
-    },
+
   ],
 } as const;
