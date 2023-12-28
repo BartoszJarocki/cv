@@ -75,6 +75,6 @@
   }
 }
 
-.print-force-new-page {
+/* .print-force-new-page {
   page-break-before: always;
-}
+} */
