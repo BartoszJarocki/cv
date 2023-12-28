@@ -1,13 +1,13 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
-import { Card, CardHeader, CardContent } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
-import { CommandMenu } from "../components/command-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
-import { Section } from "../components/ui/section";
+import { Section } from "@/components/ui/section";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { RESUME_DATA } from "../data/resume-data";
-import { ProjectCard } from "../components/project-card";
+import { Button } from "@/components/ui/button";
+import { RESUME_DATA } from "@/data/resume-data";
+import { ProjectCard } from "@/components/project-card";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -191,9 +191,9 @@ export default function Page() {
             url: RESUME_DATA.personalWebsiteUrl,
             title: "Personal Website",
           },
-          ...RESUME_DATA.contact.social.map((socilaMediaLink) => ({
-            url: socilaMediaLink.url,
-            title: socilaMediaLink.name,
+          ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
+            url: socialMediaLink.url,
+            title: socialMediaLink.name,
           })),
         ]}
       />

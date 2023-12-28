@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Calculator, Calendar, Smile } from "lucide-react";
 
 import {
   CommandDialog,
