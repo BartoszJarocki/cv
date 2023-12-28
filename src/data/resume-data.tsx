@@ -20,84 +20,259 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 
 export const RESUME_DATA = {
-  name: "Joey Robinson",
-  initials: "JR",
-  location: "Novato CA",
-  locationLink: "https://www.google.com/maps/place/Novato+CA",
-  about: "Backend Software Engineer | Design and Architecture",
-  summary: 
-    "Dynamic and results-driven Software Engineer with 5 years of experience specializing in leading cross-functional teams and automation engineering to enhance system reliability and performance. Proactively participating in a leadership mentor program and possessing extensive experience with backend web services designed for scale in multiplayer game titles.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/37429829?s=400&u=5996d841789f1af892210b23654713bcd3cddfea&v=4", // Add if available
-  personalWebsiteUrl: "www.linkedin.com/in/joerob624", // LinkedIn profile as personal website
+  name: "Bartosz Jarocki",
+  initials: "BJ",
+  location: "Wrocław, Poland, CET",
+  locationLink: "https://www.google.com/maps/place/Wrocław",
+  about:
+    "Full Stack Engineer focused on building products with extra attention to details",
+  summary:
+    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
+  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  personalWebsiteUrl: "https://jarocki.me",
   contact: {
-    email: "joerob624@gmail.com",
-    tel: "707-787-7063",
+    email: "bartosz.jarocki@hey.com",
+    tel: "+48530213401",
     social: [
       {
+        name: "GitHub",
+        url: "https://github.com/BartoszJarocki",
+        icon: GitHubIcon,
+      },
+      {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/joerob624",
-        icon: LinkedInIcon, // Define LinkedInIcon
+        url: "https://www.linkedin.com/in/bjarocki/",
+        icon: LinkedInIcon,
+      },
+      {
+        name: "X",
+        url: "https://x.com/BartoszJarocki",
+        icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Sonoma State University",
-      degree: "Bachelor's in Computer Science With Distinction",
-      start: "2017", // Start date not specified
-      end: "2019",
+      school: "Wrocław University of Technology",
+      degree: "Bachelor's Degree in Control systems engineering and Robotics",
+      start: "2007",
+      end: "2010",
     },
   ],
   work: [
     {
-      company: "2K Publishing",
-      link: "https://www.2k.com/en-US/", // Add if available
-      badges: ["BaaS, Distributed Systems"],
-      title: "Lead Software Developer in Test",
-      logo: "", // Add company logo URL if available
-      start: "January 2023",
-      end: "Present",
-      description: 
-        "Lead teams of 2-4 QA Engineers in areas such as cloud technologies, telemetry, game security, and web proxy services, focusing on creating automation to facilitate rapid continuous feature development. Achieved a notable 99.9% service uptime across major AAA game releases including NBA 2K24, Lego 2K Drive, and WWE 2K23. Spearheaded QA standards within CoreTech teams, resulting in an 80% improvement in system coverage and the development of integration test suites for continuous delivery. Initiated the QA Guild to promote effective cross-team collaboration and stakeholder engagement. Played a pivotal role in enhancing processes, particularly through advanced JIRA practices, and standardized Kubernetes scalability and load testing, handling up to 300k requests per second, while significantly contributing to architectural decisions to align with end-user specifications. Technologies: ",
+      company: "Parabol",
+      link: "https://parabol.co",
+      badges: ["Remote"],
+      title: "Senior Full Stack Developer",
+      logo: ParabolLogo,
+      start: "2021",
+      end: "2024",
+      description:
+        "Implemented new features, led squad, worked on improving the way developers ship the code, started migration from Emotion to Tailwind CSS and more. Technologies: React, TypeScript, GraphQL",
     },
     {
-      company: "Keysight Technologies",
-      link: "https://www.keysight.com/us/en/home.html", // Add if available
-      badges: ["Proprietary .NET Applications"],
-      title: "R&D Software Engineer II",
-      logo: "", // Add company logo URL if available
-      start: "April 2020",
-      end: "December 2022",
-      description: 
-        "Managing teams focused on cloud telemetry, game security, and web proxy services, and delivering high service uptime for AAA game titles.",
+      company: "Clevertech",
+      link: "https://clevertech.biz",
+      badges: ["Remote"],
+      title: "Lead Android Developer → Full Stack Developer",
+      logo: ClevertechLogo,
+      start: "2015",
+      end: "2021",
+      description:
+        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
     },
     {
-      company: "Sonoma Deep Thought",
-      link: "https://www.2k.com/en-US/", // Add if available
-      badges: ["Artificial Intelligence Platform"],
-      title: "Research and Development Engineer",
-      logo: "", // Add company logo URL if available
-      start: "January 2018",
-      end: "January 2020",
-      description: 
-        "Managed a team of engineers in developing an image classification framework utilizing Keras and TensorFlow, specifically for analyzing specialized data sets in geological applications, leading to the creation of a nationwide geological classification database. Emphasized robust system design for data analysis and classification, showcasing expertise in data-driven solutions. Achieved a significant 30% improvement in classification accuracy through the implementation of innovative image manipulation techniques. Demonstrated both technical expertise and communication skills by presenting development work at prominent industry conferences. Technologies: Keras, Tensorflow, Python, Neural Network",
+      company: "Jojo Mobile",
+      link: "https://bsgroup.eu/",
+      badges: [],
+      title: "Android Developer → Lead Android Developer",
+      logo: JojoMobileLogo,
+      start: "2012",
+      end: "2015",
+      description:
+        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
     },
-
-    // Add more work experience following the same format
+    {
+      company: "Nokia Siemens Networks",
+      link: "https://www.nokia.com",
+      badges: [],
+      title: "C/C++ Developer",
+      logo: NSNLogo,
+      start: "2010",
+      end: "2012",
+      description: "Creating and testing software for LTE base stations",
+    },
   ],
   skills: [
-    "CI/CD", "Kubernetes", "Cross-functional Leadership", "Javascript", "WPF", "C#", "C++", "Java", "Golang", "Python Scripting", "Unreal Engine", "Kafka", "Cloud Technologies (AWS/GCP)", "API Design", "System Design", "AI and Machine Learning", "Process Improvement", "Public Speaking and Presentation Skills", "Product Management", "Agile Methodology"
+    "JavaScript",
+    "TypeScript",
+    "React/Next.js/Remix",
+    "Node.js",
+    "GraphQL",
+    "Relay",
+    "WebRTC",
   ],
   projects: [
     {
-      title: "Geological Cyber-Infrastructure",
-      techStack: ["Lead Developer", "Python", "Tensorflow", "Convolutional Neural Networks"],
-      description:
-        "Infrastructure for building a nationawide database for automatic classification of geological photomicrographs",
+      title: "Consultly",
+      techStack: [
+        "Side Project",
+        "TypeScript",
+        "Next.js",
+        "Vite",
+        "GraphQL",
+        "WebRTC",
+      ],
+      description: "A platform to build and grow your online business",
+      logo: ConsultlyLogo,
       link: {
-        label: "American Geophysical Union",
-        link: "https://agu2019fallmeeting-agu.ipostersessions.com/Default.aspx?s=74-88-7F-AA-19-8B-C8-7E-19-67-80-F9-6F-16-B1-E0"
-      }
+        label: "consultly.com",
+        href: "https://consultly.com/",
+      },
+    },
+    {
+      title: "Monito",
+      techStack: ["Side Project", "TypeScript", "Next.js", "Browser Extension"],
+      description:
+        "Browser extension that records everything happening in a web application",
+      logo: MonitoLogo,
+      link: {
+        label: "monito.dev",
+        href: "https://monito.dev/",
+      },
+    },
+    {
+      title: "Jarocki.me",
+      techStack: ["Side Project", "Next.js", "MDX"],
+      description:
+        "My personal website and blog. Built with Next.js and Notion API",
+      logo: JarockiMeLogo,
+      link: {
+        label: "github.com",
+        href: "https://jarocki.me/",
+      },
+    },
+    {
+      title: "Minimal",
+      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      description:
+        "Minimalist calendars, habit trackers and planners generator",
+      logo: Minimal,
+      link: {
+        label: "useminimal.com",
+        href: "https://useminimal.com/",
+      },
+    },
+    {
+      title: "Barepapers",
+      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      description:
+        "Generates beautiful wallpapers using random shapes and gradients",
+      logo: BarepapersLogo,
+      link: {
+        label: "barepapers.com",
+        href: "https://barepapers.com/",
+      },
+    },
+    {
+      title: "Year progress",
+      techStack: ["Side Project", "TypeScript", "Next.js"],
+      description: "Tracks current year progress and displays a countdown",
+      logo: YearProgressLogo,
+      link: {
+        label: "getyearprogress.com",
+        href: "https://getyearprogress.com/",
+      },
+    },
+    {
+      title: "Parabol",
+      techStack: [
+        "Full Stack Developer",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "The Agile meeting co-pilot that delivers better meetings with less effort",
+      logo: ParabolLogo,
+      link: {
+        label: "github.com",
+        href: "https://parabol.co/",
+      },
+    },
+    {
+      title: "Evercast",
+      techStack: [
+        "Lead Frontend Developer",
+
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "Creative collaboration platform that combines video conferencing and HD media streaming",
+      logo: EvercastLogo,
+      link: {
+        label: "evercast.us",
+        href: "https://www.evercast.us/",
+      },
+    },
+    {
+      title: "Mobile Vikings",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Android application for leading virtual mobile operator in Poland",
+      logo: MobileVikingsLogo,
+      link: {
+        label: "mobilevikings.pl",
+        href: "https://mobilevikings.pl/",
+      },
+    },
+    {
+      title: "Howdy",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Howdy is a place for you to join communities you care about",
+      logo: Howdy,
+      link: {
+        label: "play.google.com",
+        href: "https://howdy.co/",
+      },
+    },
+    {
+      title: "Tastycloud",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Android application for managing and displaying restaurant menus in kiosk mode",
+      logo: TastyCloudLogo,
+      link: {
+        label: "tastycloud.fr",
+        href: "https://www.tastycloud.fr/",
+      },
+    },
+    {
+      title: "Ambit",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Android application that helps with sharing your contact details",
+      logo: AmbitLogo,
+    },
+    {
+      title: "Bim",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Android application that helps with booking a table in a restaurants",
+      logo: BimLogo,
+    },
+    {
+      title: "Canal Digital GO",
+      techStack: ["Lead Android Developer", "Android", "Kotlin"],
+      description:
+        "Video streaming mobile application for Canal Digital subscribers",
+      logo: CDGOLogo,
     },
   ],
 } as const;
