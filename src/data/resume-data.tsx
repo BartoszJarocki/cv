@@ -51,7 +51,7 @@ export const RESUME_DATA = {
       badges: ["Product"],
       title: "Head of Product",
       start: "2024",
-      end: "Present",
+      end: "Presente",
       description:
         'Construyendo la mejor app de ahorro e inversiones de latam.',
     },
