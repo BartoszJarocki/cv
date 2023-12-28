@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import html2pdf from "html2pdf.js";
+
 
 import {
   CommandDialog,
@@ -31,6 +33,26 @@ export const CommandMenu = ({ links }: Props) => {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  const saveAsPdf = () => {
+    // Close the command menu
+    setOpen(false);
+  
+    // Set a timeout to wait for the state update to take effect
+    setTimeout(() => {
+      // Options for html2pdf, can be customized as needed
+      const options: html2pdf.Options = {
+        margin: 10,
+        filename: 'document.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+  
+      // Convert the entire document body to PDF
+      html2pdf().from(document.body).set(options).save();
+    }, 500); // Adjust the delay as needed
+  };
+
   return (
     <>
       <p className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-white p-1 text-center text-sm text-muted-foreground print:hidden">
@@ -52,6 +74,13 @@ export const CommandMenu = ({ links }: Props) => {
               }}
             >
               <span>Print</span>
+            </CommandItem>
+            <CommandItem
+            onSelect={() => {
+              saveAsPdf();
+            }}
+            >
+              <span>Save as PDF</span>
             </CommandItem>
           </CommandGroup>
           <CommandGroup heading="Links">
