@@ -20,7 +20,7 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { XIcon } from "@/components/icons/XIcon";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
+  name: "Alexis Zugasti",
   initials: "BJ",
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
