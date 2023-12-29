@@ -1,4 +1,4 @@
-# Use the official lightweight Node.js 16 image.
+# Use the official lightweight Node.js 18 image.
 # https://hub.docker.com/_/node
 FROM node:18-slim
 
