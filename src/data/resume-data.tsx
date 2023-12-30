@@ -1,8 +1,9 @@
-import ConsultlyLogo from "../images/logos/consultly.svg";
-import Minimal from "../images/logos/minimal.svg";
-import { GitHubIcon } from "@/components/icons/GitHubIcon";
-import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
-import { XIcon } from "@/components/icons/XIcon";
+
+import {
+  AmbitLogo,
+} from "@/images/logos";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+
 
 export const RESUME_DATA = {
   name: "Fermin Rodriguez Penelas",
