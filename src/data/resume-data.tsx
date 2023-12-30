@@ -84,7 +84,7 @@ export const RESUME_DATA = {
     },
     {
       company: "Independent Contractor",
-      link: null,
+      link: undefined,
       badges: ["Marketing"],
       title: "Freelance Backend Developer",
       logo: "ContractorLogo",
@@ -95,7 +95,7 @@ export const RESUME_DATA = {
     },
     {
       company: "Ministry of Defense",
-      link: null,
+      link: undefined,
       badges: ["Government"],
       title: "PL/SQL Developer",
       logo: "MoDLogo",
