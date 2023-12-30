@@ -275,4 +275,23 @@ export const RESUME_DATA = {
       logo: CDGOLogo,
     },
   ],
+  certification: [
+    {
+      name: "Google Cloud Certified - Associate Cloud Architect",
+      providerName: "Google Cloud",
+      link: "https://google.accredible.com/13f031af-b785-4224-bf86-0c7cccfd91c1?key=258dfc25da7a8b5c117f1e75c8892989ddc8cac9b8d635b0cd697a2fdb6497a5",
+      issueDate: "2023",
+      expirationDate: "2026",
+      certificateId: "ANaq1W"
+    },
+  ],
+  publication: [
+    {
+      name: "A Block-Chain Based Approach for Food Supply Chain Management",
+      providerName: "IEEE",
+      link: "https://ieeexplore.ieee.org/document/9984473",
+      issueDate: "12/26/2022",
+      description:"This review paper examines many elements of food supply chain management and  how blockchain may be used in supply chain management."
+    },
+  ]
 } as const;
