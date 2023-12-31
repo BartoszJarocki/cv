@@ -1,4 +1,4 @@
-port { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 export type ResumeData = {
   name: string;
   initials: string;
@@ -47,19 +47,12 @@ export type ResumeData = {
       href: string;
     };
   }[];
-  certification?: {
+  certification: {
     name: string;
     providerName: string;
     link: string;
     issueDate: string;
     expirationDate: string;
     certificateId: string;
-  }[];
-  publication?: {
-    name: string;
-    providerName: string;
-    link: string;
-    issueDate: string;
-    description: string;
   }[];
 };

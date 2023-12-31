@@ -1,6 +1,6 @@
-import { ConsultlyLogo, TCSLogo } from "@/images/logos";
+import { TCSLogo } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
-import { ResumeData } from "./resume-data.types";
+import { ResumeData } from "@/data/resume-data.types";
 
 export const RESUME_DATA: ResumeData = {
   name: "Kartikey Chauhan",
@@ -102,7 +102,7 @@ export const RESUME_DATA: ResumeData = {
       title: "World Energy Statistics",
       techStack: ["Pyspark", "Docker", "Plotly", "Hive", "Airflow"],
       description: "World Energy Statistics using various data tools.",
-      logo: ConsultlyLogo,
+      logo: TCSLogo,
       link: {
         label: "world-energy-stats.fly.dev",
         href: "https://world-energy-stats.fly.dev/",
@@ -112,7 +112,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Cinemattr",
       techStack: ["LangChain", "SvelteKit"],
       description: "Search movies using AI and vector databases.",
-      logo: "cinemattr.png",
+      logo: TCSLogo,
       link: {
         label: "cinemattr.ca",
         href: "https://cinemattr.ca",
@@ -123,7 +123,7 @@ export const RESUME_DATA: ResumeData = {
       techStack: ["Docker", "Linux"],
       description:
         "A collection of sample docker compose files for self-hosted applications.",
-      logo: "server-compose.png",
+      logo: TCSLogo,
       link: {
         label: "server-compose",
         href: "https://github.com/carteakey/server-compose",
@@ -133,7 +133,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Recomovi",
       techStack: ["Python", "Streamlit"],
       description: "Movie Recommender & IMDb Dataset Generator.",
-      logo: "recomovi.png",
+      logo: TCSLogo,
       link: {
         label: "recomovi.streamlit.app",
         href: "https://recomovi.streamlit.app",
@@ -144,7 +144,7 @@ export const RESUME_DATA: ResumeData = {
       techStack: ["Flask", "PostgreSQL"],
       description:
         "Hotel Management System to track bookings and generate invoices.",
-      logo: "microhms.png",
+      logo: TCSLogo,
       link: {
         label: "microhms.onrender.com",
         href: "https://microhms.onrender.com",
@@ -154,7 +154,7 @@ export const RESUME_DATA: ResumeData = {
       title: "vizima.in",
       techStack: ["Next.js", "Firebase"],
       description: "Website for a hospitality company.",
-      logo: "vizima.png",
+      logo: TCSLogo,
       link: {
         label: "www.vizima.in",
         href: "https://www.vizima.in",
@@ -164,7 +164,7 @@ export const RESUME_DATA: ResumeData = {
       title: "carteakey.dev",
       techStack: ["Eleventy", "Tailwind"],
       description: "This website!",
-      logo: "carteakey.png",
+      logo: TCSLogo,
       link: {
         label: "carteakey.dev",
         href: "https://carteakey.dev",

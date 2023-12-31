@@ -1,3 +1,4 @@
+import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -59,7 +60,7 @@ export default function Page() {
                   </a>
                 </Button>
               ) : null}
-              {RESUME_DATA.contact.social.map((social) => (
+              {RESUME_DATA.contact.social.map((social:any) => (
                 <Button
                   key={social.name}
                   className="h-8 w-8"
@@ -68,7 +69,10 @@ export default function Page() {
                   asChild
                 >
                   <a href={social.url}>
-                    <social.icon className="h-4 w-4" />
+                    {React.createElement(
+                      social.icon as React.ComponentType<{ className: string }>,
+                      { className: "h-4 w-4" },
+                    )}
                   </a>
                 </Button>
               ))}
@@ -100,7 +104,7 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Work Experience</h2>
-          {RESUME_DATA.work.map((work) => {
+          {RESUME_DATA.work.map((work:any) => {
             return (
               <Card key={work.company}>
                 <CardHeader>
@@ -111,7 +115,7 @@ export default function Page() {
                       </a>
 
                       <span className="inline-flex gap-x-1">
-                        {work.badges.map((badge) => (
+                        {work.badges.map((badge:any) => (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs"
@@ -135,7 +139,7 @@ export default function Page() {
                   {typeof work.description === "string" ? (
                     <p>{work.description}</p>
                   ) : (
-                    work.description?.map((desc) => {
+                    work.description?.map((desc:any) => {
                       return (
                         <p key={desc} className="mb-1">
                           <span className="mr-2">
@@ -153,7 +157,7 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Education</h2>
-          {RESUME_DATA.education.map((education) => {
+          {RESUME_DATA.education.map((education:any) => {
             return (
               <Card key={education.school}>
                 <CardHeader>
@@ -161,7 +165,7 @@ export default function Page() {
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       {education.school}
                       <span className="inline-flex gap-x-1">
-                        {education.badges.map((badge) => (
+                        {education.badges.map((badge:any) => (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs"
@@ -185,7 +189,7 @@ export default function Page() {
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
-            {RESUME_DATA.skills.map((skill) => {
+            {RESUME_DATA.skills.map((skill:any) => {
               return <Badge key={skill}>{skill}</Badge>;
             })}
           </div>
@@ -194,22 +198,22 @@ export default function Page() {
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {RESUME_DATA.projects.map((project) => {
+            {RESUME_DATA.projects.map((project:any) => {
               return (
                 <ProjectCard
                   key={project.title}
                   title={project.title}
                   description={project.description}
                   tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
+                  link={"link" in project ? project.link?.href : undefined}
                 />
               );
             })}
           </div>
         </Section>
         <Section>
-        <h2 className="text-xl font-bold">Certifications</h2>
-          {RESUME_DATA.certification.map((certification) => {
+          <h2 className="text-xl font-bold">Certifications</h2>
+          {RESUME_DATA.certification.map((certification:any) => {
             return (
               <Card key={certification.name}>
                 <CardHeader>
@@ -230,15 +234,13 @@ export default function Page() {
                   {/* <h4 className="font-mono text-sm leading-none">
                   {certification.providerName}
                 </h4> */}
-                </CardHeader>                
+                </CardHeader>
                 {/* <CardContent className="mt-2">Certificate ID: {certification.certificateId}</CardContent> */}
               </Card>
             );
           })}
         </Section>
-        <Section>
-
-        </Section>
+        <Section></Section>
       </section>
 
       <CommandMenu
@@ -247,7 +249,7 @@ export default function Page() {
             url: RESUME_DATA.personalWebsiteUrl,
             title: "Personal Website",
           },
-          ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
+          ...RESUME_DATA.contact.social.map((socialMediaLink:any) => ({
             url: socialMediaLink.url,
             title: socialMediaLink.name,
           })),
