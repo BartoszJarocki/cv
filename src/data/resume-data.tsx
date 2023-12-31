@@ -40,6 +40,7 @@ type ResumeData = {
   education: {
     school: string;
     degree: string;
+    grade?: string;
     start: string;
     end: string;
   }[];
@@ -117,6 +118,7 @@ export const RESUME_DATA: ResumeData = {
     {
       school: "Wrocław University of Technology",
       degree: "Bachelor's Degree in Control systems engineering and Robotics",
+      grade: "4.0",
       start: "2007",
       end: "2010",
     },
