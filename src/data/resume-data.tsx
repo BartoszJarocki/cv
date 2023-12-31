@@ -10,7 +10,7 @@ export const RESUME_DATA: ResumeData = {
   about: "",
   summary:
     "Experienced data professional specializing in data warehousing, analytical, \n  and transactional solutions. Skilled in Python and SQL with a strong focus on problem-solving and delivering robust data-driven solutions for Supply Chain and Banking domains.",
-  avatarUrl: "headshot_sq.png",
+  avatarUrl: "headshot.png",
   personalWebsiteUrl: "https://carteakey.dev",
   contact: {
     email: "kartychauhan@gmail.com",
