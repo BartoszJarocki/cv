@@ -132,7 +132,20 @@ export default function Page() {
                   </h4>
                 </CardHeader>
                 <CardContent className="mt-2 text-xs">
-                  {work.description}
+                  {typeof work.description === "string" ? (
+                    <p>{work.description}</p>
+                  ) : (
+                    work?.description?.map((desc) => {
+                      return (
+                        <p key={desc} className="mb-1">
+                          <span className="mr-2">
+                            {work?.customBullet || "•"}
+                          </span>
+                          {desc}
+                        </p>
+                      );
+                    })
+                  )}
                 </CardContent>
               </Card>
             );
