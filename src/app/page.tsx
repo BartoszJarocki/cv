@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, NewspaperIcon} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -36,6 +36,18 @@ export default function Page() {
               </a>
             </p>
             <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+              {RESUME_DATA.personalWebsiteUrl ? (
+                <Button
+                  className="h-8 w-8"
+                  variant="outline"
+                  size="icon"
+                  asChild
+                >
+                  <a href={RESUME_DATA.personalWebsiteUrl}>
+                    <NewspaperIcon className="h-4 w-4" />
+                  </a>
+                </Button>
+              ) : null}
               {RESUME_DATA.contact.email ? (
                 <Button
                   className="h-8 w-8"
@@ -48,7 +60,7 @@ export default function Page() {
                   </a>
                 </Button>
               ) : null}
-              {RESUME_DATA.contact.tel ? (
+              {/* {RESUME_DATA.contact.tel ? (
                 <Button
                   className="h-8 w-8"
                   variant="outline"
@@ -59,7 +71,7 @@ export default function Page() {
                     <PhoneIcon className="h-4 w-4" />
                   </a>
                 </Button>
-              ) : null}
+              ) : null} */}
               {RESUME_DATA.contact.social.map((social:any) => (
                 <Button
                   key={social.name}
@@ -218,7 +230,7 @@ export default function Page() {
               <Card key={certification.name}>
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="font-semibold leading-none">
+                    <h3 className="font-mono text-sm leading-none">
                       <a
                         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                         href={certification.link}
@@ -227,9 +239,9 @@ export default function Page() {
                         {certification.name}
                       </a>
                     </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
+                    {/* <div className="text-sm tabular-nums text-gray-500">
                       {certification.issueDate} - {certification.expirationDate}
-                    </div>
+                    </div> */}
                   </div>
                   {/* <h4 className="font-mono text-sm leading-none">
                   {certification.providerName}
