@@ -18,8 +18,9 @@ import {
   YearProgressLogo,
 } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { ResumeData } from "./resume-data.types";
 
-export const RESUME_DATA = {
+export const RESUME_DATA: ResumeData = {
   name: "Bartosz Jarocki",
   initials: "BJ",
   location: "Wrocław, Poland, CET",

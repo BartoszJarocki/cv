@@ -1,3 +1,4 @@
+import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -68,7 +69,10 @@ export default function Page() {
                   asChild
                 >
                   <a href={social.url}>
-                    <social.icon className="h-4 w-4" />
+                    {React.createElement(
+                      social.icon as React.ComponentType<{ className: string }>,
+                      { className: "h-4 w-4" },
+                    )}
                   </a>
                 </Button>
               ))}
@@ -135,7 +139,7 @@ export default function Page() {
                   {typeof work.description === "string" ? (
                     <p>{work.description}</p>
                   ) : (
-                    work?.description?.map((desc) => {
+                    work.description?.map((desc) => {
                       return (
                         <p key={desc} className="mb-1">
                           <span className="mr-2">
@@ -190,7 +194,7 @@ export default function Page() {
                   title={project.title}
                   description={project.description}
                   tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
+                  link={"link" in project ? project.link?.href : undefined}
                 />
               );
             })}
