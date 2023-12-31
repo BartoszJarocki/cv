@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { BsWindows } from "react-icons/bs";
+import { PictureInPicture2 } from 'lucide-react';
 
 
 
@@ -45,7 +45,7 @@ export const CommandMenu = ({ links }: Props) => {
         </kbd>
         <button onClick={SmallerscreenButton}>
         <kbd className="m-5 my-6 absolute bottom-0 border-2 rounded-full lg:invisible lg:hidden inline-flex h-8 w-20 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] flex justify-center font-medium text-muted-foreground opacity-100"> 
-         <span className="text-lg"><BsWindows/></span>
+         <span className="text-lg"><PictureInPicture2/></span>
         </kbd></button>
         {" "}
         to open the command menu
