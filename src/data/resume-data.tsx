@@ -14,7 +14,6 @@ export const RESUME_DATA: ResumeData = {
   personalWebsiteUrl: "https://carteakey.dev",
   contact: {
     email: "kartychauhan@gmail.com",
-    tel: "+4375808300",
     social: [
       {
         name: "GitHub",
@@ -39,7 +38,7 @@ export const RESUME_DATA: ResumeData = {
       degree: "Master of Science - Data Science and Analytics",
       badges: ["Toronto, Canada"],
       start: "2023",
-      end: "Present",
+      end: "Pres.",
     },
     {
       school: "JSS Academy of Technical Education",
@@ -57,7 +56,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Data Quality Analyst",
       logo: TCSLogo,
       start: "2022",
-      end: "Present",
+      end: "Pres.",
       description: [
         "Part of Enterprise Risk & Basel reporting team. Collaborated across technical and business units to ensure seamless data flow for critical BASEL 3.1 reforms and OSFI BCAR Reporting.",
         "Implemented ETL pipelines using Python, SQL, and Bash, ensuring consistent data across systems.",
@@ -163,7 +162,7 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "carteakey.dev",
       techStack: ["Eleventy", "Tailwind"],
-      description: "This website!",
+      description: "Personal Blog and Website",
       logo: TCSLogo,
       link: {
         label: "carteakey.dev",

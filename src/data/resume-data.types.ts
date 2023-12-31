@@ -10,7 +10,6 @@ export type ResumeData = {
   personalWebsiteUrl: string;
   contact: {
     email: string;
-    tel: string;
     social: {
       name: string;
       url: string;
