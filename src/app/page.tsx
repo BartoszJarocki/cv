@@ -8,6 +8,7 @@ import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import React from "react";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -68,7 +69,7 @@ export default function Page() {
                   asChild
                 >
                   <a href={social.url}>
-                    <social.icon className="h-4 w-4" />
+                    {React.createElement(social.icon as React.ComponentType<{ className: string }>, { className: "h-4 w-4" })}
                   </a>
                 </Button>
               ))}
@@ -177,70 +178,74 @@ export default function Page() {
                   title={project.title}
                   description={project.description}
                   tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
+                  link={"link" in project ? project.link?.href : undefined}
                 />
               );
             })}
           </div>
         </Section>
-        <Section>
-          <h2 className="text-xl font-bold">Certifications</h2>
-          {RESUME_DATA.certification.map((certification) => {
-            return (
-              <Card key={certification.name}>
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="font-semibold leading-none">
-                      <a
-                        className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                        href={certification.link}
-                        target="_blank"
-                      >
-                        {certification.name}
-                      </a>
-                    </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
-                      {certification.issueDate} - {certification.expirationDate}
+        {RESUME_DATA.certification && RESUME_DATA.certification.length > 0 && (
+          <Section>
+            <h2 className="text-xl font-bold">Certifications</h2>
+            {RESUME_DATA.certification.map((certification) => {
+              return (
+                <Card key={certification.name}>
+                  <CardHeader>
+                    <div className="flex items-center justify-between gap-x-2 text-base">
+                      <h3 className="font-semibold leading-none">
+                        <a
+                          className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+                          href={certification.link}
+                          target="_blank"
+                        >
+                          {certification.name}
+                        </a>
+                      </h3>
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {certification.issueDate} - {certification.expirationDate}
+                      </div>
                     </div>
-                  </div>
-                  <h4 className="font-mono text-sm leading-none">
-                  {certification.providerName}
-                </h4>
-                </CardHeader>                
-                <CardContent className="mt-2">Certificate ID: {certification.certificateId}</CardContent>
-              </Card>
-            );
-          })}
-        </Section>
-        <Section>
-          <h2 className="text-xl font-bold">Publications</h2>
-          {RESUME_DATA.publication.map((publication) => {
-            return (
-              <Card key={publication.name}>
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="font-semibold leading-none">
-                      <a
-                        className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                        href={publication.link}
-                        target="_blank"
-                      >
-                        {publication.name}
-                      </a>
-                    </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
-                      {publication.issueDate}
+                    <h4 className="font-mono text-sm leading-none">
+                      {certification.providerName}
+                    </h4>
+                  </CardHeader>
+                  <CardContent className="mt-2">Certificate ID: {certification.certificateId}</CardContent>
+                </Card>
+              );
+            })}
+          </Section>
+        )}
+        {RESUME_DATA.publication && RESUME_DATA.publication.length > 0 && (
+          <Section>
+            <h2 className="text-xl font-bold">Publications</h2>
+            {RESUME_DATA.publication.map((publication) => {
+              return (
+                <Card key={publication.name}>
+                  <CardHeader>
+                    <div className="flex items-center justify-between gap-x-2 text-base">
+                      <h3 className="font-semibold leading-none">
+                        <a
+                          className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+                          href={publication.link}
+                          target="_blank"
+                        >
+                          {publication.name}
+                        </a>
+                      </h3>
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {publication.issueDate}
+                      </div>
                     </div>
-                  </div>
-                  <h4 className="font-mono text-sm leading-none">
-                  {publication.providerName}
-                </h4>
-                </CardHeader>               
-                <CardContent className="mt-2">{publication.description}</CardContent>
-              </Card>
-            );
-          })}
-        </Section>
+                    <h4 className="font-mono text-sm leading-none">
+                      {publication.providerName}
+                    </h4>
+                  </CardHeader>
+                  <CardContent className="mt-2">{publication.description}</CardContent>
+                </Card>
+              );
+            })}
+          </Section>
+        )}
       </section>
 
       <CommandMenu
