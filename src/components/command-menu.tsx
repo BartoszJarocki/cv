@@ -1,6 +1,9 @@
 "use client";
 
 import * as React from "react";
+import { BsWindows } from "react-icons/bs";
+
+
 
 import {
   CommandDialog,
@@ -18,7 +21,9 @@ interface Props {
 
 export const CommandMenu = ({ links }: Props) => {
   const [open, setOpen] = React.useState(false);
-
+  const SmallerscreenButton = () => {
+    setOpen((open) => !open);
+};
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
@@ -35,9 +40,14 @@ export const CommandMenu = ({ links }: Props) => {
     <>
       <p className="fixed bottom-0 left-0 right-0 border-t border-t-muted bg-white p-1 text-center text-sm text-muted-foreground print:hidden">
         Press{" "}
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <span className="text-xs">⌘</span>J
-        </kbd>{" "}
+        <kbd className="invisible lg:visible hidden lg:inline pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <span className="text-xs">⌘</span>{" "}J
+        </kbd>
+        <button onClick={SmallerscreenButton}>
+        <kbd className="m-5 my-6 absolute bottom-0 border-2 rounded-full lg:invisible lg:hidden inline-flex h-8 w-20 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] flex justify-center font-medium text-muted-foreground opacity-100"> 
+         <span className="text-lg"><BsWindows/></span>
+        </kbd></button>
+        {" "}
         to open the command menu
       </p>
       <CommandDialog open={open} onOpenChange={setOpen}>
