@@ -99,7 +99,7 @@ export const RESUME_DATA: ResumeData = {
   projects: [
     {
       title: "World Energy Statistics",
-      techStack: ["Pyspark", "Docker", "Plotly", "Hive", "Airflow"],
+      techStack: ["Spark", "Docker", "Hive", "Airflow"],
       description: "World Energy Statistics using various data tools.",
       logo: TCSLogo,
       link: {

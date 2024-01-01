@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, MailIcon, NewspaperIcon} from "lucide-react";
+import { GlobeIcon, MailIcon, NewspaperIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -72,7 +72,7 @@ export default function Page() {
                   </a>
                 </Button>
               ) : null} */}
-              {RESUME_DATA.contact.social.map((social:any) => (
+              {RESUME_DATA.contact.social.map((social: any) => (
                 <Button
                   key={social.name}
                   className="h-8 w-8"
@@ -116,7 +116,7 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Work Experience</h2>
-          {RESUME_DATA.work.map((work:any) => {
+          {RESUME_DATA.work.map((work: any) => {
             return (
               <Card key={work.company}>
                 <CardHeader>
@@ -127,7 +127,7 @@ export default function Page() {
                       </a>
 
                       <span className="inline-flex gap-x-1">
-                        {work.badges.map((badge:any) => (
+                        {work.badges.map((badge: any) => (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs"
@@ -151,7 +151,7 @@ export default function Page() {
                   {typeof work.description === "string" ? (
                     <p>{work.description}</p>
                   ) : (
-                    work.description?.map((desc:any) => {
+                    work.description?.map((desc: any) => {
                       return (
                         <p key={desc} className="mb-1">
                           <span className="mr-2">
@@ -169,7 +169,7 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Education</h2>
-          {RESUME_DATA.education.map((education:any) => {
+          {RESUME_DATA.education.map((education: any) => {
             return (
               <Card key={education.school}>
                 <CardHeader>
@@ -177,7 +177,7 @@ export default function Page() {
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       {education.school}
                       <span className="inline-flex gap-x-1">
-                        {education.badges.map((badge:any) => (
+                        {education.badges.map((badge: any) => (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs"
@@ -192,8 +192,10 @@ export default function Page() {
                       {education.start} - {education.end}
                     </div>
                   </div>
+                  <h4 className="font-mono text-sm leading-none">
+                    {education.degree}
+                  </h4>
                 </CardHeader>
-                <CardContent className="mt-2">{education.degree}</CardContent>
               </Card>
             );
           })}
@@ -201,16 +203,16 @@ export default function Page() {
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
-            {RESUME_DATA.skills.map((skill:any) => {
+            {RESUME_DATA.skills.map((skill: any) => {
               return <Badge key={skill}>{skill}</Badge>;
             })}
           </div>
         </Section>
 
-        <Section className="print-force-new-page scroll-mb-16">
+        <Section className="print scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {RESUME_DATA.projects.map((project:any) => {
+            {RESUME_DATA.projects.map((project: any) => {
               return (
                 <ProjectCard
                   key={project.title}
@@ -225,7 +227,7 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Certifications</h2>
-          {RESUME_DATA.certification.map((certification:any) => {
+          {RESUME_DATA.certification.map((certification: any) => {
             return (
               <Card key={certification.name}>
                 <CardHeader>
@@ -261,7 +263,7 @@ export default function Page() {
             url: RESUME_DATA.personalWebsiteUrl,
             title: "Personal Website",
           },
-          ...RESUME_DATA.contact.social.map((socialMediaLink:any) => ({
+          ...RESUME_DATA.contact.social.map((socialMediaLink: any) => ({
             url: socialMediaLink.url,
             title: socialMediaLink.name,
           })),
