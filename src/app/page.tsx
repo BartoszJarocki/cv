@@ -140,30 +140,30 @@ export default function Page() {
           })}
         </Section>
         <Section>
-  <h2 className="text-xl font-bold">Education</h2>
-  {RESUME_DATA.education.map((education) => {
-    return (
-      <Card key={education.school}>
-        <CardHeader>
-          <div className="flex items-center justify-between gap-x-2 text-base">
-            <h3 className="font-semibold leading-none">
-              {education.school}
-            </h3>
-            <div className="text-sm tabular-nums text-gray-500">
-              {education.start} - {education.end}
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="mt-2">
-          <p>{education.degree}</p>
-          {education.grade && (
-            <p>Grade: {education.grade}</p>
-          )}
-        </CardContent>
-      </Card>
-    );
-  })}
-</Section>
+          <h2 className="text-xl font-bold">Education</h2>
+          {RESUME_DATA.education.map((education) => {
+            return (
+              <Card key={education.school}>
+                <CardHeader>
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="font-semibold leading-none">
+                      {education.school}
+                    </h3>
+                    <div className="text-sm tabular-nums text-gray-500">
+                      {education.start} - {education.end}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-2">
+                  <p>{education.degree}</p>
+                  {education.grade && (
+                    <p>Grade: {education.grade}</p>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
+        </Section>
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
@@ -190,7 +190,7 @@ export default function Page() {
           </div>
         </Section>
         {RESUME_DATA.certification && RESUME_DATA.certification.length > 0 && (
-          <Section>
+          <Section className="print-force-new-page scroll-mb-16">
             <h2 className="text-xl font-bold">Certifications</h2>
             {RESUME_DATA.certification.map((certification) => {
               return (
