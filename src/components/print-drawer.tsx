@@ -14,10 +14,11 @@ import {
 } from "./ui/drawer";
 
 export const PrintDrawer = () => {
+  const DRAWER_CLOSE_TIME = 400;
   const printHandler = () => {
     setTimeout(() => {
       window.print();
-    }, 400);
+    }, DRAWER_CLOSE_TIME);
   };
   return (
     <Drawer>
