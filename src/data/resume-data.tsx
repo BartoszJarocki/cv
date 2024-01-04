@@ -187,7 +187,7 @@ export const RESUME_DATA = {
       title: "Tyler Karu",
       techStack: ["Typescript", "React", "GatsbyJS", "Sanity"],
       description:
-        "Android application for leading virtual mobile operator in Poland",
+        "Implemented new features and provided support for Tyler Karu's landing page.",
       logo: MobileVikingsLogo,
       link: {
         label: "tylerkaru.com",
