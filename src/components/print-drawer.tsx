@@ -14,6 +14,12 @@ import {
 } from "./ui/drawer";
 
 export const PrintDrawer = () => {
+  const DRAWER_CLOSE_TIME = 400;
+  const printHandler = () => {
+    setTimeout(() => {
+      window.print();
+    }, DRAWER_CLOSE_TIME);
+  };
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -29,7 +35,9 @@ export const PrintDrawer = () => {
           </DrawerHeader>
           <div className="p-4 pb-0"></div>
           <DrawerFooter>
-            <Button onClick={() => window.print()}>Print</Button>
+            <DrawerClose asChild>
+              <Button onClick={printHandler}>Print</Button>
+            </DrawerClose>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
