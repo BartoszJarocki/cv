@@ -100,6 +100,7 @@ export const RESUME_DATA = {
     "HTML",
     "CSS",
     "Tailwind",
+    "C",
   ],
   projects: [
     {
