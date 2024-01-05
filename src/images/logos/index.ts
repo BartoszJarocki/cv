@@ -1,37 +1,18 @@
-import ConsultlyLogo from "./consultly.svg";
-import AmbitLogo from "./ambit.png";
-import BarepapersLogo from "./barepapers.svg";
-import BimLogo from "./bim.png";
-import CDGOLogo from "./cdgo.png";
-import ClevertechLogo from "./clevertech.png";
-import EvercastLogo from "./evercast.svg";
-import Howdy from "./howdy.png";
-import JarockiMeLogo from "./jarocki.svg";
-import JojoMobileLogo from "./jojomobile.png";
-import MonitoLogo from "./monito.svg";
-import MobileVikingsLogo from "./mv.png";
-import NSNLogo from "./nsn.svg";
-import ParabolLogo from "./parabol.svg";
-import TastyCloudLogo from "./tastycloud.png";
-import YearProgressLogo from "./yearprogress.svg";
-import Minimal from "./minimal.svg";
+import UCL from "./UCL.png";
+import avatar from "./avatar.jpeg";
+import icon_red from "./icon-red.png";
+import psymplicity from "./psymplicity.jpg";
+import digitalclay from "./digitalclay.png";
+import goldman from "./Goldman_Sachs2.png";
+import jpmorgan from "./jpmorgan.png";
+
 
 export {
-  ConsultlyLogo,
-  AmbitLogo,
-  BarepapersLogo,
-  BimLogo,
-  CDGOLogo,
-  ClevertechLogo,
-  EvercastLogo,
-  Howdy,
-  JarockiMeLogo,
-  JojoMobileLogo,
-  MonitoLogo,
-  MobileVikingsLogo,
-  NSNLogo,
-  ParabolLogo,
-  TastyCloudLogo,
-  YearProgressLogo,
-  Minimal,
+  UCL,
+  avatar,
+  icon_red,
+  psymplicity,
+  digitalclay,
+  goldman,
+  jpmorgan,
 };

@@ -88,7 +88,7 @@ export default function Page() {
           </div>
 
           <Avatar className="h-28 w-28">
-            <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
+            <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatar.src} />
             <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
@@ -107,23 +107,41 @@ export default function Page() {
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       <a className="hover:underline" href={work.link}>
+                      <span className="flex items-center gap-x-2">
+                        {work.logo ? (
+                          <img
+                            src={work.logo.src}
+                            alt={work.company}
+                            className="h-4 w-auto"
+                          />
+                        ) : null}
                         {work.company}
+                      </span>
                       </a>
+                      {/* if has a logo in RESUME_DATA.work.logo.src */}
+                      
+                      {/* if has badges in RESUME_DATA.work.badges */}
 
                       <span className="inline-flex gap-x-1">
                         {work.badges.map((badge) => (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs"
-                            key={badge}
-                          >
+                            key={badge}>
                             {badge}
                           </Badge>
                         ))}
                       </span>
                     </h3>
                     <div className="text-sm tabular-nums text-gray-500">
-                      {work.start} - {work.end}
+                      {/* if no work.end then just {work.start} else {work.start} - {work.end}*/}
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {work.end ? (
+                          <span>{work.start} - {work.end}</span>
+                        ) : (
+                          <span>{work.start}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -146,14 +164,21 @@ export default function Page() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="font-semibold leading-none">
-                      {education.school}
+                      <span className="flex items-center gap-x-2">
+                        <img src={RESUME_DATA.education[0].logo.src} alt="UCL Logo" className="h-4 w-auto" /> 
+                        {education.school}
+                      </span>
                     </h3>
                     <div className="text-sm tabular-nums text-gray-500">
                       {education.start} - {education.end}
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="mt-2">{education.degree}</CardContent>
+                <CardContent className="mt-2">
+                  {education.degree}<br />
+                  Grade: {education.grade}<br />
+                  Awards: {education.awards}
+                </CardContent>
               </Card>
             );
           })}

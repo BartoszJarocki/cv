@@ -1,278 +1,180 @@
 import {
-  AmbitLogo,
-  BarepapersLogo,
-  BimLogo,
-  CDGOLogo,
-  ClevertechLogo,
-  ConsultlyLogo,
-  EvercastLogo,
-  Howdy,
-  JarockiMeLogo,
-  JojoMobileLogo,
-  Minimal,
-  MobileVikingsLogo,
-  MonitoLogo,
-  NSNLogo,
-  ParabolLogo,
-  TastyCloudLogo,
-  YearProgressLogo,
+  UCL,
+  avatar,
+  icon_red,
+  psymplicity,
+  digitalclay,
+  goldman,
+  jpmorgan,
 } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Moshe Simon",
+  initials: "MS",
+  location: "London, UK",
+  locationLink: "https://www.google.com/maps/place/London",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "Machine Learning Engineer looking to improve the world with the help of AI.",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+    "As a recent First Class Honours M.Eng graduate in Electronic and Electrical Engineering from UCL, I am now looking to pursue a career in Machine Learning & AI. My academic journey, conducting advanced research in the field of Deep Reinforcement Learning, and hands-on experiences in leading AI projects at Innovate AI, has fuelled my passion for applying AI to real-world challenges. I am eager to leverage my skills in Machine Learning and Software Development to help build innovative solutions.",
+  avatar: avatar,
+  personalWebsiteUrl: "https://moshesimon.com/",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "moshesimon@outlook.com",
+    tel: "+447512146239",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/moshesimon",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/moshesimon/",
         icon: LinkedInIcon,
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "https://x.com/realMosheSimon",
         icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "University College London",
+      degree: "Master of Engineering, Electronic & Electrical",
+      grade: 'First Class Honours',
+      awards: 'Most Outstanding MEng Project, Class of 2023',
+      start: "2019",
+      end: "2023",
+      logo: UCL,
     },
   ],
   work: [
     {
-      company: "Parabol",
-      link: "https://parabol.co",
-      badges: ["Remote"],
-      title: "Senior Full Stack Developer",
-      logo: ParabolLogo,
-      start: "2021",
-      end: "2024",
-      description:
-        "Implemented new features, led squad, worked on improving the way developers ship the code, started migration from Emotion to Tailwind CSS and more. Technologies: React, TypeScript, GraphQL",
-    },
-    {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote"],
-      title: "Lead Android Developer → Full Stack Developer",
-      logo: ClevertechLogo,
-      start: "2015",
-      end: "2021",
-      description:
-        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
-    },
-    {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
+      company: "Innovate AI",
+      link: "https://innovateai.uk/",
       badges: [],
-      title: "Android Developer → Lead Android Developer",
-      logo: JojoMobileLogo,
-      start: "2012",
-      end: "2015",
+      title: "Founder & CEO",
+      logo: icon_red,
+      start: "2023",
+      end: "Present",
       description:
-        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
+        "At Innovate AI, we provide a suite of AI services including; AI consulting, AI software development and AI educational workshops. We serviced 8 clients in our first 3 months.",
     },
     {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
+      company: "Psymplicity",
+      link: "https://psymplicity.com/",
       badges: [],
-      title: "C/C++ Developer",
-      logo: NSNLogo,
-      start: "2010",
-      end: "2012",
-      description: "Creating and testing software for LTE base stations",
+      title: "Machine Learning Engineer",
+      logo: psymplicity,
+      start: "Summer 2023",
+      description:
+        "Led a small team in building a patient-therapist matching algorithm using Machine Learning.",
+    },
+    {
+      company: "Goldman Sachs",
+      link: "https://www.goldmansachs.com/",
+      badges: [],
+      title: "Software Engineer Intern - Virtual Experience",
+      logo: goldman,
+      start: "Winter 2021",
+      description: "Decoded vulnerable passwords using HashCat and presented my suggested improvements to strengthen security.",
+    },
+    {
+      company: "Digital Clay",
+      link: "https://www.digital-clay.com/",
+      badges: [],
+      title: "Software Engineer Intern",
+      logo: digitalclay,
+      start: "Summer 2021",
+      description: "Built a mobile application to allow clients to access the company's services from an embedded web-browser within the app.",
+    },
+    {
+      company: "JP Morgan Chase",
+      link: "https://www.jpmorgan.com/global",
+      badges: [],
+      title: "Software Engineer Intern - Virtual Experience",
+      logo: jpmorgan,
+      start: "Winter 2010",
+      description: "Contributed to a codebase that handled the cleaning and processing of financial data, and then displayed the data in a user-friendly manner.",
     },
   ],
   skills: [
-    "JavaScript",
-    "TypeScript",
-    "React/Next.js/Remix",
+    "Python",
     "Node.js",
-    "GraphQL",
-    "Relay",
-    "WebRTC",
+    "Java",
+    "C/C++",
+    "PyTorch/TensorFlow",
+    "React/Next.js",
+    "AWS",
+    "Django/Flask",
+    "MongoDB/MySQL",
+    "Problem solving", 
+    "Teamwork",
   ],
   projects: [
     {
-      title: "Consultly",
-      techStack: [
-        "Side Project",
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-      ],
-      description: "A platform to build and grow your online business",
-      logo: ConsultlyLogo,
-      link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
-      },
-    },
-    {
-      title: "Monito",
-      techStack: ["Side Project", "TypeScript", "Next.js", "Browser Extension"],
-      description:
-        "Browser extension that records everything happening in a web application",
-      logo: MonitoLogo,
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
-    },
-    {
-      title: "Jarocki.me",
-      techStack: ["Side Project", "Next.js", "MDX"],
-      description:
-        "My personal website and blog. Built with Next.js and Notion API",
-      logo: JarockiMeLogo,
+      title: "University Research Project - Deep Reinforcement Learning",
+      techStack: ["Python", 'Deep RL', "WandB", 'stablebaselines3', 'Optical Networks', "research"],
+      description: "Researched the application of Deep RL in Elastic Optical Networks to help with routing and spectrum allocation using Deep Mind's Atari games algorithm to solve an arcade game representation of the RSA problem. My research was presented at the OFC Conference 2023 by my supervisor, Dr Beghelli, and published in their Conference paper.",
       link: {
         label: "github.com",
-        href: "https://jarocki.me/",
+        href: "https://github.com/moshesimon/DeepEON",
       },
     },
+    
     {
-      title: "Minimal",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      title: "Server Hosted Oracle Chatbot Project",
+      techStack: ["Server deployment", "Client/server communication", "ML"],
       description:
-        "Minimalist calendars, habit trackers and planners generator",
-      logo: Minimal,
-      link: {
-        label: "useminimal.com",
-        href: "https://useminimal.com/",
-      },
-    },
-    {
-      title: "Barepapers",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
-      description:
-        "Generates beautiful wallpapers using random shapes and gradients",
-      logo: BarepapersLogo,
-      link: {
-        label: "barepapers.com",
-        href: "https://barepapers.com/",
-      },
-    },
-    {
-      title: "Year progress",
-      techStack: ["Side Project", "TypeScript", "Next.js"],
-      description: "Tracks current year progress and displays a countdown",
-      logo: YearProgressLogo,
-      link: {
-        label: "getyearprogress.com",
-        href: "https://getyearprogress.com/",
-      },
-    },
-    {
-      title: "Parabol",
-      techStack: [
-        "Full Stack Developer",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "The Agile meeting co-pilot that delivers better meetings with less effort",
-      logo: ParabolLogo,
+        "Developed and implemented an Oracle chatbot utilizing machine learning for time series forecasting of stock market price. The chatbot was deployed on a server and featured a client interface for interaction via the terminal.",
       link: {
         label: "github.com",
-        href: "https://parabol.co/",
+        href: "https://github.com/moshesimon/SNSD",
       },
     },
     {
-      title: "Evercast",
-      techStack: [
-        "Lead Frontend Developer",
+      title: "Stock Price Prediction Machine Learning Project",
+      techStack: ["Data analysis", 'cleaning', "visualisation", "transformation", "exploration", "NLP sentiment analysis", "MongoDB"],
+      description:
+        "Predicted the future price of Apple stock by analyzing historical stock data and sentiment analysis of tweets from 75 news accounts. Involving data cleaning, transformation, and exploration, as well as training a model to make predictions based on the acquired data.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/moshesimon/DAPS_Assignment_2023",
+      },
+    },
+    {
+      title: "Image Classification Machine Learning Project",
+      techStack: ["TensorFlow", "Sklearn", 'Python', 'Keras'],
+      description:
+        "Explored and compared multiple machine learning approaches to solve binary and multi class classification tasks on cartoon images.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/moshesimon/AMLS_assignment22_23",
+      },
+    },
+    {
+      title: "Cancer Detection Machine Learning Project",
+      techStack: ["TensorFlow", 'Sklearn', "Python", "Keras", "CNNs", "SVMs", "Kaggle"],
+      description:
+        "Built a ML model based on EfficientNet2 to detect breast cancer in Mammography scans.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/moshesimon/AMLS_II_assignment22_23",
+      },
+    },
+    {
+      title: "Natural Language Processing Project",
+      techStack: ["PyTorch", "HuggingFace", "Transformers", "NLP", "Python"],
+      description: "Fine-tuned a Machine Translation model on a low resource language and beat existing benchmarks.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/moshesimon/DLNLP_assignment_23",
+      },
+    },
 
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "Creative collaboration platform that combines video conferencing and HD media streaming",
-      logo: EvercastLogo,
-      link: {
-        label: "evercast.us",
-        href: "https://www.evercast.us/",
-      },
-    },
-    {
-      title: "Mobile Vikings",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application for leading virtual mobile operator in Poland",
-      logo: MobileVikingsLogo,
-      link: {
-        label: "mobilevikings.pl",
-        href: "https://mobilevikings.pl/",
-      },
-    },
-    {
-      title: "Howdy",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Howdy is a place for you to join communities you care about",
-      logo: Howdy,
-      link: {
-        label: "play.google.com",
-        href: "https://howdy.co/",
-      },
-    },
-    {
-      title: "Tastycloud",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application for managing and displaying restaurant menus in kiosk mode",
-      logo: TastyCloudLogo,
-      link: {
-        label: "tastycloud.fr",
-        href: "https://www.tastycloud.fr/",
-      },
-    },
-    {
-      title: "Ambit",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application that helps with sharing your contact details",
-      logo: AmbitLogo,
-    },
-    {
-      title: "Bim",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application that helps with booking a table in a restaurants",
-      logo: BimLogo,
-    },
-    {
-      title: "Canal Digital GO",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Video streaming mobile application for Canal Digital subscribers",
-      logo: CDGOLogo,
-    },
   ],
 } as const;
