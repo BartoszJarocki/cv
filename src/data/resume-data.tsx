@@ -29,7 +29,6 @@ export const RESUME_DATA = {
   summary:
     "As a seasoned Front End Developer, I've spent three dynamic years shaping web experiences globally. Proficient in TypeScript, React, Node.js, and GraphQL, I navigate the full development lifecycle from prototyping to automated testing. Leading development teams fuels my passion for creating optimal work environments. With a background in QA engineering, I ensure not just visual appeal but also rigorous testing. My commitment to excellence and client satisfaction has led to successful products, marking my journey from local structures to a global digital landscape.",
   avatarUrl: "https://avatars.githubusercontent.com/u/39324969?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "alexiszugasti@gmail.com",
     social: [
