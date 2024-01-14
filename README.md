@@ -44,7 +44,7 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
 
 # Run with Docker
 
-Build the containewr
+Build the container
 
 ```
 docker compose build
