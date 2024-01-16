@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
-export type OS = "mac" | "other";
+export type OS = "mac" | "windows" | "linux" | "other";
 
-export const useOS = () => {
-  const [os, setOs] = useState<OS>("mac");
-  useEffect(() => {
-    setOs(
-      window.navigator.userAgent.toLowerCase().includes("mac")
-        ? "mac"
-        : "other",
-    );
-  }, []);
+export const useOS = (): OS => {
+  const getOperatingSystem = (): OS => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
 
-  return os;
+    if (userAgent.includes("mac")) return "mac";
+    if (userAgent.includes("win")) return "windows";
+    if (userAgent.includes("linux")) return "linux";
+
+    return "other";
+  };
+
+  return useMemo(() => getOperatingSystem(), []);
 };
