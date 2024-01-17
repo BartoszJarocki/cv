@@ -20,51 +20,50 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Mansour Damanpak",
+  location: "Amsterdam, Netherlands, CET",
+  locationLink: "https://www.google.com/maps/place/amsterdam",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "Product Manager with experience in SEO and Marketing",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
+    "I am a versatile SEO Specialist and Product Manager with 8+ years of experience, blending expertise in SEO optimization with product development and management. My skills encompass technical SEO, content strategy, Core Web Vitals, and Conversion Rate Optimization (CRO), supported by proficiency in HTML/CSS, Javascript, and analytical tools like Google Analytics 4, Ahrefs, SEMrush, and Screaming Frog. My track record in SEO includes resolving technical issues, enhancing search visibility, and significantly increasing Marketing Qualified Leads (MQLs). In product management, I have successfully led the development and optimization of products, focusing on operational efficiency, stakeholder engagement, and profit maximization. My approach to both SEO and product management is data-driven and user-centric, ensuring alignment with the latest industry trends and technologies. I excel in creating synergies between SEO strategies and product development to drive business growth and user engagement.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  personalWebsiteUrl: "https://mansour.damanpak.com",
   contact: {
-    email: "bartosz.jarocki@hey.com",
+    email: "mansoor.damanpak@gmail.com",
     tel: "+48530213401",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/cyanxxy",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/mansour-damanpak",
         icon: LinkedInIcon,
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "",
         icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Azad Unvercity",
+      degree: "Bachelor's Degree in industrial engineering",
+      start: "2010",
+      end: "2014",
     },
   ],
   work: [
     {
-      company: "Parabol",
-      link: "https://parabol.co",
+      company: "sennder",
+      link: "https://sennder.com",
       badges: ["Remote"],
-      title: "Senior Full Stack Developer",
+      title: "SEO Manager",
       logo: ParabolLogo,
       start: "2021",
       end: "2024",
