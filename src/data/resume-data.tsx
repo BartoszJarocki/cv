@@ -63,9 +63,8 @@ export const RESUME_DATA = {
     {
       company: "sennder",
       link: "https://sennder.com",
-      badges: ["Remote"],
+      badges: ["Hybrid"],
       title: "SEO Manager → SEO and Digital Marketing→ SENIOR Product Manager",
-      logo: sennderlogo,
       start: "2022",
       end: "ongoing",
       description:
@@ -76,7 +75,6 @@ export const RESUME_DATA = {
       link: "https://termehtravel.com",
       badges: ["Remote"],
       title: "Product Manager",
-      logo: ClevertechLogo,
       start: "2015",
       end: "2021",
       description:
