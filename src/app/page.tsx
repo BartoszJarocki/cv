@@ -8,6 +8,7 @@ import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import { getUrlWithoutProtocol } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -84,6 +85,15 @@ export default function Page() {
                   <span className="underline">{RESUME_DATA.contact.tel}</span>
                 </a>
               ) : null}
+              <div className="mt-3 flex flex-col gap-x-1">
+                {RESUME_DATA.contact.social.map((social) => (
+                  <a href={social.url} key={social.name}>
+                    <span className="underline">
+                      {getUrlWithoutProtocol(social.url)}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
