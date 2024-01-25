@@ -61,7 +61,6 @@ export const RESUME_DATA = {
       link: "https://www.nasa.gov/centers-and-facilities/ames/advanced-capabilities-for-emergency-response-operations-acero/",
       badges: ["Remote"],
       title: "Senior Technical Program Manager",
-      logo: NASA,
       start: "2022",
       end: "2024",
       description:
