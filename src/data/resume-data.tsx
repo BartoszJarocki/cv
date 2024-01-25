@@ -16,60 +16,57 @@ import {
   ParabolLogo,
   TastyCloudLogo,
   YearProgressLogo,
+  NASA,
 } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Marcus Johnson",
+  initials: "MJ",
+  location: "Parkland, FL",
+  locationLink: "https://www.google.com/maps/place/parkland",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "Technical Leader focused on developing solutions to complex problems at a global scale",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+    "Technical leader with 15+ years of engineering experience leading change through technology research and development. A principal investigator who leads multi-disciplinary teams to develop novel hardware and software solutions that address large-scale complex global challenges. An effective collaborator who builds coalitions within organizations and across government agencies, commercial industry, and international organizations.",
+  #avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  #personalWebsiteUrl: "https://jarocki.me",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "marcus.1518@gmail.com",
+    tel: "+6503169254",
     social: [
       {
-        name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
-        icon: GitHubIcon,
-      },
-      {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/marcusjohnson-nasa",
         icon: LinkedInIcon,
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Florida Atlantic University",
+      degree: "Master's Degree in Artificial Intelligence",
+      start: "2023",
+      end: "2025",
+    },
+    {
+      school: "University of Florida",
+      degree: "PhD in Aerospace Engineering and Control Theory",
+      start: "2008",
+      end: "2011",
     },
   ],
   work: [
     {
-      company: "Parabol",
-      link: "https://parabol.co",
+      company: "NASA",
+      link: "https://www.nasa.gov/centers-and-facilities/ames/advanced-capabilities-for-emergency-response-operations-acero/",
       badges: ["Remote"],
-      title: "Senior Full Stack Developer",
-      logo: ParabolLogo,
-      start: "2021",
+      title: "Senior Technical Program Manager",
+      logo: NASA,
+      start: "2022",
       end: "2024",
       description:
-        "Implemented new features, led squad, worked on improving the way developers ship the code, started migration from Emotion to Tailwind CSS and more. Technologies: React, TypeScript, GraphQL",
+        "Defines technical roadmap and performance metrics, leads a remote team of 40+ employees, and manages a $130M budget",
     },
     {
       company: "Clevertech",
