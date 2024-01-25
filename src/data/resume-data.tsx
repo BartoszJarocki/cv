@@ -28,6 +28,8 @@ export const RESUME_DATA = {
     "Technical Leader focused on developing solutions to complex problems at a global scale",
   summary:
     "Technical leader with 15+ years of engineering experience leading change through technology research and development. A principal investigator who leads multi-disciplinary teams to develop novel hardware and software solutions that address large-scale complex global challenges. An effective collaborator who builds coalitions within organizations and across government agencies, commercial industry, and international organizations.",
+  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "marcus.1518@gmail.com",
     tel: "+6503169254",
