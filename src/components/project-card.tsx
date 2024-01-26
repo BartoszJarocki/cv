@@ -5,16 +5,25 @@ import {
   CardDescription,
   CardTitle,
 } from "./ui/card";
+import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
+import { Github, ExternalLink, Youtube } from "lucide-react";
+import { Button } from "./ui/button";
 
+interface LinkObj {
+  label: string;
+  icon?: string;
+  href: string;
+}
 interface Props {
   title: string;
   description: string;
   tags: readonly string[];
-  link?: string;
+  link?: LinkObj;
+  links?: Array<LinkObj> | undefined;
 }
 
-export function ProjectCard({ title, description, tags, link }: Props) {
+export function ProjectCard({ title, description, tags, link, links }: Props) {
   return (
     <Card className="flex flex-col overflow-hidden border border-muted p-3">
       <CardHeader className="">
@@ -22,7 +31,7 @@ export function ProjectCard({ title, description, tags, link }: Props) {
           <CardTitle className="text-base">
             {link ? (
               <a
-                href={link}
+                href={link.href}
                 target="_blank"
                 className="inline-flex items-center gap-1 hover:underline"
               >
@@ -34,7 +43,18 @@ export function ProjectCard({ title, description, tags, link }: Props) {
             )}
           </CardTitle>
           <div className="hidden font-mono text-xs underline print:visible">
-            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
+            {link?.label}
+          </div>
+          <div className="mt-2 flex flex-wrap gap-1">
+            {tags.map((tag) => (
+              <Badge
+                className="px-1 py-0 text-[10px]"
+                variant="secondary"
+                key={tag}
+              >
+                {tag}
+              </Badge>
+            ))}
           </div>
           <CardDescription className="font-mono text-xs">
             {description}
@@ -43,13 +63,22 @@ export function ProjectCard({ title, description, tags, link }: Props) {
       </CardHeader>
       <CardContent className="mt-auto flex">
         <div className="mt-2 flex flex-wrap gap-1">
-          {tags.map((tag) => (
+          {links?.map((link) => (
             <Badge
-              className="px-1 py-0 text-[10px]"
-              variant="secondary"
-              key={tag}
+              variant="outline"
+              className="w-100"
+              key={link.label}
             >
-              {tag}
+              <a
+                className="flex flex-wrap gep-5 mt-1"
+                href={link.href}
+                target="_blank"
+              >
+                {link.icon=="youtube" ? <Youtube className="size-3 mr-2" /> : ""}
+                {link.icon=="external-link" ? <ExternalLink className="size-3 mr-2" /> : ""}
+                {link.icon=="github" ? <Github className="size-3 mr-2" /> : ""}
+                <div>{link.label}</div>
+              </a>
             </Badge>
           ))}
         </div>
