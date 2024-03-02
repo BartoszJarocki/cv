@@ -85,12 +85,17 @@ export const RESUME_DATA = {
   skills: [
     "JavaScript",
     "TypeScript",
-    "React/Next.js",
+    "React.js",
+    "React Native",
     "Redux",
     "Node.js",
+    "HTML",
     "CSS",
     "SQL",
     "Git/Github",
+    "Express.js",
+    "Postman",
+    "Scrum",
   ],
   projects: [
     {
