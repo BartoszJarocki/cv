@@ -20,44 +20,51 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Riddhi Raj Ghosh",
+  initials: "RRG",
+  location: "Kolkata, India",
+  locationLink: "https://www.google.com/maps/place/Kolkata",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "CS Engineer focused on building products with extra attention to detail",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
+    "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nunc nec lacinia tincidunt, nunc nunc ldolor sit amet, consectetur adipiscing elit. Donec auctor, nunc nec lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nunc nec",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "rrg.connect@gmail.com",
+    // tel: "+48530213401",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/RiddhiRaj",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/riddhi-raj-ghosh/",
         icon: LinkedInIcon,
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "https://x.com/rrgindeed",
         icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "University of Engineering and Management, Kolkata",
+      degree: "B.Tech. in Computer Science and Engineering specializing in Artificial Intelligence and Machine Learning",
+      start: "2021",
+      end: "2025",
     },
+    {
+      school: "The Modern Academy, Kolkata",
+      degree: "Higher Secondary Education (10+2) specializing in Science with Computer Science and Mathematics as major subjects",
+      start: "2008",
+      end: "2021",
+    },
+    
   ],
   work: [
     {
@@ -105,17 +112,26 @@ export const RESUME_DATA = {
     },
   ],
   skills: [
+    "HTML",
+    "CSS",
     "JavaScript",
-    "TypeScript",
-    "React/Next.js/Remix",
+    "C",
+    "C++",
+    "Java",
+    "Latex",
+    "Markdown",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Springboot",
+    "Thymeleaf",
+    "MySql",
+    "Oracle",
     "Node.js",
-    "GraphQL",
-    "Relay",
-    "WebRTC",
+    "Python",
   ],
   projects: [
     {
-      title: "Consultly",
+      title: "Personal Portfolio",
       techStack: [
         "Side Project",
         "TypeScript",
