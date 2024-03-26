@@ -98,7 +98,7 @@ export const RESUME_DATA: ResumeData = {
   ],
   projects: [
     {
-      title: "World Energy Statistics",
+      title: "world energy statistics",
       techStack: ["Spark", "Docker", "Hive", "Airflow"],
       description: "World Energy Statistics using various data tools.",
       logo: TCSLogo,
@@ -108,7 +108,7 @@ export const RESUME_DATA: ResumeData = {
       },
     },
     {
-      title: "Cinemattr",
+      title: "cinemattr",
       techStack: ["LangChain", "SvelteKit"],
       description: "Search movies using AI and vector databases.",
       logo: TCSLogo,
@@ -118,7 +118,7 @@ export const RESUME_DATA: ResumeData = {
       },
     },
     {
-      title: "Server Compose",
+      title: "server compose",
       techStack: ["Docker", "Linux"],
       description:
         "A collection of sample docker compose files for self-hosted applications.",
@@ -129,7 +129,7 @@ export const RESUME_DATA: ResumeData = {
       },
     },
     {
-      title: "Recomovi",
+      title: "recomovi",
       techStack: ["Python", "Streamlit"],
       description: "Movie Recommender & IMDb Dataset Generator.",
       logo: TCSLogo,
@@ -139,7 +139,7 @@ export const RESUME_DATA: ResumeData = {
       },
     },
     {
-      title: "MicroHMS",
+      title: "microHMS",
       techStack: ["Flask", "PostgreSQL"],
       description:
         "Hotel Management System to track bookings and generate invoices.",
