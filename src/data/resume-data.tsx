@@ -9,7 +9,7 @@ export const RESUME_DATA: ResumeData = {
   locationLink: "https://www.google.com/maps/place/Toronto",
   about: "",
   summary:
-    "Experienced data professional specializing in data warehousing, analytical, \n  and transactional solutions. Skilled in Python and SQL with a strong focus on problem-solving and delivering robust data-driven solutions for Supply Chain and Banking domains.",
+    "Experienced data professional specializing in data warehousing, analytical, and transactional solutions. Skilled in Python, SQL & ETL/ELT with a strong focus on problem-solving and delivering robust data-driven solutions for Supply Chain and banking sectors.",
   avatarUrl: "headshot.png",
   personalWebsiteUrl: "https://carteakey.dev",
   contact: {
@@ -53,15 +53,15 @@ export const RESUME_DATA: ResumeData = {
       company: "Tata Consultancy Services",
       link: "https://parabol.co",
       badges: ["Toronto, Canada", "Hybrid"],
-      title: "Data Quality Analyst",
+      title: "Data Engineer",
       logo: TCSLogo,
       start: "2022",
       end: "Pres.",
       description: [
         "Part of Enterprise Risk & Basel reporting team. Collaborated across technical and business units to ensure seamless data flow for critical BASEL 3.1 reforms and OSFI BCAR Reporting.",
-        "Implemented ETL pipelines using Python, SQL, and Bash, ensuring consistent data across systems.",
+        "Leveraged python’s data libraries (pandas, numpy, pyodbc) to establish a framework of data quality and validation. Achieved a 90% reduction in technical debt, inaccuracy, and manual efforts. Crafted effective end-to-end data quality test strategies.",
         // "Worked closely with Tech Partners, Source Teams & Developers to resolve intricate data mappings and logic.",
-        "Leveraged python libraries (pandas/pyodbc) to incorporate data quality and validation workflows achieving a 90% reduction in technical debt, inaccuracy, and manual efforts. Crafted effective end-to-end data quality test strategies.",
+        "Performed data profiling and analysis to identify patterns, anomalies, and data quality issues. Designed and executed SQL & Python test cases within internal frameworks. Designed creative methods to enhance data pipeline testing efficiency.",
         // "Designed and executed SQL & Python test cases within internal frameworks to ensure data quality.",
       ],
     },
