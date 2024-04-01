@@ -17,46 +17,51 @@ import {
   TastyCloudLogo,
   YearProgressLogo,
 } from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, XIcon, CFIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Chirag Tyagi",
+  initials: "CH",
+  location: "Delhi, India",
+  locationLink: "link",
   about:
     "Full Stack Engineer focused on building products with extra attention to detail",
   summary:
     "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  avatarUrl: "https://media.licdn.com/dms/image/D4D03AQGo0ECKov8uAA/profile-displayphoto-shrink_400_400/0/1685451321732?e=1717027200&v=beta&t=qI_rboz9Bc536CfzFlw4jh7CgW3LsxGhTfa_kSM7NzA",
+  personalWebsiteUrl: "my website",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "chiragtyagi880@gmail.com",
+    tel: "+91 phone-no",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/chiragtyagi880",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/chiragtyagi880/",
         icon: LinkedInIcon,
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "https://x.com/chiragtyagi880",
         icon: XIcon,
       },
+      {
+        name: "CodeForces",
+        url: "https://codeforces.com/ChiragOz",
+        icon: CFIcon,
+      }
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Delhi Technological University",
+      degree: "Bachelor's Degree in Engineering Physics(Electronics Major)",
+      start: "2022",
+      end: "2026",
     },
   ],
   work: [
@@ -105,13 +110,13 @@ export const RESUME_DATA = {
     },
   ],
   skills: [
+    "HTML5",
     "JavaScript",
-    "TypeScript",
-    "React/Next.js/Remix",
-    "Node.js",
-    "GraphQL",
-    "Relay",
-    "WebRTC",
+    "React/Next.js",
+    "CSS3",
+    "Data Structures",
+    "Algorithm",
+    "Competitive Programming",
   ],
   projects: [
     {
