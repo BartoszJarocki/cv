@@ -67,6 +67,7 @@ export const CommandMenu = ({ links }: Props) => {
             <CommandItem
               onSelect={(prev) => {
                 theme === "dark" ? setTheme("light") : setTheme("dark");
+                setOpen(false);
               }}
             >
               <span>Toggle Theme</span>
