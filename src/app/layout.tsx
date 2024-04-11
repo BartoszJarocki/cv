@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import React from "react";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
       <Analytics />
     </html>
   );
