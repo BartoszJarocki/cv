@@ -13,6 +13,7 @@ const schema = await buildSchema({
 const apolloServer = new ApolloServer({
   schema,
   plugins: [ApolloServerPluginLandingPageLocalDefault()],
+  introspection: true,
 });
 const handler = startServerAndCreateNextHandler<NextRequest>(apolloServer, {
   context: async (req) => ({ req }),
