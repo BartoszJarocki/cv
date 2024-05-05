@@ -1,5 +1,4 @@
-
-![DevTools](https://github.com/abe1272001/cv/assets/46858104/775e28bb-2dfc-4720-bad5-6909d34b7123)
+![cv-shot-20240505](https://github.com/abe1272001/cv/assets/46858104/e7b23a6b-0bb8-436d-b368-45d69ce7acfe)
 
 # Minimalist CV
 
