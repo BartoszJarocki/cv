@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "framer-motion": "^11.1.7",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.23.0",
     "lucide-react": "^0.300.0",
