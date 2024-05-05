@@ -1,3 +1,6 @@
+
+![DevTools](https://github.com/abe1272001/cv/assets/46858104/775e28bb-2dfc-4720-bad5-6909d34b7123)
+
 # Minimalist CV
 
 Simple web app that renders minimalist CV with print-friendly layout.
