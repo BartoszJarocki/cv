@@ -52,7 +52,7 @@ export const RESUME_DATA = {
       start: "2022.12",
       end: null,
       description:
-        "Implemented new features, led squad, worked on improving the way developers ship the code. Collaborated with PMs, UI/UX designers, backend engineers, and app engineers. Capable of independently developing frontend projects. Managed a six-person frontend team, established project infrastructure from scratch, assigned project tasks, conducted code reviews, mentored new team members, and maintained frontend documentation standards. Technologies: TypeScript, Next.js/React, Nuxt3/Vue3, TanStack Query, Docker, Pinia, Jotai, TailwindCSS, ChakraUI, Shadcn/ui, VantUI",
+        "Managed a six-person frontend team, established project infrastructures from scratch, assigned project tasks, conducted code reviews, mentored new team members, and maintained frontend documentation standards. Collaborated with PMs, UI/UX designers, backend engineers, and app engineers. Capable of independently developing frontend projects. Technologies: TypeScript, Next.js/React, Nuxt3/Vue3, TanStack Query, Docker, Pinia, Jotai, TailwindCSS, ChakraUI, Shadcn/ui, VantUI",
     },
     {
       company: "Farmland 農田科技股份有限公司",
