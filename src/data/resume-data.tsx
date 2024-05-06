@@ -149,10 +149,9 @@ export const RESUME_DATA = {
       ],
       description:
         "Web application for Wowprime group, enabling members to manage orders, payments, and discover interesting restaurants to visit",
-      logo: MonitoLogo,
       link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
+        label: "wowprime-mobile-web.wowfmsapp.com",
+        href: "https://wowprime-mobile-web.wowfmsapp.com/onboarding",
       },
     },
     {
