@@ -7,7 +7,7 @@ import {
 } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
-import { Github, ExternalLink, Youtube } from "lucide-react";
+import { Github, ExternalLink, Youtube, StickyNote, Lock } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface LinkObj {
@@ -36,7 +36,6 @@ export function ProjectCard({ title, description, tags, link, links }: Props) {
                 className="inline-flex items-center gap-1 hover:underline"
               >
                 {title}{" "}
-                <span className="size-1 rounded-full bg-green-500"></span>
               </a>
             ) : (
               title
@@ -77,6 +76,8 @@ export function ProjectCard({ title, description, tags, link, links }: Props) {
                 {link.icon=="youtube" ? <Youtube className="size-3 mr-2" /> : ""}
                 {link.icon=="external-link" ? <ExternalLink className="size-3 mr-2" /> : ""}
                 {link.icon=="github" ? <Github className="size-3 mr-2" /> : ""}
+                {link.icon=="medium" ? <StickyNote className="size-3 mr-2" /> : ""}
+                {link.icon=="lock" ? <Lock className="size-3 mr-2" /> : ""}
                 <div>{link.label}</div>
               </a>
             </Badge>
