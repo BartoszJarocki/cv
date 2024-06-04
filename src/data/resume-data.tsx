@@ -25,9 +25,9 @@ export const RESUME_DATA = {
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
+    "As a Full Stack Engineer, I specialize in taking products from concept to launch. I excel in leading teams and creating environments where individuals perform at their best. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience working remotely with companies worldwide.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
@@ -61,6 +61,17 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Film.io",
+      link: "https://film.io",
+      badges: ["Remote"],
+      title: "Software Architect",
+      logo: ConsultlyLogo,
+      start: "2024",
+      end: null,
+      description:
+        "Leading the development of the Film.io platform. Technologies: React, TypeScript, Node.js",
+    },
+    {
       company: "Parabol",
       link: "https://parabol.co",
       badges: ["Remote"],
@@ -69,7 +80,7 @@ export const RESUME_DATA = {
       start: "2021",
       end: "2024",
       description:
-        "Implemented new features, led squad, worked on improving the way developers ship the code, started migration from Emotion to Tailwind CSS and more. Technologies: React, TypeScript, GraphQL",
+        "Implemented new features, led a squad, improved code delivery process, and initiated migration from Emotion to Tailwind CSS. Technologies: React, TypeScript, GraphQL",
     },
     {
       company: "Clevertech",
@@ -80,7 +91,7 @@ export const RESUME_DATA = {
       start: "2015",
       end: "2021",
       description:
-        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
+        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, and AAA. Built a live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
     },
     {
       company: "Jojo Mobile",
@@ -91,7 +102,7 @@ export const RESUME_DATA = {
       start: "2012",
       end: "2015",
       description:
-        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
+        "Led the Android team and developed apps for major Polish companies like LOT, Polskie Radio, Agora, and PolskaPress",
     },
     {
       company: "Nokia Siemens Networks",
@@ -101,7 +112,7 @@ export const RESUME_DATA = {
       logo: NSNLogo,
       start: "2010",
       end: "2012",
-      description: "Creating and testing software for LTE base stations",
+      description: "Developed and tested software for LTE base stations",
     },
   ],
   skills: [
@@ -114,6 +125,40 @@ export const RESUME_DATA = {
     "WebRTC",
   ],
   projects: [
+    {
+      title: "Parabol",
+      techStack: [
+        "Full Stack Developer",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "The Agile meeting co-pilot that delivers better meetings with less effort",
+      logo: ParabolLogo,
+      link: {
+        label: "github.com",
+        href: "https://parabol.co/",
+      },
+    },
+    {
+      title: "Evercast",
+      techStack: [
+        "Lead Frontend Developer",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "Creative collaboration platform that combines video conferencing and HD media streaming",
+      logo: EvercastLogo,
+      link: {
+        label: "evercast.us",
+        href: "https://www.evercast.us/",
+      },
+    },
     {
       title: "Consultly",
       techStack: [
@@ -146,7 +191,7 @@ export const RESUME_DATA = {
       title: "Jarocki.me",
       techStack: ["Side Project", "Next.js", "MDX"],
       description:
-        "My personal website and blog. Built with Next.js and Notion API",
+        "Personal website and blog. Built with Next.js and Notion API",
       logo: JarockiMeLogo,
       link: {
         label: "github.com",
@@ -157,7 +202,7 @@ export const RESUME_DATA = {
       title: "Minimal",
       techStack: ["Side Project", "Next.js", "Puppeteer"],
       description:
-        "Minimalist calendars, habit trackers and planners generator",
+        "Minimalist calendars, habit trackers, and planners generator",
       logo: Minimal,
       link: {
         label: "useminimal.com",
@@ -186,41 +231,6 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "Parabol",
-      techStack: [
-        "Full Stack Developer",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "The Agile meeting co-pilot that delivers better meetings with less effort",
-      logo: ParabolLogo,
-      link: {
-        label: "github.com",
-        href: "https://parabol.co/",
-      },
-    },
-    {
-      title: "Evercast",
-      techStack: [
-        "Lead Frontend Developer",
-
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "Creative collaboration platform that combines video conferencing and HD media streaming",
-      logo: EvercastLogo,
-      link: {
-        label: "evercast.us",
-        href: "https://www.evercast.us/",
-      },
-    },
-    {
       title: "Mobile Vikings",
       techStack: ["Lead Android Developer", "Android", "Kotlin"],
       description:
@@ -234,8 +244,7 @@ export const RESUME_DATA = {
     {
       title: "Howdy",
       techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Howdy is a place for you to join communities you care about",
+      description: "Howdy is a place for joining communities you care about",
       logo: Howdy,
       link: {
         label: "play.google.com",
