@@ -124,6 +124,11 @@ export const RESUME_DATA = {
     "Relay",
     "WebRTC",
   ],
+  languages:[
+    "English",
+    "spanish",
+    "French"
+  ],
   projects: [
     {
       title: "Parabol",
