@@ -1,3 +1,5 @@
+"use client";
+import ShowMoreText from "react-show-more-text";
 import {
   Card,
   CardHeader,
@@ -37,7 +39,9 @@ export function ProjectCard({ title, description, tags, link }: Props) {
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
           <CardDescription className="font-mono text-xs print:text-[10px]">
-            {description}
+            <ShowMoreText anchorClass="text-primary hover:underline hover:cursor-pointer">
+              {description}
+            </ShowMoreText>
           </CardDescription>
         </div>
       </CardHeader>
