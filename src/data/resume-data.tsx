@@ -132,8 +132,8 @@ export const RESUME_DATA = {
       description:
         "A web platform for the Yulon Group that assists users in finding their ideal car, comparing prices, and scheduling appointments with dealers",
       link: {
-        label: "carmatch.oppenai.io",
-        href: "https://carmatch.oppenai.io/",
+        label: "https://carfinder.oppenai.io/",
+        href: "https://carfinder.oppenai.io/",
       },
     },
     {
