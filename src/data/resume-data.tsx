@@ -116,8 +116,7 @@ export const RESUME_DATA = {
         "TailwindCSS",
         "D3",
       ],
-      description:
-        "A Model training platform that assists users to train ai models for various tasks",
+      description: "A Model training platform that assists users to train ai models for various tasks",
     },
     {
       title: "CarFinder 智慧找車",
@@ -157,6 +156,7 @@ export const RESUME_DATA = {
     {
       title: "Hyena Service Tool",
       techStack: ["ElectronJS", "Vue3", "Pinia", "Vuex", "Datadog", "SCSS"],
+
       description:
         "Desktop application for supporting e-bike dealers in optimizing the maintenance work of e-bikes and the end-user experience",
       link: {
