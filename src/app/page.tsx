@@ -75,12 +75,14 @@ export default function Page() {
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
               {RESUME_DATA.contact.email ? (
-                <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                  <span className="underline">{RESUME_DATA.contact.email}</span>
+                <a href={`mailto:${RESUME_DATA.contact.email}` } className="flex flex-row gap-x-1 items-center" >
+                  <MailIcon className="size-4" />
+                  <span className="underline"> {RESUME_DATA.contact.email} </span>
                 </a>
               ) : null}
               {RESUME_DATA.contact.tel ? (
-                <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                <a href={`tel:${RESUME_DATA.contact.tel}`} className="flex flex-row gap-x-1 items-center">
+                  <PhoneIcon className="size-4" />
                   <span className="underline">{RESUME_DATA.contact.tel}</span>
                 </a>
               ) : null}
