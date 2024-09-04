@@ -9,7 +9,7 @@ export const RESUME_DATA = {
   about:
     "Dedicated Software Engineer specializing in the creation of premium quality products.",
   summary:
-    "As a Software Engineer, I specialize in taking products from concept to launch. I excel in creating mobile apps and taking responsibility where individuals perform at their best. Currently, I work mostly with TypeScript, React, React Native. I have over 5 years of experience working remotely and Hybrid with companies.",
+    "As a Software Engineer, Specialized in taking products from concept to launch. Creating mobile apps and taking responsibility where individuals perform at their best. Currently, I work mostly with TypeScript, React, React Native. I have 5 years of experience working remotely and Hybrid with companies.",
   avatarUrl: "https://avatars.githubusercontent.com/u/13644092?v=4",
   personalWebsiteUrl: "https://ozcanozgur.com",
   contact: {
