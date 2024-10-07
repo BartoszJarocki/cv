@@ -20,7 +20,7 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Vishnu Prasad",
+  name: "Vishnu Prasad K.",
   initials: "K",
   location: [
     {
@@ -34,14 +34,14 @@ export const RESUME_DATA = {
     },
   ],
   about:
-    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
+    "Full stack developer who loves exploring technologies and thrives to solve challenges.",
   summary:
-    "As a Full Stack Engineer, I specialize in taking products from concept to launch. I excel in leading teams and creating environments where individuals perform at their best. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience working remotely with companies worldwide.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+    "Developing Full Stack application since 2018 with various tech stack has taught me one thing, Learning and Adaptibility is crucial part for a developer or any individual. I love to explore new things and bring best out of it.",
+  avatarUrl: "https://avatars.githubusercontent.com/u/19173030?v=4",
+  personalWebsiteUrl: "https://vishnuprasadkuntar.me",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "kuntarvishnuprasad41@gmail.com",
+    tel: "+91 8547580204",
     social: [
       {
         name: "GitHub",
@@ -55,82 +55,85 @@ export const RESUME_DATA = {
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "https://x.com/kuvi41",
         icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Jain University",
+      degree: "Master Of Computer Applications",
+      start: "2022",
+      end: "2024",
+    },
+    {
+      school: "Bangalore University",
+      degree: "Bachelor Of Computer Applications",
+      start: "2018",
+      end: "2021",
+    },
+    {
+      school: "DTE",
+      degree: "Diploma in Computer Science and Engineering",
+      start: "2013",
+      end: "2016",
     },
   ],
   work: [
     {
-      company: "Film.io",
-      link: "https://film.io",
-      badges: ["Remote"],
-      title: "Software Architect",
+      company: "SSC Pvt Ltd.",
+      link: "https://sscinitiatives.com",
+      badges: [
+        "Remote",
+
+        "React native",
+        "Next.js",
+        "ts",
+        "js",
+        "NodeJs",
+        "PostgreSQL",
+      ],
+
+      title: "Senior Software Developer",
       logo: ConsultlyLogo,
       start: "2024",
       end: null,
       description:
-        "Leading the development of the Film.io platform. Technologies: React, TypeScript, Node.js",
+        "Leading the front-end development and app development. Skills: iOS app development, Android development, Kotlin , typescript, Publishing apps, Jenkins, Linux + above mentioned. ",
     },
     {
-      company: "Parabol",
-      link: "https://parabol.co",
-      badges: ["Remote"],
-      title: "Senior Full Stack Developer",
+      company: "Sevenchats Pvt Ltd. | Project Safa Globaltech",
+      link: "https://safaglobaltech.com",
+      badges: ["Hybrid", "React JS", "NodeJs", "MongoDB"],
+      title: "Senior Developer",
       logo: ParabolLogo,
-      start: "2021",
+      start: "2023",
       end: "2024",
       description:
-        "Implemented new features, led a squad, improved code delivery process, and initiated migration from Emotion to Tailwind CSS. Technologies: React, TypeScript, GraphQL",
+        "Implemented HRMS system and developed a bid and award system, Skills: React natice, Typescript, javascript, Cloudflare, Jenkins, Git ",
     },
     {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote"],
-      title: "Lead Android Developer → Full Stack Developer",
+      company: "Sevenchats Pvt Ltd.",
+      link: "https://sevenchats.com",
+      badges: ["On Site"],
+      title: " Android Developer ",
       logo: ClevertechLogo,
-      start: "2015",
-      end: "2021",
+      start: "2021",
+      end: "2023",
       description:
-        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, and AAA. Built a live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
-    },
-    {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: [],
-      title: "Android Developer → Lead Android Developer",
-      logo: JojoMobileLogo,
-      start: "2012",
-      end: "2015",
-      description:
-        "Led the Android team and developed apps for major Polish companies like LOT, Polskie Radio, Agora, and PolskaPress",
-    },
-    {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: [],
-      title: "C/C++ Developer",
-      logo: NSNLogo,
-      start: "2010",
-      end: "2012",
-      description: "Developed and tested software for LTE base stations",
+        "Created and maintained Android app for Social Media platform Sevenchats. Skills: Kotlin, Android studio, git",
     },
   ],
   skills: [
     "JavaScript",
     "TypeScript",
-    "React/Next.js/Remix",
+    "React/Next.js",
     "Node.js",
-    "GraphQL",
-    "Relay",
+
+    "Nginx",
+    "jenkins",
+    "Native Android Development",
     "WebRTC",
   ],
   projects: [
