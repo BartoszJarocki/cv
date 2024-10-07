@@ -119,15 +119,14 @@ export default function Page() {
 
                       <div className="ml-2 ">
                         <span className="flex  flex-row flex-wrap gap-2">
-                          {work.badges.map((badge) => (
-                            <Badge
-                              variant="secondary"
-                              className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-                              key={badge}
-                            >
-                              {badge}
-                            </Badge>
-                          ))}
+                          <Badge
+                            variant="secondary"
+                            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+                            key={work.badges[0]}
+                          >
+                            {work.badges[0]}
+                          </Badge>
+
                           <br />
                         </span>
                       </div>
@@ -136,6 +135,9 @@ export default function Page() {
                       {work.start} - {work.end ?? "Present"}
                     </div>
                   </div>
+                  <span className="flex  flex-row flex-wrap gap-2">
+                    <br />
+                  </span>
 
                   <h4 className="font-mono text-sm leading-none print:text-[12px]">
                     {work.title}
@@ -144,6 +146,22 @@ export default function Page() {
                 <CardContent className="mt-2 text-xs print:text-[10px]">
                   {work.description}
                 </CardContent>
+
+                <br />
+                <span className="flex  flex-row flex-wrap gap-2">
+                  {work.badges.map(
+                    (badge, index) =>
+                      index !== 0 && (
+                        <Badge
+                          variant="secondary"
+                          className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+                          key={badge}
+                        >
+                          {badge}
+                        </Badge>
+                      ),
+                  )}
+                </span>
               </Card>
             );
           })}
