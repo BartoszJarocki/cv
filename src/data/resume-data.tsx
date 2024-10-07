@@ -36,7 +36,7 @@ export const RESUME_DATA = {
   about:
     "Full stack developer who loves exploring technologies and thrives to solve challenges.",
   summary:
-    "Developing Full Stack application since 2018 with various tech stack has taught me one thing, Learning and Adaptibility is crucial part for a developer or any individual. I love to explore new things and bring best out of it.",
+    "Developing Full Stack application since 2018 with various tech stack has taught me one thing, Learning and Adaptability is crucial part for a developer or any individual. I love to explore new things and bring best out of it.",
   avatarUrl: "https://avatars.githubusercontent.com/u/19173030?v=4",
   personalWebsiteUrl: "https://vishnuprasadkuntar.me",
   contact: {
