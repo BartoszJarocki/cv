@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-2xl space-y-8  print:space-y-4">
+    <main className="bg- container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+      <section className="mx-auto w-full max-w-3xl space-y-8  rounded-md bg-black px-8 py-4 print:space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
@@ -109,7 +109,7 @@ export default function Page() {
           <h2 className="text-xl font-bold">Work Experience</h2>
           {RESUME_DATA.work.map((work) => {
             return (
-              <Card key={work.company}>
+              <Card key={work.company} className="p-8">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
