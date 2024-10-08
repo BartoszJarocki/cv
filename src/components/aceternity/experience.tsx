@@ -74,7 +74,7 @@ export function Experience({
   );
 }
 
-export const ExperienceCard = ({ children, work }) => {
+export const ExperienceCard = ({ children, work }: any) => {
   if (!work.end) {
     return (
       <Experience duration={10000} borderRadius="10px">
