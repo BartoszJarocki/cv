@@ -11,10 +11,10 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { MovingBorder } from "./moving-border";
 
-export function MySection({
+export function Experience({
   borderRadius = "1.75rem",
   children,
-  as: Component = "section",
+  as: Component = "div",
   containerClassName,
   borderClassName,
   duration,
@@ -33,7 +33,7 @@ export function MySection({
   return (
     <Component
       className={cn(
-        "relative h-[114px] w-[114px]  overflow-hidden bg-transparent p-[2px] text-xl ",
+        "relative h-full w-full  overflow-hidden bg-transparent p-[1px] text-xl ",
         containerClassName,
       )}
       style={{
@@ -48,7 +48,7 @@ export function MySection({
         <MovingBorder duration={duration} rx="100%" ry="100%">
           <div
             className={cn(
-              "h-[56px] w-[56px] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] opacity-[0.8]",
+              "h-[256px] w-[256px] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] opacity-[0.8]",
               borderClassName,
             )}
             style={{
@@ -73,3 +73,15 @@ export function MySection({
     </Component>
   );
 }
+
+export const ExperienceCard = ({ children, work }) => {
+  if (!work.end) {
+    return (
+      <Experience duration={10000} borderRadius="10px">
+        {children}
+      </Experience>
+    );
+  } else {
+    return children;
+  }
+};

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { MySection } from "@/components/aceternity/moving-border";
+import { ExperienceCard } from "@/components/aceternity/experience";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -112,60 +113,62 @@ export default function Page() {
           <h2 className="text-xl font-bold">Work Experience</h2>
           {RESUME_DATA.work.map((work) => {
             return (
-              <Card key={work.company} className="bg-[#011028] p-8">
-                <CardHeader>
-                  <div className="flex items-center justify-between  text-base">
-                    <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <a className="  hover:underline" href={work.link}>
-                        {work.company}
-                      </a>
+              <ExperienceCard work={work} key={work.company}>
+                <Card className="bg-[#011028] p-8">
+                  <CardHeader>
+                    <div className="flex items-center justify-between  text-base">
+                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+                        <a className="  hover:underline" href={work.link}>
+                          {work.company}
+                        </a>
 
-                      <div className="ml-2 ">
-                        <span className="flex  flex-row flex-wrap gap-2">
+                        <div className="ml-2 ">
+                          <span className="flex  flex-row flex-wrap gap-2">
+                            <Badge
+                              variant="secondary"
+                              className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+                              key={work.badges[0]}
+                            >
+                              {work.badges[0]}
+                            </Badge>
+
+                            <br />
+                          </span>
+                        </div>
+                      </h3>
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {work.start} - {work.end ?? "Present"}
+                      </div>
+                    </div>
+                    <span className="flex  flex-row flex-wrap gap-2">
+                      <br />
+                    </span>
+
+                    <h4 className="font-mono text-sm leading-none print:text-[12px]">
+                      {work.title}
+                    </h4>
+                  </CardHeader>
+                  <CardContent className="mt-2 text-xs print:text-[10px]">
+                    {work.description}
+                  </CardContent>
+
+                  <br />
+                  <span className="flex  flex-row flex-wrap gap-2">
+                    {work.badges.map(
+                      (badge, index) =>
+                        index !== 0 && (
                           <Badge
                             variant="secondary"
                             className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-                            key={work.badges[0]}
+                            key={badge}
                           >
-                            {work.badges[0]}
+                            {badge}
                           </Badge>
-
-                          <br />
-                        </span>
-                      </div>
-                    </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
-                      {work.start} - {work.end ?? "Present"}
-                    </div>
-                  </div>
-                  <span className="flex  flex-row flex-wrap gap-2">
-                    <br />
+                        ),
+                    )}
                   </span>
-
-                  <h4 className="font-mono text-sm leading-none print:text-[12px]">
-                    {work.title}
-                  </h4>
-                </CardHeader>
-                <CardContent className="mt-2 text-xs print:text-[10px]">
-                  {work.description}
-                </CardContent>
-
-                <br />
-                <span className="flex  flex-row flex-wrap gap-2">
-                  {work.badges.map(
-                    (badge, index) =>
-                      index !== 0 && (
-                        <Badge
-                          variant="secondary"
-                          className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-                          key={badge}
-                        >
-                          {badge}
-                        </Badge>
-                      ),
-                  )}
-                </span>
-              </Card>
+                </Card>
+              </ExperienceCard>
             );
           })}
         </Section>
