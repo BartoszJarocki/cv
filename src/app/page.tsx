@@ -8,6 +8,8 @@ import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import { MovingBorder } from "@/components/aceternity/moving-border";
+import { MainSection } from "@/components/aceternity/moving-border";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -16,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="bg- container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-3xl space-y-8  rounded-md bg-[#001534] px-8 py-4 print:space-y-4">
+    <main className=" container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+      <section className="mx-auto w-full max-w-3xl space-y-8  rounded-md   bg-[#001534] px-8 py-4 print:space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>

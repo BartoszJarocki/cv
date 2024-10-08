@@ -17,8 +17,9 @@
     "@vercel/analytics": "^1.1.2",
     "class-validator": "^0.14.1",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.1",
     "cmdk": "^0.2.0",
+    "framer-motion": "^11.11.1",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.23.0",
     "lucide-react": "^0.300.0",
@@ -27,7 +28,7 @@
     "react": "^18",
     "react-dom": "^18",
     "reflect-metadata": "^0.2.2",
-    "tailwind-merge": "^2.2.0",
+    "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
     "type-graphql": "^2.0.0-beta.6",
     "vaul": "^0.8.0"
@@ -42,7 +43,7 @@
     "postcss": "^8",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.13",
     "typescript": "5.6.2"
   }
 }

@@ -20,7 +20,7 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Vishnu Prasad K.",
+  name: "Vishnu Prasad K",
   initials: "K",
   location: [
     {
