@@ -31,7 +31,7 @@ export const RESUME_DATA = {
   education: [
     {
       school: "University of Lower Silesia DSW (current)",
-      desc:
+      degree:
         "Engineer's degree in Computer Science - Cloud Systems and Applications",
       start: "2022",
       end: "2025",
@@ -40,25 +40,25 @@ export const RESUME_DATA = {
   cert_and_award: [
     {
       what: "1st Place, HackYeah",
-      degree:
+      desc:
         "Awarded for winning Hackathon in Kraków, showcasing problem-solving and technical skills. I played a pivotal role in frontend development and the DevOps aspects of our project.",
       when: "2023",
     },
     {
       what: "Introduction to Cybersecurity - Cisco Networking Academy",
-      degree:
+      desc:
         "Completed Cisco's Intro to Cybersecurity course.",
       when: "2023",
     },
     {
       what: "PCAP: Programming Essentials in Python",
-      degree:
+      desc:
         "Attained PCAP certification in Python programming.",
       when: "2023",
     },
     {
       what: "AWS Educate Certificates",
-      degree:
+      desc:
         "10+ AWS Educate certificates in various cloud computing topics.",
       when: "2023",
     },
