@@ -31,10 +31,36 @@ export const RESUME_DATA = {
   education: [
     {
       school: "University of Lower Silesia DSW (current)",
-      degree:
+      desc:
         "Engineer's degree in Computer Science - Cloud Systems and Applications",
       start: "2022",
       end: "2025",
+    },
+  ],
+  cert_and_award: [
+    {
+      what: "1st Place, HackYeah",
+      degree:
+        "Awarded for winning Hackathon in Kraków, showcasing problem-solving and technical skills. I played a pivotal role in frontend development and the DevOps aspects of our project.",
+      when: "2023",
+    },
+    {
+      what: "Introduction to Cybersecurity - Cisco Networking Academy",
+      degree:
+        "Completed Cisco's Intro to Cybersecurity course.",
+      when: "2023",
+    },
+    {
+      what: "PCAP: Programming Essentials in Python",
+      degree:
+        "Attained PCAP certification in Python programming.",
+      when: "2023",
+    },
+    {
+      what: "AWS Educate Certificates",
+      degree:
+        "10+ AWS Educate certificates in various cloud computing topics.",
+      when: "2023",
     },
   ],
   work: [
@@ -54,8 +80,8 @@ export const RESUME_DATA = {
       link: "",
       badges: [],
       title: "Main Programmer and Co-owner",
-      start: "10.2021",
-      end: "10.2022",
+      start: "08.2022",
+      end: "08.2023",
       description:
         "Co-owner of ManaCode s. c. civil partnership providing programming services. Technologies: React, React Native, JavaScript, Redux, Expo, Git, GitLab, Jira, Linux, Bash, GitLab, Nginx, SSH, SSL, Cloud, Scrum, Agile",
     },
@@ -139,7 +165,7 @@ export const RESUME_DATA = {
       description: "Weather app that shows current weather in your location",
       link: {
         label: "github.com",
-        href: "weather.mkuch.pl",
+        href: "https://weather.mkuch.pl",
       },
     },
     {

@@ -159,6 +159,26 @@ export default function Page() {
           })}
         </Section>
         <Section>
+          <h2 className="text-xl font-bold">Certificates and Awards</h2>
+          {RESUME_DATA.cert_and_award.map((cert_and_award) => {
+            return (
+              <Card key={cert_and_award.what}>
+                <CardHeader>
+                  <div className="flex items-center justify-between gap-x-2 text-base">
+                    <h3 className="font-semibold leading-none">
+                      {cert_and_award.what}
+                    </h3>
+                    <div className="text-sm tabular-nums text-gray-500">
+                      {cert_and_award.when}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-2">{cert_and_award.desc}</CardContent>
+              </Card>
+            );
+          })}
+        </Section>
+        <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
