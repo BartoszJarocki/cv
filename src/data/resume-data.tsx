@@ -1,6 +1,4 @@
-import {
-  DolbyLogo,
-} from "@/images/logos";
+import { DolbyLogo } from "@/images/logos";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
@@ -33,7 +31,8 @@ export const RESUME_DATA = {
   education: [
     {
       school: "University of Lower Silesia DSW (current)",
-      degree: "Engineer's degree in Computer Science - Cloud Systems and Applications",
+      degree:
+        "Engineer's degree in Computer Science - Cloud Systems and Applications",
       start: "2022",
       end: "2025",
     },
@@ -49,6 +48,16 @@ export const RESUME_DATA = {
       end: "now",
       description:
         "Implemented new testing tools and test cases, worked on improving the tests. Technologies: Python, Pytest, JSON, Docker, AWS, Linux, Bash",
+    },
+    {
+      company: "ManaCode s. c.",
+      link: "",
+      badges: [],
+      title: "Main Programmer and Co-owner",
+      start: "10.2021",
+      end: "10.2022",
+      description:
+        "Co-owner of ManaCode s. c. civil partnership providing programming services. Technologies: React, React Native, JavaScript, Redux, Expo, Git, GitLab, Jira, Linux, Bash, GitLab, Nginx, SSH, SSL, Cloud, Scrum, Agile",
     },
     {
       company: "Adam Świrkowski",
@@ -86,12 +95,38 @@ export const RESUME_DATA = {
     "Bash",
     "WordPress",
     "Nginx",
+    "LLM",
+    "Artificial Intelligence",
+    "Object-Oriented Programming",
     "Cloud Computing",
     "Computer Networking",
   ],
   projects: [
     {
-      title: "PizzaClicker Game",
+      title: "Train Qualitier",
+      techStack: [
+        "Big Project",
+        "React",
+        "JavaScript",
+        "sqlite3",
+        "HTML",
+        "CSS",
+        "Python",
+        "Flask",
+        "Linux",
+        "Raspberry Pi",
+        "Internet of Things",
+        "Sensors",
+      ],
+      description:
+        "Train Qualitier is a cutting-edge application aimed at enhancing passengers' travel experiences by monitoring and assessing the quality of train rides through real-time data collection from various sensors.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/Butterski/train-qualitier-backend",
+      },
+    },
+    {
+      title: "Weather App",
       techStack: [
         "Side Project",
         "React",
@@ -99,34 +134,31 @@ export const RESUME_DATA = {
         "Redux",
         "HTML",
         "CSS",
-        "Docker"
+        "Nginx",
       ],
-      description: "Simple Cookie Clicker clone with pizza theme",
+      description: "Weather app that shows current weather in your location",
       link: {
         label: "github.com",
-        href: "https://github.com/Butterski/pizza-clicker",
-      },
-    },
-    {
-      title: "Film Repertuar App",
-      techStack: ["Side Project", "React", "Express", "JavaScript", "MySQL", "HTML", "CSS"],
-      description:
-        "Simple web application for browsing movies and cinemas made to train my skills in React and Express",
-      link: {
-        label: "github.com",
-        href: "https://github.com/Butterski/film-repertuar-app",
+        href: "weather.mkuch.pl",
       },
     },
     {
       title: "Colors Game",
-      techStack: ["Side Project", "React", "TypeScript", "TailwindCSS", "HTML"],
+      techStack: [
+        "Side Project",
+        "Python",
+        "Discord.py",
+        "Docker",
+        "bash",
+        "Linux",
+        "DevChatOps",
+      ],
       description:
-        "Silly game where you guess the random color RGB value based on color preview",
+        "FantasyRatBot is a helpful bot for the FantasyRat Discord server. It is written in Python using the discord.py library.",
       link: {
         label: "github.com",
-        href: "https://github.com/Butterski/color-game",
+        href: "https://github.com/Butterski/evil-rat-bot",
       },
     },
-    
   ],
 } as const;
