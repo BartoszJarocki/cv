@@ -25,7 +25,7 @@ export const RESUME_DATA = {
   location: "Cairo, Egypt",
   locationLink: "https://www.google.com/maps/place/cairo",
   about:
-    "Full Stack Engineer focused on building products with extra attention to details",
+    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
   summary:
     "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
   avatarUrl: "https://avatars.githubusercontent.com/u/43762965?v=4",
@@ -141,6 +141,40 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "Parabol",
+      techStack: [
+        "Full Stack Developer",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "The Agile meeting co-pilot that delivers better meetings with less effort",
+      logo: ParabolLogo,
+      link: {
+        label: "github.com",
+        href: "https://parabol.co/",
+      },
+    },
+    {
+      title: "Evercast",
+      techStack: [
+        "Lead Frontend Developer",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "GraphQL",
+      ],
+      description:
+        "Creative collaboration platform that combines video conferencing and HD media streaming",
+      logo: EvercastLogo,
+      link: {
+        label: "evercast.us",
+        href: "https://www.evercast.us/",
+      },
+    },
+    {
       title: "Consultly",
       techStack: [
         "Side Project",
@@ -172,7 +206,7 @@ export const RESUME_DATA = {
       title: "Jarocki.me",
       techStack: ["Side Project", "Next.js", "MDX"],
       description:
-        "My personal website and blog. Built with Next.js and Notion API",
+        "Personal website and blog. Built with Next.js and Notion API",
       logo: JarockiMeLogo,
       link: {
         label: "github.com",
@@ -183,7 +217,7 @@ export const RESUME_DATA = {
       title: "Minimal",
       techStack: ["Side Project", "Next.js", "Puppeteer"],
       description:
-        "Minimalist calendars, habit trackers and planners generator",
+        "Minimalist calendars, habit trackers, and planners generator",
       logo: Minimal,
       link: {
         label: "useminimal.com",
@@ -212,41 +246,6 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "Parabol",
-      techStack: [
-        "Full Stack Developer",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "The Agile meeting co-pilot that delivers better meetings with less effort",
-      logo: ParabolLogo,
-      link: {
-        label: "github.com",
-        href: "https://parabol.co/",
-      },
-    },
-    {
-      title: "Evercast",
-      techStack: [
-        "Lead Frontend Developer",
-
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "Creative collaboration platform that combines video conferencing and HD media streaming",
-      logo: EvercastLogo,
-      link: {
-        label: "evercast.us",
-        href: "https://www.evercast.us/",
-      },
-    },
-    {
       title: "Mobile Vikings",
       techStack: ["Lead Android Developer", "Android", "Kotlin"],
       description:
@@ -260,8 +259,7 @@ export const RESUME_DATA = {
     {
       title: "Howdy",
       techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Howdy is a place for you to join communities you care about",
+      description: "Howdy is a place for joining communities you care about",
       logo: Howdy,
       link: {
         label: "play.google.com",
