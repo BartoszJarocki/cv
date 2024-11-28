@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import React from "react";
+import { Printer } from "@/components/printer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
@@ -22,8 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>{children}</body>
+    <html lang="ru-RU" className={inter.className}>
+      <body className="overflow-x-clip">
+        <div className="transform-none lg:scale-125 origin-top">
+          {children}
+        </div>
+        <Printer/>
+      </body>
       <Analytics />
     </html>
   );

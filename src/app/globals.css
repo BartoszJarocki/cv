@@ -78,3 +78,13 @@
 .print-force-new-page {
   page-break-before: always;
 }
+
+.word-spacing {
+  word-spacing: -3px;
+}
+
+.embla__dot--selected {
+  /* @apply bg-gray-500; */
+  @apply border-black;
+  @apply border-2;
+}

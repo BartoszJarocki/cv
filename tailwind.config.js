@@ -16,6 +16,10 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    listStyleType: {
+      square: 'square',
+      roman: 'upper-roman',
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -58,18 +62,23 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
+        "slideDown": {
           from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "var(--radix-collapsible-content-height)" },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
+        "slideUp": {
+          from: { height: "var(--radix-collapsible-content-height)" },
           to: { height: "0" },
         },
+        "slideDownUP": {
+          "0%, 100%": { height: "" },
+          "50%": { height: "30px" },
+        }
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "slideDown": "slideDown 0.1s ease-out",
+        "slideUp": "slideUp 0.1s ease-out",
+        "slideDownUP": "slideDownUP 1s ease-out",
       },
     },
   },
