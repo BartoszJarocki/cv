@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { WorkExperience } from "./components/WorkExperience";
+import { Projects } from "./components/Projects";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name}`,
@@ -149,6 +150,7 @@ export default function Page() {
             );
           })}
         </Section>
+
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
@@ -162,22 +164,7 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section className="print-force-new-page scroll-mb-16 print:space-y-4 print:pt-12">
-          <h2 className="text-xl font-bold">Side projects</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {RESUME_DATA.projects.map((project) => {
-              return (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
-                />
-              );
-            })}
-          </div>
-        </Section>
+        <Projects projects={RESUME_DATA.projects} />
       </section>
 
       <CommandMenu
