@@ -1,87 +1,150 @@
-import { Badge } from "../../components/ui/badge";
-import { Card, CardHeader, CardContent } from "../../components/ui/card";
-import { Section } from "../../components/ui/section";
-import { RESUME_DATA } from "../../data/resume-data";
-import { cn } from "../../lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
+import { RESUME_DATA } from "@/data/resume-data";
+import { cn } from "@/lib/utils";
 
-interface WorkExperienceBadgesProps {
+type WorkExperience = (typeof RESUME_DATA)["work"][number];
+type WorkBadges = readonly string[];
+
+interface BadgeListProps {
   className?: string;
-  badges: (typeof RESUME_DATA)["work"][number]["badges"];
+  badges: WorkBadges;
 }
 
-export const WorkExperienceBadgs = ({
-  className,
-  badges,
-}: WorkExperienceBadgesProps) => {
+/**
+ * Renders a list of badges for work experience
+ * Handles both mobile and desktop layouts through className prop
+ */
+function BadgeList({ className, badges }: BadgeListProps) {
+  if (badges.length === 0) return null;
+
   return (
-    <span className={className}>
+    <ul
+      className={cn("inline-flex list-none gap-x-1 p-0", className)}
+      aria-label="Technologies used"
+    >
       {badges.map((badge) => (
-        <Badge
-          variant="secondary"
-          className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-          key={badge}
-        >
-          {badge}
-        </Badge>
+        <li key={badge}>
+          <Badge
+            variant="secondary"
+            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+          >
+            {badge}
+          </Badge>
+        </li>
       ))}
-    </span>
+    </ul>
   );
-};
+}
+
+interface WorkPeriodProps {
+  start: WorkExperience["start"];
+  end?: WorkExperience["end"];
+}
+
+/**
+ * Displays the work period in a consistent format
+ */
+function WorkPeriod({ start, end }: WorkPeriodProps) {
+  return (
+    <div
+      className="text-sm tabular-nums text-gray-500"
+      aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
+    >
+      {start} - {end ?? "Present"}
+    </div>
+  );
+}
+
+interface CompanyLinkProps {
+  company: WorkExperience["company"];
+  link: WorkExperience["link"];
+}
+
+/**
+ * Renders company name with optional link
+ */
+function CompanyLink({ company, link }: CompanyLinkProps) {
+  return (
+    <a
+      className="hover:underline"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${company} company website`}
+    >
+      {company}
+    </a>
+  );
+}
 
 interface WorkExperienceItemProps {
-  work: (typeof RESUME_DATA)["work"][number];
+  work: WorkExperience;
 }
 
-export const WorkExperienceItem = ({ work }: WorkExperienceItemProps) => {
+/**
+ * Individual work experience card component
+ * Handles responsive layout for badges (mobile/desktop)
+ */
+function WorkExperienceItem({ work }: WorkExperienceItemProps) {
+  const { company, link, badges, title, start, end, description } = work;
+
   return (
-    <Card key={work.company} className="py-1">
+    <Card className="py-1">
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
-            <a className="hover:underline" href={work.link}>
-              {work.company}
-            </a>
-
-            <WorkExperienceBadgs
+            <CompanyLink company={company} link={link} />
+            <BadgeList
               className="hidden gap-x-1 sm:inline-flex"
-              badges={work.badges}
+              badges={badges}
             />
           </h3>
-
-          <div className="text-sm tabular-nums text-gray-500">
-            {work.start} - {work.end ?? "Present"}
-          </div>
+          <WorkPeriod start={start} end={end} />
         </div>
 
         <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
-          {work.title}
+          {title}
         </h4>
       </CardHeader>
 
-      <CardContent className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px]">
-        {work.description}
+      <CardContent>
+        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px]">
+          {description}
+        </div>
+        <div className="mt-2">
+          <BadgeList
+            className="-mx-2 flex-wrap gap-1 sm:hidden"
+            badges={badges}
+          />
+        </div>
       </CardContent>
-
-      <WorkExperienceBadgs
-        className="-mx-2 mt-2 inline-flex flex-wrap gap-1 sm:hidden"
-        badges={work.badges}
-      />
     </Card>
   );
-};
+}
 
 interface WorkExperienceProps {
   work: (typeof RESUME_DATA)["work"];
 }
 
-export const WorkExperience = ({ work }: WorkExperienceProps) => {
+/**
+ * Main work experience section component
+ * Renders a list of work experiences in chronological order
+ */
+export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold">Work Experience</h2>
-
-      {work.map((work) => {
-        return <WorkExperienceItem key={work.company} work={work} />;
-      })}
+      <h2 className="text-xl font-bold" id="work-experience">
+        Work Experience
+      </h2>
+      <div className="space-y-4" role="feed" aria-labelledby="work-experience">
+        {work.map((item) => (
+          <article key={`${item.company}-${item.start}`} role="article">
+            <WorkExperienceItem work={item} />
+          </article>
+        ))}
+      </div>
     </Section>
   );
-};
+}
