@@ -80,6 +80,9 @@ export class Project {
   @Field(() => String)
   description: string;
 
+  @Field(() => Boolean)
+  isActive: boolean;
+
   @Field(() => Link, { nullable: true })
   link?: Link;
 }
