@@ -1,22 +1,24 @@
-# Use the official lightweight Node.js 18 image.
-# https://hub.docker.com/_/node
-FROM node:18-slim
+FROM node:22.2.0-slim as BUILD_STAGE
 
-# Create and change to the app directory.
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy application dependency manifests to the container image.
-# A wildcard is used to ensure both package.json AND package-lock.json are copied.
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
-# Install all dependencies.
-RUN npm install
+RUN yarn install --frozen-lockfile
 
-# Copy local code to the container image.
 COPY . .
 
-# Build the app
-RUN npm run build
+RUN yarn build
 
-# Run the web service on container startup.
-CMD [ "npm", "start" ]
+FROM node:alpine
+
+WORKDIR /app
+
+COPY --from=BUILD_STAGE /app/package.json ./package.json
+COPY --from=BUILD_STAGE /app/node_modules ./node_modules
+COPY --from=BUILD_STAGE /app/.next ./.next
+COPY --from=BUILD_STAGE /app/public ./public
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
