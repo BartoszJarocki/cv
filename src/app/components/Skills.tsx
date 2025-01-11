@@ -21,7 +21,7 @@ function SkillsList({ skills, className }: SkillsListProps) {
     >
       {skills.map((skill) => (
         <li key={skill}>
-          <Badge className="print:text-[10px]" aria-label={`Skill: ${skill}`}>
+          <Badge className="font-poppins text-sm print:text-[10px]" aria-label={`Skill: ${skill}`}>
             {skill}
           </Badge>
         </li>

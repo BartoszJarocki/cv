@@ -200,6 +200,7 @@ export const RESUME_DATA = {
       techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
       description:
         "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
+      isActive: false,
       logo: MonitoLogo,
       link: {
         label: "monito.dev",
@@ -220,6 +221,7 @@ export const RESUME_DATA = {
       ],
       description:
         "Platform for online consultations with real-time video meetings and scheduling",
+      isActive: false,
       logo: ConsultlyLogo,
       link: {
         label: "consultly.com",
@@ -231,6 +233,7 @@ export const RESUME_DATA = {
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       description:
         "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+      isActive: true,
       logo: MonitoLogo,
       link: {
         label: "Minimalist CV",
