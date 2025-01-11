@@ -66,7 +66,7 @@ export default function ResumePage() {
       </div>
 
       <section
-        className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+        className="mx-auto w-full max-w-3xl space-y-8 bg-white print:space-y-4"
         aria-label="Resume Content"
       >
         <Header />

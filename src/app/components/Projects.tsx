@@ -38,7 +38,7 @@ function ProjectLink({ title, link, isActive }: ProjectLinkProps) {
       </a>{' '}
       <span className={`${isActive ? 'text-[rgb(242,140,40)]' : 'text-[rgb(0,163,108)]'} animate-[pulse_1s_ease-in_infinite]`}>•</span>
       <div
-        className="hidden font-mono text-xs underline print:visible"
+        className="hidden font-poppins text-xs underline print:visible"
         aria-hidden="true"
       >
         {link.replace("https://", "").replace("www.", "").replace("/", "")}
@@ -65,7 +65,7 @@ function ProjectTags({ tags }: ProjectTagsProps) {
       {tags.map((tag) => (
         <li key={tag}>
           <Badge
-            className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+            className="px-1 py-0 text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
             variant="secondary"
           >
             {tag}
@@ -99,7 +99,7 @@ function ProjectCard({ title, description, tags, link, isActive }: ProjectCardPr
             <ProjectLink title={title} link={link} isActive={isActive} />
           </CardTitle>
           <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
+            className="text-pretty font-poppins text-base text-foreground/80 print:text-[10px]"
             aria-label="Project description"
           >
             {description}

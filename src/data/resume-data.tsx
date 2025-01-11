@@ -6,7 +6,7 @@ import {
   NSNLogo,
   ParabolLogo,
 } from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon, LeetCodeIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
   name: "Bartosz Jarocki",
@@ -43,11 +43,6 @@ export const RESUME_DATA = {
         name: "X",
         url: "https://x.com/BartoszJarocki",
         icon: XIcon,
-      },
-      {
-        name: "LeetCode",
-        url: "https://leetcode.com/profile/",
-        icon: LeetCodeIcon,
       },
     ],
   },
