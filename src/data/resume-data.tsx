@@ -1,6 +1,11 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 import {
-    ConsultlyLogo
+  ClevertechLogo,
+  ConsultlyLogo,
+  JojoMobileLogo,
+  MonitoLogo,
+  NSNLogo,
+  ParabolLogo
 } from "@/images/logos";
 
 export const RESUME_DATA = {
@@ -15,7 +20,6 @@ export const RESUME_DATA = {
     personalWebsiteUrl: "https://fexx.dev",
     contact: {
         email: "fexxdev@gmail.com",
-        tel: "+39 3407024884",
         social: [
             {
                 name: "GitHub",
@@ -43,6 +47,17 @@ export const RESUME_DATA = {
         },
     ],
     work: [
+         {
+            company: "Nebula S.R.L.",
+            link: "https://teamnebula.it/",
+            badges: ["Hybrid"],
+            title: "Full Stack Developer",
+            logo: null,
+            start: "Oct 2023",
+            end: "Today",
+            description:
+                "Full stack software developer. Building a variety of software solutions for clients from enterprise solutions to mobile apps.",
+        },
         {
             company: "Proximo S.R.L.",
             link: "https://www.prxm.it/",
@@ -113,5 +128,5 @@ export const RESUME_DATA = {
                 href: "https://www.your-self.it/",
             },
         }
-    ],
+    ]
 } as const;
