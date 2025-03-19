@@ -9,232 +9,224 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Dean Yang",
+  initials: "DY",
+  location: "Taichung, Taiwan, UTC+8 (Open to Remote/International Roles)",
+  locationLink:
+    "https://www.google.com/maps/place/406%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8C%97%E5%B1%AF%E5%8D%80",
   about:
-    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
+    "Innovative Full Stack Engineer with a unique blend of technical expertise and a background in healthcare, dedicated to delivering scalable, high-performance solutions for global markets.",
   summary: (
     <>
-      Frontend-focused Full Stack Engineer specializing in high-performance
-      React applications, scalable Node.js services, and real-time collaboration
-      systems. Experienced in technical architecture design and remote team
-      leadership.
+      Experienced Full Stack Engineer with a strong focus on backend development
+      and cloud-native architecture. Transitioning from a successful career in
+      physical therapy, I combine empathy and analytical skills to drive
+      innovation. Notable achievements include leading a migration from Node.js
+      to Java that boosted performance by over <strong>30%</strong>, and
+      developing enterprise-level systems using Docker, AWS, and CI/CD
+      pipelines. Passionate about building products that meet international
+      standards and enhance user experience.
     </>
   ),
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  avatarUrl: "https://avatars.githubusercontent.com/u/97731209?v=4",
+  personalWebsiteUrl: "https://shengshengyang.github.io/",
   contact: {
-    email: "bartosz.jarocki@hey.com",
+    email: "someofagun@gmail.com",
     tel: "+48530213401",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/shengshengyang",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/%E7%9B%9B%E7%9B%9B-%E6%A5%8A-a84338258/",
         icon: LinkedInIcon,
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "iSpan Full Stack Java Software Engineer Training Class",
+      degree: "Full Stack Java Certification",
+      start: "2022",
+      end: "2022",
+    },
+    {
+      school: "National Cheng Kung University ",
+      degree: "Bachelor's Degree in Physical Therapy",
+      start: "2010",
+      end: "2014",
     },
   ],
   work: [
     {
-      company: "Film.io",
-      link: "https://film.io",
-      badges: ["Remote", "React", "Next.js", "TypeScript", "Node.js"],
-      title: "Software Architect",
+      company: "Athena Information Systems",
+      link: "https://www.athena.com.tw/en/",
+      badges: ["On Site", "Java", "Docker", "GitLab", "PostgresSQL", "Oracle"],
+      title: "Backend Developer",
       logo: ConsultlyLogo,
       start: "2024",
       end: null,
       description: (
         <>
-          Leading technical architecture of a blockchain-based film funding
-          platform.
+          Key contributor in transforming our Restaurant Management System by
+          migrating from Node.js to Java, resulting in a performance boost of
+          over <strong>30%</strong> and significant reductions in latency and
+          downtime.
           <ul className="list-inside list-disc">
             <li>
-              Architecting migration from CRA to Next.js for improved
-              performance, SEO, and DX
+              Spearheaded migration to Java, improving system performance by
+              over 30%
             </li>
             <li>
-              Established release process enabling faster deployments and
-              reliable rollbacks
+              Developed a cloud-based reservation system using Spring Boot and
+              PostgresSQL, increasing booking efficiency by 35%
             </li>
             <li>
-              Implementing system-wide monitoring and security improvements
+              Established robust QA and CI/CD pipelines, reducing bugs by 20%
+              and accelerating release cycles by 50%
             </li>
           </ul>
         </>
       ),
     },
     {
-      company: "Parabol",
-      link: "https://parabol.co",
+      company: "Da Fon Environmental Technology",
+      link: "https://www.df-recycle.com/",
       badges: [
-        "Remote",
+        "On Site",
+        "Java",
+        "Spring Boot",
+        "Spring",
+        "Android",
         "React",
-        "TypeScript",
         "Node.js",
-        "GraphQL",
-        "Tailwind CSS",
+        "BootStrap 5",
       ],
-      title: "Senior Full Stack Developer",
+      title: "Full Stack Developer",
       logo: ParabolLogo,
-      start: "2021",
+      start: "2022",
       end: "2024",
       description: (
         <>
-          Senior developer and squad leader for an enterprise agile meeting
-          platform.
+          Progressed from a junior role to a full stack developer, delivering a
+          comprehensive recycling car tracking system.
           <ul className="list-inside list-disc">
             <li>
-              Built design system with Tailwind CSS, improving development speed
-              and time to market
+              Developed an end-to-end tracking system using Spring Boot and
+              Android for real-time logistics insights
             </li>
             <li>
-              Implemented engineering practices: PR automation, code review
-              guidelines, and workflows
-            </li>
-            <li>
-              Open source contributions to Relay DevTools and React i18n tooling
+              Instituted streamlined workflows that enhanced team productivity
+              and code quality
             </li>
           </ul>
         </>
       ),
     },
     {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote", "React", "TypeScript", "Node.js", "Android", "Kotlin"],
-      title: "Lead Android Developer → Full Stack Developer",
+      company: "Cherish Physical Therapy Clinic",
+      link: "",
+      badges: ["Orthopaedics Physical Therapy", "Sports injuries"],
+      title: "Physical Therapy",
       logo: ClevertechLogo,
-      start: "2015",
+      start: "2018",
       end: "2021",
       description: (
         <>
-          Successfully transitioned from mobile to full-stack development while
-          leading distributed teams.
-          <ul className="list-inside list-disc">
-            <li>
-              Led frontend team at Evercast, building real-time platform
-              supporting 30+ users per room with HD streaming and collaboration
-              tools
-            </li>
-            <li>
-              Developed offline-first Android app for DKMS, improving donor
-              registration process
-            </li>
-            <li>
-              Led development teams across multiple successful client projects
-            </li>
-          </ul>
+          Delivered personalized physical therapy sessions and successfully
+          negotiated business collaborations, showcasing strong communication
+          and client relationship skills.
         </>
       ),
     },
     {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: ["On Site", "Android", "Java", "Kotlin"],
-      title: "Android Developer → Lead Android Developer",
+      company: "Decathlon Taiwan",
+      link: "https://www.decathlon.tw/",
+      badges: ["Pilates", "Sports Leader"],
+      title: "Pilates Sports Leader",
       logo: JojoMobileLogo,
-      start: "2012",
-      end: "2015",
+      start: "2018",
+      end: "2019",
       description: (
         <>
-          First Android developer, grew and led a team of 15+ engineers while
-          establishing engineering culture.
-          <ul className="list-inside list-disc">
-            <li>
-              Developed apps for major Polish companies including LOT, Polskie
-              Radio, and Agora
-            </li>
-            <li>Built and mentored high-performing mobile development team</li>
-          </ul>
+          Championed the promotion of Pilates, enhancing in-store customer
+          engagement and brand visibility.
         </>
       ),
     },
     {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: ["On Site", "C/C++", "LTE", "Agile"],
-      title: "C/C++ Developer",
+      company: "NTU BioMedical Park Hospital Chu-Tung Campus",
+      link: "https://www.hch.gov.tw/english/",
+      badges: ["Physical Therapy"],
+      title: "Physical Therapy",
       logo: NSNLogo,
-      start: "2010",
-      end: "2012",
+      start: "2016",
+      end: "2018",
       description:
-        "Developed software for LTE base stations at enterprise scale, gaining strong fundamentals in software architecture, testing practices, and cross-team collaboration.",
+        "Provided specialized physical therapy services, including orthopedic, cardiopulmonary, and neurological treatments, in a fast-paced hospital setting.",
     },
   ],
   skills: [
-    "React/Next.js/Remix",
-    "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "WebRTC",
-    "WebSockets",
+    "Java",
+    "Spring",
+    "Docker",
+    "JavaScript",
+    "AWS",
     "Node.js",
-    "GraphQL",
-    "Relay",
+    "Vue",
     "System Architecture",
-    "Remote Team Leadership",
   ],
   projects: [
     {
-      title: "Monito",
-      techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
-      description:
-        "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
-      logo: MonitoLogo,
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
-    },
-    {
-      title: "Consultly",
+      title: "baby-development-backend",
       techStack: [
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-        "Tailwind CSS",
-        "PostgreSQL",
-        "Redis",
+        "Java",
+        "Spring",
+        "MySql",
+        "Flyway",
+        "Docker",
+        "Maven",
+        "Thymeleaf",
       ],
       description:
-        "Platform for online consultations with real-time video meetings and scheduling",
-      logo: ConsultlyLogo,
+        "Developed robust backend APIs for a baby development tracking app, featuring user management, milestone tracking, and dynamic report generation.",
+      logo: MonitoLogo,
       link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
+        label: "baby development",
+        href: "https://github.com/shengshengyang/baby-development-backend",
       },
     },
     {
-      title: "Minimalist CV",
-      techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
+      title: "baby-development-frontend",
+      techStack: ["Vue", "Quasar", "Vite", "Typescript", "Node.js"],
       description:
-        "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+        "Engineered an intuitive frontend interface for the baby development app, ensuring responsive design and seamless user experience.",
+      logo: ConsultlyLogo,
+      link: {
+        label: " baby development",
+        href: "https://github.com/shengshengyang/baby-development-frontend-quasar",
+      },
+    },
+    {
+      title: "Clock In Project",
+      techStack: [
+        "Java",
+        "Spring",
+        "Kafka",
+        "MySql",
+        "Flyway",
+        "Docker",
+        "Maven",
+      ],
+      description:
+        "Built a real-time clock-in tracking system leveraging Kafka for data processing, delivering scalable and reliable work time management.",
       logo: MonitoLogo,
       link: {
-        label: "Minimalist CV",
-        href: "https://github.com/BartoszJarocki/cv",
+        label: "Clock In",
+        href: "https://github.com/shengshengyang/clockin",
       },
     },
   ],
