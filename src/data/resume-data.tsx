@@ -1,241 +1,162 @@
-import {
-  ClevertechLogo,
-  ConsultlyLogo,
-  JojoMobileLogo,
-  MonitoLogo,
-  NSNLogo,
-  ParabolLogo,
-} from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { ReactNode } from "react";
 
-export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+type Social = {
+  name: string;
+  url: string;
+};
+
+type Education = {
+  school: string;
+  degree: string;
+  start: string;
+  end: string | null;
+};
+
+type WorkExperience = {
+  company: string;
+  link: string;
+  badges: string[];
+  title: string;
+  logo: string | null;
+  start: string;
+  end: string | null;
+  description: ReactNode;
+};
+
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  link?: {
+    label: string;
+    href: string;
+  };
+};
+
+// Define the main resume data type
+type ResumeData = {
+  name: string;
+  initials: string;
+  location: string;
+  locationLink: string;
+  about: string;
+  summary: ReactNode;
+  avatarUrl: string;
+  personalWebsiteUrl: string;
+  contact: {
+    email: string;
+    tel: string;
+    social: Social[];
+  };
+  education: Education[];
+  work: WorkExperience[];
+  skills: string[];
+  projects: Project[];
+};
+
+export const RESUME_DATA: ResumeData = {
+  name: "Patrick Lehmann",
+  initials: "PL",
+  location: "Berlin, Germany CET",
+  locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
   about:
-    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
+    "Senior Full‑Stack Developer with 7+ years of experience delivering scalable web and mobile applications.",
   summary: (
     <>
-      Frontend-focused Full Stack Engineer specializing in high-performance
-      React applications, scalable Node.js services, and real-time collaboration
-      systems. Experienced in technical architecture design and remote team
-      leadership.
+      Currently driving end‑to‑end product delivery at code‑b, translating
+      complex requirements into robust solutions using React, Next.js, React
+      Native, and TypeScript.
     </>
   ),
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  avatarUrl: "",
+  personalWebsiteUrl: "https://ptrcklehmann.com",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
-    social: [
-      {
-        name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
-        icon: GitHubIcon,
-      },
-      {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
-        icon: LinkedInIcon,
-      },
-      {
-        name: "X",
-        url: "https://x.com/BartoszJarocki",
-        icon: XIcon,
-      },
-    ],
+    email: "connect@ptrcklehmann.com",
+    tel: "+4915901345063",
+    social: [],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "Ironhack Berlin",
+      degree: "Full‑Stack Web Development Bootcamp",
+      start: "01.2021",
+      end: "05.2021",
+    },
+    {
+      school: "President Antônio Carlos University",
+      degree: "BSc in Systems Analysis and Development",
+      start: "01.2006",
+      end: "07.2011",
     },
   ],
   work: [
     {
-      company: "Film.io",
-      link: "https://film.io",
-      badges: ["Remote", "React", "Next.js", "TypeScript", "Node.js"],
-      title: "Software Architect",
-      logo: ConsultlyLogo,
-      start: "2024",
+      company: "code‑b agile websolutions GmbH",
+      link: "https://code-b.com",
+      badges: [
+        "On Site",
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "CI/CD",
+      ],
+      title: "Full‑Stack Developer",
+      logo: null,
+      start: "06.2022",
       end: null,
       description: (
         <>
-          Leading technical architecture of a blockchain-based film funding
-          platform.
+          Driving end‑to‑end product delivery:
           <ul className="list-inside list-disc">
             <li>
-              Architecting migration from CRA to Next.js for improved
-              performance, SEO, and DX
+              Built and maintained scalable web & mobile apps with React,
+              Next.js, React Native, and TypeScript
             </li>
-            <li>
-              Established release process enabling faster deployments and
-              reliable rollbacks
-            </li>
-            <li>
-              Implementing system-wide monitoring and security improvements
-            </li>
+            <li>Designed CI/CD pipelines to automate testing & deployments</li>
+            <li>Mentored junior developers and enforced best practices</li>
           </ul>
         </>
       ),
     },
     {
-      company: "Parabol",
-      link: "https://parabol.co",
-      badges: [
-        "Remote",
-        "React",
-        "TypeScript",
-        "Node.js",
-        "GraphQL",
-        "Tailwind CSS",
-      ],
-      title: "Senior Full Stack Developer",
-      logo: ParabolLogo,
-      start: "2021",
-      end: "2024",
-      description: (
-        <>
-          Senior developer and squad leader for an enterprise agile meeting
-          platform.
-          <ul className="list-inside list-disc">
-            <li>
-              Built design system with Tailwind CSS, improving development speed
-              and time to market
-            </li>
-            <li>
-              Implemented engineering practices: PR automation, code review
-              guidelines, and workflows
-            </li>
-            <li>
-              Open source contributions to Relay DevTools and React i18n tooling
-            </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote", "React", "TypeScript", "Node.js", "Android", "Kotlin"],
-      title: "Lead Android Developer → Full Stack Developer",
-      logo: ClevertechLogo,
-      start: "2015",
-      end: "2021",
-      description: (
-        <>
-          Successfully transitioned from mobile to full-stack development while
-          leading distributed teams.
-          <ul className="list-inside list-disc">
-            <li>
-              Led frontend team at Evercast, building real-time platform
-              supporting 30+ users per room with HD streaming and collaboration
-              tools
-            </li>
-            <li>
-              Developed offline-first Android app for DKMS, improving donor
-              registration process
-            </li>
-            <li>
-              Led development teams across multiple successful client projects
-            </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: ["On Site", "Android", "Java", "Kotlin"],
-      title: "Android Developer → Lead Android Developer",
-      logo: JojoMobileLogo,
-      start: "2012",
-      end: "2015",
-      description: (
-        <>
-          First Android developer, grew and led a team of 15+ engineers while
-          establishing engineering culture.
-          <ul className="list-inside list-disc">
-            <li>
-              Developed apps for major Polish companies including LOT, Polskie
-              Radio, and Agora
-            </li>
-            <li>Built and mentored high-performing mobile development team</li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: ["On Site", "C/C++", "LTE", "Agile"],
-      title: "C/C++ Developer",
-      logo: NSNLogo,
-      start: "2010",
-      end: "2012",
+      company: "Freelance",
+      link: "",
+      badges: ["Remote", "React", "Next.js", "TypeScript"],
+      title: "Full‑Stack Developer",
+      logo: null,
+      start: "05.2018",
+      end: "present",
       description:
-        "Developed software for LTE base stations at enterprise scale, gaining strong fundamentals in software architecture, testing practices, and cross-team collaboration.",
+        "Developed bespoke web applications for various clients using modern frontend and backend technologies.",
+    },
+    {
+      company: "International Labour Organization",
+      link: "https://www.ilo.org",
+      badges: ["Remote", "React", "Design"],
+      title: "Frontend Developer / Graphic Design Consultant",
+      logo: null,
+      start: "10.2019",
+      end: "05.2022",
+      description:
+        "Designed UI and visual identities for global reports and events, improving accessibility and user engagement.",
     },
   ],
   skills: [
-    "React/Next.js/Remix",
+    "React",
+    "Next.js",
+    "React Native",
     "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "WebRTC",
-    "WebSockets",
     "Node.js",
     "GraphQL",
-    "Relay",
-    "System Architecture",
-    "Remote Team Leadership",
+    "REST API",
+    "SQL/MySQL",
+    "MongoDB",
+    "Jest",
+    "Vitest",
+    "CI/CD",
+    "HTML5",
+    "CSS",
   ],
-  projects: [
-    {
-      title: "Monito",
-      techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
-      description:
-        "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
-      logo: MonitoLogo,
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
-    },
-    {
-      title: "Consultly",
-      techStack: [
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-        "Tailwind CSS",
-        "PostgreSQL",
-        "Redis",
-      ],
-      description:
-        "Platform for online consultations with real-time video meetings and scheduling",
-      logo: ConsultlyLogo,
-      link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
-      },
-    },
-    {
-      title: "Minimalist CV",
-      techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
-      description:
-        "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
-      logo: MonitoLogo,
-      link: {
-        label: "Minimalist CV",
-        href: "https://github.com/BartoszJarocki/cv",
-      },
-    },
-  ],
+  projects: [],
 } as const;
