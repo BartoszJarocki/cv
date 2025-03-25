@@ -1,4 +1,6 @@
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { ILOLogo } from "@/images/logos";
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 type Social = {
@@ -19,7 +21,7 @@ type WorkExperience = {
   link: string;
   badges: string[];
   title: string;
-  logo: string | null;
+  logo: StaticImageData | null;
   start: string;
   end: string | null;
   description: ReactNode;
@@ -135,19 +137,51 @@ export const RESUME_DATA: ResumeData = {
       logo: null,
       start: "05.2018",
       end: null,
-      description:
-        "Developed bespoke web & mobile solutions for diverse clients using modern full-stack technologies.",
+      description: (
+        <>
+          Independent development services:
+          <ul className="list-inside list-disc">
+            <li>
+              Developed bespoke web & mobile solutions for diverse clients using
+              modern full-stack technologies
+            </li>
+            <li>
+              Implemented responsive designs and intuitive user interfaces
+            </li>
+            <li>
+              Managed client relationships and project timelines independently
+            </li>
+          </ul>
+        </>
+      ),
     },
     {
       company: "ILO",
       link: "https://www.ilo.org",
       badges: ["Remote", "Graphic Design", "UI/UX", "Frontend"],
       title: "Frontend Developer / Graphic Design Consultant",
-      logo: null,
+      logo: ILOLogo,
       start: "10.2019",
       end: "05.2022",
-      description:
-        "Designed UI and visual identities for global reports & events, improving accessibility and user engagement.",
+      description: (
+        <>
+          Digital presence enhancement:
+          <ul className="list-inside list-disc">
+            <li>
+              Designed UI and visual identities for global reports & events,
+              improving accessibility and user engagement
+            </li>
+            <li>
+              Created compelling graphics for international campaigns and
+              publications
+            </li>
+            <li>
+              Collaborated with stakeholders across multiple countries and time
+              zones
+            </li>
+          </ul>
+        </>
+      ),
     },
     {
       company: "Aviatrix Café",
@@ -157,8 +191,19 @@ export const RESUME_DATA: ResumeData = {
       logo: null,
       start: "01.2016",
       end: "08.2018",
-      description:
-        "Prepared and served coffee drinks & baked vegan/gluten-free pastries while educating customers on coffee products.",
+      description: (
+        <>
+          Customer service excellence:
+          <ul className="list-inside list-disc">
+            <li>
+              Prepared and served coffee drinks & baked vegan/gluten-free
+              pastries
+            </li>
+            <li>Educated customers on coffee products and brewing methods</li>
+            <li>Maintained quality standards and hygiene protocols</li>
+          </ul>
+        </>
+      ),
     },
     {
       company: "Efficient Signer and Print Ltd",
@@ -168,8 +213,25 @@ export const RESUME_DATA: ResumeData = {
       logo: null,
       start: "01.2015",
       end: "12.2015",
-      description:
-        "Created marketing materials (print & digital), trend boards, and brand collateral.",
+      description: (
+        <>
+          Creative design services:
+          <ul className="list-inside list-disc">
+            <li>
+              Created marketing materials (print & digital), trend boards, and
+              brand collateral
+            </li>
+            <li>
+              Collaborated with clients to translate requirements into visual
+              solutions
+            </li>
+            <li>
+              Managed multiple design projects simultaneously with tight
+              deadlines
+            </li>
+          </ul>
+        </>
+      ),
     },
   ],
   skills: [
