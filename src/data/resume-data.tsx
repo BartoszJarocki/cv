@@ -136,7 +136,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Full-Stack Developer",
       logo: null,
       start: "05.2018",
-      end: null,
+      end: "05.2022",
       description: (
         <>
           Independent development services:
@@ -179,28 +179,6 @@ export const RESUME_DATA: ResumeData = {
               Collaborated with stakeholders across multiple countries and time
               zones
             </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      company: "Aviatrix Café",
-      link: "https://www.aviatrixberlin.com/",
-      badges: ["Barista", "Baker", "Customer Service"],
-      title: "Baker / Barista",
-      logo: null,
-      start: "01.2016",
-      end: "08.2018",
-      description: (
-        <>
-          Customer service excellence:
-          <ul className="list-inside list-disc">
-            <li>
-              Prepared and served coffee drinks & baked vegan/gluten-free
-              pastries
-            </li>
-            <li>Educated customers on coffee products and brewing methods</li>
-            <li>Maintained quality standards and hygiene protocols</li>
           </ul>
         </>
       ),
