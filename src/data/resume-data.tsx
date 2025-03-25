@@ -112,19 +112,28 @@ export const RESUME_DATA: ResumeData = {
       start: "06.2022",
       end: null,
       description: (
-        <>
-          Driving end-to-end product delivery:
-          <ul className="list-inside list-disc">
-            <li>
-              Built & maintained scalable web & mobile apps with React, Next.js,
-              React Native, and TypeScript
-            </li>
-            <li>
-              Designed CI/CD pipelines for automated testing & deployments
-            </li>
-            <li>Mentored junior developers and enforced best practices</li>
-          </ul>
-        </>
+        <ul className="list-inside list-disc">
+          <li>
+            Developed responsive and high-performing web and mobile
+            applications, improving user engagement and reducing load times by
+            up to 30% using React, Next.js, React Native, and TypeScript.
+            Notable projects include thepioneer.de and tabletop-herald.com.
+          </li>
+          <li>
+            Streamlined CI/CD pipelines, reducing deployment times by 25% and
+            enhancing application stability through automated testing.
+          </li>
+          <li>
+            Supported junior developers through mentorship and thorough code
+            reviews, fostering better practices and improving overall code
+            quality.
+          </li>
+          <li>
+            Managed projects from requirements gathering and architecture design
+            to deployment and ongoing improvements, ensuring alignment with
+            business goals and user needs.
+          </li>
+        </ul>
       ),
     },
     {
@@ -133,28 +142,28 @@ export const RESUME_DATA: ResumeData = {
       badges: ["TypeScript", "React", "React Native", "GraphQL"],
       title: "Full-Stack Developer",
       logo: null,
-      start: "05.2018",
+      start: "05.2016",
       end: "05.2022",
       description: (
-        <>
-          Independent development services:
-          <ul className="list-inside list-disc">
-            <li>
-              Developed bespoke web & mobile solutions for diverse clients using
-              modern full-stack technologies
-            </li>
-            <li>
-              Implemented responsive designs and intuitive user interfaces
-            </li>
-            <li>
-              Managed client relationships and project timelines independently
-            </li>
-          </ul>
-        </>
+        <ul className="list-inside list-disc">
+          <li>
+            Built, tested, and launched robust, scalable software solutions with
+            high availability, prioritizing reliability and peak performance
+            through modern development practices.
+          </li>
+          <li>
+            Consistently enhanced legacy systems, integrating new
+            functionalities and delivering innovative, user-centric applications
+            aligned closely with strategic business objectives.
+          </li>
+          <li>
+            Managed client relationships and project timelines independently
+          </li>
+        </ul>
       ),
     },
     {
-      company: "ILO",
+      company: "International Labour Organization",
       link: "https://www.ilo.org",
       badges: ["Remote", "Graphic Design", "UI/UX", "Frontend"],
       title: "Graphic Designer & Frontend Developer",
@@ -162,23 +171,23 @@ export const RESUME_DATA: ResumeData = {
       start: "10.2019",
       end: "05.2022",
       description: (
-        <>
-          Digital presence enhancement:
-          <ul className="list-inside list-disc">
-            <li>
-              Designed UI and visual identities for global reports & events,
-              improving accessibility and user engagement
-            </li>
-            <li>
-              Created compelling graphics for international campaigns and
-              publications
-            </li>
-            <li>
-              Collaborated with stakeholders across multiple countries and time
-              zones
-            </li>
-          </ul>
-        </>
+        <ul className="list-inside list-disc">
+          <li>
+            Created cohesive visual identities and UI designs for global reports
+            and events, significantly enhancing brand consistency and user
+            engagement for initiatives like Global Social Protection Week and
+            the Global Flagship Programme.
+          </li>
+          <li>
+            Improved accessibility and modernized user experience for online
+            reports, meeting contemporary web standards and boosting user
+            interaction.
+          </li>
+          <li>
+            Collaborated with stakeholders across multiple countries and time
+            zones
+          </li>
+        </ul>
       ),
     },
     {
@@ -190,23 +199,21 @@ export const RESUME_DATA: ResumeData = {
       start: "01.2015",
       end: "12.2015",
       description: (
-        <>
-          Creative design services:
-          <ul className="list-inside list-disc">
-            <li>
-              Created marketing materials (print & digital), trend boards, and
-              brand collateral
-            </li>
-            <li>
-              Collaborated with clients to translate requirements into visual
-              solutions
-            </li>
-            <li>
-              Managed multiple design projects simultaneously with tight
-              deadlines
-            </li>
-          </ul>
-        </>
+        <ul className="list-inside list-disc">
+          <li>
+            Designed impactful marketing packages, including compelling print
+            materials, brochures, banners, and signage, significantly improving
+            brand visibility and market presence.
+          </li>
+          <li>
+            Produced insightful trend boards and conducted market analysis to
+            identify emerging opportunities, enabling strategic business
+            decisions and capitalizing on industry shifts.
+          </li>
+          <li>
+            Managed multiple design projects simultaneously with tight deadlines
+          </li>
+        </ul>
       ),
     },
   ],
@@ -226,7 +233,7 @@ export const RESUME_DATA: ResumeData = {
     "Vitest",
     "CI/CD",
     "HTML5",
-    "CSS",
+    "CSS3",
   ],
   projects: [],
 } as const;
