@@ -28,7 +28,7 @@ function BadgeList({ className, badges }: BadgeListProps) {
         <li key={badge}>
           <Badge
             variant="secondary"
-            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+            className="align-middle text-[10px] print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
           >
             {badge}
           </Badge>
@@ -49,7 +49,7 @@ interface WorkPeriodProps {
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
-      className="text-sm tabular-nums text-gray-500"
+      className="text-nowrap text-[10px] tabular-nums text-gray-500"
       aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
@@ -68,7 +68,7 @@ interface CompanyLinkProps {
 function CompanyLink({ company, link }: CompanyLinkProps) {
   return (
     <a
-      className="hover:underline"
+      className="text-sm font-semibold text-slate-900 hover:underline"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
@@ -94,19 +94,18 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
     <Card className="py-1 print:py-0">
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3 className="text-md inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
-            <CompanyLink company={company} link={link} />
+          <span className="text-md inline-flex items-center justify-center gap-x-1 font-semibold uppercase leading-none print:text-sm">
+            <h3 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
+              {title}
+            </h3>
             <BadgeList
               className="hidden gap-x-1 sm:inline-flex"
               badges={badges}
             />
-          </h3>
+          </span>
           <WorkPeriod start={start} end={end} />
         </div>
-
-        <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
-          {title}
-        </h4>
+        <CompanyLink company={company} link={link} />
       </CardHeader>
 
       <CardContent>
@@ -135,10 +134,14 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold" id="work-experience">
-        Work Experience
+      <h2 className="text-xl font-bold uppercase" id="work-experience">
+        Experience
       </h2>
-      <div className="space-y-4 print:space-y-0" role="feed" aria-labelledby="work-experience">
+      <div
+        className="space-y-4 print:space-y-0"
+        role="feed"
+        aria-labelledby="work-experience"
+      >
         {work.map((item) => (
           <article key={`${item.company}-${item.start}`} role="article">
             <WorkExperienceItem work={item} />

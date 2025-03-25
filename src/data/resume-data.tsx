@@ -1,5 +1,4 @@
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
-import { ILOLogo } from "@/images/logos";
 import { ReactNode } from "react";
 
 type Social = {
@@ -158,8 +157,8 @@ export const RESUME_DATA: ResumeData = {
       company: "ILO",
       link: "https://www.ilo.org",
       badges: ["Remote", "Graphic Design", "UI/UX", "Frontend"],
-      title: "Frontend Developer / Graphic Design Consultant",
-      logo: ILOLogo,
+      title: "Graphic Designer & Frontend Developer",
+      logo: null,
       start: "10.2019",
       end: "05.2022",
       description: (
