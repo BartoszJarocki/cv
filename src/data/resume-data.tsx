@@ -71,7 +71,7 @@ export const RESUME_DATA: ResumeData = {
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/32590221?v=4",
-  personalWebsiteUrl: "https://ptrcklehmann.com",
+  personalWebsiteUrl: "www.ptrcklehmann.com",
   contact: {
     email: "connect@ptrcklehmann.com",
     tel: "+4915901345063",
