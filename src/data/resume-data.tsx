@@ -112,23 +112,23 @@ export const RESUME_DATA: ResumeData = {
       start: "06.2022",
       end: null,
       description: (
-        <ul className="list-inside list-disc">
-          <li>
+        <ul className="list-inside list-disc marker:text-gray-500">
+          <li className="mb-1">
             Developed responsive and high-performing web and mobile
             applications, improving user engagement and reducing load times by
             up to 30% using React, Next.js, React Native, and TypeScript.
             Notable projects include thepioneer.de and tabletop-herald.com.
           </li>
-          <li>
+          <li className="mb-1">
             Streamlined CI/CD pipelines, reducing deployment times by 25% and
             enhancing application stability through automated testing.
           </li>
-          <li>
+          <li className="mb-1">
             Supported junior developers through mentorship and thorough code
             reviews, fostering better practices and improving overall code
             quality.
           </li>
-          <li>
+          <li className="mb-1">
             Managed projects from requirements gathering and architecture design
             to deployment and ongoing improvements, ensuring alignment with
             business goals and user needs.
@@ -145,18 +145,18 @@ export const RESUME_DATA: ResumeData = {
       start: "05.2016",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc">
-          <li>
+        <ul className="list-inside list-disc marker:text-gray-500">
+          <li className="mb-1">
             Built, tested, and launched robust, scalable software solutions with
             high availability, prioritizing reliability and peak performance
             through modern development practices.
           </li>
-          <li>
+          <li className="mb-1">
             Consistently enhanced legacy systems, integrating new
             functionalities and delivering innovative, user-centric applications
             aligned closely with strategic business objectives.
           </li>
-          <li>
+          <li className="mb-1">
             Managed client relationships and project timelines independently
           </li>
         </ul>
@@ -171,19 +171,19 @@ export const RESUME_DATA: ResumeData = {
       start: "10.2019",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc">
-          <li>
+        <ul className="list-inside list-disc marker:text-gray-500">
+          <li className="mb-1">
             Created cohesive visual identities and UI designs for global reports
             and events, significantly enhancing brand consistency and user
             engagement for initiatives like Global Social Protection Week and
             the Global Flagship Programme.
           </li>
-          <li>
+          <li className="mb-1">
             Improved accessibility and modernized user experience for online
             reports, meeting contemporary web standards and boosting user
             interaction.
           </li>
-          <li>
+          <li className="mb-1">
             Collaborated with stakeholders across multiple countries and time
             zones
           </li>
@@ -199,18 +199,18 @@ export const RESUME_DATA: ResumeData = {
       start: "01.2015",
       end: "12.2015",
       description: (
-        <ul className="list-inside list-disc">
-          <li>
+        <ul className="list-inside list-disc marker:text-gray-500">
+          <li className="mb-1">
             Designed impactful marketing packages, including compelling print
             materials, brochures, banners, and signage, significantly improving
             brand visibility and market presence.
           </li>
-          <li>
+          <li className="mb-1">
             Produced insightful trend boards and conducted market analysis to
             identify emerging opportunities, enabling strategic business
             decisions and capitalizing on industry shifts.
           </li>
-          <li>
+          <li className="mb-1">
             Managed multiple design projects simultaneously with tight deadlines
           </li>
         </ul>
