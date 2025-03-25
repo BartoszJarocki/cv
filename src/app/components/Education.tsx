@@ -15,7 +15,7 @@ interface EducationPeriodProps {
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
-      className="text-sm tabular-nums text-gray-500"
+      className="text-[10px] tabular-nums text-gray-500"
       aria-label={`Period: ${start} to ${end}`}
     >
       {start} - {end}
