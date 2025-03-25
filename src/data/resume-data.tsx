@@ -61,8 +61,7 @@ export const RESUME_DATA: ResumeData = {
   initials: "PL",
   location: "Berlin, Germany CET",
   locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
-  about:
-    "Senior Full-Stack Developer with 7+ years of experience delivering scalable web and mobile applications.",
+  about: "Senior Full-Stack Developer",
   summary: (
     <>
       Currently driving end-to-end product delivery at code-b, translating
