@@ -41,16 +41,17 @@ export default async function Image() {
             style={{
               width: "150px",
               height: "150px",
-              borderRadius: "10%",
+              borderRadius: "50%",
               marginBottom: "2rem",
             }}
           />
           <div
             style={{
               fontSize: "3rem",
-              fontWeight: "bold",
-              color: "#333",
-              marginBottom: "1rem",
+              fontWeight: "bolder",
+              textTransform: "uppercase",
+              color: "#171717",
+              marginBottom: "0.8rem",
             }}
           >
             {RESUME_DATA.name}
@@ -58,7 +59,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: "1.5rem",
-              color: "#666",
+              color: "#504d4d",
               maxWidth: "600px",
               lineHeight: "1.4",
             }}
