@@ -1,6 +1,5 @@
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { ILOLogo } from "@/images/logos";
-import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 type Social = {
@@ -21,7 +20,7 @@ type WorkExperience = {
   link: string;
   badges: string[];
   title: string;
-  logo: StaticImageData | null;
+  logo: string | null;
   start: string;
   end: string | null;
   description: ReactNode;
