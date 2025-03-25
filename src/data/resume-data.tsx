@@ -1,8 +1,10 @@
+import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { ReactNode } from "react";
 
 type Social = {
   name: string;
   url: string;
+  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 };
 
 type Education = {
@@ -31,9 +33,9 @@ type Project = {
     label: string;
     href: string;
   };
+  techStack: string[];
 };
 
-// Define the main resume data type
 type ResumeData = {
   name: string;
   initials: string;
@@ -60,60 +62,66 @@ export const RESUME_DATA: ResumeData = {
   location: "Berlin, Germany CET",
   locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
   about:
-    "Senior Full‑Stack Developer with 7+ years of experience delivering scalable web and mobile applications.",
+    "Senior Full-Stack Developer with 7+ years of experience delivering scalable web and mobile applications.",
   summary: (
     <>
-      Currently driving end‑to‑end product delivery at code‑b, translating
+      Currently driving end-to-end product delivery at code-b, translating
       complex requirements into robust solutions using React, Next.js, React
       Native, and TypeScript.
     </>
   ),
-  avatarUrl: "",
+  avatarUrl: "https://avatars.githubusercontent.com/u/32590221?v=4",
   personalWebsiteUrl: "https://ptrcklehmann.com",
   contact: {
     email: "connect@ptrcklehmann.com",
     tel: "+4915901345063",
-    social: [],
+    social: [
+      {
+        name: "GitHub",
+        url: "https://github.com/ptrcklehmann",
+        icon: GitHubIcon,
+      },
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/ptrcklehmann",
+        icon: LinkedInIcon,
+      },
+    ],
   },
   education: [
-    {
-      school: "Ironhack Berlin",
-      degree: "Full‑Stack Web Development Bootcamp",
-      start: "01.2021",
-      end: "05.2021",
-    },
     {
       school: "President Antônio Carlos University",
       degree: "BSc in Systems Analysis and Development",
       start: "01.2006",
       end: "07.2011",
     },
+    {
+      school: "Ironhack Berlin",
+      degree: "Full-Stack Web Development Bootcamp",
+      start: "01.2021",
+      end: "05.2021",
+    },
   ],
   work: [
     {
-      company: "code‑b agile websolutions GmbH",
+      company: "code-b",
       link: "https://code-b.com",
-      badges: [
-        "On Site",
-        "React",
-        "Next.js",
-        "React Native",
-        "TypeScript",
-        "CI/CD",
-      ],
-      title: "Full‑Stack Developer",
+      badges: ["On Site", "TypeScript", "React", "Next.js", "React Native"],
+      title: "Full-Stack Developer",
       logo: null,
       start: "06.2022",
       end: null,
       description: (
         <>
-          Driving end‑to‑end product delivery:
+          Driving end-to-end product delivery:
           <ul className="list-inside list-disc">
             <li>
-              Built and maintained scalable web & mobile apps with React,
-              Next.js, React Native, and TypeScript
+              Built & maintained scalable web & mobile apps with React, Next.js,
+              React Native, and TypeScript
             </li>
-            <li>Designed CI/CD pipelines to automate testing & deployments</li>
+            <li>
+              Designed CI/CD pipelines for automated testing & deployments
+            </li>
             <li>Mentored junior developers and enforced best practices</li>
           </ul>
         </>
@@ -121,25 +129,47 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       company: "Freelance",
-      link: "",
-      badges: ["Remote", "React", "Next.js", "TypeScript"],
-      title: "Full‑Stack Developer",
+      link: "https://ptrcklehmann.com",
+      badges: ["TypeScript", "React", "React Native", "GraphQL"],
+      title: "Full-Stack Developer",
       logo: null,
       start: "05.2018",
-      end: "present",
+      end: null,
       description:
-        "Developed bespoke web applications for various clients using modern frontend and backend technologies.",
+        "Developed bespoke web & mobile solutions for diverse clients using modern full-stack technologies.",
     },
     {
-      company: "International Labour Organization",
+      company: "ILO",
       link: "https://www.ilo.org",
-      badges: ["Remote", "React", "Design"],
+      badges: ["Remote", "Graphic Design", "UI/UX", "Frontend"],
       title: "Frontend Developer / Graphic Design Consultant",
       logo: null,
       start: "10.2019",
       end: "05.2022",
       description:
-        "Designed UI and visual identities for global reports and events, improving accessibility and user engagement.",
+        "Designed UI and visual identities for global reports & events, improving accessibility and user engagement.",
+    },
+    {
+      company: "Aviatrix Café",
+      link: "https://www.aviatrixberlin.com/",
+      badges: ["Barista", "Baker", "Customer Service"],
+      title: "Baker / Barista",
+      logo: null,
+      start: "01.2016",
+      end: "08.2018",
+      description:
+        "Prepared and served coffee drinks & baked vegan/gluten-free pastries while educating customers on coffee products.",
+    },
+    {
+      company: "Efficient Signer and Print Ltd",
+      link: "https://efficientsigns.com/",
+      badges: ["Graphic Design", "Print", "Digital"],
+      title: "Graphic Designer",
+      logo: null,
+      start: "01.2015",
+      end: "12.2015",
+      description:
+        "Created marketing materials (print & digital), trend boards, and brand collateral.",
     },
   ],
   skills: [
@@ -149,6 +179,8 @@ export const RESUME_DATA: ResumeData = {
     "TypeScript",
     "Node.js",
     "GraphQL",
+    "Contentful",
+    "Headless CMS",
     "REST API",
     "SQL/MySQL",
     "MongoDB",
