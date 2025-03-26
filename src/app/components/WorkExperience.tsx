@@ -49,7 +49,7 @@ interface WorkPeriodProps {
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
-      className="text-nowrap text-[10px] tabular-nums text-gray-500"
+      className="text-nowrap font-mono text-[12px] tabular-nums text-gray-500"
       aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
@@ -95,7 +95,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
           <span className="text-md inline-flex items-center justify-center gap-x-1 font-semibold uppercase leading-none print:text-sm">
-            <h3 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
+            <h3 className="text-md font-bold leading-none print:text-[12px]">
               {title}
             </h3>
             <BadgeList
@@ -109,7 +109,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-pretty text-xs text-foreground/80 print:mt-1 print:text-[10px]">
+        <div className="mt-2 text-pretty text-sm text-foreground/80 print:mt-1 print:text-[10px]">
           {description}
         </div>
         <div className="mt-2">
@@ -134,7 +134,7 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold uppercase" id="work-experience">
+      <h2 className="text-2xl font-bold uppercase" id="work-experience">
         Experience
       </h2>
       <div

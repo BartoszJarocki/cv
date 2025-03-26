@@ -124,7 +124,7 @@ interface ProjectsProps {
 export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="print-force-new-page scroll-mb-16 print:space-y-4 print:pt-12">
-      <h2 className="text-xl font-bold" id="side-projects">
+      <h2 className="text-2xl font-bold" id="side-projects">
         Side projects
       </h2>
       <div

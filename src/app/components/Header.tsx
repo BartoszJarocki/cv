@@ -10,9 +10,9 @@ interface LocationLinkProps {
 
 function LocationLink({ location, locationLink }: LocationLinkProps) {
   return (
-    <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
+    <p className="mt-3 max-w-md items-center text-pretty text-xs text-foreground">
       <a
-        className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+        className="inline-flex gap-x-1.5 align-baseline  font-mono leading-none hover:underline"
         href={locationLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -142,12 +142,12 @@ function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
 export function Header() {
   return (
     <header className="flex items-center justify-between">
-      <div className="flex-1 space-y-1.5">
-        <h1 className="text-2xl font-bold" id="resume-name">
+      <div className="flex-1">
+        <h1 className="text-3xl/none font-bold uppercase" id="resume-name">
           {RESUME_DATA.name}
         </h1>
         <p
-          className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]"
+          className="max-w-md text-pretty text-sm text-foreground/80 print:text-[12px]"
           aria-labelledby="resume-name"
         >
           {RESUME_DATA.about}
