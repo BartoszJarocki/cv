@@ -13,6 +13,9 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const fontData = await fetch(
+    new URL("../fonts/Geomanist-Bold.woff", import.meta.url),
+  ).then((res) => res.arrayBuffer());
   return new ImageResponse(
     (
       <div
@@ -23,7 +26,7 @@ export default async function Image() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: '"Inter"',
+          fontFamily: "Geomanist, sans-serif",
         }}
       >
         <div
@@ -48,7 +51,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: "3rem",
-              fontWeight: "bolder",
+              fontWeight: "400",
               textTransform: "uppercase",
               color: "#171717",
               marginBottom: "0.8rem",
@@ -59,9 +62,10 @@ export default async function Image() {
           <div
             style={{
               fontSize: "1.5rem",
-              color: "#504d4d",
+              color: "#504d4dd4",
               maxWidth: "600px",
               lineHeight: "1.4",
+              fontFamily: "monospace",
             }}
           >
             {RESUME_DATA.about}
@@ -74,8 +78,8 @@ export default async function Image() {
             }}
           >
             {RESUME_DATA.contact.email && (
-              <div style={{ fontSize: "1rem", color: "#666" }}>
-                {RESUME_DATA.personalWebsiteUrl}
+              <div style={{ fontSize: "1rem", color: "#504d4dd4" }}>
+                {RESUME_DATA.personalWebsiteUrl.slice(8)}
               </div>
             )}
           </div>
@@ -84,6 +88,14 @@ export default async function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          data: fontData,
+          name: "Geomanist Bold",
+          style: "normal",
+          weight: 700,
+        },
+      ],
     },
   );
 }
