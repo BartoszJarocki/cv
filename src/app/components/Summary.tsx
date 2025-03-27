@@ -14,7 +14,7 @@ export function Summary({ summary, className }: AboutProps) {
   return (
     <Section className={className}>
       <div
-        className="text-pretty text-sm text-foreground/80 print:text-[12px]"
+        className="space-y-1 text-pretty text-sm text-foreground/80 print:text-[12px]"
         aria-labelledby="about-section"
       >
         {summary}
