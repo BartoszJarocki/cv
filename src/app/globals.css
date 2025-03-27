@@ -4,65 +4,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    --background: 147 10% 96%; /* #f3f5f3 - Light mint background */
+    --foreground: 18 10.3% 12.2%; /* #232020 - Dark brown-gray text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card: 147 10% 96%; /* #f3f5f3 - Light mint card background */
+    --card-foreground: 18 10.3% 12.2%; /* #06070d - Nearly black card text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%; /* #ffffff - Pure white popover */
+    --popover-foreground: 18 10.3% 12.2%; /* #06070d - Nearly black popover text */
 
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
+    --primary: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue primary */
+    --primary-foreground: 210 20% 98%; /* #f9fafb - Off-white primary text */
 
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
+    --secondary: 220 3% 86%; /* #DADCDF - Light gray secondary */
+    --secondary-foreground: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue secondary text */
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 220 14.3% 95.9%; /* #f3f4f6 - Very light blue-gray muted */
+    --muted-foreground: 220 8.9% 46.1%; /* #6c757d - Medium gray muted text */
 
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    --accent: 220 14.3% 95.9%; /* #f3f4f6 - Very light blue-gray accent */
+    --accent-foreground: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue accent text */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 84.2% 60.2%; /* #e11d48 - Bright red destructive */
+    --destructive-foreground: 210 20% 98%; /* #f9fafb - Off-white destructive text */
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71.4% 4.1%;
+    --border: 220 13% 91%; /* #e2e8f0 - Light gray-blue border */
+    --input: 220 13% 91%; /* #e2e8f0 - Light gray-blue input */
+    --ring: 224 71.4% 4.1%; /* #06070d - Nearly black ring */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
+    --background: 224 71.4% 4.1%; /* #06070d - Nearly black background */
+    --foreground: 210 20% 98%; /* #f9fafb - Off-white text */
 
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%; /* #06070d - Nearly black card background */
+    --card-foreground: 210 20% 98%; /* #f9fafb - Off-white card text */
 
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%; /* #06070d - Nearly black popover */
+    --popover-foreground: 210 20% 98%; /* #f9fafb - Off-white popover text */
 
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
+    --primary: 210 20% 98%; /* #f9fafb - Off-white primary */
+    --primary-foreground: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue primary text */
 
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%; /* #1e293b - Dark slate blue secondary */
+    --secondary-foreground: 210 20% 98%; /* #f9fafb - Off-white secondary text */
 
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
+    --muted: 215 27.9% 16.9%; /* #1e293b - Dark slate blue muted */
+    --muted-foreground: 217.9 10.6% 64.9%; /* #94a3b8 - Medium blue-gray muted text */
 
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 215 27.9% 16.9%; /* #1e293b - Dark slate blue accent */
+    --accent-foreground: 210 20% 98%; /* #f9fafb - Off-white accent text */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%; /* #7f1d1d - Dark red destructive */
+    --destructive-foreground: 210 20% 98%; /* #f9fafb - Off-white destructive text */
 
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
+    --border: 215 27.9% 16.9%; /* #1e293b - Dark slate blue border */
+    --input: 215 27.9% 16.9%; /* #1e293b - Dark slate blue input */
+    --ring: 216 12.2% 83.9%; /* #cbd5e1 - Light blue-gray ring */
   }
 }
 

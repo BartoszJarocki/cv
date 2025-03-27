@@ -14,7 +14,7 @@ export const contentType = "image/png";
 
 export default async function Image() {
   const fontData = await fetch(
-    new URL("../fonts/Geomanist-Bold.woff", import.meta.url),
+    new URL("../fonts/Geomanist-Medium.woff", import.meta.url),
   ).then((res) => res.arrayBuffer());
   return new ImageResponse(
     (
@@ -42,8 +42,8 @@ export default async function Image() {
             src={RESUME_DATA.avatarUrl}
             alt={RESUME_DATA.name}
             style={{
-              width: "150px",
-              height: "150px",
+              width: "200px",
+              height: "200px",
               borderRadius: "50%",
               marginBottom: "2rem",
             }}
@@ -53,7 +53,7 @@ export default async function Image() {
               fontSize: "3rem",
               fontWeight: "400",
               textTransform: "uppercase",
-              color: "#171717",
+              color: "#12191f",
               marginBottom: "0.8rem",
             }}
           >
@@ -62,10 +62,9 @@ export default async function Image() {
           <div
             style={{
               fontSize: "1.5rem",
-              color: "#504d4dd4",
+              color: "#737373",
               maxWidth: "600px",
               lineHeight: "1.4",
-              fontFamily: "monospace",
             }}
           >
             {RESUME_DATA.about}
@@ -78,7 +77,7 @@ export default async function Image() {
             }}
           >
             {RESUME_DATA.contact.email && (
-              <div style={{ fontSize: "1rem", color: "#504d4dd4" }}>
+              <div style={{ fontSize: "1.2rem", color: "#737373" }}>
                 {RESUME_DATA.personalWebsiteUrl.slice(8)}
               </div>
             )}
