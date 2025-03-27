@@ -61,12 +61,21 @@ export const RESUME_DATA: ResumeData = {
   initials: "PL",
   location: "Berlin, Germany CET",
   locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
-  about: "Senior Full-Stack Developer",
+  about: "Full-Stack Developer",
   summary: (
     <>
-      Currently driving end-to-end product delivery at code-b, translating
-      complex requirements into robust solutions using React, Next.js, React
-      Native, and TypeScript.
+      <p>
+        Experienced Full-Stack Developer with over 5 years of hands-on
+        experience in React, Next.js, React Native, GraphQL, and TypeScript.
+        Proven track record of driving end-to-end product delivery at Code-B,
+        translating complex requirements into scalable web and mobile
+        applications.
+      </p>
+      <p>
+        Passionate about creating cohesive visual identities and engaging user
+        experiences. In my free time, I enjoy exploring new technologies and
+        building creative, technically challenging projects.
+      </p>
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/32590221?v=4",
