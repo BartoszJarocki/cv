@@ -1,10 +1,12 @@
+import { getGithubProjectData } from "@/lib/get-project-data";
+import { use } from "react";
 import { Badge } from "../../components/ui/badge";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
 } from "../../components/ui/card";
 import { Section } from "../../components/ui/section";
 import { RESUME_DATA } from "../../data/resume-data";
@@ -39,6 +41,7 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
           aria-label="Active project indicator"
         />
       </a>
+
       <div
         className="hidden font-mono text-xs underline print:visible"
         aria-hidden="true"
@@ -122,6 +125,8 @@ interface ProjectsProps {
  * Section component displaying all side projects
  */
 export function Projects({ projects }: ProjectsProps) {
+  const githubProjects = use(getGithubProjectData());
+
   return (
     <Section className="print-force-new-page scroll-mb-16 print:space-y-4 print:pt-12">
       <h2 className="text-xl font-bold" id="side-projects">
@@ -132,19 +137,27 @@ export function Projects({ projects }: ProjectsProps) {
         role="feed"
         aria-labelledby="side-projects"
       >
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="h-full" // Added h-full here
-          >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              tags={project.techStack}
-              link={"link" in project ? project.link.href : undefined}
-            />
-          </article>
-        ))}
+        {!!githubProjects
+          ? githubProjects.map((project) => (
+              <article key={project.id} className="h-full">
+                <ProjectCard
+                  title={project.name}
+                  description={project.description || ""}
+                  tags={project.language ? [project.language] : []}
+                  link={project.html_url}
+                />
+              </article>
+            ))
+          : projects.map((project) => (
+              <article key={project.title} className="h-full">
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  tags={project.techStack}
+                  link={"link" in project ? project.link.href : undefined}
+                />
+              </article>
+            ))}
       </div>
     </Section>
   );
