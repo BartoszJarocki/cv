@@ -120,7 +120,7 @@ export const RESUME_DATA: ResumeData = {
       start: "06.2022",
       end: null,
       description: (
-        <ul className="list-inside list-disc marker:text-gray-500">
+        <ul className="list-inside list-disc">
           <li className="mb-1">
             Developed responsive and high-performing web and mobile
             applications, improving user engagement and reducing load times by
@@ -153,7 +153,7 @@ export const RESUME_DATA: ResumeData = {
       start: "05.2016",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc marker:text-gray-500">
+        <ul className="list-inside list-disc">
           <li className="mb-1">
             Built, tested, and launched robust, scalable software solutions with
             high availability, prioritizing reliability and peak performance
@@ -179,7 +179,7 @@ export const RESUME_DATA: ResumeData = {
       start: "10.2019",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc marker:text-gray-500">
+        <ul className="list-inside list-disc">
           <li className="mb-1">
             Created cohesive visual identities and UI designs for global reports
             and events, significantly enhancing brand consistency and user
@@ -207,7 +207,7 @@ export const RESUME_DATA: ResumeData = {
       start: "01.2015",
       end: "12.2015",
       description: (
-        <ul className="list-inside list-disc marker:text-gray-500">
+        <ul className="list-inside list-disc ">
           <li className="mb-1">
             Designed impactful marketing packages, including compelling print
             materials, brochures, banners, and signage, significantly improving
@@ -232,16 +232,20 @@ export const RESUME_DATA: ResumeData = {
     "TypeScript",
     "Node.js",
     "GraphQL",
-    "Contentful",
     "Headless CMS",
     "REST API",
     "SQL/MySQL",
     "MongoDB",
+    "Express",
+    "Git",
+    "CI/CD",
     "Jest",
     "Vitest",
-    "CI/CD",
+    "Docker",
     "HTML5",
     "CSS3",
+    "Tailwind CSS",
+    "Agile / Scrum",
   ],
   projects: [],
 } as const;

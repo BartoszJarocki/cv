@@ -4,6 +4,12 @@
 
 @layer base {
   :root {
+    @media print {
+      #main-content {
+        padding: 2rem;
+      }
+    }
+
     --background: 147 10% 96%; /* #f3f5f3 - Light mint background */
     --foreground: 18 10.3% 12.2%; /* #232020 - Dark brown-gray text */
 
@@ -72,6 +78,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+@layer components {
+  .marker {
+    list-style-position: inside;
+    li::marker {
+      content: "- ";
+      font-size: larger;
+    }
   }
 }
 

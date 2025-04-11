@@ -49,7 +49,7 @@ interface WorkPeriodProps {
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
-      className="text-nowrap font-mono text-[12px] tabular-nums text-gray-500"
+      className="text-nowrap font-mono text-xs tabular-nums text-gray-600"
       aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
@@ -68,7 +68,7 @@ interface CompanyLinkProps {
 function CompanyLink({ company, link }: CompanyLinkProps) {
   return (
     <a
-      className="text-sm font-semibold text-slate-900 hover:underline"
+      className="text-sm font-semibold text-slate-900 hover:underline print:font-medium"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
@@ -92,12 +92,10 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
 
   return (
     <Card className="py-1 print:py-0">
-      <CardHeader className="print:space-y-1">
+      <CardHeader className="print:space-y-0">
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <span className="text-md inline-flex items-center justify-center gap-x-1 font-semibold uppercase leading-none print:text-sm">
-            <h3 className="text-md font-bold leading-none print:text-[12px]">
-              {title}
-            </h3>
+          <span className="text-md inline-flex items-center justify-center gap-x-1 font-semibold uppercase leading-none">
+            <h3 className="text-md font-bold leading-none">{title}</h3>
             <BadgeList
               className="hidden gap-x-1 sm:inline-flex"
               badges={badges}
@@ -109,7 +107,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-pretty text-sm text-foreground/80 print:mt-1 print:text-[10px]">
+        <div className="mt-2 text-pretty text-sm text-foreground/80 print:mt-1 print:text-[11px]">
           {description}
         </div>
         <div className="mt-2">
