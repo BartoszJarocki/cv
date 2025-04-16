@@ -16,7 +16,6 @@ type CoverLetterData = {
   contact: {
     email: string;
     tel: string;
-    social: Social[];
   };
   company: {
     name: string;
@@ -36,18 +35,6 @@ export const COVER_LETTER_DATA: CoverLetterData = {
   contact: {
     email: "connect@ptrcklehmann.com",
     tel: "+4915901345063",
-    social: [
-      {
-        name: "GitHub",
-        url: "https://github.com/ptrcklehmann",
-        icon: GitHubIcon,
-      },
-      {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/ptrcklehmann",
-        icon: LinkedInIcon,
-      },
-    ],
   },
   company: {
     name: "Company Name",
