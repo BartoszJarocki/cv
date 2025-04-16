@@ -37,3 +37,6 @@ next-env.d.ts
 
 # ide
 .idea
+
+# cover letter
+**/cover-letter/
