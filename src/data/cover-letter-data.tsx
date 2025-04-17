@@ -43,32 +43,32 @@ export const COVER_LETTER_DATA: CoverLetterData = {
   date: "Date",
   greeting: <p>Dear Hiring Manager</p>,
   body: (
-    <article className="text-pretty text-foreground print:text-[11px]">
-      <p className="mb-2">
+    <article className="space-y-3 text-pretty text-foreground print:text-[11px]">
+      <p>
         I am writing to express my interest in the Full-Stack Developer position
         at {`"${"Company Name"}"`}. With a strong background in software
         development and a passion for creating innovative solutions, I believe I
         would be a valuable addition to your team.
       </p>
-      <p className="mb-2">
+      <p>
         I have a proven track record of successfully delivering high-quality
         software projects on time and within budget. My experience includes
         working with various programming languages, frameworks, and tools,
         allowing me to adapt quickly to new technologies and challenges.
       </p>
-      <p className="mb-2">
+      <p>
         I am particularly drawn to {`"${"Company Name"}"`} because of its
         commitment to excellence and innovation in the tech industry. I admire
         your focus on creating user-centric products and your dedication to
         continuous improvement.
       </p>
-      <p className="mb-2">
+      <p>
         I am excited about the opportunity to contribute my skills and expertise
         to your team. I am confident that my technical abilities, combined with
         my strong problem-solving skills and collaborative mindset, would make
         me a valuable asset to {`"${"Company Name"}"`}.
       </p>
-      <p className="mb-2">
+      <p>
         I am eager to learn more about the position and how I can contribute to
         the success of {`"${"Company Name"}"`}. Thank you for considering my
         application. I look forward to the opportunity to discuss my
@@ -94,9 +94,9 @@ export const COVER_LETTER_DATA: CoverLetterData = {
         </a>
         . Thank you for your time and consideration.
       </p>
-      <p className="mb-2">I look forward to hearing from you soon.</p>
+      <p>I look forward to hearing from you soon.</p>
       <p className="mb-6">Best regards,</p>
-      <p className="mb-2">Patrick Lehmann</p>
+      <p>Patrick Lehmann</p>
     </article>
   ),
 } as const;
