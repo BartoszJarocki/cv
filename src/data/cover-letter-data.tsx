@@ -80,6 +80,7 @@ export const COVER_LETTER_DATA: CoverLetterData = {
         <a
           className="text-right underline hover:text-foreground/70"
           href="tel:+4915901345063"
+          aria-label="Call Patrick Lehmann"
         >
           +4915901345063
         </a>{" "}
@@ -87,6 +88,7 @@ export const COVER_LETTER_DATA: CoverLetterData = {
         <a
           className="text-right underline hover:text-foreground/70"
           href="mailto:connect@ptrcklehmann.com"
+          aria-label="Email Patrick Lehmann"
         >
           connect@ptrcklehmann.com
         </a>
