@@ -61,15 +61,14 @@ export const RESUME_DATA: ResumeData = {
   initials: "PL",
   location: "Berlin, Germany CET",
   locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
-  about: "Full-Stack Developer",
+  about: "Frontend Developer",
   summary: (
     <>
       <p>
-        Experienced Full-Stack Developer with over 5 years of hands-on
-        experience in React, Next.js, React Native, GraphQL, and TypeScript.
-        Proven track record of driving end-to-end product delivery at Code-B,
-        translating complex requirements into scalable web and mobile
-        applications.
+        Experienced Frontend Developer with over 5 years of hands-on experience
+        in React, Next.js, React Native, GraphQL, and TypeScript. Proven track
+        record of driving end-to-end product delivery at Code-B, translating
+        complex requirements into scalable web and mobile applications.
       </p>
       <p>
         Passionate about creating cohesive visual identities and engaging user
@@ -115,7 +114,7 @@ export const RESUME_DATA: ResumeData = {
       company: "code-b",
       link: "https://code-b.com",
       badges: ["On Site", "TypeScript", "React", "Next.js", "React Native"],
-      title: "Full-Stack Developer",
+      title: "Frontend Developer",
       logo: null,
       start: "06.2022",
       end: null,
@@ -123,13 +122,14 @@ export const RESUME_DATA: ResumeData = {
         <ul className="list-inside list-disc">
           <li className="mb-1">
             Developed responsive and high-performing web and mobile
-            applications, improving user engagement and reducing load times by
-            up to 30% using React, Next.js, React Native, and TypeScript.
-            Notable projects include thepioneer.de and tabletop-herald.com.
+            applications, significantly improving user engagement and
+            application efficiency using React, Next.js, React Native, and
+            TypeScript. Notable projects include thepioneer.de and
+            tabletop-herald.com.
           </li>
           <li className="mb-1">
-            Streamlined CI/CD pipelines, reducing deployment times by 25% and
-            enhancing application stability through automated testing.
+            Streamlined CI/CD pipelines, notably improving deployment efficiency
+            and enhancing application stability through automated testing.
           </li>
           <li className="mb-1">
             Supported junior developers through mentorship and thorough code

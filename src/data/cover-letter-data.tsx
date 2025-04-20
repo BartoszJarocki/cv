@@ -1,11 +1,4 @@
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { ReactNode } from "react";
-
-type Social = {
-  name: string;
-  url: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-};
 
 type CoverLetterData = {
   name: string;
@@ -28,74 +21,70 @@ type CoverLetterData = {
 
 export const COVER_LETTER_DATA: CoverLetterData = {
   name: "Patrick Lehmann",
-  location: "Berlin, Germany CET",
+  location: "Berlin, Germany",
   locationLink: "https://www.google.com/maps/place/Berlin,+Germany",
-  about: "Full-Stack Developer",
+  about: "Frontend Developer",
   personalWebsiteUrl: "https://ptrcklehmann.com",
   contact: {
     email: "connect@ptrcklehmann.com",
     tel: "+4915901345063",
   },
   company: {
-    name: "Company Name",
-    location: "City, Country",
+    name: "Zalando",
+    location: "Berlin, Germany",
   },
-  date: "Date",
-  greeting: <p>Dear Hiring Manager</p>,
+  date: "20.04.2025",
+  greeting: <p>Dear Bazi Nzirubusa,</p>,
   body: (
     <article className="space-y-3 text-pretty text-foreground print:text-[11px]">
       <p>
-        I am writing to express my interest in the Full-Stack Developer position
-        at {`"${"Company Name"}"`}. With a strong background in software
-        development and a passion for creating innovative solutions, I believe I
-        would be a valuable addition to your team.
+        I&apos;m excited to apply for the Frontend Engineer role in Customer
+        Care Technology at Zalando. With over five years of experience building
+        responsive, scalable web and mobile applications using React,
+        TypeScript, and GraphQL, I am confident in my ability to contribute
+        effectively to your team&apos;s mission of enhancing customer
+        self-service experiences.
       </p>
       <p>
-        I have a proven track record of successfully delivering high-quality
-        software projects on time and within budget. My experience includes
-        working with various programming languages, frameworks, and tools,
-        allowing me to adapt quickly to new technologies and challenges.
-      </p>
-      <p>
-        I am particularly drawn to {`"${"Company Name"}"`} because of its
-        commitment to excellence and innovation in the tech industry. I admire
-        your focus on creating user-centric products and your dedication to
-        continuous improvement.
-      </p>
-      <p>
-        I am excited about the opportunity to contribute my skills and expertise
-        to your team. I am confident that my technical abilities, combined with
-        my strong problem-solving skills and collaborative mindset, would make
-        me a valuable asset to {`"${"Company Name"}"`}.
-      </p>
-      <p>
-        I am eager to learn more about the position and how I can contribute to
-        the success of {`"${"Company Name"}"`}. Thank you for considering my
-        application. I look forward to the opportunity to discuss my
-        qualifications further.
-      </p>
-      <p className="mb-5">
-        I am available for an interview at your earliest convenience and can be
-        reached at{" "}
+        In my current role at Code-B, I have developed performant applications
+        such as{" "}
         <a
-          className="text-right underline hover:text-foreground/70"
-          href="tel:+4915901345063"
-          aria-label="Call Patrick Lehmann"
+          className="underline hover:text-foreground/70"
+          href="https://thepioneer.de"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="The Pioneer"
         >
-          +4915901345063
+          thepioneer.de
         </a>{" "}
-        or via email at{" "}
+        and{" "}
         <a
-          className="text-right underline hover:text-foreground/70"
-          href="mailto:connect@ptrcklehmann.com"
-          aria-label="Email Patrick Lehmann"
+          className="underline hover:text-foreground/70"
+          href="https://tabletop-herald.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Tabletop Herald"
         >
-          connect@ptrcklehmann.com
+          tabletop-herald.com
         </a>
-        . Thank you for your time and consideration.
+        , significantly improving user engagement and application performance.
+        My experience includes optimising CI/CD pipelines to enhance stability
+        and streamline deployment processes, closely aligning with your
+        team&apos;s focus on scalable and maintainable systems.
       </p>
-      <p>I look forward to hearing from you soon.</p>
-      <p className="mb-6">Best regards,</p>
+      <p>
+        I am particularly drawn to Zalando&apos;s commitment to innovation and
+        user-centric design. My background in creating cohesive visual
+        identities and intuitive user interfaces at the International Labour
+        Organization further aligns with your objective of empowering customers
+        through seamless digital interactions.
+      </p>
+      <p>
+        I would welcome the opportunity to discuss how my technical expertise
+        and passion for frontend development can contribute to Zalando&apos;s
+        ongoing success in customer satisfaction and operational efficiency.
+      </p>
+      <p className="pb-6">Best regards,</p>
       <p>Patrick Lehmann</p>
     </article>
   ),

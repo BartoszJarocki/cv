@@ -16,7 +16,10 @@ interface SkillsListProps {
 function SkillsList({ skills, className }: SkillsListProps) {
   return (
     <ul
-      className={cn("flex list-none flex-wrap gap-1 p-0", className)}
+      className={cn(
+        "flex list-none flex-wrap gap-1 p-0 print:gap-x-0.5",
+        className,
+      )}
       aria-label="List of skills"
     >
       {skills.map((skill) => (
