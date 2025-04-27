@@ -32,6 +32,11 @@ const operatorMono = localFont({
       weight: "400",
       style: "normal",
     },
+    {
+      path: "../fonts/OperatorMono-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
   ],
   variable: "--operator-mono" as const,
 });
