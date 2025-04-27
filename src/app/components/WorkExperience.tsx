@@ -28,7 +28,7 @@ function BadgeList({ className, badges }: BadgeListProps) {
         <li key={badge}>
           <Badge
             variant="secondary"
-            className="align-middle text-[10px] leading-none print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+            className="align-middle text-[12px] leading-none print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
           >
             {badge}
           </Badge>
@@ -132,13 +132,13 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-2xl font-bold uppercase" id="work-experience">
+      <h2 className="text-2xl font-bold uppercase" id="experience">
         Experience
       </h2>
       <div
         className="space-y-4 print:space-y-0"
         role="feed"
-        aria-labelledby="work-experience"
+        aria-labelledby="experience"
       >
         {work.map((item) => (
           <article key={`${item.company}-${item.start}`} role="article">
