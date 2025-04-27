@@ -49,7 +49,7 @@ interface WorkPeriodProps {
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
-      className="text-nowrap font-mono text-xs tabular-nums text-gray-600"
+      className="text-nowrap font-mono text-xs tabular-nums text-foreground/70"
       aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
@@ -68,7 +68,7 @@ interface CompanyLinkProps {
 function CompanyLink({ company, link }: CompanyLinkProps) {
   return (
     <a
-      className="text-sm font-semibold text-slate-900 hover:underline print:font-medium"
+      className="text-sm font-medium text-foreground/95 hover:underline print:font-medium"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
@@ -107,7 +107,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-pretty text-sm text-foreground/80 print:mt-1 print:text-[11px]">
+        <div className="mt-2 text-pretty text-sm text-foreground/75 print:mt-1 print:text-[11px]">
           {description}
         </div>
         <div className="mt-2">
