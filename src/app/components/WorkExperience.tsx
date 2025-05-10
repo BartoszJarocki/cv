@@ -91,7 +91,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
   const { company, link, badges, title, start, end, description } = work;
 
   return (
-    <Card className="py-1 print:py-0">
+    <Card className="py-1 print:py-0.5">
       <CardHeader className="print:space-y-0">
         <div className="flex items-center justify-between gap-x-2 text-base">
           <span className="text-md inline-flex items-center justify-center gap-x-1 font-semibold uppercase leading-none">
