@@ -67,7 +67,7 @@ export const RESUME_DATA: ResumeData = {
       <p>
         Experienced Full-Stack Developer with over 5 years of hands-on
         experience in React, Next.js, React Native, GraphQL, and TypeScript.
-        Proven track record of driving end-to-end product delivery at Code-B,
+        Proven track record of driving end-to-end product delivery at code-b,
         translating complex requirements into scalable web and mobile
         applications.
       </p>
