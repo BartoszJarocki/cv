@@ -118,7 +118,7 @@ export const RESUME_DATA: ResumeData = {
       title: "Frontend Developer",
       logo: null,
       start: "06.2022",
-      end: null,
+      end: "04.2025",
       description: (
         <ul className="list-inside list-disc space-y-1">
           <li>
