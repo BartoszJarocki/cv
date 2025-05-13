@@ -17,14 +17,17 @@ function SkillsList({ skills, className }: SkillsListProps) {
   return (
     <ul
       className={cn(
-        "flex list-none flex-wrap gap-1 p-0 print:gap-x-0.5",
+        "flex list-none flex-wrap gap-1 p-0 leading-none print:gap-x-2 print:gap-y-1",
         className,
       )}
       aria-label="List of skills"
     >
       {skills.map((skill) => (
         <li key={skill}>
-          <Badge className="print:text-[10px]" aria-label={`Skill: ${skill}`}>
+          <Badge
+            className="print:p-0 print:text-[11px] print:leading-tight"
+            aria-label={`Skill: ${skill}`}
+          >
             {skill}
           </Badge>
         </li>
