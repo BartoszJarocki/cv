@@ -120,7 +120,7 @@ export const RESUME_DATA: ResumeData = {
       start: "06.2022",
       end: "04.2025",
       description: (
-        <ul className="list-inside list-disc space-y-1">
+        <ul className="list-inside list-disc space-y-0.5">
           <li>
             Developed responsive and high-performing web and mobile
             applications, significantly improving user engagement and
@@ -154,7 +154,7 @@ export const RESUME_DATA: ResumeData = {
       start: "05.2016",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc space-y-1">
+        <ul className="list-inside list-disc space-y-0.5">
           <li>
             Built, tested, and launched robust, scalable software solutions with
             high availability, prioritizing reliability and peak performance
@@ -180,7 +180,7 @@ export const RESUME_DATA: ResumeData = {
       start: "10.2019",
       end: "05.2022",
       description: (
-        <ul className="list-inside list-disc space-y-1">
+        <ul className="list-inside list-disc space-y-0.5">
           <li>
             Created cohesive visual identities and UI designs for global reports
             and events, significantly enhancing brand consistency and user
@@ -208,7 +208,7 @@ export const RESUME_DATA: ResumeData = {
       start: "01.2015",
       end: "12.2015",
       description: (
-        <ul className="list-inside list-disc space-y-1">
+        <ul className="list-inside list-disc space-y-0.5">
           <li>
             Designed impactful marketing packages, including compelling print
             materials, brochures, banners, and signage, significantly improving
