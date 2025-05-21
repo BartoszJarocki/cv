@@ -33,16 +33,18 @@ interface SocialButtonProps {
 
 function SocialButton({ href, icon: Icon, label }: SocialButtonProps) {
   return (
-    <Button className="size-8" variant="outline" size="icon" asChild>
-      <a
-        href={href}
-        aria-label={label}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icon className="size-4" aria-hidden="true" />
-      </a>
-    </Button>
+    <div role="listitem">
+      <Button className="size-8" variant="outline" size="icon" asChild>
+        <a
+          href={href}
+          aria-label={label}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon className="size-4" aria-hidden="true" />
+        </a>
+      </Button>
+    </div>
   );
 }
 
