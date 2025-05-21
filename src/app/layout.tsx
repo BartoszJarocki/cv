@@ -51,7 +51,19 @@ export default function RootLayout({
       lang="en"
       className={`${geomanist.variable} ${operatorMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            :where(h1) {
+              margin-block: 0.67em;
+              font-size: 2em;
+            }
+          `,
+          }}
+        />
+        {children}
+      </body>
       <Analytics />
     </html>
   );
