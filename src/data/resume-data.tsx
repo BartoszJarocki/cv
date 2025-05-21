@@ -64,14 +64,14 @@ export const RESUME_DATA: ResumeData = {
   about: "Full-Stack Developer",
   summary: (
     <>
-      <p>
+      <p className="print:leading-snug">
         Experienced Full-Stack Developer with over 5 years of hands-on
         experience in React, Next.js, React Native, GraphQL, and TypeScript.
         Proven track record of driving end-to-end product delivery at code-b,
         translating complex requirements into scalable web and mobile
         applications.
       </p>
-      <p>
+      <p className="print:leading-snug">
         Passionate about creating cohesive visual identities and engaging user
         experiences. In my free time, I enjoy exploring new technologies and
         building creative, technically challenging projects.
@@ -114,30 +114,49 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "code-b",
       link: "https://code-b.com",
-      badges: ["On Site", "TypeScript", "React", "Next.js", "React Native"],
+      badges: ["React Native", "TypeScript", "React", "Next.js", "GraphQL"],
       title: "Frontend Developer",
       logo: null,
       start: "06.2022",
       end: "04.2025",
       description: (
-        <ul className="list-inside list-disc space-y-0.5">
-          <li>
+        <ul className="list-inside list-disc space-y-0.5 ">
+          <li className="print:leading-relaxed">
             Developed responsive and high-performing web and mobile
             applications, significantly improving user engagement and
             application efficiency using React, Next.js, React Native, and
-            TypeScript. Notable projects include thepioneer.de and
-            tabletop-herald.com.
+            TypeScript. Notable projects include{" "}
+            <a
+              className="underline hover:text-foreground"
+              href="https://thepioneer.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ThePioneer"
+            >
+              ThePioneer.de
+            </a>{" "}
+            and{" "}
+            <a
+              className="underline hover:text-foreground"
+              href="https://tabletop-herald.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Tabletop Herald"
+            >
+              tabletop-herald.com
+            </a>
+            .
           </li>
-          <li>
+          <li className="print:leading-relaxed">
             Streamlined CI/CD pipelines, notably improving deployment efficiency
             and enhancing application stability through automated testing.
           </li>
-          <li>
+          <li className="print:leading-relaxed">
             Supported junior developers through mentorship and thorough code
             reviews, fostering better practices and improving overall code
             quality.
           </li>
-          <li>
+          <li className="print:leading-relaxed">
             Managed projects from requirements gathering and architecture design
             to deployment and ongoing improvements, ensuring alignment with
             business goals and user needs.
@@ -155,18 +174,18 @@ export const RESUME_DATA: ResumeData = {
       end: "05.2022",
       description: (
         <ul className="list-inside list-disc space-y-0.5">
-          <li>
+          <li className="print:leading-relaxed">
             Built, tested, and launched robust, scalable software solutions with
             high availability, prioritizing reliability and peak performance
             through modern development practices.
           </li>
-          <li>
+          <li className="print:leading-relaxed">
             Consistently enhanced legacy systems, integrating new
             functionalities and delivering innovative, user-centric applications
             aligned closely with strategic business objectives.
           </li>
-          <li>
-            Managed client relationships and project timelines independently
+          <li className="print:leading-relaxed">
+            Managed client relationships and project timelines independently.
           </li>
         </ul>
       ),
@@ -175,26 +194,19 @@ export const RESUME_DATA: ResumeData = {
       company: "International Labour Organization",
       link: "https://www.ilo.org",
       badges: ["Remote", "Graphic Design", "UI/UX", "Frontend"],
-      title: "Graphic Designer & Frontend Developer",
+      title: "Graphic/UI Designer & Frontend Developer",
       logo: null,
       start: "10.2019",
       end: "05.2022",
       description: (
         <ul className="list-inside list-disc space-y-0.5">
-          <li>
-            Created cohesive visual identities and UI designs for global reports
-            and events, significantly enhancing brand consistency and user
-            engagement for initiatives like Global Social Protection Week and
-            the Global Flagship Programme.
+          <li className="print:leading-relaxed">
+            Designed consistent UI systems and developed accessible interfaces
+            for global web-based reports.
           </li>
-          <li>
-            Improved accessibility and modernized user experience for online
-            reports, meeting contemporary web standards and boosting user
-            interaction.
-          </li>
-          <li>
-            Collaborated with stakeholders across multiple countries and time
-            zones
+          <li className="print:leading-relaxed">
+            Collaborated remotely with international teams, ensuring reliable
+            rollout across multiple platforms.
           </li>
         </ul>
       ),
@@ -209,18 +221,19 @@ export const RESUME_DATA: ResumeData = {
       end: "12.2015",
       description: (
         <ul className="list-inside list-disc space-y-0.5">
-          <li>
+          <li className="print:leading-relaxed">
             Designed impactful marketing packages, including compelling print
             materials, brochures, banners, and signage, significantly improving
             brand visibility and market presence.
           </li>
-          <li>
+          <li className="print:leading-relaxed">
             Produced insightful trend boards and conducted market analysis to
             identify emerging opportunities, enabling strategic business
             decisions and capitalizing on industry shifts.
           </li>
-          <li>
-            Managed multiple design projects simultaneously with tight deadlines
+          <li className="print:leading-relaxed">
+            Managed multiple design projects simultaneously with tight
+            deadlines.
           </li>
         </ul>
       ),
@@ -243,10 +256,14 @@ export const RESUME_DATA: ResumeData = {
     "Jest",
     "Vitest",
     "Docker",
+    "Xcode",
+    "Android Studio",
+    "Kotlin",
+    "Figma",
     "HTML5",
     "CSS3",
     "Tailwind CSS",
-    "Agile / Scrum",
+    "Agile/Scrum",
   ],
   projects: [],
 } as const;
