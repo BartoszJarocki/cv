@@ -122,10 +122,20 @@ export const RESUME_DATA: ResumeData = {
       description: (
         <ul className="list-inside list-disc space-y-0.5 ">
           <li className="print:leading-relaxed">
-            Developed responsive and high-performing web and mobile
-            applications, significantly improving user engagement and
-            application efficiency using React, Next.js, React Native, and
-            TypeScript. Notable projects include{" "}
+            Developed responsive web and mobile apps using React, Next.js, React
+            Native, TypeScript, GraphQL, and Redux.
+          </li>
+          <li className="print:leading-relaxed">
+            Improved deployment efficiency through automated CI/CD tests.
+          </li>
+          <li className="print:leading-relaxed">
+            Led end-to-end projects from requirements gathering to deployment.
+          </li>
+          <li className="print:leading-relaxed">
+            Mentored junior developers and enhanced overall code quality.
+          </li>
+          <p className="text-sm print:leading-relaxed">
+            <span className="font-medium">Key projects:</span> <br />
             <a
               className="underline hover:text-foreground"
               href="https://thepioneer.de"
@@ -134,8 +144,8 @@ export const RESUME_DATA: ResumeData = {
               aria-label="ThePioneer"
             >
               ThePioneer.de
-            </a>{" "}
-            and{" "}
+            </a>
+            : High-traffic news app and website. /{" "}
             <a
               className="underline hover:text-foreground"
               href="https://tabletop-herald.com"
@@ -145,22 +155,8 @@ export const RESUME_DATA: ResumeData = {
             >
               tabletop-herald.com
             </a>
-            .
-          </li>
-          <li className="print:leading-relaxed">
-            Streamlined CI/CD pipelines, notably improving deployment efficiency
-            and enhancing application stability through automated testing.
-          </li>
-          <li className="print:leading-relaxed">
-            Supported junior developers through mentorship and thorough code
-            reviews, fostering better practices and improving overall code
-            quality.
-          </li>
-          <li className="print:leading-relaxed">
-            Managed projects from requirements gathering and architecture design
-            to deployment and ongoing improvements, ensuring alignment with
-            business goals and user needs.
-          </li>
+            : Web and mobile platforms for tabletop gaming community.
+          </p>
         </ul>
       ),
     },
@@ -201,12 +197,19 @@ export const RESUME_DATA: ResumeData = {
       description: (
         <ul className="list-inside list-disc space-y-0.5">
           <li className="print:leading-relaxed">
-            Designed consistent UI systems and developed accessible interfaces
-            for global web-based reports.
+            Designed visual identities and user interfaces for global events and
+            programmes.
           </li>
           <li className="print:leading-relaxed">
-            Collaborated remotely with international teams, ensuring reliable
-            rollout across multiple platforms.
+            Produced graphic designs for annual reports and thematic online
+            pages.
+          </li>
+          <li className="print:leading-relaxed">
+            Created infographics effectively communicating complex messages.
+          </li>
+          <li className="print:leading-relaxed">
+            Collaborated remotely across departments and time zones,
+            consistently meeting tight deadlines.
           </li>
         </ul>
       ),
