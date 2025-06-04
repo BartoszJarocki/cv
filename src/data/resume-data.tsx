@@ -1,10 +1,10 @@
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
-import { ReactNode } from "react";
+import { ReactNode, SVGProps, ReactElement } from "react";
 
 type Social = {
   name: string;
   url: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: SVGProps<SVGSVGElement>) => ReactElement;
 };
 
 type Education = {
