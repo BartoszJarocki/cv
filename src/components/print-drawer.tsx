@@ -26,7 +26,7 @@ export const PrintDrawer = () => {
           <DrawerHeader>
             <DrawerTitle>Print Resume</DrawerTitle>
             <DrawerDescription>
-              Open your browser's print dialog to create a hard copy.
+              Open your browser&apos;s print dialog to create a hard copy.
             </DrawerDescription>
           </DrawerHeader>
           <div className="p-4 pb-0"></div>
