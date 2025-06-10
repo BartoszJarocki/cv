@@ -76,7 +76,7 @@ export default async function Image() {
               gap: "1rem",
             }}
           >
-            {RESUME_DATA.contact.email && (
+            {RESUME_DATA.personalWebsiteUrl && (
               <div style={{ fontSize: "1.2rem", color: "#737373" }}>
                 {RESUME_DATA.personalWebsiteUrl.slice(8)}
               </div>
