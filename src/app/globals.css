@@ -16,11 +16,11 @@
     --primary: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue primary */
     --primary-foreground: 210 20% 98%; /* #f9fafb - Off-white primary text */
 
-    --secondary: 220 3% 86%; /* #DADCDF - Light gray secondary */
+    --secondary: 210 55.00000000000001% 99%; /* #fcfdfe - Light gray secondary */
     --secondary-foreground: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue secondary text */
 
     --muted: 220 14.3% 95.9%; /* #f3f4f6 - Very light blue-gray muted */
-    --muted-foreground: 220 8.9% 46.1%; /* #6c757d - Medium gray muted text */
+    --muted-foreground: 223.81 0% 24%; /* #3c3c3c - Muted black muted text */
 
     --accent: 220 14.3% 95.9%; /* #f3f4f6 - Very light blue-gray accent */
     --accent-foreground: 220.9 39.3% 11%; /* #0f1729 - Dark navy blue accent text */

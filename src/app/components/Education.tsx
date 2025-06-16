@@ -15,7 +15,7 @@ interface EducationPeriodProps {
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
-      className="font-mono text-xs tabular-nums text-foreground/70"
+      className="font-mono text-sm tabular-nums text-foreground/70"
       aria-label={`Period: ${start} to ${end}`}
     >
       {start} - {end}
@@ -69,7 +69,10 @@ interface EducationListProps {
 export function Education({ education }: EducationListProps) {
   return (
     <Section>
-      <h2 className="text-2xl font-bold uppercase" id="education-section">
+      <h2
+        className="text-2xl font-bold uppercase text-muted-foreground"
+        id="education-section"
+      >
         Education
       </h2>
       <div

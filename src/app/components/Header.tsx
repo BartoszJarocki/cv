@@ -145,11 +145,14 @@ export function Header() {
   return (
     <header className="flex items-center justify-between">
       <div className="flex-1">
-        <h1 className="text-3xl/none font-bold uppercase" id="resume-name">
+        <h1
+          className="text-3xl/none font-bold uppercase text-muted-foreground"
+          id="resume-name"
+        >
           {RESUME_DATA.name}
         </h1>
         <p
-          className="max-w-md text-pretty text-sm text-foreground/80 print:text-[12px]"
+          className="max-w-md text-pretty text-sm text-muted-foreground print:text-[12px]"
           aria-labelledby="resume-name"
         >
           {RESUME_DATA.about}
