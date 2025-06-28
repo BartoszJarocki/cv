@@ -1,7 +1,7 @@
 "use client";
 
+import { CommandIcon } from "lucide-react";
 import * as React from "react";
-
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,7 +11,6 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { CommandIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface Props {
@@ -20,7 +19,7 @@ interface Props {
 
 export const CommandMenu = ({ links }: Props) => {
   const [open, setOpen] = React.useState(false);
-  let isMac =
+  const isMac: boolean =
     typeof window !== "undefined"
       ? window.navigator.userAgent.indexOf("Mac") > -1
       : false;

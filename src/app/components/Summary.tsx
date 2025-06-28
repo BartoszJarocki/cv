@@ -1,4 +1,5 @@
-import { RESUME_DATA } from "@/data/resume-data";
+import React from "react";
+import type { RESUME_DATA } from "@/data/resume-data";
 import { Section } from "../../components/ui/section";
 
 interface AboutProps {
@@ -16,10 +17,7 @@ export function Summary({ summary, className }: AboutProps) {
       <h2 className="text-xl font-bold" id="about-section">
         About
       </h2>
-      <div
-        className="text-pretty font-mono text-sm text-foreground/80 print:text-[12px]"
-        aria-labelledby="about-section"
-      >
+      <div className="text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
         {summary}
       </div>
     </Section>

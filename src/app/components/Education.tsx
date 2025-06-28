@@ -1,6 +1,7 @@
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import React from "react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import { RESUME_DATA } from "@/data/resume-data";
+import type { RESUME_DATA } from "@/data/resume-data";
 
 type Education = (typeof RESUME_DATA)["education"][number];
 
@@ -16,7 +17,7 @@ function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
       className="text-sm tabular-nums text-gray-500"
-      aria-label={`Period: ${start} to ${end}`}
+      title={`Period: ${start} to ${end}`}
     >
       {start} - {end}
     </div>
@@ -78,7 +79,7 @@ export function Education({ education }: EducationListProps) {
         aria-labelledby="education-section"
       >
         {education.map((item) => (
-          <article key={item.school} role="article">
+          <article key={item.school}>
             <EducationItem education={item} />
           </article>
         ))}

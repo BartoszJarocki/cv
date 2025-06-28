@@ -1,7 +1,8 @@
+import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import { RESUME_DATA } from "@/data/resume-data";
+import type { RESUME_DATA } from "@/data/resume-data";
 import { cn } from "@/lib/utils";
 
 type WorkExperience = (typeof RESUME_DATA)["work"][number];
@@ -16,7 +17,10 @@ interface BadgeListProps {
  * Renders a list of badges for work experience
  * Handles both mobile and desktop layouts through className prop
  */
-function BadgeList({ className, badges }: BadgeListProps) {
+function BadgeList({
+  className,
+  badges,
+}: BadgeListProps) {
   if (badges.length === 0) return null;
 
   return (
@@ -46,11 +50,14 @@ interface WorkPeriodProps {
 /**
  * Displays the work period in a consistent format
  */
-function WorkPeriod({ start, end }: WorkPeriodProps) {
+function WorkPeriod({
+  start,
+  end,
+}: WorkPeriodProps) {
   return (
     <div
       className="text-sm tabular-nums text-gray-500"
-      aria-label={`Employment period: ${start} to ${end ?? "Present"}`}
+      title={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
     </div>
@@ -65,7 +72,10 @@ interface CompanyLinkProps {
 /**
  * Renders company name with optional link
  */
-function CompanyLink({ company, link }: CompanyLinkProps) {
+function CompanyLink({
+  company,
+  link,
+}: CompanyLinkProps) {
   return (
     <a
       className="hover:underline"
@@ -87,7 +97,9 @@ interface WorkExperienceItemProps {
  * Individual work experience card component
  * Handles responsive layout for badges (mobile/desktop)
  */
-function WorkExperienceItem({ work }: WorkExperienceItemProps) {
+function WorkExperienceItem({
+  work,
+}: WorkExperienceItemProps) {
   const { company, link, badges, title, start, end, description } = work;
 
   return (
@@ -132,15 +144,21 @@ interface WorkExperienceProps {
  * Main work experience section component
  * Renders a list of work experiences in chronological order
  */
-export function WorkExperience({ work }: WorkExperienceProps) {
+export function WorkExperience({
+  work,
+}: WorkExperienceProps) {
   return (
     <Section>
       <h2 className="text-xl font-bold" id="work-experience">
         Work Experience
       </h2>
-      <div className="space-y-4 print:space-y-0" role="feed" aria-labelledby="work-experience">
+      <div
+        className="space-y-4 print:space-y-0"
+        role="feed"
+        aria-labelledby="work-experience"
+      >
         {work.map((item) => (
-          <article key={`${item.company}-${item.start}`} role="article">
+          <article key={`${item.company}-${item.start}`}>
             <WorkExperienceItem work={item} />
           </article>
         ))}

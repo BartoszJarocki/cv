@@ -1,14 +1,32 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import Image, { type StaticImageData } from "next/image";
+import React from "react";
+import { Avatar } from "@/components/avatar";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { XIcon } from "@/components/icons/x-icon";
 import { RESUME_DATA } from "@/data/resume-data";
+import type { ResumeIcon, IconType } from "@/lib/types";
+
+// Type-safe icon mapping
+const ICON_MAP: Record<IconType, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  github: GitHubIcon,
+  linkedin: LinkedInIcon,
+  x: XIcon,
+  globe: GlobeIcon,
+  mail: MailIcon,
+  phone: PhoneIcon,
+} as const;
 
 interface LocationLinkProps {
   location: typeof RESUME_DATA.location;
   locationLink: typeof RESUME_DATA.locationLink;
 }
 
-function LocationLink({ location, locationLink }: LocationLinkProps) {
+function LocationLink({
+  location,
+  locationLink,
+}: LocationLinkProps) {
   return (
     <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
       <a
@@ -27,20 +45,26 @@ function LocationLink({ location, locationLink }: LocationLinkProps) {
 
 interface SocialButtonProps {
   href: string;
-  icon: React.ElementType;
+  iconType: IconType;
   label: string;
 }
 
-function SocialButton({ href, icon: Icon, label }: SocialButtonProps) {
+function SocialButton({
+  href,
+  iconType,
+  label,
+}: SocialButtonProps) {
+  const IconComponent = ICON_MAP[iconType];
+  
   return (
-    <Button className="size-8" variant="outline" size="icon" asChild>
+    <Button className="size-8" variant="outline" size="icon" asChild={true}>
       <a
         href={href}
         aria-label={label}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon className="size-4" aria-hidden="true" />
+        <IconComponent className="size-4" aria-hidden="true" />
       </a>
     </Button>
   );
@@ -51,43 +75,52 @@ interface ContactButtonsProps {
   personalWebsiteUrl?: string;
 }
 
-function ContactButtons({ contact, personalWebsiteUrl }: ContactButtonsProps) {
+function ContactButtons({
+  contact,
+  personalWebsiteUrl,
+}: ContactButtonsProps) {
   return (
-    <div
-      className="flex gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
-      role="list"
+    <ul
+      className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
       aria-label="Contact links"
     >
       {personalWebsiteUrl && (
-        <SocialButton
-          href={personalWebsiteUrl}
-          icon={GlobeIcon}
-          label="Personal website"
-        />
+        <li>
+          <SocialButton
+            href={personalWebsiteUrl}
+            iconType="globe"
+            label="Personal website"
+          />
+        </li>
       )}
       {contact.email && (
-        <SocialButton
-          href={`mailto:${contact.email}`}
-          icon={MailIcon}
-          label="Email"
-        />
+        <li>
+          <SocialButton
+            href={`mailto:${contact.email}`}
+            iconType="mail"
+            label="Email"
+          />
+        </li>
       )}
       {contact.tel && (
-        <SocialButton
-          href={`tel:${contact.tel}`}
-          icon={PhoneIcon}
-          label="Phone"
-        />
+        <li>
+          <SocialButton
+            href={`tel:${contact.tel}`}
+            iconType="phone"
+            label="Phone"
+          />
+        </li>
       )}
       {contact.social.map((social) => (
-        <SocialButton
-          key={social.name}
-          href={social.url}
-          icon={social.icon}
-          label={social.name}
-        />
+        <li key={social.name}>
+          <SocialButton
+            href={social.url}
+            iconType={social.icon}
+            label={social.name}
+          />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -96,12 +129,12 @@ interface PrintContactProps {
   personalWebsiteUrl?: string;
 }
 
-function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
+function PrintContact({
+  contact,
+  personalWebsiteUrl,
+}: PrintContactProps) {
   return (
-    <div
-      className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]"
-      aria-label="Print contact information"
-    >
+    <div className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
       {personalWebsiteUrl && (
         <>
           <a
@@ -146,10 +179,7 @@ export function Header() {
         <h1 className="text-2xl font-bold" id="resume-name">
           {RESUME_DATA.name}
         </h1>
-        <p
-          className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]"
-          aria-labelledby="resume-name"
-        >
+        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
           {RESUME_DATA.about}
         </p>
 
@@ -169,13 +199,12 @@ export function Header() {
         />
       </div>
 
-      <Avatar className="size-28" aria-hidden="true">
-        <AvatarImage
-          alt={`${RESUME_DATA.name}'s profile picture`}
-          src={RESUME_DATA.avatarUrl}
-        />
-        <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
-      </Avatar>
+      <Avatar
+        className="size-28"
+        src={RESUME_DATA.avatarUrl}
+        alt={`${RESUME_DATA.name}'s profile picture`}
+        fallback={RESUME_DATA.initials}
+      />
     </header>
   );
 }

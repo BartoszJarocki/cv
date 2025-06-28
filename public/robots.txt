@@ -1,0 +1,13 @@
+# Robots.txt for https://cv.jarocki.me
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /graphql
+
+# Sitemap location
+Sitemap: https://cv.jarocki.me/sitemap.xml
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1

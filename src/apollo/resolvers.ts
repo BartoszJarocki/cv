@@ -1,11 +1,12 @@
-import { Resolver, Query } from "type-graphql";
-import { Me } from "./type-defs";
+import { Query, Resolver } from "type-graphql";
 import { RESUME_DATA } from "../data/resume-data";
+import { resumeDataToGraphQL } from "../lib/types";
+import { Me } from "./type-defs";
 
 @Resolver(() => Me)
 export class MeResolver {
   @Query(() => Me)
   me(): Me {
-    return RESUME_DATA as any;
+    return resumeDataToGraphQL(RESUME_DATA);
   }
 }

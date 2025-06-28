@@ -13,7 +13,12 @@ This is a **Minimalist CV/Resume web application** built with Next.js 14, React,
 pnpm dev          # Start development server on http://localhost:3000
 pnpm build        # Create production build
 pnpm start        # Start production server
-pnpm lint         # Run ESLint checks
+pnpm lint         # Run Biome linting checks
+pnpm lint:fix     # Run Biome linting with auto-fix
+pnpm format       # Check code formatting with Biome
+pnpm format:fix   # Format code with Biome
+pnpm check        # Run both linting and formatting checks
+pnpm check:fix    # Run both linting and formatting with auto-fix
 ```
 
 ### Docker Deployment
@@ -23,7 +28,7 @@ docker compose up -d     # Run the container
 docker compose down      # Stop the container
 ```
 
-**Note**: The Dockerfile currently references `yarn` commands but the project has transitioned to `pnpm`. Update Dockerfile lines 5, 7, 11, and 24 to use `pnpm` instead of `yarn`.
+**Note**: The project uses **Biome.js** for linting and formatting instead of ESLint and Prettier. Always run `pnpm check:fix` before committing to ensure code quality.
 
 ## Architecture
 
