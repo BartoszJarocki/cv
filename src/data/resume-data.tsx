@@ -56,13 +56,28 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Motion",
+      link: "https://motionapp.com/",
+      badges: ["Remote", "AI", "React", "Next.js", "TypeScript", "AdonisJS"],
+      title: "Senior Software Engineer",
+      logo: ConsultlyLogo,
+      start: "2025",
+      end: null,
+      description: (
+        <>
+          Working on internal AI agents platform allowing marketing specialists
+          to create AI workflows.
+        </>
+      ),
+    },
+    {
       company: "Film.io",
       link: "https://film.io",
       badges: ["Remote", "React", "Next.js", "TypeScript", "Node.js"],
       title: "Software Architect",
       logo: ConsultlyLogo,
       start: "2024",
-      end: null,
+      end: "2025",
       description: (
         <>
           Leading technical architecture of a blockchain-based film funding
