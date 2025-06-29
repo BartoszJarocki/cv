@@ -5,14 +5,12 @@ export const RESUME_DATA: ResumeData = {
   initials: "BJ",
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
-  about:
-    "Detail-oriented Full Stack Engineer dedicated to building high-quality products.",
+  about: "Full Stack Engineer dedicated to building high-quality products.",
   summary: (
     <>
-      Frontend-focused Full Stack Engineer specializing in high-performance
-      React applications, scalable Node.js services, and real-time collaboration
-      systems. Experienced in technical architecture design and remote team
-      leadership.
+      Full Stack Engineer specializing in high-performance React applications,
+      scalable Node.js services, and real-time collaboration systems.
+      Experienced in technical architecture design and remote team leadership.
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
