@@ -64,68 +64,71 @@ export default function ResumePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe for JSON-LD structured data
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
-      <main
-        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
-        id="main-content"
-      >
-        <div className="sr-only">
-          <h1>{RESUME_DATA.name}&apos;s Resume</h1>
-        </div>
-
-        <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
-          aria-label="Resume Content"
+      <div className="print:p-8 print:bg-white print:text-black print:max-w-[800px] print:mx-auto">
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe for JSON-LD structured data
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+        <main
+          className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
+          id="main-content"
         >
-          <SectionErrorBoundary sectionName="Header">
-            <Suspense fallback={<SectionSkeleton lines={4} />}>
-              <Header />
-            </Suspense>
-          </SectionErrorBoundary>
-
-          <div className="space-y-8 print:space-y-4">
-            <SectionErrorBoundary sectionName="Summary">
-              <Suspense fallback={<SectionSkeleton lines={2} />}>
-                <Summary summary={RESUME_DATA.summary} />
-              </Suspense>
-            </SectionErrorBoundary>
-
-            <SectionErrorBoundary sectionName="Work Experience">
-              <Suspense fallback={<SectionSkeleton lines={6} />}>
-                <WorkExperience work={RESUME_DATA.work} />
-              </Suspense>
-            </SectionErrorBoundary>
-
-            <SectionErrorBoundary sectionName="Education">
-              <Suspense fallback={<SectionSkeleton lines={3} />}>
-                <Education education={RESUME_DATA.education} />
-              </Suspense>
-            </SectionErrorBoundary>
-
-            <SectionErrorBoundary sectionName="Skills">
-              <Suspense fallback={<SectionSkeleton lines={2} />}>
-                <Skills skills={RESUME_DATA.skills} />
-              </Suspense>
-            </SectionErrorBoundary>
-
-            <SectionErrorBoundary sectionName="Projects">
-              <Suspense fallback={<SectionSkeleton lines={5} />}>
-                <Projects projects={RESUME_DATA.projects} />
-              </Suspense>
-            </SectionErrorBoundary>
+          <div className="sr-only">
+            <h1>{RESUME_DATA.name}&apos;s Resume</h1>
           </div>
-        </section>
 
-        <nav className="print:hidden" aria-label="Quick navigation">
-          <CommandMenu links={getCommandMenuLinks()} />
-        </nav>
-      </main>
+          <section
+            className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+            aria-label="Resume Content"
+          >
+            <SectionErrorBoundary sectionName="Header">
+              <Suspense fallback={<SectionSkeleton lines={4} />}>
+                <Header />
+              </Suspense>
+            </SectionErrorBoundary>
+
+            <div className="space-y-8 print:space-y-4">
+              <SectionErrorBoundary sectionName="Summary">
+                <Suspense fallback={<SectionSkeleton lines={2} />}>
+                  <Summary summary={RESUME_DATA.summary} />
+                </Suspense>
+              </SectionErrorBoundary>
+
+              <SectionErrorBoundary sectionName="Work Experience">
+                <Suspense fallback={<SectionSkeleton lines={6} />}>
+                  <WorkExperience work={RESUME_DATA.work} />
+                </Suspense>
+              </SectionErrorBoundary>
+
+              <SectionErrorBoundary sectionName="Education">
+                <Suspense fallback={<SectionSkeleton lines={3} />}>
+                  <Education education={RESUME_DATA.education} />
+                </Suspense>
+              </SectionErrorBoundary>
+
+              <SectionErrorBoundary sectionName="Skills">
+                <Suspense fallback={<SectionSkeleton lines={2} />}>
+                  <Skills skills={RESUME_DATA.skills} />
+                </Suspense>
+              </SectionErrorBoundary>
+
+              <SectionErrorBoundary sectionName="Projects">
+                <Suspense fallback={<SectionSkeleton lines={5} />}>
+                  <Projects projects={RESUME_DATA.projects} />
+                </Suspense>
+              </SectionErrorBoundary>
+            </div>
+          </section>
+
+          <nav className="print:hidden" aria-label="Quick navigation">
+            <CommandMenu links={getCommandMenuLinks()} />
+          </nav>
+        </main>
+      </div>
+
     </>
   );
 }
