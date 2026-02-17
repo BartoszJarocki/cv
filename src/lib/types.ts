@@ -1,5 +1,5 @@
-import React from "react";
 import type { StaticImageData } from "next/image";
+import React from "react";
 
 export type ResumeIcon =
   | React.ComponentType<React.SVGProps<SVGSVGElement>>

@@ -25,10 +25,10 @@ export function generatePersonStructuredData() {
     worksFor:
       RESUME_DATA.work.length > 0
         ? {
-          "@type": "Organization",
-          name: RESUME_DATA.work[0].company,
-          url: RESUME_DATA.work[0].link,
-        }
+            "@type": "Organization",
+            name: RESUME_DATA.work[0].company,
+            url: RESUME_DATA.work[0].link,
+          }
         : undefined,
     alumniOf: RESUME_DATA.education.map((edu) => ({
       "@type": "EducationalOrganization",
