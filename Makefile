@@ -73,5 +73,5 @@ cf-deploy: install
 	$(PNPM) run cf:deploy
 
 clean:
-	@rm -rf .next out node_modules
+	@rm -rf .next out node_modules .wrangler .pnpm-store
 	@$(PNPM) store prune
