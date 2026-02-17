@@ -1,7 +1,6 @@
 name = "cv-website"
 compatibility_date = "2026-02-17"
 pages_build_output_dir = "out"
-pages_build_command = "pnpm build"
 
 [env.production.vars]
 NEXT_PUBLIC_SITE_BASE_URL = "https://cv.ishahroz.com"
