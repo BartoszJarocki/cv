@@ -5,6 +5,7 @@ import { SectionErrorBoundary } from "@/components/section-error-boundary";
 import { SectionSkeleton } from "@/components/section-skeleton";
 import { RESUME_DATA } from "@/data/resume-data";
 import { generateResumeStructuredData } from "@/lib/structured-data";
+import { SITE_BASE_URL, absoluteUrl } from "@/lib/site-config";
 import { Education } from "./components/Education";
 import { Header } from "./components/Header";
 import { Projects } from "./components/Projects";
@@ -20,9 +21,10 @@ export const metadata: Metadata = {
     description: RESUME_DATA.about,
     type: "profile",
     locale: "en_US",
+    url: SITE_BASE_URL,
     images: [
       {
-        url: "https://cv.jarocki.me/opengraph-image",
+        url: absoluteUrl("/opengraph-image.png"),
         width: 1200,
         height: 630,
         alt: `${RESUME_DATA.name}'s profile picture`,
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${RESUME_DATA.name} - Resume`,
     description: RESUME_DATA.about,
-    images: ["https://cv.jarocki.me/opengraph-image"],
+    images: [absoluteUrl("/opengraph-image.png")],
   },
 };
 

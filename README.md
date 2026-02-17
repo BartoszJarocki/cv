@@ -147,7 +147,10 @@ docker run -p 3000:3000 cv-app
 
 ### Environment Variables
 
-No environment variables are required for basic usage. The app works out of the box!
+No environment variables are required for basic usage. Instead, configure URLs directly in code:
+
+- `personalWebsiteUrl` in `src/data/resume-data.tsx` controls the profile header/contact links.
+- `SITE_BASE_URL` in `src/lib/site-config.ts` controls the canonical CV host that metadata, sitemap, robots, and structured data reference. It automatically uses `http://localhost:3000` in development and `https://cv.ishahroz.com` in production—adjust those constants if you deploy to different domains.
 
 ### Print Settings
 

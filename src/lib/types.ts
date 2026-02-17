@@ -1,3 +1,4 @@
+import React from "react";
 import type { StaticImageData } from "next/image";
 
 export type ResumeIcon =
@@ -49,4 +50,20 @@ export interface ResumeData {
       href: string;
     };
   }>;
+}
+
+export function reactToString(content: React.ReactNode): string {
+  if (typeof content === "string" || typeof content === "number") {
+    return String(content);
+  }
+
+  if (Array.isArray(content)) {
+    return content.map(reactToString).join("");
+  }
+
+  if (React.isValidElement(content)) {
+    return reactToString(content.props.children);
+  }
+
+  return "";
 }
