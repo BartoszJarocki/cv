@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npx --yes serve@latest out",
     "generate:og": "tsx scripts/generate-og.tsx",
     "lint": "biome lint ./src",
     "lint:fix": "biome lint --write ./src",

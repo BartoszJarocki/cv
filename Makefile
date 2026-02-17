@@ -37,7 +37,7 @@ dev: install
 build: install
 	$(PNPM) run build
 
-start:
+start: build
 	$(PNPM) run start
 
 og: install
