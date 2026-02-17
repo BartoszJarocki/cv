@@ -2,9 +2,12 @@
 const nextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
+  
+  output: "export",
 
   // Optimize images
   images: {
+    unoptimized: true,
     domains: ['avatars.githubusercontent.com'],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,

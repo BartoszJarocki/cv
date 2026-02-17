@@ -4,7 +4,6 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
-Disallow: /graphql
 
 # Sitemap location
 Sitemap: https://cv.jarocki.me/sitemap.xml

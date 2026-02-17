@@ -21,7 +21,6 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 - ⌨️ **Keyboard Navigation** - Press `Cmd/Ctrl + K` to quickly navigate through sections
 - 🚀 **Fast Performance** - Built with Next.js 14 and optimized for Core Web Vitals
 - 🔄 **Auto Layout** - Sections automatically adjust based on your content
-- 📊 **GraphQL API** - Access your resume data programmatically at `/graphql`
 - 🎯 **SEO Friendly** - Optimized metadata for better search visibility
 - 🐳 **Docker Support** - Easy containerized deployment
 
@@ -31,7 +30,6 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
-- **GraphQL**: [Apollo Server](https://www.apollographql.com/) + [TypeGraphQL](https://typegraphql.com/)
 - **Package Manager**: [pnpm](https://pnpm.io/)
 - **Deployment**: Optimized for [Vercel](https://vercel.com/)
 
@@ -39,7 +37,7 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - pnpm 8+
 
 ### Installation
@@ -66,7 +64,7 @@ A clean and modern web app that renders a minimalist CV/Resume with a print-frie
 4. **Open [http://localhost:3000](http://localhost:3000)** in your browser
 
 5. **Customize your CV**
-   
+
    Edit the [src/data/resume-data.tsx](./src/data/resume-data.tsx) file to add your personal information, work experience, education, and skills.
 
 ### Available Scripts
@@ -92,9 +90,6 @@ src/
 │   └── resume-data.tsx
 ├── images/          # Static assets
 │   └── logos/       # Company logos
-└── apollo/          # GraphQL server setup
-    ├── resolvers.ts
-    └── type-defs.ts
 ```
 
 ## 🎨 Customization
@@ -112,12 +107,13 @@ export const RESUME_DATA = {
   about: "Brief description",
   summary: "Professional summary",
   // ... more fields
-}
+};
 ```
 
 ### Styling
 
 The app uses Tailwind CSS for styling. You can customize:
+
 - Colors in `tailwind.config.js`
 - Global styles in `src/app/globals.css`
 - Print styles are defined separately for optimal printing
@@ -156,6 +152,7 @@ No environment variables are required for basic usage. The app works out of the 
 ### Print Settings
 
 The app is optimized for printing. For best results:
+
 - Use Chrome/Chromium for printing
 - Enable "Background graphics" in print settings
 - Set margins to "Default"
