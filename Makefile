@@ -1,7 +1,7 @@
 PNPM ?= pnpm
 .DEFAULT_GOAL := help
 
-.PHONY: help install dev build start og lint lint-fix format format-fix check check-fix clean
+.PHONY: help install dev build start og lint lint-fix format format-fix check check-fix clean cf-dev cf-deploy
 
 help:
 	@printf '%s\n' 'Available commands:'
@@ -22,6 +22,11 @@ help:
 	@printf "  make %-10s # Biome format --write\n" "format-fix"
 	@printf "  make %-10s # Biome check\n" "check"
 	@printf "  make %-10s # Biome check --write\n" "check-fix"
+	@printf '%s\n' ''
+	@printf '%s\n' 'Cloudflare'
+	@printf '%s\n' '----------'
+	@printf "  make %-10s # Build + Wrangler pages dev\n" "cf-dev"
+	@printf "  make %-10s # Build + Wrangler pages deploy\n" "cf-deploy"
 	@printf '%s\n' ''
 	@printf '%s\n' 'Setup & Maintenance'
 	@printf '%s\n' '-------------------'
@@ -60,6 +65,12 @@ check: install
 
 check-fix: install
 	$(PNPM) run check:fix
+
+cf-dev: install
+	$(PNPM) run cf:dev
+
+cf-deploy: install
+	$(PNPM) run cf:deploy
 
 clean:
 	@rm -rf .next out node_modules
