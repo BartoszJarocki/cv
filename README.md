@@ -143,11 +143,34 @@ docker build -t cv-app .
 docker run -p 3000:3000 cv-app
 ```
 
+## ☁️ Cloudflare Pages & Workers
+
+1. Install dependencies and authenticate Wrangler:
+   ```bash
+   pnpm install
+   pnpm exec wrangler login
+   ```
+2. Deploy a preview build from your current branch:
+   ```bash
+   pnpm cf:deploy -- --branch preview
+   ```
+   Omit the `--branch` flag (or pass `--branch production`) to ship the current commit to production. The script runs `pnpm build` and then uploads the static `out/` directory via `wrangler pages deploy`.
+3. For a local, Worker-aware preview that simulates Pages Functions, run:
+   ```bash
+   pnpm cf:dev
+   ```
+   This command exports the site and serves it through Cloudflare's runtime using your `wrangler.toml` defaults.
+4. Domain setup: once the site is deployed, open **Workers & Pages → Settings → Domains & Routes** (or run `wrangler pages project list` to grab the project name) and attach your Cloudflare-managed hostname such as `cv.ishahroz.com`. Cloudflare automatically provisions the DNS record and certificate.
+5. Optional Workers logic: drop files under `functions/` (for example, `functions/api/hello.ts`) to run Worker code with your static assets. Wrangler will bundle and deploy those functions alongside the export, so you can progressively add dynamic endpoints without leaving this repo.
+
 ## 🔧 Configuration
 
 ### Environment Variables
 
-No environment variables are required for basic usage. The app works out of the box!
+No environment variables are required for basic usage. Instead, configure URLs directly in code when necessary:
+
+- `personalWebsiteUrl` in `src/data/resume-data.tsx` controls the profile header/contact links.
+- `SITE_BASE_URL` in `src/lib/site-config.ts` controls the canonical CV host that metadata, sitemap, robots, and structured data reference. It automatically uses `http://localhost:3000` for local dev, `https://cv.ishahroz.com` for production, and respects `NEXT_PUBLIC_SITE_BASE_URL` or the Cloudflare-provided `CF_PAGES_URL` if you set them for custom deployments.
 
 ### Print Settings
 

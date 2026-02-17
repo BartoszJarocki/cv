@@ -1,10 +1,10 @@
 import type { ResumeData } from "@/lib/types";
 
 export const RESUME_DATA: ResumeData = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Shahroz Ahmad",
+  initials: "SA",
+  location: "Halifax, Canada, AST",
+  locationLink: "https://maps.app.goo.gl/38BsbJWK1TTqAZxW7",
   about: "Full Stack Engineer dedicated to building high-quality products.",
   summary: (
     <>
@@ -13,20 +13,20 @@ export const RESUME_DATA: ResumeData = {
       Experienced in technical architecture design and remote team leadership.
     </>
   ),
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+  avatarUrl: "https://avatars.githubusercontent.com/u/97090106?v=4",
+  personalWebsiteUrl: "https://ishahroz.com",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "ishahrozahmad90@gmail.com",
+    tel: "+19024527130",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/ishahroz",
         icon: "github",
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/ishahroz/",
         icon: "linkedin",
       },
       {

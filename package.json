@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npx --yes serve@latest out",
+    "generate:og": "tsx scripts/generate-og.tsx",
+    "cf:dev": "pnpm build && pnpm exec wrangler pages dev ./out",
+    "precf:deploy": "pnpm exec wrangler whoami || pnpm exec wrangler login",
+    "cf:deploy": "pnpm build && pnpm exec wrangler pages deploy ./out",
     "lint": "biome lint ./src",
     "lint:fix": "biome lint --write ./src",
     "format": "biome format ./src",
@@ -34,9 +38,14 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vercel/og": "^0.8.6",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
+    "satori": "^0.19.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5"
+    "tsx": "^4.15.7",
+    "typescript": "^5",
+    "wrangler": "^4.66.0"
   }
 }
