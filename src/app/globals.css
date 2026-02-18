@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 220 18% 96%;
     --foreground: 224 71.4% 4.1%;
 
-    --card: 0 0% 100%;
+    --card: 220 18% 96%;
     --card-foreground: 224 71.4% 4.1%;
 
-    --popover: 0 0% 100%;
+    --popover: 220 18% 96%;
     --popover-foreground: 224 71.4% 4.1%;
 
     --primary: 220.9 39.3% 11%;
     --primary-foreground: 210 20% 98%;
 
-    --secondary: 220 14.3% 95.9%;
+    --secondary: 220 16% 90%;
     --secondary-foreground: 220.9 39.3% 11%;
 
     --muted: 220 14.3% 95.9%;
@@ -33,16 +33,17 @@
     --ring: 224 71.4% 4.1%;
 
     --radius: 0.5rem;
+    color-scheme: light;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 222 15% 12%;
     --foreground: 210 20% 98%;
 
-    --card: 224 71.4% 4.1%;
+    --card: 222 15% 12%;
     --card-foreground: 210 20% 98%;
 
-    --popover: 224 71.4% 4.1%;
+    --popover: 222 15% 12%;
     --popover-foreground: 210 20% 98%;
 
     --primary: 210 20% 98%;
@@ -63,6 +64,7 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
+    color-scheme: dark;
   }
 }
 
@@ -71,7 +73,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen bg-background text-foreground antialiased;
   }
 }
 

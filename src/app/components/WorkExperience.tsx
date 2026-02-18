@@ -67,7 +67,7 @@ function WorkPeriod({ start, end }: WorkPeriodProps) {
 
   return (
     <div
-      className="flex items-center gap-1 text-sm tabular-nums text-gray-500"
+      className="flex items-center gap-1 text-sm tabular-nums text-foreground/65"
       title={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       <span>{start}</span>
@@ -117,7 +117,7 @@ function WorkLocation({ city, flag, url, type }: WorkLocationProps) {
   if (!city && !flag && !type) return null;
 
   const content = (
-    <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+    <div className="flex flex-wrap items-center gap-2 text-sm text-foreground/70">
       {city || flag ? (
         <span className="inline-flex items-center gap-1">
           {city ? <span>{city}</span> : null}
@@ -127,7 +127,7 @@ function WorkLocation({ city, flag, url, type }: WorkLocationProps) {
         </span>
       ) : null}
       {type ? (
-        <span className="text-[11px] uppercase tracking-wide text-gray-400">
+        <span className="text-[11px] uppercase tracking-wide text-foreground/50">
           {type}
         </span>
       ) : null}
@@ -162,14 +162,14 @@ function EmploymentTypeList({ types }: EmploymentTypeListProps) {
   if (!types?.length) return null;
 
   return (
-    <span className="ml-2 inline-flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gray-500">
-      <span aria-hidden="true" className="text-gray-300">
+    <span className="ml-2 inline-flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/65">
+      <span aria-hidden="true" className="text-foreground/40">
         |
       </span>
       {types.map((type, index) => (
         <span key={type} className="inline-flex items-center gap-1">
           {index > 0 ? (
-            <span aria-hidden="true" className="text-gray-300">
+            <span aria-hidden="true" className="text-foreground/40">
               /
             </span>
           ) : null}
@@ -227,7 +227,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] text-pretty">
+        <div className="mt-2 text-xs text-foreground print:mt-1 print:text-[10px] text-pretty">
           {description}
         </div>
         <div className="mt-3">

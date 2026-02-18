@@ -1,10 +1,12 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 import type React from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { ThemeProvider } from "@/components/theme-provider";
 import { RESUME_DATA } from "@/data/resume-data";
 import { SITE_BASE_URL } from "@/lib/site-config";
 
@@ -12,6 +14,27 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
+const themeInitializer = `
+(() => {
+  const storageKey = "cv-theme";
+  try {
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const storedTheme = window.localStorage.getItem(storageKey);
+    const theme = storedTheme ?? (prefersDark ? "dark" : "light");
+    if (theme === "dark") {
+      root.classList.add("dark");
+      root.style.colorScheme = "dark";
+    } else {
+      root.classList.remove("dark");
+      root.style.colorScheme = "light";
+    }
+  } catch {
+    /* no-op */
+  }
+})();
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_BASE_URL),
@@ -85,11 +108,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>
-        <ErrorBoundary>{children}</ErrorBoundary>
+    <html lang="en" className={inter.className} suppressHydrationWarning={true}>
+      <body className="bg-background text-foreground antialiased">
+        <Script id="theme-initializer" strategy="beforeInteractive">
+          {themeInitializer}
+        </Script>
+        <ThemeProvider>
+          <ErrorBoundary>{children}</ErrorBoundary>
+          <Analytics />
+        </ThemeProvider>
       </body>
-      <Analytics />
     </html>
   );
 }

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { CommandMenu } from "@/components/command-menu";
 import { SectionErrorBoundary } from "@/components/section-error-boundary";
 import { SectionSkeleton } from "@/components/section-skeleton";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { RESUME_DATA } from "@/data/resume-data";
 import { absoluteUrl, SITE_BASE_URL } from "@/lib/site-config";
 import { generateResumeStructuredData } from "@/lib/structured-data";
@@ -66,6 +67,7 @@ export default function ResumePage() {
 
   return (
     <>
+      <ThemeToggle className="fixed right-4 top-6 z-20 print:hidden md:right-6 md:top-6" />
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe for JSON-LD structured data
@@ -74,7 +76,7 @@ export default function ResumePage() {
         }}
       />
       <main
-        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
+        className="container relative mx-auto scroll-my-12 overflow-auto px-4 pb-4 pt-20 print:p-11 md:p-16"
         id="main-content"
       >
         <div className="sr-only">
@@ -82,7 +84,7 @@ export default function ResumePage() {
         </div>
 
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+          className="mx-auto w-full max-w-2xl space-y-8 rounded-3xl bg-card print:space-y-4 print:rounded-none print:bg-white"
           aria-label="Resume Content"
         >
           <SectionErrorBoundary sectionName="Header">

@@ -83,7 +83,7 @@ interface ContactButtonsProps {
 function ContactButtons({ contact, personalWebsiteUrl }: ContactButtonsProps) {
   return (
     <ul
-      className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
+      className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground print:hidden"
       aria-label="Contact links"
     >
       {personalWebsiteUrl && (
@@ -133,7 +133,7 @@ interface PrintContactProps {
 
 function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
   return (
-    <div className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
+    <div className="hidden gap-x-2 font-mono text-sm text-foreground print:flex print:text-[12px]">
       {personalWebsiteUrl && (
         <>
           <a
@@ -178,7 +178,7 @@ export function Header() {
         <h1 className="text-2xl font-bold" id="resume-name">
           {RESUME_DATA.name}
         </h1>
-        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
+        <p className="max-w-md text-pretty font-mono text-sm text-foreground print:text-[12px]">
           {RESUME_DATA.about}
         </p>
 
