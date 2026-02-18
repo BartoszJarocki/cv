@@ -6,12 +6,14 @@ export const RESUME_DATA: ResumeData = {
   location: "Halifax, Canada, AST",
   locationFlag: "🇨🇦",
   locationLink: "https://maps.app.goo.gl/38BsbJWK1TTqAZxW7",
-  about: "Full Stack Engineer dedicated to building high-quality products.",
+  about:
+    "Full stack AI/ML engineer vibe—coding AI verticals and meticulous slops.",
   summary: (
     <>
-      Full Stack Engineer specializing in high-performance React applications,
-      scalable Node.js services, and real-time collaboration systems.
-      Experienced in technical architecture design and remote team leadership.
+      AI/ML engineer blending TypeScript product work with Python, LLM, and
+      computer-vision pipelines. Ship production RAG automation, carbon
+      intelligence analytics, and privacy-safe CV tooling on AWS Bedrock,
+      Dagster, and cloud-native stacks.
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/97090106?v=4",
@@ -310,17 +312,91 @@ export const RESUME_DATA: ResumeData = {
     },
   ],
   skills: [
-    "React/Next.js/Remix",
-    "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "WebRTC",
-    "WebSockets",
-    "Node.js",
-    "GraphQL",
-    "Relay",
-    "System Architecture",
-    "Remote Team Leadership",
+    {
+      name: "Programming Languages",
+      icon: "languages",
+      items: [
+        {
+          name: "Python",
+          icon: { type: "devicon", value: "devicon-python-plain" },
+        },
+        {
+          name: "TypeScript",
+          icon: { type: "devicon", value: "devicon-typescript-plain" },
+        },
+        {
+          name: "JavaScript",
+          icon: { type: "devicon", value: "devicon-javascript-plain" },
+        },
+        {
+          name: "SQL",
+          icon: { type: "devicon", value: "devicon-postgresql-plain" },
+        },
+      ],
+    },
+    {
+      name: "Frameworks & Platforms",
+      icon: "frameworks",
+      items: [
+        {
+          name: "Django",
+          icon: { type: "devicon", value: "devicon-django-plain" },
+        },
+        {
+          name: "Django REST Framework",
+          icon: { type: "devicon", value: "devicon-djangorest-plain" },
+        },
+        {
+          name: "FastAPI",
+          icon: { type: "devicon", value: "devicon-fastapi-plain" },
+        },
+        {
+          name: "GraphQL",
+          icon: { type: "devicon", value: "devicon-graphql-plain" },
+        },
+        { name: "REST API", icon: "restapi" },
+        {
+          name: "Nginx",
+          icon: { type: "devicon", value: "devicon-nginx-original" },
+        },
+        {
+          name: "RabbitMQ",
+          icon: { type: "devicon", value: "devicon-rabbitmq-original" },
+        },
+        { name: "Keycloak", icon: "keycloak" },
+        {
+          name: "React",
+          icon: { type: "devicon", value: "devicon-react-original" },
+        },
+        { name: "ShadCN", icon: "shadcn" },
+        { name: "Mantine", icon: "mantine" },
+        {
+          name: "TailwindCSS",
+          icon: { type: "devicon", value: "devicon-tailwindcss-original" },
+        },
+        {
+          name: "Redux",
+          icon: { type: "devicon", value: "devicon-redux-original" },
+        },
+      ],
+    },
+    {
+      name: "Cloud Platforms",
+      icon: "cloud",
+      items: [
+        {
+          name: "AWS",
+          icon: {
+            type: "devicon",
+            value: "devicon-amazonwebservices-plain-wordmark",
+          },
+        },
+        {
+          name: "Azure",
+          icon: { type: "devicon", value: "devicon-azure-plain" },
+        },
+      ],
+    },
   ],
   projects: [
     {
@@ -328,6 +404,7 @@ export const RESUME_DATA: ResumeData = {
       techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
       description:
         "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
+      status: "wip",
       link: {
         label: "monito.dev",
         href: "https://monito.dev/",
@@ -347,6 +424,7 @@ export const RESUME_DATA: ResumeData = {
       ],
       description:
         "Platform for online consultations with real-time video meetings and scheduling",
+      status: "finished",
       link: {
         label: "consultly.com",
         href: "https://consultly.com/",
@@ -357,6 +435,7 @@ export const RESUME_DATA: ResumeData = {
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       description:
         "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+      status: "deprecated",
       link: {
         label: "Minimalist CV",
         href: "https://github.com/BartoszJarocki/cv",

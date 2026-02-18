@@ -1,7 +1,7 @@
 PNPM ?= pnpm
 .DEFAULT_GOAL := help
 
-.PHONY: help install dev build start og lint lint-fix format format-fix check check-fix clean cf-dev cf-deploy
+.PHONY: help install dev build start og lint lint-fix format format-fix check check-fix fix-all clean cf-dev cf-deploy
 
 help:
 	@printf '%s\n' 'Available commands:'
@@ -22,6 +22,7 @@ help:
 	@printf "  make %-10s # Biome format --write\n" "format-fix"
 	@printf "  make %-10s # Biome check\n" "check"
 	@printf "  make %-10s # Biome check --write\n" "check-fix"
+	@printf "  make %-10s # Run lint, format, check fixes\n" "fix-all"
 	@printf '%s\n' ''
 	@printf '%s\n' 'Cloudflare'
 	@printf '%s\n' '----------'
@@ -64,6 +65,11 @@ check: install
 	$(PNPM) run check
 
 check-fix: install
+	$(PNPM) run check:fix
+
+fix-all: install
+	$(PNPM) run lint:fix
+	$(PNPM) run format:fix
 	$(PNPM) run check:fix
 
 cf-dev: install

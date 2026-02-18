@@ -7,6 +7,15 @@ export type ResumeIcon =
 
 export type IconType = "github" | "linkedin" | "x" | "globe" | "mail" | "phone";
 
+export type ProjectStatus = "finished" | "wip" | "deprecated";
+
+export type SkillIconConfig =
+  | string
+  | {
+      type?: "devicon" | "lucide";
+      value: string;
+    };
+
 export interface ResumeData {
   name: string;
   initials: string;
@@ -46,7 +55,16 @@ export interface ResumeData {
     end: string | null;
     description: string | React.ReactNode;
   }>;
-  skills: string[];
+  skills: Array<{
+    name: string;
+    icon?: SkillIconConfig;
+    items: Array<{
+      name: string;
+      icon?: SkillIconConfig;
+      description?: string;
+    }>;
+    description?: string;
+  }>;
   projects: Array<{
     title: string;
     techStack: string[];
@@ -55,6 +73,7 @@ export interface ResumeData {
       label: string;
       href: string;
     };
+    status?: ProjectStatus;
   }>;
 }
 

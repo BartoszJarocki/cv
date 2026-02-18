@@ -47,7 +47,9 @@ export function generatePersonStructuredData() {
         name: "Professional software engineer",
       },
     })),
-    knowsAbout: RESUME_DATA.skills,
+    knowsAbout: RESUME_DATA.skills.flatMap((group) =>
+      group.items.map((item) => item.name)
+    ),
   };
 }
 
