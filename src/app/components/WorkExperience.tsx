@@ -47,12 +47,29 @@ interface WorkPeriodProps {
  * Displays the work period in a consistent format
  */
 function WorkPeriod({ start, end }: WorkPeriodProps) {
+  const isCurrent = !end;
+
+  const endContent = isCurrent ? (
+    <span className="inline-flex items-center gap-1">
+      <span>Present</span>
+      <span className="relative inline-flex h-[0.3rem] w-[0.3rem] print:hidden" aria-hidden="true">
+        <span className="absolute inline-flex h-[0.3rem] w-[0.3rem] animate-ping rounded-full bg-emerald-400 opacity-70" />
+        <span className="relative inline-flex h-[0.3rem] w-[0.3rem] rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]" />
+      </span>
+      <span className="sr-only">Current role indicator</span>
+    </span>
+  ) : (
+    <span>{end}</span>
+  );
+
   return (
     <div
-      className="text-sm tabular-nums text-gray-500"
+      className="flex items-center gap-1 text-sm tabular-nums text-gray-500"
       title={`Employment period: ${start} to ${end ?? "Present"}`}
     >
-      {start} - {end ?? "Present"}
+      <span>{start}</span>
+      <span aria-hidden="true">-</span>
+      {endContent}
     </div>
   );
 }
@@ -162,7 +179,7 @@ function EmploymentTypeList({ types }: EmploymentTypeListProps) {
 
 /**
  * Individual work experience card component
- * Handles responsive layout for badges (mobile/desktop)
+ * Places technology badges below the job description for consistency
  */
 function WorkExperienceItem({ work }: WorkExperienceItemProps) {
   const {
@@ -189,10 +206,6 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
             <h3 className="inline-flex flex-wrap items-center gap-2 font-semibold leading-none print:text-sm">
               <CompanyLink company={company} link={link} />
               <EmploymentTypeList types={employmentTypes} />
-              <BadgeList
-                className="hidden flex-wrap gap-x-1 sm:inline-flex"
-                badges={technologyBadges}
-              />
             </h3>
             <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
               {title}
@@ -214,9 +227,9 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
         <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] text-pretty">
           {description}
         </div>
-        <div className="mt-2">
+        <div className="mt-3">
           <BadgeList
-            className="-mx-2 flex-wrap gap-1 sm:hidden"
+            className="flex flex-wrap gap-1"
             badges={technologyBadges}
           />
         </div>
@@ -240,7 +253,7 @@ export function WorkExperience({ work }: WorkExperienceProps) {
         Work Experience
       </h2>
       <div
-        className="space-y-4 print:space-y-0"
+        className="space-y-5 print:space-y-0"
         role="feed"
         aria-labelledby="work-experience"
       >

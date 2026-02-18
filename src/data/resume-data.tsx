@@ -116,21 +116,6 @@ export const RESUME_DATA: ResumeData = {
       ),
     },
     {
-      company: "Acuicy",
-      link: "https://www.acuicy.com/",
-      badges: ["Amazon Bedrock"],
-      employmentTypes: ["Contract", "Part-time"],
-      title: "Machine Learning Engineer",
-      location: "Halifax",
-      locationType: "Hybrid",
-      locationUrl: "https://maps.app.goo.gl/38BsbJWK1TTqAZxW7",
-      locationFlag: "🇨🇦",
-      start: "Aug 2024",
-      end: "Dec 2024",
-      description:
-        "Developed Amazon Bedrock powered services that automated client onboarding checks and accelerated proof-of-value engagements.",
-    },
-    {
       company: "Detect",
       link: "https://detectinspections.com/",
       badges: ["Deep Learning", "MLflow"],
@@ -163,6 +148,21 @@ export const RESUME_DATA: ResumeData = {
           </li>
         </ul>
       ),
+    },
+    {
+      company: "Acuicy",
+      link: "https://www.acuicy.com/",
+      badges: ["Amazon Bedrock"],
+      employmentTypes: ["Contract", "Part-time"],
+      title: "Machine Learning Engineer",
+      location: "Halifax",
+      locationType: "Hybrid",
+      locationUrl: "https://maps.app.goo.gl/38BsbJWK1TTqAZxW7",
+      locationFlag: "🇨🇦",
+      start: "Aug 2024",
+      end: "Dec 2024",
+      description:
+        "Developed Amazon Bedrock powered services that automated client onboarding checks and accelerated proof-of-value engagements.",
     },
     {
       company: "Scale AI",
