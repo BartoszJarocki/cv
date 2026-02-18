@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+printf '\n[pre-commit] Running make lint...\n'
+make lint
+
+printf '\n[pre-commit] Running make check...\n'
+make check

@@ -15,7 +15,8 @@
     "format": "biome format ./src",
     "format:fix": "biome format --write ./src",
     "check": "biome check ./src",
-    "check:fix": "biome check --write ./src"
+    "check:fix": "biome check --write ./src",
+    "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
@@ -40,6 +41,7 @@
     "@types/react-dom": "^18",
     "@vercel/og": "^0.8.6",
     "autoprefixer": "^10.0.1",
+    "husky": "^9.1.7",
     "postcss": "^8",
     "satori": "^0.19.2",
     "sharp": "^0.34.5",

@@ -52,7 +52,10 @@ function WorkPeriod({ start, end }: WorkPeriodProps) {
   const endContent = isCurrent ? (
     <span className="inline-flex items-center gap-1">
       <span>Present</span>
-      <span className="relative inline-flex h-[0.3rem] w-[0.3rem] print:hidden" aria-hidden="true">
+      <span
+        className="relative inline-flex h-[0.3rem] w-[0.3rem] print:hidden"
+        aria-hidden="true"
+      >
         <span className="absolute inline-flex h-[0.3rem] w-[0.3rem] animate-ping rounded-full bg-emerald-400 opacity-70" />
         <span className="relative inline-flex h-[0.3rem] w-[0.3rem] rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]" />
       </span>
