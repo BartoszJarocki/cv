@@ -20,9 +20,22 @@ const ICON_MAP: Record<IconType, ComponentType<SVGProps<SVGSVGElement>>> = {
 interface LocationLinkProps {
   location: typeof RESUME_DATA.location;
   locationLink: typeof RESUME_DATA.locationLink;
+  locationFlag?: typeof RESUME_DATA.locationFlag;
 }
 
-function LocationLink({ location, locationLink }: LocationLinkProps) {
+function LocationLink({
+  location,
+  locationLink,
+  locationFlag,
+}: LocationLinkProps) {
+  const icon = locationFlag ? (
+    <span aria-hidden="true" className="text-sm leading-none">
+      {locationFlag}
+    </span>
+  ) : (
+    <GlobeIcon className="size-3" aria-hidden="true" />
+  );
+
   return (
     <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
       <a
@@ -32,7 +45,7 @@ function LocationLink({ location, locationLink }: LocationLinkProps) {
         rel="noopener noreferrer"
         aria-label={`Location: ${location}`}
       >
-        <GlobeIcon className="size-3" aria-hidden="true" />
+        {icon}
         {location}
       </a>
     </p>
@@ -172,6 +185,7 @@ export function Header() {
         <LocationLink
           location={RESUME_DATA.location}
           locationLink={RESUME_DATA.locationLink}
+          locationFlag={RESUME_DATA.locationFlag}
         />
 
         <ContactButtons

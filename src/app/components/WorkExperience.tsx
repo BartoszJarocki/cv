@@ -83,30 +83,131 @@ interface WorkExperienceItemProps {
   work: WorkExperience;
 }
 
+interface WorkLocationProps {
+  city?: string;
+  flag?: string;
+  url?: string;
+  type?: WorkExperience["locationType"];
+}
+
+/**
+ * Displays a subtle work arrangement label followed by the city/flag, optionally as a link
+ */
+function WorkLocation({ city, flag, url, type }: WorkLocationProps) {
+  if (!city && !flag && !type) return null;
+
+  const content = (
+    <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+      {city || flag ? (
+        <span className="inline-flex items-center gap-1">
+          {city ? <span>{city}</span> : null}
+          <span aria-hidden="true" className="text-base leading-none">
+            {flag ?? "📍"}
+          </span>
+        </span>
+      ) : null}
+      {type ? (
+        <span className="text-[11px] uppercase tracking-wide text-gray-400">
+          {type}
+        </span>
+      ) : null}
+    </div>
+  );
+
+  if (url) {
+    return (
+      <a
+        className="inline-flex"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Open ${city ?? "location"} in Google Maps`}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return content;
+}
+
+interface EmploymentTypeListProps {
+  types?: WorkExperience["employmentTypes"];
+}
+
+/**
+ * Minimal uppercase text labels for employment type(s) placed directly next to the company name
+ */
+function EmploymentTypeList({ types }: EmploymentTypeListProps) {
+  if (!types?.length) return null;
+
+  return (
+    <span className="ml-2 inline-flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-gray-500">
+      <span aria-hidden="true" className="text-gray-300">
+        |
+      </span>
+      {types.map((type, index) => (
+        <span key={type} className="inline-flex items-center gap-1">
+          {index > 0 ? (
+            <span aria-hidden="true" className="text-gray-300">
+              /
+            </span>
+          ) : null}
+          <span>{type}</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 /**
  * Individual work experience card component
  * Handles responsive layout for badges (mobile/desktop)
  */
 function WorkExperienceItem({ work }: WorkExperienceItemProps) {
-  const { company, link, badges, title, start, end, description } = work;
+  const {
+    company,
+    link,
+    badges,
+    employmentTypes,
+    title,
+    start,
+    end,
+    description,
+    location,
+    locationFlag,
+    locationType,
+    locationUrl,
+  } = work;
+  const technologyBadges: WorkBadges = badges;
 
   return (
     <Card className="py-1 print:py-0">
-      <CardHeader className="print:space-y-1">
-        <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
-            <CompanyLink company={company} link={link} />
-            <BadgeList
-              className="hidden gap-x-1 sm:inline-flex"
-              badges={badges}
+      <CardHeader className="space-y-2 print:space-y-1">
+        <div className="flex flex-col gap-2 text-base sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <h3 className="inline-flex flex-wrap items-center gap-2 font-semibold leading-none print:text-sm">
+              <CompanyLink company={company} link={link} />
+              <EmploymentTypeList types={employmentTypes} />
+              <BadgeList
+                className="hidden flex-wrap gap-x-1 sm:inline-flex"
+                badges={technologyBadges}
+              />
+            </h3>
+            <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
+              {title}
+            </h4>
+          </div>
+          <div className="flex flex-col items-start gap-1 text-left sm:items-end sm:text-right">
+            <WorkPeriod start={start} end={end} />
+            <WorkLocation
+              city={location}
+              flag={locationFlag}
+              type={locationType}
+              url={locationUrl}
             />
-          </h3>
-          <WorkPeriod start={start} end={end} />
+          </div>
         </div>
-
-        <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
-          {title}
-        </h4>
       </CardHeader>
 
       <CardContent>
@@ -116,7 +217,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
         <div className="mt-2">
           <BadgeList
             className="-mx-2 flex-wrap gap-1 sm:hidden"
-            badges={badges}
+            badges={technologyBadges}
           />
         </div>
       </CardContent>

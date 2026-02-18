@@ -11,6 +11,7 @@ export interface ResumeData {
   name: string;
   initials: string;
   location: string;
+  locationFlag?: string;
   locationLink: string;
   about: string;
   summary: string | React.ReactNode;
@@ -35,7 +36,12 @@ export interface ResumeData {
     company: string;
     link: string;
     badges: string[];
+    employmentTypes?: string[];
     title: string;
+    location: string;
+    locationType?: "Hybrid" | "Remote" | "On-site";
+    locationUrl?: string;
+    locationFlag?: string;
     start: string;
     end: string | null;
     description: string | React.ReactNode;
