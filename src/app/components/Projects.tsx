@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge } from "../../components/ui/badge";
 import {
   Card,
@@ -20,10 +19,7 @@ interface ProjectLinkProps {
 /**
  * Renders project title with optional link and status indicator
  */
-function ProjectLink({
-  title,
-  link,
-}: ProjectLinkProps) {
+function ProjectLink({ title, link }: ProjectLinkProps) {
   if (!link) {
     return <span>{title}</span>;
   }
@@ -61,9 +57,7 @@ interface ProjectTagsProps {
 /**
  * Renders a list of technology tags used in the project
  */
-function ProjectTags({
-  tags,
-}: ProjectTagsProps) {
+function ProjectTags({ tags }: ProjectTagsProps) {
   if (tags.length === 0) return null;
 
   return (
@@ -95,12 +89,7 @@ interface ProjectCardProps {
 /**
  * Card component displaying project information
  */
-function ProjectCard({
-  title,
-  description,
-  tags,
-  link,
-}: ProjectCardProps) {
+function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
   return (
     <Card className="flex h-full flex-col overflow-hidden border p-3">
       <CardHeader>
@@ -130,9 +119,7 @@ interface ProjectsProps {
 /**
  * Section component displaying all side projects
  */
-export function Projects({
-  projects,
-}: ProjectsProps) {
+export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="scroll-mb-16 print:space-y-4">
       <h2 className="text-xl font-bold" id="side-projects">

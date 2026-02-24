@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";

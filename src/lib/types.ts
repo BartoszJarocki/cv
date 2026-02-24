@@ -1,6 +1,8 @@
 import type { StaticImageData } from "next/image";
 
-export type ResumeIcon = React.ComponentType<React.SVGProps<SVGSVGElement>> | StaticImageData;
+export type ResumeIcon =
+  | React.ComponentType<React.SVGProps<SVGSVGElement>>
+  | StaticImageData;
 
 export type IconType = "github" | "linkedin" | "x" | "globe" | "mail" | "phone";
 
