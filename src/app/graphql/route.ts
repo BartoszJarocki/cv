@@ -8,6 +8,7 @@ import { buildSchema } from "type-graphql";
 import { MeResolver } from "../../apollo/resolvers";
 
 let apolloServer: ApolloServer;
+// biome-ignore lint/suspicious/noExplicitAny: Apollo handler has overloaded signature
 let handler: any;
 
 try {
@@ -44,7 +45,7 @@ try {
   console.error("Failed to initialize Apollo Server:", error);
 
   // Fallback handler for initialization errors
-  handler = async () => {
+  handler = async (_req: NextRequest) => {
     return NextResponse.json(
       { error: "GraphQL server initialization failed" },
       { status: 500 }

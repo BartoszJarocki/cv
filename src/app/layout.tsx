@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cv.jarocki.me"),
+  metadataBase: new URL("https://nahomkasa.vercel.app"),
   title: {
     default: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
     template: `%s | ${RESUME_DATA.name}`,
@@ -26,6 +26,8 @@ export const metadata: Metadata = {
     RESUME_DATA.name,
     "software engineer",
     "full stack developer",
+    "self-taught developer",
+    "civil engineer",
     "react",
     "next.js",
     "typescript",
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
     description: RESUME_DATA.about,
-    creator: "@BartoszJarocki",
+    creator: "@nahomkasa",
   },
   alternates: {
     canonical: RESUME_DATA.personalWebsiteUrl,

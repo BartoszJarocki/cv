@@ -1,4 +1,4 @@
-# Robots.txt for https://cv.jarocki.me
+# Robots.txt for https://nahomkasa.vercel.app
 
 User-agent: *
 Allow: /
@@ -7,7 +7,7 @@ Disallow: /_next/
 Disallow: /graphql
 
 # Sitemap location
-Sitemap: https://cv.jarocki.me/sitemap.xml
+Sitemap: https://nahomkasa.vercel.app/sitemap.xml
 
 # Crawl-delay for responsible crawling
 Crawl-delay: 1
