@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitignore
+.claude
+.idea
+.vscode
+*.md
+Dockerfile
+docker-compose.yaml
+.env*
