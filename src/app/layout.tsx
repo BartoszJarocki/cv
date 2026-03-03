@@ -87,8 +87,8 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body>
         <ErrorBoundary>{children}</ErrorBoundary>
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }

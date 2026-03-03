@@ -35,7 +35,6 @@ export function Avatar({
           className="aspect-square h-full w-full object-cover"
           onError={() => setError(true)}
           priority={true}
-          unoptimized={src.startsWith("http")} // For external URLs
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center text-lg font-semibold">

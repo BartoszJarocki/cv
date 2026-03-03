@@ -72,13 +72,15 @@ export function generateWebPageStructuredData() {
 }
 
 export function generateResumeStructuredData() {
+  const person = generatePersonStructuredData();
+
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     dateCreated: new Date().toISOString(),
     dateModified: new Date().toISOString(),
-    mainEntity: generatePersonStructuredData(),
-    about: generatePersonStructuredData(),
+    mainEntity: person,
+    about: person,
     name: `${RESUME_DATA.name} - Professional Resume`,
     description: `Professional resume and portfolio of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
     url: "https://cv.jarocki.me",

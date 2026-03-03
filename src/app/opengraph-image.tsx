@@ -71,7 +71,7 @@ export default async function Image() {
             gap: "1rem",
           }}
         >
-          {RESUME_DATA.contact.email && (
+          {RESUME_DATA.personalWebsiteUrl && (
             <div style={{ fontSize: "1rem", color: "#666" }}>
               {RESUME_DATA.personalWebsiteUrl}
             </div>
