@@ -93,7 +93,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
     work;
 
   return (
-    <Card className="py-1 print:py-0">
+    <Card className="border-none py-1 print:py-0">
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">

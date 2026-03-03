@@ -134,7 +134,7 @@ export function Projects({ projects }: ProjectsProps) {
         {projects.map((project) => (
           <article
             key={project.title}
-            className="h-full" // Added h-full here
+            className="h-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm print:hover:translate-y-0 print:hover:shadow-none"
           >
             <ProjectCard
               title={project.title}

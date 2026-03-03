@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^1.0.0",
+    "geist": "^1.7.0",
     "lucide-react": "^0.474.0",
     "next": "^16.1.0",
     "react": "^19",

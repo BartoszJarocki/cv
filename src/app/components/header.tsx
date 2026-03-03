@@ -166,7 +166,7 @@ export function Header() {
   return (
     <header className="flex items-center justify-between">
       <div className="flex-1 space-y-1.5">
-        <h1 className="text-2xl font-bold" id="resume-name">
+        <h1 className="text-3xl font-bold tracking-tight" id="resume-name">
           {RESUME_DATA.name}
         </h1>
         <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
@@ -190,7 +190,7 @@ export function Header() {
       </div>
 
       <Avatar
-        className="size-28"
+        className="size-28 ring-1 ring-muted"
         src={RESUME_DATA.avatarUrl}
         alt={`${RESUME_DATA.name}'s profile picture`}
         fallback={RESUME_DATA.initials}

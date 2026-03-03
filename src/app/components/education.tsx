@@ -36,7 +36,7 @@ function EducationItem({ education }: EducationItemProps) {
   const schoolId = `education-${school.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
-    <Card>
+    <Card className="border-none">
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
           <h3 className="font-semibold leading-none" id={schoolId}>

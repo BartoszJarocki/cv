@@ -77,17 +77,41 @@ export default function ResumePage() {
         </div>
 
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4"
+          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4 dark:bg-background"
           aria-label="Resume Content"
         >
-          <Header />
+          <div className="animate-fade-in" style={{ animationDelay: "0ms" }}>
+            <Header />
+          </div>
 
           <div className="space-y-8 print:space-y-4">
-            <Summary summary={RESUME_DATA.summary} />
-            <WorkExperience work={RESUME_DATA.work} />
-            <Education education={RESUME_DATA.education} />
-            <Skills skills={RESUME_DATA.skills} />
-            <Projects projects={RESUME_DATA.projects} />
+            <div className="animate-fade-in" style={{ animationDelay: "75ms" }}>
+              <Summary summary={RESUME_DATA.summary} />
+            </div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "150ms" }}
+            >
+              <WorkExperience work={RESUME_DATA.work} />
+            </div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "225ms" }}
+            >
+              <Education education={RESUME_DATA.education} />
+            </div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "300ms" }}
+            >
+              <Skills skills={RESUME_DATA.skills} />
+            </div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "375ms" }}
+            >
+              <Projects projects={RESUME_DATA.projects} />
+            </div>
           </div>
         </section>
 
