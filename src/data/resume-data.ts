@@ -6,13 +6,8 @@ export const RESUME_DATA: ResumeData = {
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
   about: "Full Stack Engineer dedicated to building high-quality products.",
-  summary: (
-    <>
-      Full Stack Engineer specializing in high-performance React applications,
-      scalable Node.js services, and real-time collaboration systems.
-      Experienced in technical architecture design and remote team leadership.
-    </>
-  ),
+  summary:
+    "Full Stack Engineer specializing in high-performance React applications, scalable Node.js services, and real-time collaboration systems. Experienced in technical architecture design and remote team leadership.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
@@ -52,12 +47,8 @@ export const RESUME_DATA: ResumeData = {
       title: "Senior Software Engineer",
       start: "2025",
       end: null,
-      description: (
-        <>
-          Working on internal AI agents platform allowing marketing specialists
-          to create AI workflows.
-        </>
-      ),
+      description:
+        "Working on internal AI agents platform allowing marketing specialists to create AI workflows.",
     },
     {
       company: "Film.io",
@@ -66,25 +57,13 @@ export const RESUME_DATA: ResumeData = {
       title: "Software Architect",
       start: "2024",
       end: "2025",
-      description: (
-        <>
-          Leading technical architecture of a blockchain-based film funding
-          platform.
-          <ul className="list-inside list-disc">
-            <li>
-              Architecting migration from CRA to Next.js for improved
-              performance, SEO, and DX
-            </li>
-            <li>
-              Established release process enabling faster deployments and
-              reliable rollbacks
-            </li>
-            <li>
-              Implementing system-wide monitoring and security improvements
-            </li>
-          </ul>
-        </>
-      ),
+      description:
+        "Leading technical architecture of a blockchain-based film funding platform.",
+      highlights: [
+        "Architecting migration from CRA to Next.js for improved performance, SEO, and DX",
+        "Established release process enabling faster deployments and reliable rollbacks",
+        "Implementing system-wide monitoring and security improvements",
+      ],
     },
     {
       company: "Parabol",
@@ -100,25 +79,13 @@ export const RESUME_DATA: ResumeData = {
       title: "Senior Full Stack Developer",
       start: "2021",
       end: "2024",
-      description: (
-        <>
-          Senior developer and squad leader for an enterprise agile meeting
-          platform.
-          <ul className="list-inside list-disc">
-            <li>
-              Built design system with Tailwind CSS, improving development speed
-              and time to market
-            </li>
-            <li>
-              Implemented engineering practices: PR automation, code review
-              guidelines, and workflows
-            </li>
-            <li>
-              Open source contributions to Relay DevTools and React i18n tooling
-            </li>
-          </ul>
-        </>
-      ),
+      description:
+        "Senior developer and squad leader for an enterprise agile meeting platform.",
+      highlights: [
+        "Built design system with Tailwind CSS, improving development speed and time to market",
+        "Implemented engineering practices: PR automation, code review guidelines, and workflows",
+        "Open source contributions to Relay DevTools and React i18n tooling",
+      ],
     },
     {
       company: "Clevertech",
@@ -127,26 +94,13 @@ export const RESUME_DATA: ResumeData = {
       title: "Lead Android Developer → Full Stack Developer",
       start: "2015",
       end: "2021",
-      description: (
-        <>
-          Successfully transitioned from mobile to full-stack development while
-          leading distributed teams.
-          <ul className="list-inside list-disc">
-            <li>
-              Led frontend team at Evercast, building real-time platform
-              supporting 30+ users per room with HD streaming and collaboration
-              tools
-            </li>
-            <li>
-              Developed offline-first Android app for DKMS, improving donor
-              registration process
-            </li>
-            <li>
-              Led development teams across multiple successful client projects
-            </li>
-          </ul>
-        </>
-      ),
+      description:
+        "Successfully transitioned from mobile to full-stack development while leading distributed teams.",
+      highlights: [
+        "Led frontend team at Evercast, building real-time platform supporting 30+ users per room with HD streaming and collaboration tools",
+        "Developed offline-first Android app for DKMS, improving donor registration process",
+        "Led development teams across multiple successful client projects",
+      ],
     },
     {
       company: "Jojo Mobile",
@@ -155,19 +109,12 @@ export const RESUME_DATA: ResumeData = {
       title: "Android Developer → Lead Android Developer",
       start: "2012",
       end: "2015",
-      description: (
-        <>
-          First Android developer, grew and led a team of 15+ engineers while
-          establishing engineering culture.
-          <ul className="list-inside list-disc">
-            <li>
-              Developed apps for major Polish companies including LOT, Polskie
-              Radio, and Agora
-            </li>
-            <li>Built and mentored high-performing mobile development team</li>
-          </ul>
-        </>
-      ),
+      description:
+        "First Android developer, grew and led a team of 15+ engineers while establishing engineering culture.",
+      highlights: [
+        "Developed apps for major Polish companies including LOT, Polskie Radio, and Agora",
+        "Built and mentored high-performing mobile development team",
+      ],
     },
     {
       company: "Nokia Siemens Networks",
