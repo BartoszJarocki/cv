@@ -5,9 +5,9 @@ export const RESUME_DATA: ResumeData = {
   initials: "BJ",
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
-  about: "Full Stack Engineer dedicated to building high-quality products.",
+  about: "Full Stack Engineer building products from the ground up.",
   summary:
-    "Full Stack Engineer specializing in high-performance React applications, scalable Node.js services, and real-time collaboration systems. Experienced in technical architecture design and remote team leadership.",
+    "Full Stack Engineer with 15+ years of experience and 10+ years working remotely. Building high-performance web applications, leading distributed teams, and creating open source tools used by thousands of developers.",
   avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
@@ -48,7 +48,7 @@ export const RESUME_DATA: ResumeData = {
       start: "2025",
       end: null,
       description:
-        "Working on internal AI agents platform allowing marketing specialists to create AI workflows.",
+        "Building an internal AI agents platform that enables marketing teams to create and manage AI-powered workflows.",
     },
     {
       company: "Film.io",
@@ -58,11 +58,11 @@ export const RESUME_DATA: ResumeData = {
       start: "2024",
       end: "2025",
       description:
-        "Leading technical architecture of a blockchain-based film funding platform.",
+        "Led technical architecture of a blockchain-based film funding platform.",
       highlights: [
-        "Architecting migration from CRA to Next.js for improved performance, SEO, and DX",
+        "Architected migration from CRA to Next.js for improved performance, SEO, and DX",
         "Established release process enabling faster deployments and reliable rollbacks",
-        "Implementing system-wide monitoring and security improvements",
+        "Implemented system-wide monitoring and security improvements",
       ],
     },
     {
@@ -80,7 +80,7 @@ export const RESUME_DATA: ResumeData = {
       start: "2021",
       end: "2024",
       description:
-        "Senior developer and squad leader for an enterprise agile meeting platform.",
+        "Led a product squad building an enterprise agile meeting platform.",
       highlights: [
         "Built design system with Tailwind CSS, improving development speed and time to market",
         "Implemented engineering practices: PR automation, code review guidelines, and workflows",
@@ -95,7 +95,7 @@ export const RESUME_DATA: ResumeData = {
       start: "2015",
       end: "2021",
       description:
-        "Successfully transitioned from mobile to full-stack development while leading distributed teams.",
+        "Transitioned from mobile to full-stack development while leading distributed teams across multiple client projects.",
       highlights: [
         "Led frontend team at Evercast, building real-time platform supporting 30+ users per room with HD streaming and collaboration tools",
         "Developed offline-first Android app for DKMS, improving donor registration process",
@@ -110,7 +110,7 @@ export const RESUME_DATA: ResumeData = {
       start: "2012",
       end: "2015",
       description:
-        "First Android developer, grew and led a team of 15+ engineers while establishing engineering culture.",
+        "First Android developer, grew and led a team of 15+ engineers. Established mobile engineering culture and delivery processes.",
       highlights: [
         "Developed apps for major Polish companies including LOT, Polskie Radio, and Agora",
         "Built and mentored high-performing mobile development team",
@@ -124,57 +124,46 @@ export const RESUME_DATA: ResumeData = {
       start: "2010",
       end: "2012",
       description:
-        "Developed software for LTE base stations at enterprise scale, gaining strong fundamentals in software architecture, testing practices, and cross-team collaboration.",
+        "Developed software for LTE base stations at enterprise scale. Built strong foundations in software architecture, testing practices, and cross-team collaboration.",
     },
   ],
   skills: [
-    "React/Next.js/Remix",
+    "React/Next.js",
     "TypeScript",
+    "Node.js",
+    "AI/LLMs",
     "Tailwind CSS",
     "Design Systems",
     "WebRTC",
     "WebSockets",
-    "Node.js",
     "GraphQL",
-    "Relay",
     "System Architecture",
     "Remote Team Leadership",
   ],
   projects: [
     {
       title: "Monito",
-      techStack: ["TypeScript", "Next.js", "Browser Extension", "PostgreSQL"],
-      description:
-        "Browser extension for debugging web applications. Includes taking screenshots, screen recording, E2E tests generation and generating bug reports",
+      techStack: ["TypeScript", "Next.js", "AI", "Browser Extension"],
+      description: "Autonomous QA AI agent for web applications",
       link: {
         label: "monito.dev",
         href: "https://monito.dev/",
       },
     },
     {
-      title: "Consultly",
-      techStack: [
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
-        "Tailwind CSS",
-        "PostgreSQL",
-        "Redis",
-      ],
-      description:
-        "Platform for online consultations with real-time video meetings and scheduling",
+      title: "43frames",
+      techStack: ["TypeScript", "Next.js", "AI"],
+      description: "AI-powered image and video generation studio",
       link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
+        label: "43frames.com",
+        href: "https://43frames.com/",
       },
     },
     {
       title: "Minimalist CV",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       description:
-        "An open source minimalist, print friendly CV template with a focus on readability and clean design. >9k stars on GitHub",
+        "Open source, print-friendly CV template. 9,600+ stars on GitHub",
       link: {
         label: "Minimalist CV",
         href: "https://github.com/BartoszJarocki/cv",

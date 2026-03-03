@@ -1,12 +1,11 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
-import Image, { type StaticImageData } from "next/image";
 import type React from "react";
 import { Avatar } from "@/components/avatar";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { XIcon } from "@/components/icons/x-icon";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
-import type { IconType, ResumeIcon } from "@/lib/types";
+import type { IconType } from "@/lib/types";
 
 // Type-safe icon mapping
 const ICON_MAP: Record<
