@@ -4,11 +4,10 @@ export type ResumeData = {
   location: string;
   locationLink: string;
   about: string;
-  spokenLanguages: string;
+  spokenLanguages?: string;
 
-  summaryPart0: string;
-  summaryPart1: string;
-  summaryPart2: string;
+  summary: string;
+  avatarUrl: string;
   personalWebsiteUrl: string;
 
   contact: {
@@ -61,7 +60,7 @@ export type ResumeData = {
     techStack: string[];
     description: string;
     logo: string | undefined;
-    link: {
+    link?: {
       label: string;
       href: string;
     };

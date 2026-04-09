@@ -1,3 +1,4 @@
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 import {
   AmbitLogo,
   BarepapersLogo,
@@ -17,9 +18,9 @@ import {
   TastyCloudLogo,
   YearProgressLogo,
 } from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { ResumeData } from "@/types";
 
-export const RESUME_DATA = {
+export const RESUME_DATA: ResumeData = {
   name: "Bartosz Jarocki",
   initials: "BJ",
   location: "Wrocław, Poland, CET",
@@ -57,6 +58,8 @@ export const RESUME_DATA = {
       degree: "Bachelor's Degree in Control systems engineering and Robotics",
       start: "2007",
       end: "2010",
+      program: "",
+      research: [],
     },
   ],
   work: [
@@ -113,6 +116,10 @@ export const RESUME_DATA = {
     "Relay",
     "WebRTC",
   ],
+  awards: [],
+  references: [],
+  activities: [],
+  frameworkDetails: [],
   projects: [
     {
       title: "Consultly",
@@ -275,4 +282,4 @@ export const RESUME_DATA = {
       logo: CDGOLogo,
     },
   ],
-} as const;
+};
