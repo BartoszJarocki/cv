@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { CommandMenu } from "@/components/command-menu";
 import { ProjectCard } from "@/components/project-card";
@@ -299,7 +298,6 @@ export default function App() {
           ]}
         />
       </main>
-      <Analytics />
     </>
   );
 }
