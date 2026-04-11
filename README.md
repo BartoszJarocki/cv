@@ -1,18 +1,19 @@
 ![cv](https://github.com/BartoszJarocki/cv/assets/1017620/79bdb9fc-0b20-4d2c-aafe-0526ad4a71d2)
 
-# Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBartoszJarocki%2Fcv)
+# Web CV
 
 Simple web app that renders minimalist CV with print-friendly layout.
 
-Built with Next.js and shadcn/ui, deployed on Vercel.
+Built with Vite, React, TypeScript, and shadcn/ui.
 
 # Features
 
 - Setup only takes a few minutes [single config file](./src/data/resume-data.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/ui, TailwindCss
+- Built using Vite, React, TypeScript, shadcn/ui, TailwindCSS
 - Auto generated Layout
 - Responsive for different devices
-- Optimized for Next.js and Vercel
+- Print-friendly output
+- Command palette for quick navigation (cmdk)
 
 # Getting Started Locally
 
@@ -32,12 +33,12 @@ cd cv
 
 ```bash
 bun -v
-# should be >= 1.2.14
+# should be >= 1.3.2
 
 bun i
 ```
 
-4. Start the local Server:
+4. Start the local server:
 
 ```bash
 bun dev
@@ -45,25 +46,14 @@ bun dev
 
 5. Open the [Config file](./src/data/resume-data.tsx) and make changes
 
-# Run with Docker
+# Available Scripts
 
-Build the container
-
-```sh
-docker compose build
-```
-
-Run the container
-
-```sh
-docker compose up -d
-```
-
-Stop the Container
-
-```sh
-docker compose down
-```
+- `bun dev` - Start development server (port 3969)
+- `bun build` - Build for production
+- `bun preview` - Preview production build (port 3969)
+- `bun lint` - Run ESLint
+- `bun format` - Format code with Biome
+- `bun type` - Type check with TypeScript
 
 # License
 
