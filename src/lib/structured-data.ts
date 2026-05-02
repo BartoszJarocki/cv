@@ -20,7 +20,7 @@ export function generatePersonStructuredData() {
       telephone: RESUME_DATA.contact.tel,
       contactType: "personal",
     },
-    jobTitle: "Full Stack Engineer",
+    jobTitle: RESUME_DATA.work[0]?.title ?? "Software Engineer",
     worksFor:
       RESUME_DATA.work.length > 0
         ? {
@@ -46,7 +46,7 @@ export function generatePersonStructuredData() {
         name: "Professional software engineer",
       },
     })),
-    knowsAbout: RESUME_DATA.skills,
+    knowsAbout: RESUME_DATA.skills.flatMap((group) => group.items),
   };
 }
 

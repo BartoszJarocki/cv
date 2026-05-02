@@ -30,6 +30,16 @@ export interface ResumeData {
     start: string;
     end: string;
   }>;
+  certifications: Array<{
+    title: string;
+    issuer: string;
+    url?: string;
+  }>;
+  awards: Array<{
+    title: string;
+    issuer: string;
+    year: string;
+  }>;
   work: Array<{
     company: string;
     link: string;
@@ -40,14 +50,13 @@ export interface ResumeData {
     description: string;
     highlights?: readonly string[];
   }>;
-  skills: string[];
-  projects: Array<{
-    title: string;
-    techStack: string[];
-    description: string;
-    link?: {
-      label: string;
-      href: string;
-    };
+  skills: Array<{
+    category: string;
+    items: string[];
   }>;
+  languages: Array<{
+    name: string;
+    proficiency: string;
+  }>;
+  interests: string[];
 }

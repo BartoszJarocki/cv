@@ -1,31 +1,41 @@
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
-import { cn } from "@/lib/utils";
+import type { RESUME_DATA } from "@/data/resume-data";
 
-type Skills = readonly string[];
+type Skills = (typeof RESUME_DATA)["skills"];
+type SkillGroup = Skills[number];
 
-interface SkillsListProps {
-  skills: Skills;
-  className?: string;
+interface SkillGroupRowProps {
+  group: SkillGroup;
 }
 
-/**
- * Renders a list of skills as badges
- */
-function SkillsList({ skills, className }: SkillsListProps) {
+function SkillGroupRow({ group }: SkillGroupRowProps) {
   return (
-    <ul
-      className={cn("flex list-none flex-wrap gap-1 p-0", className)}
-      aria-label="List of skills"
-    >
-      {skills.map((skill) => (
-        <li key={skill}>
-          <Badge className="print:text-[10px]" aria-label={`Skill: ${skill}`}>
-            {skill}
-          </Badge>
-        </li>
-      ))}
-    </ul>
+    <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-[10rem_1fr] sm:gap-3 print:grid-cols-[10rem_1fr] print:gap-2">
+      <div
+        className="font-mono text-[11px] uppercase tracking-wider text-foreground/60 sm:pt-1 print:text-[9px]"
+        aria-hidden="true"
+      >
+        <span className="text-foreground/40">›&nbsp;</span>
+        {group.category}
+      </div>
+      <ul
+        className="flex list-none flex-wrap gap-1 p-0"
+        aria-label={`${group.category} skills`}
+      >
+        {group.items.map((item) => (
+          <li key={item}>
+            <Badge
+              variant="tag"
+              className="text-xs print:text-[10px]"
+              aria-label={`Skill: ${item}`}
+            >
+              {item}
+            </Badge>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -34,17 +44,21 @@ interface SkillsProps {
   className?: string;
 }
 
-/**
- * Skills section component
- * Displays a list of professional skills as badges
- */
 export function Skills({ skills, className }: SkillsProps) {
+  if (skills.length === 0) {
+    return null;
+  }
+
   return (
     <Section className={className}>
       <h2 className="text-xl font-bold" id="skills-section">
         Skills
       </h2>
-      <SkillsList skills={skills} />
+      <div className="flex flex-col gap-y-2 print:gap-y-1">
+        {skills.map((group) => (
+          <SkillGroupRow key={group.category} group={group} />
+        ))}
+      </div>
     </Section>
   );
 }

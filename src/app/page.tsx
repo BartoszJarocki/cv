@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { CommandMenu } from "@/components/command-menu";
 import { RESUME_DATA } from "@/data/resume-data";
 import { generateResumeStructuredData } from "@/lib/structured-data";
+import { CertificationsAndAwards } from "./components/certifications-awards";
 import { Education } from "./components/education";
 import { Header } from "./components/header";
-import { Projects } from "./components/projects";
+import { Interests } from "./components/interests";
+import { Languages } from "./components/languages";
 import { Skills } from "./components/skills";
 import { Summary } from "./components/summary";
 import { WorkExperience } from "./components/work-experience";
@@ -110,7 +112,19 @@ export default function ResumePage() {
               className="animate-fade-in"
               style={{ animationDelay: "375ms" }}
             >
-              <Projects projects={RESUME_DATA.projects} />
+              <CertificationsAndAwards
+                certifications={RESUME_DATA.certifications}
+                awards={RESUME_DATA.awards}
+              />
+            </div>
+            <div
+              className="animate-fade-in"
+              style={{ animationDelay: "450ms" }}
+            >
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-[max-content_1fr] md:gap-8 print:grid-cols-[max-content_1fr] print:gap-4">
+                <Languages languages={RESUME_DATA.languages} />
+                <Interests interests={RESUME_DATA.interests} />
+              </div>
             </div>
           </div>
         </section>
