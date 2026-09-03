@@ -6,20 +6,20 @@ export const RESUME_DATA: ResumeData = {
   location: "Gurugram, India (IST)",
   locationLink: "https://www.google.com/maps/place/Gurugram,+India",
   about:
-    "Senior DevOps / Platform Engineer with strong experience in cloud infrastructure, automation, and embedded Linux systems, building reliable platforms at scale.",
+    "Cloud Platform Engineer / Site Reliability Engineer with a DevOps foundation, now increasingly focused on AI Platform Operations (AWS Bedrock, RAG, FinOps, and cost optimization).",
   summary: (
     <>
-      Senior DevOps / Platform Engineer with 7+ years of experience designing,
-      automating, and operating production-grade infrastructure across AWS and
-      Linux-based environments. Specialized in CI/CD automation, Kubernetes
-      platforms, observability, and large-scale device fleets.
+      Cloud Platform Engineer / Site Reliability Engineer with 7+ years of
+      experience across DevOps, Kubernetes, and multi-cloud infrastructure (AWS,
+      Azure, GCP) — building observable, automated, production-grade platforms.
+      That foundation is still how I approach systems design today.
       <br />
       <br />
-      Proven track record in reducing deployment cycles, improving system
-      reliability, and enabling engineering teams through robust platform
-      tooling. Experienced in cross-border collaboration with European teams,
-      supporting globally distributed systems, and owning services end-to-end
-      from design to production.
+      Over the past year I&apos;ve been increasingly focused on AI Platform
+      Operations: building and operating production AI tooling on AWS Bedrock
+      with Claude models, including a human-gated RAG auto-triage agent and an
+      AI-assisted incident RCA tool, alongside FinOps cost governance and Zero
+      Trust identity (Keycloak, OIDC/OAuth2).
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/155751376?v=4",
@@ -53,28 +53,41 @@ export const RESUME_DATA: ResumeData = {
       company: "SingleStore",
       link: "https://www.singlestore.com/",
       badges: [
-        "Platform Engineering",
+        "AWS Bedrock",
+        "FinOps",
         "Kubernetes",
-        "CI/CD",
-        "Observability",
-        "Cloud",
+        "Terraform",
+        "Zero Trust",
       ],
       title: "Cloud Platform Engineer",
-      start: "2026",
+      start: "Feb 2026",
       end: "Present",
       description: (
         <>
-          Working on platform and infrastructure initiatives that improve
-          delivery reliability, cloud operations, and developer productivity.
           <ul className="list-disc list-inside mt-2">
             <li>
-              Contributing to Kubernetes, CI/CD, and automation improvements to
-              make releases more reliable and reduce manual operational work.
+              Designed and built ATLAS, an internal operational-intelligence
+              platform (Airflow, SingleStore, Next.js) used daily by Support,
+              Engineering, and Leadership to track SLA risk and recurring
+              issues.
             </li>
             <li>
-              Strengthening observability and platform workflows so teams can
-              troubleshoot production issues faster and operate services more
-              confidently.
+              Built production AI tooling on AWS Bedrock (Claude 3/3.5) — an
+              AI-assisted incident RCA tool on Grafana MCP and a guardrailed RAG
+              auto-triage agent, both human-gated by design.
+            </li>
+            <li>
+              Implemented GPU-backed autoscaling on EKS using Karpenter, cutting
+              ML infrastructure cost by 35%+ (utilization ~25% to 65%), measured
+              via Kubecost against real AWS billing.
+            </li>
+            <li>
+              Own the production Keycloak identity platform (Zero Trust,
+              OIDC/OAuth2) serving ~150 daily internal users.
+            </li>
+            <li>
+              Contribute Go backend code to an internal multi-cloud
+              cost-governance (FinOps) platform.
             </li>
           </ul>
         </>
@@ -83,56 +96,50 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "AirFi Aviation Solutions",
       link: "https://airfi.aero/",
-      badges: [
-        "DevOps",
-        "AWS",
-        "CI/CD",
-        "Automation",
-        "Embedded Linux",
-        "Networking",
-      ],
+      badges: ["DevOps", "Observability", "Incident Response", "Mentorship"],
       title: "Senior DevOps Engineer",
-      start: "2023",
-      end: "2025",
+      start: "Aug 2025",
+      end: "Feb 2026",
       description: (
         <>
-          <p>
-            Progressed from DevOps Engineer to Senior DevOps Engineer, leading
-            automation, CI/CD, and infrastructure initiatives across AirFi’s
-            global aviation hardware fleet.
-          </p>
-          <h4 className="font-semibold mt-2">Senior DevOps Engineer (2025)</h4>
-          <ul className="list-disc list-inside mt-1">
+          <ul className="list-disc list-inside mt-2">
             <li>
-              Promoted to lead AirFi’s DevOps initiatives, expanding
-              collaboration with AirFi HQ in the Netherlands.
+              Led an uptime initiative that raised platform availability from
+              97.8% to 99.95%.
             </li>
             <li>
-              Spearheaded cross-country release strategies aligning hardware and
-              firmware development.
+              Cut incident resolution time by 45%+ through centralized
+              observability and standardized runbooks.
             </li>
-            <li>Drove CI/CD automation reducing release cycles by 50%.</li>
             <li>
-              Mentored engineers across India and NL offices, strengthening
-              cross-functional collaboration.
+              Mentored junior engineers and set incident-response and IaC
+              standards adopted across every team on the shared platform.
             </li>
           </ul>
-          <h4 className="font-semibold mt-4">DevOps Engineer (2023–2024)</h4>
-          <ul className="list-disc list-inside mt-1">
+        </>
+      ),
+    },
+    {
+      company: "AirFi Aviation Solutions",
+      link: "https://airfi.aero/",
+      badges: ["CI/CD", "Terraform", "Ansible", "Automation", "Python"],
+      title: "DevOps Engineer",
+      start: "Oct 2023",
+      end: "Jul 2025",
+      description: (
+        <>
+          <ul className="list-disc list-inside mt-2">
             <li>
-              Developed and deployed automation solutions across a fleet of
-              8,000+ embedded devices.
+              Built CI/CD pipelines and Terraform/Ansible automation that cut
+              environment setup time from days to under an hour.
             </li>
             <li>
-              Automated firmware rollout pipelines cutting release time by 40%.
+              Built DISCO, an internal Python tool for processing onboard
+              infotainment logs at scale.
             </li>
             <li>
-              Built telemetry-based PMIC monitoring for proactive fault
-              detection.
-            </li>
-            <li>
-              Developed secure remote diagnostics over LTE networks reducing
-              MTTR by 35%.
+              Mentored engineers and helped set incident-response and
+              infrastructure-as-code standards across the team.
             </li>
           </ul>
         </>
@@ -141,21 +148,25 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "Innoitus",
       link: "",
-      badges: ["SRE", "Monitoring", "New Relic"],
+      badges: ["SRE", "Monitoring"],
       title: "Site Reliability Engineer",
-      start: "2023",
-      end: "2023",
+      start: "Jun 2023",
+      end: "Sep 2023",
       description: (
         <>
-          Improved reliability practices through custom tooling and knowledge
-          sharing.
           <ul className="list-disc list-inside mt-2">
             <li>
-              Developed internal monitoring tools to enhance observability.
+              Provided 24x7 production support, maintaining 99.9% service
+              availability.
             </li>
             <li>
-              Streamlined ServiceNow incident workflows reducing escalation
-              rates.
+              Reduced critical incident frequency by 35% and incident response
+              times by 30% through improved monitoring and reliability
+              practices.
+            </li>
+            <li>
+              Developed internal monitoring tools to enhance observability
+              across day-to-day operations.
             </li>
           </ul>
         </>
@@ -164,24 +175,26 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "Amazon",
       link: "https://www.amazon.in/",
-      badges: ["AWS", "CI/CD", "Kubernetes", "Monitoring"],
+      badges: ["AWS", "CI/CD", "CloudFormation", "Terraform", "Kubernetes"],
       title: "Quality Analyst",
-      start: "2021",
-      end: "2023",
+      start: "Oct 2021",
+      end: "May 2023",
       description: (
         <>
-          Contributed to automation and infrastructure optimization within
-          internal QA pipelines.
           <ul className="list-disc list-inside mt-2">
             <li>
-              Built Jenkins pipelines integrating Prometheus and Grafana
-              dashboards.
+              Built multi-region CI/CD pipelines with Jenkins and AWS
+              CodePipeline, improving release consistency across regions.
             </li>
             <li>
-              Managed AWS-based environments ensuring scalability and uptime.
+              Provisioned and managed AWS infrastructure using CloudFormation
+              and Terraform, focusing on scalability and dependable delivery
+              workflows.
             </li>
             <li>
-              Administered Kubernetes workloads with resource optimization.
+              Built CloudWatch dashboards and administered Kubernetes workloads
+              with resource optimization across QA and production-adjacent
+              systems.
             </li>
           </ul>
         </>
@@ -190,19 +203,25 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "Extreme Soft Management",
       link: "",
-      badges: ["SRE", "Automation", "Linux"],
+      badges: ["SRE", "GCP", "AWS Migration", "Automation"],
       title: "Site Reliability Engineer",
-      start: "2019",
-      end: "2021",
+      start: "Apr 2019",
+      end: "Aug 2021",
       description: (
         <>
-          Maintained critical production systems and introduced automation for
-          repetitive infrastructure tasks.
           <ul className="list-disc list-inside mt-2">
-            <li>Automated workflows saving 80+ engineering hours per month.</li>
             <li>
-              Improved uptime via system hardening and deployment
-              standardization.
+              Operated and maintained production infrastructure on Google Cloud
+              Platform (GCP), introducing automation for repetitive operational
+              tasks.
+            </li>
+            <li>
+              Led a year-long GCP-to-AWS migration, modernizing the deployment
+              stack end-to-end.
+            </li>
+            <li>
+              Automated workflows that saved 80+ engineering hours per month
+              across recurring processes.
             </li>
           </ul>
         </>
@@ -271,6 +290,21 @@ export const RESUME_DATA: ResumeData = {
         icon: "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/linux-colored.svg",
         alt: "Linux",
       },
+      {
+        href: "https://aws.amazon.com/bedrock/",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/aws-icon.png",
+        alt: "AWS Bedrock / LLM Ops",
+      },
+      {
+        href: "https://www.finops.org/",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/cost-icon.png",
+        alt: "FinOps / Cost Optimization",
+      },
+      {
+        href: "https://www.keycloak.org/",
+        icon: "https://uxwing.com/wp-content/themes/uxwing/download/crime-security-military-law/shield-lock-black-icon.png",
+        alt: "Keycloak / Zero Trust IAM",
+      },
     ],
 
     frameworkAndRuntime: [
@@ -334,52 +368,61 @@ export const RESUME_DATA: ResumeData = {
   },
   projects: [
     {
-      title: "Kubernetes Platform Engineering",
-      techStack: ["Kubernetes", "Terraform", "AWS", "Helm", "Argo CD"],
+      title: "ATLAS — Operational Intelligence Platform",
+      techStack: ["Airflow", "SingleStore", "Next.js", "TypeScript"],
       description:
-        "Designed and operated a production Kubernetes platform on AWS, including automated cluster provisioning with Terraform, GitOps-based deployments via Argo CD, and Helm-managed application lifecycles. Implemented standardized environments, role-based access, and CI/CD integrations to support multiple engineering teams.",
+        "Internal operational-intelligence platform used daily by Support, Engineering, and Leadership at SingleStore to track SLA risk and recurring issues. Built on Airflow for orchestration, SingleStore for storage, and a Next.js frontend.",
       link: {
-        label: "Architecture Overview",
+        label: "GitHub Profile",
         href: "https://github.com/Shubham-Master",
       },
     },
     {
-      title: "Serverless Log Processing Pipeline",
-      techStack: ["AWS Lambda", "SQS", "S3", "Go", "MongoDB"],
+      title: "AI-Assisted Incident RCA & RAG Auto-Triage",
+      techStack: ["AWS Bedrock", "Claude", "Grafana MCP", "RAG", "Python"],
       description:
-        "Built a high-throughput serverless log ingestion pipeline using AWS Lambda and SQS to process telemetry from thousands of embedded devices. Implemented parallel processing, deduplication, and structured storage in MongoDB, significantly improving observability and reducing manual debugging effort.",
+        "Production AI tooling on AWS Bedrock (Claude 3/3.5): an incident RCA tool built on Grafana MCP, and a guardrailed RAG auto-triage agent — both deliberately human-gated rather than fully autonomous.",
       link: {
-        label: "Design Notes",
+        label: "GitHub Profile",
         href: "https://github.com/Shubham-Master",
       },
     },
     {
-      title: "Multi-Cloud Infrastructure Framework",
-      techStack: ["Terraform", "AWS", "Azure", "GCP", "Ansible"],
+      title: "GPU Autoscaling & ML Infra Cost Optimization",
+      techStack: ["Karpenter", "EKS", "Kubernetes", "Kubecost", "AWS"],
       description:
-        "Created a reusable Infrastructure-as-Code framework enabling consistent provisioning across AWS, Azure, and GCP. Standardized networking, IAM, compute, and monitoring modules, allowing rapid environment setup and repeatable deployments across regions.",
+        "Implemented GPU-backed autoscaling on EKS using Karpenter, cutting ML infrastructure cost by 35%+ and raising utilization from ~25% to ~65%, measured via Kubecost against real AWS billing.",
       link: {
-        label: "Framework Repo",
+        label: "GitHub Profile",
         href: "https://github.com/Shubham-Master",
       },
     },
     {
-      title: "CI/CD Automation & Release Engineering",
-      techStack: ["Jenkins", "GitHub Actions", "Docker", "Bash", "Python"],
+      title: "k8s-gitops-platform",
+      techStack: [
+        "Kubernetes",
+        "Terraform",
+        "AWS",
+        "Argo CD",
+        "Prometheus",
+        "Grafana",
+        "Loki",
+        "Tempo",
+      ],
       description:
-        "Implemented end-to-end CI/CD pipelines for firmware and backend services, including automated testing, artifact management, and staged rollouts. Reduced release cycles by up to 50% while improving deployment reliability through standardized pipelines and rollback strategies.",
+        "Production Kubernetes platform on AWS with automated cluster provisioning (Terraform) and GitOps deployments (Argo CD). Full observability stack — Prometheus, Grafana, Loki, and Tempo — for metrics, logs, and traces.",
       link: {
-        label: "Pipeline Examples",
-        href: "https://github.com/Shubham-Master",
+        label: "View Repository",
+        href: "https://github.com/Shubham-Master/k8s-gitops-platform",
       },
     },
     {
-      title: "Embedded Fleet Monitoring & Diagnostics",
-      techStack: ["Linux", "AWS", "Kafka", "Python", "Elasticsearch"],
+      title: "Europe Job Hunter",
+      techStack: ["Go", "React", "Python", "Gemini AI"],
       description:
-        "Developed monitoring and diagnostics workflows for 8,000+ embedded Linux devices, integrating Kafka-based event streaming and Elasticsearch-backed analytics. Enabled proactive fault detection, remote diagnostics, and measurable MTTR reduction across global deployments.",
+        "A job search tool combining a Go REST API backend, a React frontend, and Python services, with Gemini AI integrated to assist with job matching.",
       link: {
-        label: "System Overview",
+        label: "GitHub Profile",
         href: "https://github.com/Shubham-Master",
       },
     },
