@@ -23,7 +23,7 @@ export const RESUME_DATA: ResumeData = {
     </>
   ),
   avatarUrl: "https://avatars.githubusercontent.com/u/155751376?v=4",
-  personalWebsiteUrl: "https://github.com/Shubham-Master",
+  personalWebsiteUrl: "https://www.theshubham.in",
   contact: {
     email: "shubham46.56@gmail.com",
     tel: "+91 8073314155",
@@ -172,17 +172,16 @@ export const RESUME_DATA: ResumeData = {
         <>
           <ul className="list-disc list-inside mt-2">
             <li>
-              Provided 24x7 production support, maintaining 99.9% service
-              availability.
+              Improved observability and alert quality through custom
+              tooling and hands-on monitoring improvements.
             </li>
             <li>
-              Reduced critical incident frequency by 35% and incident response
-              times by 30% through improved monitoring and reliability
-              practices.
+              Reduced critical incident frequency by 35% through proactive
+              monitoring and reliability practices.
             </li>
             <li>
-              Developed internal monitoring tools to enhance observability
-              across day-to-day operations.
+              Improved incident response times by 30% with better alerting
+              and on-call workflows.
             </li>
           </ul>
         </>
@@ -191,26 +190,24 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "Amazon",
       link: "https://www.amazon.in/",
-      badges: ["AWS", "CI/CD", "CloudFormation", "Terraform", "Kubernetes"],
+      badges: ["AWS", "Jenkins", "Prometheus", "Grafana", "Kubernetes"],
       title: "Quality Analyst",
       start: "Oct 2021",
-      end: "May 2023",
+      end: "Jun 2023",
       description: (
         <>
           <ul className="list-disc list-inside mt-2">
             <li>
-              Built multi-region CI/CD pipelines with Jenkins and AWS
-              CodePipeline, improving release consistency across regions.
+              Built Jenkins pipelines integrating Prometheus and Grafana
+              dashboards for better pipeline and environment visibility.
             </li>
             <li>
-              Provisioned and managed AWS infrastructure using CloudFormation
-              and Terraform, focusing on scalability and dependable delivery
-              workflows.
+              Managed AWS-based environments with a focus on scalability,
+              uptime, and dependable delivery workflows.
             </li>
             <li>
-              Built CloudWatch dashboards and administered Kubernetes workloads
-              with resource optimization across QA and production-adjacent
-              systems.
+              Administered Kubernetes workloads with resource optimization
+              across QA and production-adjacent systems.
             </li>
           </ul>
         </>
