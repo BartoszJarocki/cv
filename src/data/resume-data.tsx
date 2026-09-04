@@ -122,7 +122,14 @@ export const RESUME_DATA: ResumeData = {
     {
       company: "AirFi Aviation Solutions",
       link: "https://airfi.aero/",
-      badges: ["CI/CD", "Terraform", "Ansible", "Automation", "Python"],
+      badges: [
+        "CI/CD",
+        "Terraform",
+        "Ansible",
+        "Automation",
+        "Python",
+        "Embedded Systems",
+      ],
       title: "DevOps Engineer",
       start: "Oct 2023",
       end: "Jul 2025",
@@ -130,16 +137,25 @@ export const RESUME_DATA: ResumeData = {
         <>
           <ul className="list-disc list-inside mt-2">
             <li>
-              Built CI/CD pipelines and Terraform/Ansible automation that cut
-              environment setup time from days to under an hour.
+              Developed and deployed automation across a fleet of 8,000+
+              embedded IFE (in-flight entertainment) devices — including
+              firmware rollout pipelines that cut release time by 40%, and
+              telemetry-based PMIC monitoring with secure LTE-based
+              diagnostics that reduced MTTR by 35%.
             </li>
             <li>
-              Built DISCO, an internal Python tool for processing onboard
-              infotainment logs at scale.
+              Built DISCO, an internal Python-based tool for processing
+              onboard infotainment box log data at scale — pulling and
+              parsing logs from AWS S3 for fleet-wide diagnostics.
             </li>
             <li>
-              Mentored engineers and helped set incident-response and
-              infrastructure-as-code standards across the team.
+              Operated and optimized AWS and Azure Kubernetes environments
+              for production workloads; automated infrastructure changes with
+              Terraform and CI-driven workflows.
+            </li>
+            <li>
+              Implemented monitoring and alerting improvements that reduced
+              production outages by 40%.
             </li>
           </ul>
         </>
