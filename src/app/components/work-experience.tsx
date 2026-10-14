@@ -1,3 +1,4 @@
+import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag-list";
 import type { WorkEntry } from "@/lib/types";
@@ -33,9 +34,7 @@ function CompanyLink({ company, link }: CompanyLinkProps) {
       aria-label={`${company} company website`}
     >
       {company}
-      <span className="text-muted-foreground print:hidden" aria-hidden="true">
-        {" ↗"}
-      </span>
+      <ExternalArrow />
     </a>
   );
 }

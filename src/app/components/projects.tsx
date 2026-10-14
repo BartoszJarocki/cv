@@ -1,3 +1,4 @@
+import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag-list";
 import { displayUrl } from "@/lib/resume";
@@ -22,9 +23,7 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
       aria-label={`${title} project (opens in new tab)`}
     >
       {title}
-      <span className="text-muted-foreground print:hidden" aria-hidden="true">
-        {" ↗"}
-      </span>
+      <ExternalArrow />
     </a>
   );
 }
