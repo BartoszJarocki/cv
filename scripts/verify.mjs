@@ -1,8 +1,15 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { registerHooks } from "node:module";
+import module from "node:module";
+
+if (!module.registerHooks) {
+  console.error(
+    `pnpm verify needs Node 22.15 or later for module.registerHooks. This is Node ${process.version}.`
+  );
+  process.exit(1);
+}
 
 const stubImages = (url, context, nextLoad) =>
-  url.endsWith(".jpg")
+  /\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i.test(url)
     ? { format: "module", source: "export default {}", shortCircuit: true }
     : nextLoad(url, context);
 const loadTypeScriptAsModules = (url, context, nextLoad) =>
@@ -10,8 +17,8 @@ const loadTypeScriptAsModules = (url, context, nextLoad) =>
     url,
     url.endsWith(".ts") ? { ...context, format: "module-typescript" } : context
   );
-registerHooks({ load: stubImages });
-registerHooks({ load: loadTypeScriptAsModules });
+module.registerHooks({ load: stubImages });
+module.registerHooks({ load: loadTypeScriptAsModules });
 const { RESUME_DATA } = await import("../src/data/resume-data.ts");
 
 const read = (file) =>
@@ -50,7 +57,7 @@ const hrefs = (fragment) =>
   [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
 
 const showsUrl = (text, href) => {
-  const rest = href.replace(/^https?:\/\/(www\.)?/, "");
+  const rest = decodeURI(href).replace(/^https?:\/\/(www\.)?/, "");
   const tail = rest.slice(text.length);
   return rest.startsWith(text) && /^\/?([?#].*)?$/.test(tail);
 };
@@ -253,6 +260,20 @@ const checks = [
         /\b[a-z]+-(?:(?:black|white)\b|(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}|\[(?:#|hsl|rgb|oklch))/g;
       const found = sources.flatMap(([file, source]) =>
         (source.match(literal) ?? []).map((match) => `${file}: ${match}`)
+      );
+      if (found.length > 0) return `found ${found.join(", ")}`;
+    },
+  ],
+  [
+    "every enter and exit animation class is motion-safe",
+    () => {
+      const enterExit =
+        /^(?:animate-(?:in|out)|(?:fade|zoom|spin)-(?:in|out)(?:-.+)?|slide-(?:in-from|out-to)-.+)$/;
+      const found = sources.flatMap(([file, source]) =>
+        (source.match(/[^\s"'`]+/g) ?? [])
+          .filter((token) => enterExit.test(token.split(":").at(-1)))
+          .filter((token) => !token.includes("motion-safe:"))
+          .map((token) => `${file}: ${token}`)
       );
       if (found.length > 0) return `found ${found.join(", ")}`;
     },
