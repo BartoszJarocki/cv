@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { CommandMenu } from "@/components/command-menu";
 import { RESUME_DATA } from "@/data/resume-data";
 import { getContactLinks } from "@/lib/resume";
@@ -9,31 +8,6 @@ import { Projects } from "./components/projects";
 import { Skills } from "./components/skills";
 import { Summary } from "./components/summary";
 import { WorkExperience } from "./components/work-experience";
-
-export const metadata: Metadata = {
-  title: `${RESUME_DATA.name} - Resume`,
-  description: RESUME_DATA.about,
-  openGraph: {
-    title: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    type: "profile",
-    locale: "en_US",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: `${RESUME_DATA.name}'s profile picture`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    images: ["/opengraph-image"],
-  },
-};
 
 export default function ResumePage() {
   const structuredData = generateResumeStructuredData();

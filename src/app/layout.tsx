@@ -6,25 +6,14 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import type React from "react";
 import { RESUME_DATA } from "@/data/resume-data";
+import { getPageTitle } from "@/lib/resume";
+
+const xProfile = RESUME_DATA.contact.social.find(({ icon }) => icon === "x");
 
 export const metadata: Metadata = {
   metadataBase: new URL(RESUME_DATA.siteUrl),
-  title: {
-    default: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    template: `%s | ${RESUME_DATA.name}`,
-  },
+  title: getPageTitle(RESUME_DATA),
   description: RESUME_DATA.about,
-  keywords: [
-    "resume",
-    "cv",
-    "portfolio",
-    RESUME_DATA.name,
-    "software engineer",
-    "full stack developer",
-    "react",
-    "next.js",
-    "typescript",
-  ],
   authors: [{ name: RESUME_DATA.name }],
   creator: RESUME_DATA.name,
   publisher: RESUME_DATA.name,
@@ -34,12 +23,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
-    url: RESUME_DATA.personalWebsiteUrl,
+    url: "/",
     siteName: `${RESUME_DATA.name}'s CV`,
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
   },
   robots: {
     index: true,
@@ -54,12 +41,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
-    creator: "@BartoszJarocki",
+    creator: xProfile && `@${new URL(xProfile.url).pathname.split("/")[1]}`,
   },
   alternates: {
-    canonical: RESUME_DATA.personalWebsiteUrl,
+    canonical: "/",
   },
 };
 
