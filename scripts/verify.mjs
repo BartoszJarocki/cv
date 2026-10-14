@@ -265,6 +265,20 @@ const checks = [
     },
   ],
   [
+    "every enter and exit animation class is motion-safe",
+    () => {
+      const enterExit =
+        /^(?:animate-(?:in|out)|(?:fade|zoom|spin)-(?:in|out)(?:-.+)?|slide-(?:in-from|out-to)-.+)$/;
+      const found = sources.flatMap(([file, source]) =>
+        (source.match(/[^\s"'`]+/g) ?? [])
+          .filter((token) => enterExit.test(token.split(":").at(-1)))
+          .filter((token) => !token.includes("motion-safe:"))
+          .map((token) => `${file}: ${token}`)
+      );
+      if (found.length > 0) return `found ${found.join(", ")}`;
+    },
+  ],
+  [
     "preloads only the two fonts the page uses",
     () => {
       const fonts =
