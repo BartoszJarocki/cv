@@ -38,6 +38,15 @@ const meta = (key) =>
 const isSiteUrl = (url) =>
   url !== undefined && new URL(url).href === new URL(RESUME_DATA.siteUrl).href;
 
+const hrefs = (fragment) =>
+  [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
+
+const showsUrl = (text, href) => {
+  const rest = href.replace(/^https?:\/\/(www\.)?/, "");
+  const tail = rest.slice(text.length);
+  return rest.startsWith(text) && /^\/?([?#].*)?$/.test(tail);
+};
+
 const sectionHeadings = [
   "About",
   "Work Experience",
@@ -147,6 +156,53 @@ const checks = [
       if (/^Disallow:\s*\/_next\//im.test(read("robots.txt.body"))) {
         return "disallows /_next/";
       }
+    },
+  ],
+  [
+    "every project link prints its URL outside the heading",
+    () => {
+      const section = html.match(/>Side projects<\/h2>(.*?)<\/section>/s)?.[1];
+      if (!section) return "no projects section";
+      const missing = [];
+      for (const [article] of section.matchAll(/<article\b.*?<\/article>/gs)) {
+        const [link] = hrefs(article);
+        if (!link) continue;
+        const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
+        const texts = [
+          ...article.replace(heading, "").matchAll(/>([^<]+)</g),
+        ].map(([, text]) => text);
+        if (!heading || !texts.some((text) => showsUrl(text, link))) {
+          missing.push(link);
+        }
+      }
+      if (missing.length > 0) return `missing ${missing.join(", ")}`;
+    },
+  ],
+  [
+    "the print contact row has every contact link",
+    () => {
+      const header = html.match(/<header\b.*?<\/header>/s)?.[0] ?? "";
+      const buttons = header.match(
+        /<ul\b[^>]*aria-label="Contact links"[^>]*>.*?<\/ul>/s
+      )?.[0];
+      if (!buttons) return "no contact links list";
+      const printed = [
+        ...header
+          .replace(buttons, "")
+          .matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>[^<]+<\/a>/g),
+      ].map(([, href]) => href);
+      const missing = hrefs(buttons).filter((href) => !printed.includes(href));
+      if (missing.length > 0) return `missing ${missing.join(", ")}`;
+    },
+  ],
+  [
+    "no text class below 9px",
+    () => {
+      const sizes = [...html.matchAll(/\btext-\[(\d+(?:\.\d+)?)px\]/g)];
+      const small = new Set(
+        sizes.map(([, px]) => Number(px)).filter((px) => px < 9)
+      );
+      if (small.size > 0) return `found ${[...small].join("px, ")}px`;
     },
   ],
 ];
