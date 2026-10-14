@@ -9,13 +9,10 @@ interface EducationPeriodProps {
   end: Education["end"];
 }
 
-/**
- * Displays the education period in a consistent format
- */
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
-      className="text-sm tabular-nums text-gray-500"
+      className="text-sm tabular-nums text-muted-foreground"
       title={`Period: ${start} to ${end}`}
     >
       {start} - {end}
@@ -27,9 +24,6 @@ interface EducationItemProps {
   education: Education;
 }
 
-/**
- * Individual education card component
- */
 function EducationItem({ education }: EducationItemProps) {
   const { school, start, end, degree } = education;
   const schoolId = `education-${school.toLowerCase().replace(/\s+/g, "-")}`;
@@ -58,10 +52,6 @@ interface EducationListProps {
   education: readonly Education[];
 }
 
-/**
- * Main education section component
- * Renders a list of education experiences
- */
 export function Education({ education }: EducationListProps) {
   return (
     <Section>

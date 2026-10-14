@@ -1,5 +1,7 @@
 import { RESUME_DATA } from "@/data/resume-data";
 
+const SITE_URL = "https://cv.jarocki.me";
+
 export function generatePersonStructuredData() {
   return {
     "@context": "https://schema.org",
@@ -8,7 +10,7 @@ export function generatePersonStructuredData() {
     alternateName: RESUME_DATA.initials,
     description: RESUME_DATA.about,
     url: RESUME_DATA.personalWebsiteUrl,
-    image: RESUME_DATA.avatarUrl,
+    image: new URL(RESUME_DATA.avatar.src, SITE_URL).href,
     sameAs: RESUME_DATA.contact.social.map((social) => social.url),
     address: {
       "@type": "Place",
@@ -50,27 +52,6 @@ export function generatePersonStructuredData() {
   };
 }
 
-export function generateWebPageStructuredData() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    url: "https://cv.jarocki.me",
-    inLanguage: "en-US",
-    isPartOf: {
-      "@type": "WebSite",
-      name: `${RESUME_DATA.name}'s Professional Resume`,
-      url: "https://cv.jarocki.me",
-    },
-    about: {
-      "@type": "Person",
-      name: RESUME_DATA.name,
-    },
-    mainEntity: generatePersonStructuredData(),
-  };
-}
-
 export function generateResumeStructuredData() {
   const person = generatePersonStructuredData();
 
@@ -83,6 +64,6 @@ export function generateResumeStructuredData() {
     about: person,
     name: `${RESUME_DATA.name} - Professional Resume`,
     description: `Professional resume and portfolio of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
-    url: "https://cv.jarocki.me",
+    url: SITE_URL,
   };
 }

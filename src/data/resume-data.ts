@@ -1,4 +1,5 @@
 import type { ResumeData } from "@/lib/types";
+import avatar from "./avatar.jpg";
 
 export const RESUME_DATA: ResumeData = {
   name: "Bartosz Jarocki",
@@ -8,7 +9,7 @@ export const RESUME_DATA: ResumeData = {
   about: "Full Stack Engineer building products from the ground up.",
   summary:
     "Full Stack Engineer with 15+ years of experience and 10+ years working remotely. Building high-performance web applications, leading distributed teams, and creating open source tools used by thousands of developers.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
+  avatar,
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "bartosz.jarocki@hey.com",
@@ -170,4 +171,4 @@ export const RESUME_DATA: ResumeData = {
       },
     },
   ],
-} as const;
+};

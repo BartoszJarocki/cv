@@ -1,13 +1,12 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import Image from "next/image";
 import type React from "react";
-import { Avatar } from "@/components/avatar";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { GitHubIcon } from "@/components/icons/github-icon";
+import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { XIcon } from "@/components/icons/x-icon";
-import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import type { IconType } from "@/lib/types";
 
-// Type-safe icon mapping
 const ICON_MAP: Record<
   IconType,
   React.ComponentType<React.SVGProps<SVGSVGElement>>
@@ -18,7 +17,7 @@ const ICON_MAP: Record<
   globe: GlobeIcon,
   mail: MailIcon,
   phone: PhoneIcon,
-} as const;
+};
 
 interface LocationLinkProps {
   location: typeof RESUME_DATA.location;
@@ -52,16 +51,15 @@ function SocialButton({ href, iconType, label }: SocialButtonProps) {
   const IconComponent = ICON_MAP[iconType];
 
   return (
-    <Button className="size-8" variant="outline" size="icon" asChild={true}>
-      <a
-        href={href}
-        aria-label={label}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <IconComponent className="size-4" aria-hidden="true" />
-      </a>
-    </Button>
+    <a
+      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground size-8"
+      href={href}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <IconComponent className="size-4" aria-hidden="true" />
+    </a>
   );
 }
 
@@ -158,9 +156,6 @@ function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
   );
 }
 
-/**
- * Header component displaying personal information and contact details
- */
 export function Header() {
   return (
     <header className="flex items-center justify-between">
@@ -188,11 +183,13 @@ export function Header() {
         />
       </div>
 
-      <Avatar
-        className="size-28 ring-1 ring-muted"
-        src={RESUME_DATA.avatarUrl}
+      <Image
+        className="size-28 shrink-0 rounded-xl bg-muted object-cover ring-1 ring-muted"
+        src={RESUME_DATA.avatar}
         alt={`${RESUME_DATA.name}'s profile picture`}
-        fallback={RESUME_DATA.initials}
+        width={112}
+        height={112}
+        preload={true}
       />
     </header>
   );

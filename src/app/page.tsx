@@ -34,9 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Transform social links for command menu
- */
 function getCommandMenuLinks() {
   const links = [];
 
@@ -61,13 +58,9 @@ export default function ResumePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe for JSON-LD structured data
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <main
         className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
         id="main-content"
@@ -77,7 +70,7 @@ export default function ResumePage() {
         </div>
 
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-4 dark:bg-background"
+          className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4"
           aria-label="Resume Content"
         >
           <div className="animate-fade-in" style={{ animationDelay: "0ms" }}>
@@ -115,9 +108,7 @@ export default function ResumePage() {
           </div>
         </section>
 
-        <nav className="print:hidden" aria-label="Quick navigation">
-          <CommandMenu links={getCommandMenuLinks()} />
-        </nav>
+        <CommandMenu links={getCommandMenuLinks()} />
       </main>
     </>
   );

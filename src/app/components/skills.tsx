@@ -2,16 +2,11 @@ import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
 
-type Skills = readonly string[];
-
 interface SkillsListProps {
-  skills: Skills;
+  skills: readonly string[];
   className?: string;
 }
 
-/**
- * Renders a list of skills as badges
- */
 function SkillsList({ skills, className }: SkillsListProps) {
   return (
     <ul
@@ -30,14 +25,10 @@ function SkillsList({ skills, className }: SkillsListProps) {
 }
 
 interface SkillsProps {
-  skills: Skills;
+  skills: readonly string[];
   className?: string;
 }
 
-/**
- * Skills section component
- * Displays a list of professional skills as badges
- */
 export function Skills({ skills, className }: SkillsProps) {
   return (
     <Section className={className}>
