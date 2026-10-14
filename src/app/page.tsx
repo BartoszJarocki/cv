@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CommandMenu } from "@/components/command-menu";
 import { RESUME_DATA } from "@/data/resume-data";
+import { getContactLinks } from "@/lib/resume";
 import { generateResumeStructuredData } from "@/lib/structured-data";
 import { Education } from "./components/education";
 import { Header } from "./components/header";
@@ -34,27 +35,11 @@ export const metadata: Metadata = {
   },
 };
 
-function getCommandMenuLinks() {
-  const links = [];
-
-  if (RESUME_DATA.personalWebsiteUrl) {
-    links.push({
-      url: RESUME_DATA.personalWebsiteUrl,
-      title: "Personal Website",
-    });
-  }
-
-  return [
-    ...links,
-    ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
-      url: socialMediaLink.url,
-      title: socialMediaLink.name,
-    })),
-  ];
-}
-
 export default function ResumePage() {
   const structuredData = generateResumeStructuredData();
+  const commandMenuLinks = getContactLinks(RESUME_DATA).filter(
+    ({ icon }) => icon !== "mail" && icon !== "phone"
+  );
 
   return (
     <>
@@ -108,7 +93,7 @@ export default function ResumePage() {
           </div>
         </section>
 
-        <CommandMenu links={getCommandMenuLinks()} />
+        <CommandMenu links={commandMenuLinks} />
       </main>
     </>
   );
