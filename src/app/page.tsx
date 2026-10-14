@@ -58,12 +58,9 @@ export default function ResumePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <main
         className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
         id="main-content"
