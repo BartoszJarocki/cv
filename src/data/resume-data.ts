@@ -171,4 +171,4 @@ export const RESUME_DATA: ResumeData = {
       },
     },
   ],
-} as const;
+};

@@ -5,11 +5,10 @@ import type { RESUME_DATA } from "@/data/resume-data";
 import { cn } from "@/lib/utils";
 
 type WorkExperience = (typeof RESUME_DATA)["work"][number];
-type WorkBadges = readonly string[];
 
 interface BadgeListProps {
   className?: string;
-  badges: WorkBadges;
+  badges: readonly string[];
 }
 
 /**

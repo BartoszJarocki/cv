@@ -9,8 +9,6 @@ import {
 import { Section } from "@/components/ui/section";
 import type { RESUME_DATA } from "@/data/resume-data";
 
-type ProjectTags = readonly string[];
-
 interface ProjectLinkProps {
   title: string;
   link?: string;
@@ -51,7 +49,7 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
 }
 
 interface ProjectTagsProps {
-  tags: ProjectTags;
+  tags: readonly string[];
 }
 
 /**
@@ -82,7 +80,7 @@ function ProjectTags({ tags }: ProjectTagsProps) {
 interface ProjectCardProps {
   title: string;
   description: string;
-  tags: ProjectTags;
+  tags: readonly string[];
   link?: string;
 }
 

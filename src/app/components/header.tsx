@@ -18,7 +18,7 @@ const ICON_MAP: Record<
   globe: GlobeIcon,
   mail: MailIcon,
   phone: PhoneIcon,
-} as const;
+};
 
 interface LocationLinkProps {
   location: typeof RESUME_DATA.location;
