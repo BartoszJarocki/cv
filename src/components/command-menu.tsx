@@ -1,6 +1,5 @@
 "use client";
 
-import { CommandIcon } from "lucide-react";
 import * as React from "react";
 import {
   CommandDialog,
@@ -11,7 +10,6 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { Button } from "./ui/button";
 
 interface Props {
   links: { url: string; title: string }[];
@@ -44,14 +42,6 @@ export const CommandMenu = ({ links }: Props) => {
         </kbd>{" "}
         to open the command menu
       </p>
-      <Button
-        onClick={() => setOpen((open) => !open)}
-        variant="outline"
-        size="icon"
-        className="fixed bottom-4 right-4 flex rounded-full shadow-2xl xl:hidden print:hidden"
-      >
-        <CommandIcon className="my-6 size-6" />
-      </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
