@@ -31,6 +31,7 @@ pnpm format       # check code formatting with biome
 pnpm format:fix   # format code with biome
 pnpm check        # run both linting and formatting checks
 pnpm check:fix    # run both linting and formatting with auto-fix
+pnpm verify       # check the page that pnpm build prerendered
 ```
 
 ## project structure

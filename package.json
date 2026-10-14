@@ -12,7 +12,8 @@
     "format": "biome format ./src",
     "format:fix": "biome format --write ./src",
     "check": "biome check ./src",
-    "check:fix": "biome check --write ./src"
+    "check:fix": "biome check --write ./src",
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.3.1",
