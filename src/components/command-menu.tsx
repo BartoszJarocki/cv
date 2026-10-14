@@ -1,21 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import * as React from "react";
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
+import type { CommandMenuDialogProps } from "./command-menu-dialog";
 
-interface Props {
-  links: { url: string; title: string }[];
-}
+const CommandMenuDialog = dynamic(() =>
+  import("./command-menu-dialog").then((mod) => mod.CommandMenuDialog)
+);
+
+type Props = Pick<CommandMenuDialogProps, "links">;
 
 export const CommandMenu = ({ links }: Props) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean | null>(null);
   const [isMac, setIsMac] = React.useState(false);
 
   React.useEffect(() => {
@@ -41,35 +37,9 @@ export const CommandMenu = ({ links }: Props) => {
         </kbd>{" "}
         to open the command menu
       </p>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Actions">
-            <CommandItem
-              onSelect={() => {
-                setOpen(false);
-                window.print();
-              }}
-            >
-              <span>Print</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandGroup heading="Links">
-            {links.map(({ url, title }) => (
-              <CommandItem
-                key={url}
-                onSelect={() => {
-                  setOpen(false);
-                  window.open(url, "_blank");
-                }}
-              >
-                <span>{title}</span>
-              </CommandItem>
-            ))}
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+      {open !== null && (
+        <CommandMenuDialog links={links} open={open} onOpenChange={setOpen} />
+      )}
     </>
   );
 };
