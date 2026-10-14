@@ -3,7 +3,6 @@ import avatar from "./avatar.jpg";
 
 export const RESUME_DATA: ResumeData = {
   name: "Bartosz Jarocki",
-  initials: "BJ",
   location: "Wrocław, Poland, CET",
   locationLink: "https://www.google.com/maps/place/Wrocław",
   about: "Full Stack Engineer building products from the ground up.",

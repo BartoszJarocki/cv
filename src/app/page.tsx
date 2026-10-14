@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { CommandMenu } from "@/components/command-menu";
 import { RESUME_DATA } from "@/data/resume-data";
 import { getContactLinks } from "@/lib/resume";
@@ -9,31 +8,6 @@ import { Projects } from "./components/projects";
 import { Skills } from "./components/skills";
 import { Summary } from "./components/summary";
 import { WorkExperience } from "./components/work-experience";
-
-export const metadata: Metadata = {
-  title: `${RESUME_DATA.name} - Resume`,
-  description: RESUME_DATA.about,
-  openGraph: {
-    title: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    type: "profile",
-    locale: "en_US",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: `${RESUME_DATA.name}'s profile picture`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    images: ["/opengraph-image"],
-  },
-};
 
 export default function ResumePage() {
   const structuredData = generateResumeStructuredData();
@@ -47,22 +21,18 @@ export default function ResumePage() {
         {JSON.stringify(structuredData)}
       </script>
       <main
-        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
+        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-0 md:p-16"
         id="main-content"
       >
-        <div className="sr-only">
-          <h1>{RESUME_DATA.name}&apos;s Resume</h1>
-        </div>
-
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4"
+          className="mx-auto w-full max-w-2xl space-y-8 print:max-w-none print:space-y-3"
           aria-label="Resume Content"
         >
           <div className="animate-fade-in" style={{ animationDelay: "0ms" }}>
             <Header />
           </div>
 
-          <div className="space-y-8 print:space-y-4">
+          <div className="space-y-8 print:space-y-3">
             <div className="animate-fade-in" style={{ animationDelay: "75ms" }}>
               <Summary summary={RESUME_DATA.summary} />
             </div>

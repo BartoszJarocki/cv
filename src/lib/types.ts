@@ -35,7 +35,6 @@ export interface Project {
 
 export interface ResumeData {
   name: string;
-  initials: string;
   location: string;
   locationLink: string;
   about: string;

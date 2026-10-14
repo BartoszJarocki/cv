@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
+import { displayUrl } from "@/lib/resume";
 import type { Project } from "@/lib/types";
 
 interface ProjectLinkProps {
@@ -20,28 +21,16 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
   }
 
   return (
-    <>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 hover:underline"
-        aria-label={`${title} project (opens in new tab)`}
-      >
-        {title}
-        <span
-          className="size-1 rounded-full bg-green-500"
-          title="Active project indicator"
-          aria-hidden="true"
-        />
-      </a>
-      <div
-        className="hidden font-mono text-xs underline print:visible"
-        aria-hidden="true"
-      >
-        {link.replace("https://", "").replace("www.", "").replace("/", "")}
-      </div>
-    </>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 hover:underline"
+      aria-label={`${title} project (opens in new tab)`}
+    >
+      {title}
+      <span className="size-1 rounded-full bg-green-500" aria-hidden="true" />
+    </a>
   );
 }
 
@@ -54,13 +43,13 @@ function ProjectTags({ tags }: ProjectTagsProps) {
 
   return (
     <ul
-      className="mt-2 flex list-none flex-wrap gap-1 p-0"
+      className="mt-2 flex list-none flex-wrap gap-1 p-0 print:mt-1 print:leading-none"
       aria-label="Technologies used"
     >
       {tags.map((tag) => (
         <li key={tag}>
           <Badge
-            className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
+            className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[9px] print:leading-tight"
             variant="secondary"
           >
             {tag}
@@ -80,16 +69,21 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
   return (
-    <Card className="flex h-full flex-col overflow-hidden border p-3">
+    <Card className="flex h-full flex-col overflow-hidden border p-3 print:p-2">
       <CardHeader>
         <div className="space-y-1">
-          <CardTitle className="text-base">
+          <CardTitle className="text-base print:text-sm print:leading-none">
             <ProjectLink title={title} link={link} />
           </CardTitle>
-          <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
-            aria-label="Project description"
-          >
+          {link && (
+            <a
+              className="hidden font-mono underline print:block print:break-words print:text-[10px] print:leading-tight"
+              href={link}
+            >
+              {displayUrl(link)}
+            </a>
+          )}
+          <CardDescription className="text-pretty font-mono text-xs print:text-[10px] print:leading-tight">
             {description}
           </CardDescription>
         </div>
@@ -107,19 +101,18 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <Section className="scroll-mb-16 print:space-y-4">
-      <h2 className="text-xl font-bold" id="side-projects">
+    <Section className="scroll-mb-16">
+      <h2
+        className="text-xl font-bold print:text-base print:leading-tight"
+        id="side-projects"
+      >
         Side projects
       </h2>
-      <div
-        className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2"
-        role="feed"
-        aria-labelledby="side-projects"
-      >
+      <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:mx-0 print:grid-cols-3 print:gap-2">
         {projects.map((project) => (
           <article
             key={project.title}
-            className="h-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm print:hover:translate-y-0 print:hover:shadow-none"
+            className="h-full transition-all duration-200 hover:shadow-sm motion-safe:hover:-translate-y-0.5 print:break-inside-avoid print:hover:translate-y-0 print:hover:shadow-none"
           >
             <ProjectCard
               title={project.title}
