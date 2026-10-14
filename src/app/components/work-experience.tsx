@@ -1,23 +1,8 @@
+import { DateRange } from "@/components/ui/date-range";
 import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag-list";
 import type { WorkEntry } from "@/lib/types";
-
-interface WorkPeriodProps {
-  start: WorkEntry["start"];
-  end: WorkEntry["end"];
-}
-
-function WorkPeriod({ start, end }: WorkPeriodProps) {
-  return (
-    <div
-      className="shrink-0 text-[13px] tabular-nums text-muted-foreground print:leading-none"
-      title={`Employment period: ${start} to ${end ?? "Present"}`}
-    >
-      {start} - {end ?? "Present"}
-    </div>
-  );
-}
 
 interface CompanyLinkProps {
   company: WorkEntry["company"];
@@ -54,7 +39,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
           <h3 className="text-sm font-medium leading-snug print:leading-none">
             <CompanyLink company={company} link={link} />
           </h3>
-          <WorkPeriod start={start} end={end} />
+          <DateRange start={start} end={end} label="Employment period" />
         </div>
         <h4 className="text-sm leading-snug text-body print:text-[12px] print:leading-tight">
           {title}

@@ -1,21 +1,6 @@
+import { DateRange } from "@/components/ui/date-range";
 import { Section } from "@/components/ui/section";
 import type { EducationEntry } from "@/lib/types";
-
-interface EducationPeriodProps {
-  start: EducationEntry["start"];
-  end: EducationEntry["end"];
-}
-
-function EducationPeriod({ start, end }: EducationPeriodProps) {
-  return (
-    <div
-      className="shrink-0 text-[13px] tabular-nums text-muted-foreground print:leading-none"
-      title={`Period: ${start} to ${end ?? "Present"}`}
-    >
-      {start} - {end ?? "Present"}
-    </div>
-  );
-}
 
 interface EducationItemProps {
   education: EducationEntry;
@@ -30,7 +15,7 @@ function EducationItem({ education }: EducationItemProps) {
         <h3 className="text-sm font-medium leading-snug print:leading-none">
           {school}
         </h3>
-        <EducationPeriod start={start} end={end} />
+        <DateRange start={start} end={end} label="Period" />
       </div>
       <div className="mt-1.5 text-sm text-body print:mt-1 print:text-[12px] print:leading-tight">
         {degree}
