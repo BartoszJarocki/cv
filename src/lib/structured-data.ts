@@ -52,27 +52,6 @@ export function generatePersonStructuredData() {
   };
 }
 
-export function generateWebPageStructuredData() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${RESUME_DATA.name} - Resume`,
-    description: RESUME_DATA.about,
-    url: SITE_URL,
-    inLanguage: "en-US",
-    isPartOf: {
-      "@type": "WebSite",
-      name: `${RESUME_DATA.name}'s Professional Resume`,
-      url: SITE_URL,
-    },
-    about: {
-      "@type": "Person",
-      name: RESUME_DATA.name,
-    },
-    mainEntity: generatePersonStructuredData(),
-  };
-}
-
 export function generateResumeStructuredData() {
   const person = generatePersonStructuredData();
 

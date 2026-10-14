@@ -79,10 +79,6 @@
   }
 }
 
-.print-force-new-page {
-  page-break-before: always;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
