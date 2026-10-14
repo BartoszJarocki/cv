@@ -32,13 +32,7 @@ interface SkillsProps {
 
 export function Skills({ skills, className }: SkillsProps) {
   return (
-    <Section className={className}>
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="skills-section"
-      >
-        Skills
-      </h2>
+    <Section title="Skills" titleId="skills-section" className={className}>
       <SkillsList skills={skills} />
     </Section>
   );

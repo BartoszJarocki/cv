@@ -123,13 +123,7 @@ interface WorkExperienceProps {
 
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
-    <Section>
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="work-experience"
-      >
-        Work Experience
-      </h2>
+    <Section title="Work Experience" titleId="work-experience">
       <div className="space-y-4 print:space-y-1">
         {work.map((item) => (
           <article

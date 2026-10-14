@@ -1,13 +1,25 @@
 import type React from "react";
 import { cn } from "@/lib/utils";
 
-export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SectionProps {
+  title: string;
+  titleId: string;
+  className?: string;
+  children: React.ReactNode;
+}
 
-export function Section({ className, ...props }: SectionProps) {
+export function Section({ title, titleId, className, children }: SectionProps) {
   return (
     <section
       className={cn("flex min-h-0 flex-col gap-y-3 print:gap-y-1", className)}
-      {...props}
-    />
+    >
+      <h2
+        className="text-xl font-bold print:text-base print:leading-tight"
+        id={titleId}
+      >
+        {title}
+      </h2>
+      {children}
+    </section>
   );
 }

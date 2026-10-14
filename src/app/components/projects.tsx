@@ -101,13 +101,11 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <Section className="scroll-mb-16">
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="side-projects"
-      >
-        Side projects
-      </h2>
+    <Section
+      title="Side projects"
+      titleId="side-projects"
+      className="scroll-mb-16"
+    >
       <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:mx-0 print:grid-cols-3 print:gap-2">
         {projects.map((project) => (
           <article

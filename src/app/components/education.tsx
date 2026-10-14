@@ -48,13 +48,7 @@ interface EducationListProps {
 
 export function Education({ education }: EducationListProps) {
   return (
-    <Section>
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="education-section"
-      >
-        Education
-      </h2>
+    <Section title="Education" titleId="education-section">
       <div className="space-y-4 print:space-y-1">
         {education.map((item) => (
           <article key={item.school} className="print:break-inside-avoid">
