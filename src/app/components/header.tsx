@@ -88,7 +88,7 @@ function ContactButtons({ links }: ContactLinksProps) {
 
 function PrintContact({ links }: ContactLinksProps) {
   return (
-    <div className="hidden flex-wrap gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
+    <div className="hidden flex-wrap gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px] print:leading-tight">
       {links.map(({ label, href, text }, index) => (
         <span key={label} className="inline-flex gap-x-2">
           <a className="underline hover:text-foreground/70" href={href}>
@@ -106,11 +106,11 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between">
-      <div className="flex-1 space-y-1.5">
+      <div className="flex-1 space-y-1.5 print:space-y-1">
         <h1 className="text-3xl font-bold tracking-tight" id="resume-name">
           {RESUME_DATA.name}
         </h1>
-        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]">
+        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px] print:leading-tight">
           {RESUME_DATA.about}
         </p>
 

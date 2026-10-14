@@ -39,7 +39,7 @@ interface WorkPeriodProps {
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
-      className="text-sm tabular-nums text-muted-foreground"
+      className="text-sm tabular-nums text-muted-foreground print:leading-none"
       title={`Employment period: ${start} to ${end ?? "Present"}`}
     >
       {start} - {end ?? "Present"}
@@ -78,12 +78,12 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
     <Card className="border-none py-1 print:py-0">
       <CardHeader className="print:space-y-1">
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <div className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
+          <div className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm print:leading-none">
             <h3>
               <CompanyLink company={company} link={link} />
             </h3>
             <BadgeList
-              className="hidden gap-x-1 sm:inline-flex"
+              className="hidden gap-x-1 sm:inline-flex print:inline-flex"
               badges={badges}
             />
           </div>
@@ -96,7 +96,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] text-pretty">
+        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] print:leading-tight text-pretty">
           {description}
           {highlights && highlights.length > 0 && (
             <ul className="list-inside list-disc">
@@ -106,7 +106,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
             </ul>
           )}
         </div>
-        <div className="mt-2">
+        <div className="mt-2 print:hidden">
           <BadgeList
             className="-mx-2 flex-wrap gap-1 sm:hidden"
             badges={badges}
@@ -124,10 +124,13 @@ interface WorkExperienceProps {
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>
-      <h2 className="text-xl font-bold" id="work-experience">
+      <h2
+        className="text-xl font-bold print:text-base print:leading-tight"
+        id="work-experience"
+      >
         Work Experience
       </h2>
-      <div className="space-y-4 print:space-y-0">
+      <div className="space-y-4 print:space-y-1">
         {work.map((item) => (
           <article key={`${item.company}-${item.start}`}>
             <WorkExperienceItem work={item} />

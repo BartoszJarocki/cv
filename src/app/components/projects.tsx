@@ -43,7 +43,7 @@ function ProjectTags({ tags }: ProjectTagsProps) {
 
   return (
     <ul
-      className="mt-2 flex list-none flex-wrap gap-1 p-0"
+      className="mt-2 flex list-none flex-wrap gap-1 p-0 print:mt-1 print:leading-none"
       aria-label="Technologies used"
     >
       {tags.map((tag) => (
@@ -69,21 +69,21 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
   return (
-    <Card className="flex h-full flex-col overflow-hidden border p-3">
+    <Card className="flex h-full flex-col overflow-hidden border p-3 print:p-2">
       <CardHeader>
         <div className="space-y-1">
-          <CardTitle className="text-base">
+          <CardTitle className="text-base print:text-sm print:leading-none">
             <ProjectLink title={title} link={link} />
           </CardTitle>
           {link && (
             <a
-              className="hidden font-mono underline print:block print:break-words print:text-[10px]"
+              className="hidden font-mono underline print:block print:break-words print:text-[10px] print:leading-tight"
               href={link}
             >
               {displayUrl(link)}
             </a>
           )}
-          <CardDescription className="text-pretty font-mono text-xs print:text-[10px]">
+          <CardDescription className="text-pretty font-mono text-xs print:text-[10px] print:leading-tight">
             {description}
           </CardDescription>
         </div>
@@ -101,8 +101,11 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <Section className="scroll-mb-16 print:space-y-4">
-      <h2 className="text-xl font-bold" id="side-projects">
+    <Section className="scroll-mb-16">
+      <h2
+        className="text-xl font-bold print:text-base print:leading-tight"
+        id="side-projects"
+      >
         Side projects
       </h2>
       <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:mx-0 print:grid-cols-3 print:gap-2">

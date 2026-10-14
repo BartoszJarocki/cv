@@ -25,14 +25,14 @@ export default function ResumePage() {
         id="main-content"
       >
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 print:max-w-none print:space-y-4"
+          className="mx-auto w-full max-w-2xl space-y-8 print:max-w-none print:space-y-3"
           aria-label="Resume Content"
         >
           <div className="animate-fade-in" style={{ animationDelay: "0ms" }}>
             <Header />
           </div>
 
-          <div className="space-y-8 print:space-y-4">
+          <div className="space-y-8 print:space-y-3">
             <div className="animate-fade-in" style={{ animationDelay: "75ms" }}>
               <Summary summary={RESUME_DATA.summary} />
             </div>
