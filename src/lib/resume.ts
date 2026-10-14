@@ -17,7 +17,7 @@ export function getPageTitle({ name, work }: ResumeData): string {
   return `${name} - ${getCurrentRole(work)?.title ?? "Resume"}`;
 }
 
-function displayUrl(url: string): string {
+export function displayUrl(url: string): string {
   const { host, pathname } = new URL(url);
   const path = decodeURI(pathname).replace(/\/$/, "");
   return `${host.replace(/^www\./, "")}${path}`;

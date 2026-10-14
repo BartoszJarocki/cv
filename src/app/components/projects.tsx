@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
+import { displayUrl } from "@/lib/resume";
 import type { Project } from "@/lib/types";
 
 interface ProjectLinkProps {
@@ -20,24 +21,16 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
   }
 
   return (
-    <>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 hover:underline"
-        aria-label={`${title} project (opens in new tab)`}
-      >
-        {title}
-        <span className="size-1 rounded-full bg-green-500" aria-hidden="true" />
-      </a>
-      <div
-        className="hidden font-mono text-xs underline print:visible"
-        aria-hidden="true"
-      >
-        {link.replace("https://", "").replace("www.", "").replace("/", "")}
-      </div>
-    </>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 hover:underline"
+      aria-label={`${title} project (opens in new tab)`}
+    >
+      {title}
+      <span className="size-1 rounded-full bg-green-500" aria-hidden="true" />
+    </a>
   );
 }
 
@@ -82,6 +75,14 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
           <CardTitle className="text-base">
             <ProjectLink title={title} link={link} />
           </CardTitle>
+          {link && (
+            <a
+              className="hidden font-mono underline print:block print:break-words print:text-[10px]"
+              href={link}
+            >
+              {displayUrl(link)}
+            </a>
+          )}
           <CardDescription className="text-pretty font-mono text-xs print:text-[10px]">
             {description}
           </CardDescription>
