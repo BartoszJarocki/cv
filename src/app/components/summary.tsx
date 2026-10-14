@@ -8,7 +8,7 @@ interface AboutProps {
 export function Summary({ summary, className }: AboutProps) {
   return (
     <Section title="About" titleId="about-section" className={className}>
-      <div className="text-pretty text-sm text-foreground/80 print:text-[12px] print:leading-tight">
+      <div className="text-pretty text-sm text-body print:text-[12px] print:leading-tight">
         {summary}
       </div>
     </Section>
