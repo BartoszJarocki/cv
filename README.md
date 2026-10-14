@@ -74,6 +74,8 @@ export const RESUME_DATA = {
 }
 ```
 
+replace `src/data/avatar.jpg` with your own square photo.
+
 styling uses tailwind css — customize colors in `tailwind.config.js` and global styles in `src/app/globals.css`.
 
 ## docker

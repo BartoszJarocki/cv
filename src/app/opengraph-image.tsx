@@ -1,7 +1,7 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { RESUME_DATA } from "../data/resume-data";
-
-export const runtime = "edge";
 
 export const alt = "Minimalist Resume";
 export const size = {
@@ -12,6 +12,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const avatar = await readFile(join(process.cwd(), "src/data/avatar.jpg"));
+
   return new ImageResponse(
     <div
       style={{
@@ -35,7 +37,7 @@ export default async function Image() {
       >
         {/* biome-ignore lint/performance/noImgElement: ImageResponse context requires img element */}
         <img
-          src={RESUME_DATA.avatarUrl}
+          src={`data:image/jpeg;base64,${avatar.toString("base64")}`}
           alt={RESUME_DATA.name}
           style={{
             width: "150px",
