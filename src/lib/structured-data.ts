@@ -1,8 +1,9 @@
 import { RESUME_DATA } from "@/data/resume-data";
-
-const SITE_URL = "https://cv.jarocki.me";
+import { getCurrentRole } from "@/lib/resume";
 
 export function generatePersonStructuredData() {
+  const currentRole = getCurrentRole(RESUME_DATA.work);
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -10,7 +11,7 @@ export function generatePersonStructuredData() {
     alternateName: RESUME_DATA.initials,
     description: RESUME_DATA.about,
     url: RESUME_DATA.personalWebsiteUrl,
-    image: new URL(RESUME_DATA.avatar.src, SITE_URL).href,
+    image: new URL(RESUME_DATA.avatar.src, RESUME_DATA.siteUrl).href,
     sameAs: RESUME_DATA.contact.social.map((social) => social.url),
     address: {
       "@type": "Place",
@@ -23,14 +24,13 @@ export function generatePersonStructuredData() {
       contactType: "personal",
     },
     jobTitle: "Full Stack Engineer",
-    worksFor:
-      RESUME_DATA.work.length > 0
-        ? {
-            "@type": "Organization",
-            name: RESUME_DATA.work[0].company,
-            url: RESUME_DATA.work[0].link,
-          }
-        : undefined,
+    worksFor: currentRole
+      ? {
+          "@type": "Organization",
+          name: currentRole.company,
+          url: currentRole.link,
+        }
+      : undefined,
     alumniOf: RESUME_DATA.education.map((edu) => ({
       "@type": "EducationalOrganization",
       name: edu.school,
@@ -64,6 +64,6 @@ export function generateResumeStructuredData() {
     about: person,
     name: `${RESUME_DATA.name} - Professional Resume`,
     description: `Professional resume and portfolio of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
-    url: SITE_URL,
+    url: RESUME_DATA.siteUrl,
   };
 }

@@ -8,9 +8,10 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import type { ContactLink } from "@/lib/resume";
 
 export interface CommandMenuDialogProps {
-  links: { url: string; title: string }[];
+  links: ContactLink[];
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -35,15 +36,15 @@ export const CommandMenuDialog = ({
         </CommandItem>
       </CommandGroup>
       <CommandGroup heading="Links">
-        {links.map(({ url, title }) => (
+        {links.map(({ href, label }) => (
           <CommandItem
-            key={url}
+            key={label}
             onSelect={() => {
               onOpenChange(false);
-              window.open(url, "_blank");
+              window.open(href, "_blank");
             }}
           >
-            <span>{title}</span>
+            <span>{label}</span>
           </CommandItem>
         ))}
       </CommandGroup>

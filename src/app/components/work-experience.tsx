@@ -1,10 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import type { RESUME_DATA } from "@/data/resume-data";
+import type { WorkEntry } from "@/lib/types";
 import { cn } from "@/lib/utils";
-
-type WorkExperience = (typeof RESUME_DATA)["work"][number];
 
 interface BadgeListProps {
   className?: string;
@@ -34,8 +32,8 @@ function BadgeList({ className, badges }: BadgeListProps) {
 }
 
 interface WorkPeriodProps {
-  start: WorkExperience["start"];
-  end?: WorkExperience["end"];
+  start: WorkEntry["start"];
+  end: WorkEntry["end"];
 }
 
 function WorkPeriod({ start, end }: WorkPeriodProps) {
@@ -50,8 +48,8 @@ function WorkPeriod({ start, end }: WorkPeriodProps) {
 }
 
 interface CompanyLinkProps {
-  company: WorkExperience["company"];
-  link: WorkExperience["link"];
+  company: WorkEntry["company"];
+  link: WorkEntry["link"];
 }
 
 function CompanyLink({ company, link }: CompanyLinkProps) {
@@ -69,7 +67,7 @@ function CompanyLink({ company, link }: CompanyLinkProps) {
 }
 
 interface WorkExperienceItemProps {
-  work: WorkExperience;
+  work: WorkEntry;
 }
 
 function WorkExperienceItem({ work }: WorkExperienceItemProps) {
@@ -118,7 +116,7 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
 }
 
 interface WorkExperienceProps {
-  work: (typeof RESUME_DATA)["work"];
+  work: WorkEntry[];
 }
 
 export function WorkExperience({ work }: WorkExperienceProps) {

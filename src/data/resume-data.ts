@@ -10,6 +10,7 @@ export const RESUME_DATA: ResumeData = {
   summary:
     "Full Stack Engineer with 15+ years of experience and 10+ years working remotely. Building high-performance web applications, leading distributed teams, and creating open source tools used by thousands of developers.",
   avatar,
+  siteUrl: "https://cv.jarocki.me",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "bartosz.jarocki@hey.com",
@@ -146,29 +147,20 @@ export const RESUME_DATA: ResumeData = {
       title: "Monito",
       techStack: ["TypeScript", "Next.js", "AI", "Browser Extension"],
       description: "Autonomous QA AI agent for web applications",
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
+      link: "https://monito.dev/",
     },
     {
       title: "43frames",
       techStack: ["TypeScript", "Next.js", "AI"],
       description: "AI-powered image and video generation studio",
-      link: {
-        label: "43frames.com",
-        href: "https://43frames.com/",
-      },
+      link: "https://43frames.com/",
     },
     {
       title: "Minimalist CV",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       description:
         "Open source, print-friendly CV template. 9,600+ stars on GitHub",
-      link: {
-        label: "Minimalist CV",
-        href: "https://github.com/BartoszJarocki/cv",
-      },
+      link: "https://github.com/BartoszJarocki/cv",
     },
   ],
 };

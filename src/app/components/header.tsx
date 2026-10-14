@@ -5,10 +5,14 @@ import { GitHubIcon } from "@/components/icons/github-icon";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { XIcon } from "@/components/icons/x-icon";
 import { RESUME_DATA } from "@/data/resume-data";
-import type { IconType } from "@/lib/types";
+import {
+  type ContactIcon,
+  type ContactLink,
+  getContactLinks,
+} from "@/lib/resume";
 
 const ICON_MAP: Record<
-  IconType,
+  ContactIcon,
   React.ComponentType<React.SVGProps<SVGSVGElement>>
 > = {
   github: GitHubIcon,
@@ -20,8 +24,8 @@ const ICON_MAP: Record<
 };
 
 interface LocationLinkProps {
-  location: typeof RESUME_DATA.location;
-  locationLink: typeof RESUME_DATA.locationLink;
+  location: string;
+  locationLink: string;
 }
 
 function LocationLink({ location, locationLink }: LocationLinkProps) {
@@ -43,7 +47,7 @@ function LocationLink({ location, locationLink }: LocationLinkProps) {
 
 interface SocialButtonProps {
   href: string;
-  iconType: IconType;
+  iconType: ContactIcon;
   label: string;
 }
 
@@ -63,100 +67,43 @@ function SocialButton({ href, iconType, label }: SocialButtonProps) {
   );
 }
 
-interface ContactButtonsProps {
-  contact: typeof RESUME_DATA.contact;
-  personalWebsiteUrl?: string;
+interface ContactLinksProps {
+  links: ContactLink[];
 }
 
-function ContactButtons({ contact, personalWebsiteUrl }: ContactButtonsProps) {
+function ContactButtons({ links }: ContactLinksProps) {
   return (
     <ul
       className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
       aria-label="Contact links"
     >
-      {personalWebsiteUrl && (
-        <li>
-          <SocialButton
-            href={personalWebsiteUrl}
-            iconType="globe"
-            label="Personal website"
-          />
-        </li>
-      )}
-      {contact.email && (
-        <li>
-          <SocialButton
-            href={`mailto:${contact.email}`}
-            iconType="mail"
-            label="Email"
-          />
-        </li>
-      )}
-      {contact.tel && (
-        <li>
-          <SocialButton
-            href={`tel:${contact.tel}`}
-            iconType="phone"
-            label="Phone"
-          />
-        </li>
-      )}
-      {contact.social.map((social) => (
-        <li key={social.name}>
-          <SocialButton
-            href={social.url}
-            iconType={social.icon}
-            label={social.name}
-          />
+      {links.map(({ href, label, icon }) => (
+        <li key={label}>
+          <SocialButton href={href} iconType={icon} label={label} />
         </li>
       ))}
     </ul>
   );
 }
 
-interface PrintContactProps {
-  contact: typeof RESUME_DATA.contact;
-  personalWebsiteUrl?: string;
-}
-
-function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
+function PrintContact({ links }: ContactLinksProps) {
   return (
-    <div className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
-      {personalWebsiteUrl && (
-        <>
-          <a
-            className="underline hover:text-foreground/70"
-            href={personalWebsiteUrl}
-          >
-            {new URL(personalWebsiteUrl).hostname}
+    <div className="hidden flex-wrap gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
+      {links.map(({ label, href, text }, index) => (
+        <span key={label} className="inline-flex gap-x-2">
+          <a className="underline hover:text-foreground/70" href={href}>
+            {text}
           </a>
-          <span aria-hidden="true">/</span>
-        </>
-      )}
-      {contact.email && (
-        <>
-          <a
-            className="underline hover:text-foreground/70"
-            href={`mailto:${contact.email}`}
-          >
-            {contact.email}
-          </a>
-          <span aria-hidden="true">/</span>
-        </>
-      )}
-      {contact.tel && (
-        <a
-          className="underline hover:text-foreground/70"
-          href={`tel:${contact.tel}`}
-        >
-          {contact.tel}
-        </a>
-      )}
+          {index < links.length - 1 && <span aria-hidden="true">/</span>}
+        </span>
+      ))}
     </div>
   );
 }
 
 export function Header() {
+  const contactLinks = getContactLinks(RESUME_DATA);
+
   return (
     <header className="flex items-center justify-between">
       <div className="flex-1 space-y-1.5">
@@ -172,15 +119,9 @@ export function Header() {
           locationLink={RESUME_DATA.locationLink}
         />
 
-        <ContactButtons
-          contact={RESUME_DATA.contact}
-          personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl}
-        />
+        <ContactButtons links={contactLinks} />
 
-        <PrintContact
-          contact={RESUME_DATA.contact}
-          personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl}
-        />
+        <PrintContact links={contactLinks} />
       </div>
 
       <Image

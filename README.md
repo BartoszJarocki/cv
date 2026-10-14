@@ -31,6 +31,7 @@ pnpm format       # check code formatting with biome
 pnpm format:fix   # format code with biome
 pnpm check        # run both linting and formatting checks
 pnpm check:fix    # run both linting and formatting with auto-fix
+pnpm verify       # check the page that pnpm build prerendered
 ```
 
 ## project structure
@@ -53,6 +54,7 @@ src/
 ├── data/               # resume data configuration
 │   └── resume-data.ts
 └── lib/                # utilities and types
+    ├── resume.ts
     ├── structured-data.ts
     ├── types.ts
     └── utils.ts
@@ -68,6 +70,7 @@ export const RESUME_DATA = {
   name: "Your Name",
   initials: "YN",
   location: "Your City, Country",
+  siteUrl: "https://cv.example.com", // where this CV is deployed
   about: "Brief description",
   summary: "Professional summary",
   // ... more fields
