@@ -57,7 +57,7 @@ const hrefs = (fragment) =>
   [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
 
 const showsUrl = (text, href) => {
-  const rest = href.replace(/^https?:\/\/(www\.)?/, "");
+  const rest = decodeURI(href).replace(/^https?:\/\/(www\.)?/, "");
   const tail = rest.slice(text.length);
   return rest.startsWith(text) && /^\/?([?#].*)?$/.test(tail);
 };
