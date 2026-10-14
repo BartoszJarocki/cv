@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import type { RESUME_DATA } from "@/data/resume-data";
+import type { Project } from "@/lib/types";
 
 interface ProjectLinkProps {
   title: string;
@@ -102,7 +102,7 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
 }
 
 interface ProjectsProps {
-  projects: (typeof RESUME_DATA)["projects"];
+  projects: Project[];
 }
 
 export function Projects({ projects }: ProjectsProps) {

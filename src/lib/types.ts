@@ -1,6 +1,37 @@
 import type { StaticImageData } from "next/image";
 
-export type IconType = "github" | "linkedin" | "x" | "globe" | "mail" | "phone";
+export type SocialIcon = "github" | "linkedin" | "x";
+
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: SocialIcon;
+}
+
+export interface WorkEntry {
+  company: string;
+  link: string;
+  badges: string[];
+  title: string;
+  start: string;
+  end: string | null;
+  description: string;
+  highlights?: string[];
+}
+
+export interface EducationEntry {
+  school: string;
+  degree: string;
+  start: string;
+  end: string | null;
+}
+
+export interface Project {
+  title: string;
+  techStack: string[];
+  description: string;
+  link?: string;
+}
 
 export interface ResumeData {
   name: string;
@@ -10,37 +41,14 @@ export interface ResumeData {
   about: string;
   summary: string;
   avatar: StaticImageData;
-  personalWebsiteUrl: string;
+  personalWebsiteUrl?: string;
   contact: {
     email: string;
     tel: string;
-    social: Array<{
-      name: string;
-      url: string;
-      icon: IconType;
-    }>;
+    social: SocialLink[];
   };
-  education: Array<{
-    school: string;
-    degree: string;
-    start: string;
-    end: string;
-  }>;
-  work: Array<{
-    company: string;
-    link: string;
-    badges: string[];
-    title: string;
-    start: string;
-    end: string | null;
-    description: string;
-    highlights?: readonly string[];
-  }>;
+  education: EducationEntry[];
+  work: WorkEntry[];
   skills: string[];
-  projects: Array<{
-    title: string;
-    techStack: string[];
-    description: string;
-    link?: string;
-  }>;
+  projects: Project[];
 }

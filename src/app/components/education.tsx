@@ -1,27 +1,25 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import type { RESUME_DATA } from "@/data/resume-data";
-
-type Education = (typeof RESUME_DATA)["education"][number];
+import type { EducationEntry } from "@/lib/types";
 
 interface EducationPeriodProps {
-  start: Education["start"];
-  end: Education["end"];
+  start: EducationEntry["start"];
+  end: EducationEntry["end"];
 }
 
 function EducationPeriod({ start, end }: EducationPeriodProps) {
   return (
     <div
       className="text-sm tabular-nums text-muted-foreground"
-      title={`Period: ${start} to ${end}`}
+      title={`Period: ${start} to ${end ?? "Present"}`}
     >
-      {start} - {end}
+      {start} - {end ?? "Present"}
     </div>
   );
 }
 
 interface EducationItemProps {
-  education: Education;
+  education: EducationEntry;
 }
 
 function EducationItem({ education }: EducationItemProps) {
@@ -49,7 +47,7 @@ function EducationItem({ education }: EducationItemProps) {
 }
 
 interface EducationListProps {
-  education: readonly Education[];
+  education: readonly EducationEntry[];
 }
 
 export function Education({ education }: EducationListProps) {

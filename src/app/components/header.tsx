@@ -5,10 +5,10 @@ import { GitHubIcon } from "@/components/icons/github-icon";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { XIcon } from "@/components/icons/x-icon";
 import { RESUME_DATA } from "@/data/resume-data";
-import type { IconType } from "@/lib/types";
+import type { ResumeData, SocialIcon } from "@/lib/types";
 
 const ICON_MAP: Record<
-  IconType,
+  SocialIcon | "globe" | "mail" | "phone",
   React.ComponentType<React.SVGProps<SVGSVGElement>>
 > = {
   github: GitHubIcon,
@@ -20,8 +20,8 @@ const ICON_MAP: Record<
 };
 
 interface LocationLinkProps {
-  location: typeof RESUME_DATA.location;
-  locationLink: typeof RESUME_DATA.locationLink;
+  location: string;
+  locationLink: string;
 }
 
 function LocationLink({ location, locationLink }: LocationLinkProps) {
@@ -43,7 +43,7 @@ function LocationLink({ location, locationLink }: LocationLinkProps) {
 
 interface SocialButtonProps {
   href: string;
-  iconType: IconType;
+  iconType: keyof typeof ICON_MAP;
   label: string;
 }
 
@@ -64,7 +64,7 @@ function SocialButton({ href, iconType, label }: SocialButtonProps) {
 }
 
 interface ContactButtonsProps {
-  contact: typeof RESUME_DATA.contact;
+  contact: ResumeData["contact"];
   personalWebsiteUrl?: string;
 }
 
@@ -115,7 +115,7 @@ function ContactButtons({ contact, personalWebsiteUrl }: ContactButtonsProps) {
 }
 
 interface PrintContactProps {
-  contact: typeof RESUME_DATA.contact;
+  contact: ResumeData["contact"];
   personalWebsiteUrl?: string;
 }
 
