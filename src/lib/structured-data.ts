@@ -1,5 +1,7 @@
 import { RESUME_DATA } from "@/data/resume-data";
 
+const SITE_URL = "https://cv.jarocki.me";
+
 export function generatePersonStructuredData() {
   return {
     "@context": "https://schema.org",
@@ -56,12 +58,12 @@ export function generateWebPageStructuredData() {
     "@type": "WebPage",
     name: `${RESUME_DATA.name} - Resume`,
     description: RESUME_DATA.about,
-    url: "https://cv.jarocki.me",
+    url: SITE_URL,
     inLanguage: "en-US",
     isPartOf: {
       "@type": "WebSite",
       name: `${RESUME_DATA.name}'s Professional Resume`,
-      url: "https://cv.jarocki.me",
+      url: SITE_URL,
     },
     about: {
       "@type": "Person",
@@ -83,6 +85,6 @@ export function generateResumeStructuredData() {
     about: person,
     name: `${RESUME_DATA.name} - Professional Resume`,
     description: `Professional resume and portfolio of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
-    url: "https://cv.jarocki.me",
+    url: SITE_URL,
   };
 }
