@@ -9,7 +9,7 @@ if (!module.registerHooks) {
 }
 
 const stubImages = (url, context, nextLoad) =>
-  url.endsWith(".jpg")
+  /\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i.test(url)
     ? { format: "module", source: "export default {}", shortCircuit: true }
     : nextLoad(url, context);
 const loadTypeScriptAsModules = (url, context, nextLoad) =>
