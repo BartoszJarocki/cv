@@ -68,7 +68,6 @@ all resume content lives in a single file:
 // src/data/resume-data.ts
 export const RESUME_DATA = {
   name: "Your Name",
-  initials: "YN",
   location: "Your City, Country",
   siteUrl: "https://cv.example.com", // where this CV is deployed
   about: "Brief description",
