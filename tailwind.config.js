@@ -20,7 +20,6 @@ module.exports = {
       },
       colors: {
         border: role("rule"),
-        input: role("rule"),
         ring: role("ink"),
         background: role("bg"),
         foreground: role("ink"),
