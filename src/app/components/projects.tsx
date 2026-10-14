@@ -1,12 +1,6 @@
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
+import { TagList } from "@/components/ui/tag-list";
 import { displayUrl } from "@/lib/resume";
 import type { Project } from "@/lib/types";
 
@@ -25,73 +19,44 @@ function ProjectLink({ title, link }: ProjectLinkProps) {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 hover:underline"
+      className="hover:underline"
       aria-label={`${title} project (opens in new tab)`}
     >
       {title}
-      <span className="size-1 rounded-full bg-green-500" aria-hidden="true" />
+      <ExternalArrow />
     </a>
   );
 }
 
-interface ProjectTagsProps {
-  tags: readonly string[];
+interface ProjectItemProps {
+  project: Project;
 }
 
-function ProjectTags({ tags }: ProjectTagsProps) {
-  if (tags.length === 0) return null;
+function ProjectItem({ project }: ProjectItemProps) {
+  const { title, description, techStack, link } = project;
 
   return (
-    <ul
-      className="mt-2 flex list-none flex-wrap gap-1 p-0 print:mt-1 print:leading-none"
-      aria-label="Technologies used"
-    >
-      {tags.map((tag) => (
-        <li key={tag}>
-          <Badge
-            className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:text-[9px] print:leading-tight"
-            variant="secondary"
-          >
-            {tag}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  tags: readonly string[];
-  link?: string;
-}
-
-function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
-  return (
-    <Card className="flex h-full flex-col overflow-hidden border p-3 print:p-2">
-      <CardHeader>
-        <div className="space-y-1">
-          <CardTitle className="text-base print:text-sm print:leading-none">
-            <ProjectLink title={title} link={link} />
-          </CardTitle>
-          {link && (
-            <a
-              className="hidden font-mono underline print:block print:break-words print:text-[10px] print:leading-tight"
-              href={link}
-            >
-              {displayUrl(link)}
-            </a>
-          )}
-          <CardDescription className="text-pretty font-mono text-xs print:text-[10px] print:leading-tight">
-            {description}
-          </CardDescription>
-        </div>
-      </CardHeader>
-      <CardContent className="mt-auto flex">
-        <ProjectTags tags={tags} />
-      </CardContent>
-    </Card>
+    <>
+      <h3 className="text-sm font-medium leading-snug print:leading-none">
+        <ProjectLink title={title} link={link} />
+      </h3>
+      {link && (
+        <a
+          className="hidden underline print:block print:break-words print:text-[10px] print:leading-tight"
+          href={link}
+        >
+          {displayUrl(link)}
+        </a>
+      )}
+      <p className="mt-1 text-pretty text-xs text-body print:mt-0.5 print:text-[10px] print:leading-tight">
+        {description}
+      </p>
+      <TagList
+        tags={techStack}
+        label="Technologies used"
+        className="mt-2 print:mt-0.5"
+      />
+    </>
   );
 }
 
@@ -101,25 +66,15 @@ interface ProjectsProps {
 
 export function Projects({ projects }: ProjectsProps) {
   return (
-    <Section className="scroll-mb-16">
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="side-projects"
-      >
-        Side projects
-      </h2>
-      <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:mx-0 print:grid-cols-3 print:gap-2">
+    <Section
+      title="Side projects"
+      titleId="side-projects"
+      className="scroll-mb-16"
+    >
+      <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-4">
         {projects.map((project) => (
-          <article
-            key={project.title}
-            className="h-full transition-all duration-200 hover:shadow-sm motion-safe:hover:-translate-y-0.5 print:break-inside-avoid print:hover:translate-y-0 print:hover:shadow-none"
-          >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              tags={project.techStack}
-              link={project.link}
-            />
+          <article key={project.title} className="print:break-inside-avoid">
+            <ProjectItem project={project} />
           </article>
         ))}
       </div>

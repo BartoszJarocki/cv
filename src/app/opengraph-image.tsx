@@ -12,6 +12,8 @@ export const size = {
 
 export const contentType = "image/png";
 
+const colors = { bg: "#fafaf8", ink: "#1a1815", body: "#4a4744" };
+
 const readGeist = (file: string) =>
   readFile(
     join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans", file)
@@ -28,7 +30,7 @@ export default async function Image() {
   return new ImageResponse(
     <div
       style={{
-        background: "white",
+        background: colors.bg,
         width: "100%",
         height: "100%",
         display: "flex",
@@ -61,7 +63,7 @@ export default async function Image() {
           style={{
             fontSize: "3rem",
             fontWeight: 700,
-            color: "#333",
+            color: colors.ink,
           }}
         >
           {RESUME_DATA.name}
@@ -70,7 +72,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: "1.75rem",
-              color: "#333",
+              color: colors.ink,
               marginTop: "0.5rem",
             }}
           >
@@ -80,7 +82,7 @@ export default async function Image() {
         <div
           style={{
             fontSize: "1.5rem",
-            color: "#666",
+            color: colors.body,
             maxWidth: "600px",
             lineHeight: "1.4",
             marginTop: "1rem",
@@ -88,7 +90,9 @@ export default async function Image() {
         >
           {RESUME_DATA.about}
         </div>
-        <div style={{ fontSize: "1rem", color: "#666", marginTop: "2rem" }}>
+        <div
+          style={{ fontSize: "1rem", color: colors.body, marginTop: "2rem" }}
+        >
           {new URL(RESUME_DATA.siteUrl).host}
         </div>
       </div>

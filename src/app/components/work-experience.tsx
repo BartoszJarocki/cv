@@ -1,51 +1,8 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { DateRange } from "@/components/ui/date-range";
+import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
+import { TagList } from "@/components/ui/tag-list";
 import type { WorkEntry } from "@/lib/types";
-import { cn } from "@/lib/utils";
-
-interface BadgeListProps {
-  className?: string;
-  badges: readonly string[];
-}
-
-function BadgeList({ className, badges }: BadgeListProps) {
-  if (badges.length === 0) return null;
-
-  return (
-    <ul
-      className={cn("inline-flex list-none gap-x-1 p-0", className)}
-      aria-label="Technologies used"
-    >
-      {badges.map((badge) => (
-        <li key={badge}>
-          <Badge
-            variant="secondary"
-            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[9px] print:leading-tight"
-          >
-            {badge}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-interface WorkPeriodProps {
-  start: WorkEntry["start"];
-  end: WorkEntry["end"];
-}
-
-function WorkPeriod({ start, end }: WorkPeriodProps) {
-  return (
-    <div
-      className="text-sm tabular-nums text-muted-foreground print:leading-none"
-      title={`Employment period: ${start} to ${end ?? "Present"}`}
-    >
-      {start} - {end ?? "Present"}
-    </div>
-  );
-}
 
 interface CompanyLinkProps {
   company: WorkEntry["company"];
@@ -62,6 +19,7 @@ function CompanyLink({ company, link }: CompanyLinkProps) {
       aria-label={`${company} company website`}
     >
       {company}
+      <ExternalArrow />
     </a>
   );
 }
@@ -75,45 +33,34 @@ function WorkExperienceItem({ work }: WorkExperienceItemProps) {
     work;
 
   return (
-    <Card className="border-none py-1 print:py-0">
-      <CardHeader className="print:space-y-1">
-        <div className="flex items-center justify-between gap-x-2 text-base">
-          <div className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm print:leading-none">
-            <h3>
-              <CompanyLink company={company} link={link} />
-            </h3>
-            <BadgeList
-              className="hidden gap-x-1 sm:inline-flex print:inline-flex"
-              badges={badges}
-            />
-          </div>
-          <WorkPeriod start={start} end={end} />
+    <>
+      <div className="space-y-1 print:space-y-0.5">
+        <div className="flex items-baseline justify-between gap-x-2">
+          <h3 className="text-sm font-medium leading-snug print:leading-none">
+            <CompanyLink company={company} link={link} />
+          </h3>
+          <DateRange start={start} end={end} label="Employment period" />
         </div>
-
-        <h4 className="font-mono text-sm font-semibold leading-none print:text-[12px]">
+        <h4 className="text-sm leading-snug text-body print:text-[12px] print:leading-tight">
           {title}
         </h4>
-      </CardHeader>
-
-      <CardContent>
-        <div className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px] print:leading-tight text-pretty">
-          {description}
-          {highlights && highlights.length > 0 && (
-            <ul className="list-inside list-disc">
-              {highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="mt-2 print:hidden">
-          <BadgeList
-            className="-mx-2 flex-wrap gap-1 sm:hidden"
-            badges={badges}
-          />
-        </div>
-      </CardContent>
-    </Card>
+      </div>
+      <div className="mt-1.5 text-pretty text-xs text-body print:mt-0.5 print:text-[10px] print:leading-tight">
+        {description}
+        {highlights && highlights.length > 0 && (
+          <ul className="list-inside list-disc">
+            {highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <TagList
+        tags={badges}
+        label="Technologies used"
+        className="mt-2 print:mt-0.5"
+      />
+    </>
   );
 }
 
@@ -123,14 +70,8 @@ interface WorkExperienceProps {
 
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
-    <Section>
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="work-experience"
-      >
-        Work Experience
-      </h2>
-      <div className="space-y-4 print:space-y-1">
+    <Section title="Work Experience" titleId="work-experience">
+      <div className="space-y-8 print:space-y-1.5">
         {work.map((item) => (
           <article
             key={`${item.company}-${item.start}`}

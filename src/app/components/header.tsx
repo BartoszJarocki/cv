@@ -30,7 +30,7 @@ interface LocationLinkProps {
 
 function LocationLink({ location, locationLink }: LocationLinkProps) {
   return (
-    <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
+    <p className="max-w-md items-center text-pretty text-xs text-foreground">
       <a
         className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
         href={locationLink}
@@ -56,7 +56,7 @@ function SocialButton({ href, iconType, label }: SocialButtonProps) {
 
   return (
     <a
-      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground size-8"
+      className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
       href={href}
       aria-label={label}
       target="_blank"
@@ -73,10 +73,7 @@ interface ContactLinksProps {
 
 function ContactButtons({ links }: ContactLinksProps) {
   return (
-    <ul
-      className="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
-      aria-label="Contact links"
-    >
+    <ul className="flex gap-x-1 pt-1 print:hidden" aria-label="Contact links">
       {links.map(({ href, label, icon }) => (
         <li key={label}>
           <SocialButton href={href} iconType={icon} label={label} />
@@ -88,10 +85,10 @@ function ContactButtons({ links }: ContactLinksProps) {
 
 function PrintContact({ links }: ContactLinksProps) {
   return (
-    <div className="hidden flex-wrap gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px] print:leading-tight">
+    <div className="hidden flex-wrap gap-x-2 text-sm text-muted-foreground print:flex print:text-[12px] print:leading-tight">
       {links.map(({ label, href, text }, index) => (
         <span key={label} className="inline-flex gap-x-2">
-          <a className="underline hover:text-foreground/70" href={href}>
+          <a className="text-foreground underline" href={href}>
             {text}
           </a>
           {index < links.length - 1 && <span aria-hidden="true">/</span>}
@@ -105,12 +102,15 @@ export function Header() {
   const contactLinks = getContactLinks(RESUME_DATA);
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between gap-x-4">
       <div className="flex-1 space-y-1.5 print:space-y-1">
-        <h1 className="text-3xl font-bold tracking-tight" id="resume-name">
+        <h1
+          className="font-pixel text-[28px] leading-none sm:text-[32px]"
+          id="resume-name"
+        >
           {RESUME_DATA.name}
         </h1>
-        <p className="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px] print:leading-tight">
+        <p className="max-w-md text-pretty text-sm text-body print:text-[12px] print:leading-tight">
           {RESUME_DATA.about}
         </p>
 

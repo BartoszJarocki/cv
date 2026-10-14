@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { registerHooks } from "node:module";
 
 const stubImages = (url, context, nextLoad) =>
@@ -18,6 +18,14 @@ const read = (file) =>
   readFileSync(new URL(`../.next/server/app/${file}`, import.meta.url), "utf8");
 
 const html = read("index.html");
+const sources = readdirSync(new URL("../src", import.meta.url), {
+  recursive: true,
+})
+  .filter((file) => /\.(tsx?|css)$/.test(file))
+  .map((file) => [
+    file,
+    readFileSync(new URL(`../src/${file}`, import.meta.url), "utf8"),
+  ]);
 const jsonLdScripts = [
   ...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs),
 ].map(([, json]) => json);
@@ -203,6 +211,58 @@ const checks = [
         sizes.map(([, px]) => Number(px)).filter((px) => px < 9)
       );
       if (small.size > 0) return `found ${[...small].join("px, ")}px`;
+    },
+  ],
+  [
+    "no entry lists its tags twice",
+    () => {
+      const repeated = ["Work Experience", "Side projects"].flatMap((name) => {
+        const section =
+          html.match(new RegExp(`>${name}</h2>(.*?)</section>`, "s"))?.[1] ??
+          "";
+        return [...section.matchAll(/<article\b.*?<\/article>/gs)].filter(
+          ([article]) =>
+            (article.match(/aria-label="Technologies used"/g)?.length ?? 0) > 1
+        );
+      });
+      if (repeated.length > 0) return `${repeated.length} entries`;
+    },
+  ],
+  [
+    "tag separators keep the dot on the tag's line",
+    () => {
+      const lists = html.match(
+        /<ul\b[^>]*aria-label="(?:Technologies used|List of skills)".*?<\/ul>/gs
+      );
+      const separators = (lists ?? []).flatMap((list) => [
+        ...list.matchAll(
+          /<span\b[^>]*aria-hidden="true"[^>]*>([^<]*)<\/span>/g
+        ),
+      ]);
+      const breaking = separators.filter(
+        ([, text]) => !text.startsWith("\u00a0")
+      );
+      if (breaking.length > 0)
+        return `${breaking.length} without a no-break space`;
+    },
+  ],
+  [
+    "colors come from the theme tokens",
+    () => {
+      const literal =
+        /\b[a-z]+-(?:(?:black|white)\b|(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3}|\[(?:#|hsl|rgb|oklch))/g;
+      const found = sources.flatMap(([file, source]) =>
+        (source.match(literal) ?? []).map((match) => `${file}: ${match}`)
+      );
+      if (found.length > 0) return `found ${found.join(", ")}`;
+    },
+  ],
+  [
+    "preloads only the two fonts the page uses",
+    () => {
+      const fonts =
+        html.match(/<link rel="preload" href="[^"]*" as="font"/g)?.length ?? 0;
+      if (fonts !== 2) return `preloads ${fonts}`;
     },
   ],
 ];

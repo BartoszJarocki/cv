@@ -1,45 +1,14 @@
-import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
-import { cn } from "@/lib/utils";
-
-interface SkillsListProps {
-  skills: readonly string[];
-  className?: string;
-}
-
-function SkillsList({ skills, className }: SkillsListProps) {
-  return (
-    <ul
-      className={cn(
-        "flex list-none flex-wrap gap-1 p-0 print:leading-none",
-        className
-      )}
-      aria-label="List of skills"
-    >
-      {skills.map((skill) => (
-        <li key={skill}>
-          <Badge className="print:text-[10px]">{skill}</Badge>
-        </li>
-      ))}
-    </ul>
-  );
-}
+import { TagList } from "@/components/ui/tag-list";
 
 interface SkillsProps {
   skills: readonly string[];
-  className?: string;
 }
 
-export function Skills({ skills, className }: SkillsProps) {
+export function Skills({ skills }: SkillsProps) {
   return (
-    <Section className={className}>
-      <h2
-        className="text-xl font-bold print:text-base print:leading-tight"
-        id="skills-section"
-      >
-        Skills
-      </h2>
-      <SkillsList skills={skills} />
+    <Section title="Skills" titleId="skills-section">
+      <TagList tags={skills} label="List of skills" variant="skills" />
     </Section>
   );
 }
