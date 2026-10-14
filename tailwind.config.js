@@ -15,8 +15,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        pixel: ["var(--font-geist-pixel-square)", "ui-monospace", "monospace"],
       },
       colors: {
         border: role("rule"),

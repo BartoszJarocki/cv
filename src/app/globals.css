@@ -33,7 +33,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans print:bg-transparent;
+    @apply bg-background text-foreground font-mono print:bg-transparent;
   }
   ::selection {
     @apply bg-foreground text-background;

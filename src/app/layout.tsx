@@ -1,12 +1,21 @@
 import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 
 import "./globals.css";
 import type React from "react";
 import { RESUME_DATA } from "@/data/resume-data";
 import { getPageTitle } from "@/lib/resume";
+
+// geist/font/pixel declares all five Pixel variants, and Next preloads every
+// font a module declares, so only the Square variant is declared here.
+const geistPixelSquare = localFont({
+  src: "../../node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2",
+  variable: "--font-geist-pixel-square",
+  weight: "500",
+  adjustFontFallback: false,
+});
 
 const xProfile = RESUME_DATA.contact.social.find(({ icon }) => icon === "x");
 
@@ -64,7 +73,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistMono.variable} ${geistPixelSquare.variable}`}
+    >
       <body>
         {children}
         <Analytics />

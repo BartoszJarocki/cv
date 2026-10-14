@@ -77,13 +77,13 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
           </CardTitle>
           {link && (
             <a
-              className="hidden font-mono underline print:block print:break-words print:text-[10px] print:leading-tight"
+              className="hidden underline print:block print:break-words print:text-[10px] print:leading-tight"
               href={link}
             >
               {displayUrl(link)}
             </a>
           )}
-          <CardDescription className="text-pretty font-mono text-xs print:text-[10px] print:leading-tight">
+          <CardDescription className="text-pretty text-xs print:text-[10px] print:leading-tight">
             {description}
           </CardDescription>
         </div>
