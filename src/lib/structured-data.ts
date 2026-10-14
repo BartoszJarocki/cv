@@ -1,6 +1,9 @@
 import { RESUME_DATA } from "@/data/resume-data";
+import { getCurrentRole } from "@/lib/resume";
 
 export function generatePersonStructuredData() {
+  const currentRole = getCurrentRole(RESUME_DATA.work);
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -21,14 +24,13 @@ export function generatePersonStructuredData() {
       contactType: "personal",
     },
     jobTitle: "Full Stack Engineer",
-    worksFor:
-      RESUME_DATA.work.length > 0
-        ? {
-            "@type": "Organization",
-            name: RESUME_DATA.work[0].company,
-            url: RESUME_DATA.work[0].link,
-          }
-        : undefined,
+    worksFor: currentRole
+      ? {
+          "@type": "Organization",
+          name: currentRole.company,
+          url: currentRole.link,
+        }
+      : undefined,
     alumniOf: RESUME_DATA.education.map((edu) => ({
       "@type": "EducationalOrganization",
       name: edu.school,

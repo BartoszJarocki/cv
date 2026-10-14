@@ -54,6 +54,7 @@ src/
 ├── data/               # resume data configuration
 │   └── resume-data.ts
 └── lib/                # utilities and types
+    ├── resume.ts
     ├── structured-data.ts
     ├── types.ts
     └── utils.ts
