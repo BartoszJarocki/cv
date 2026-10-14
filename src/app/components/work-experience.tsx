@@ -132,7 +132,10 @@ export function WorkExperience({ work }: WorkExperienceProps) {
       </h2>
       <div className="space-y-4 print:space-y-1">
         {work.map((item) => (
-          <article key={`${item.company}-${item.start}`}>
+          <article
+            key={`${item.company}-${item.start}`}
+            className="print:break-inside-avoid"
+          >
             <WorkExperienceItem work={item} />
           </article>
         ))}

@@ -57,7 +57,7 @@ export function Education({ education }: EducationListProps) {
       </h2>
       <div className="space-y-4 print:space-y-1">
         {education.map((item) => (
-          <article key={item.school}>
+          <article key={item.school} className="print:break-inside-avoid">
             <EducationItem education={item} />
           </article>
         ))}
