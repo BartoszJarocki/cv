@@ -90,8 +90,10 @@
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 400ms ease-out both;
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in {
+    animation: fadeIn 400ms ease-out both;
+  }
 }
 
 @media print {
