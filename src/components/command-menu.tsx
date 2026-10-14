@@ -8,7 +8,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 
 interface Props {
@@ -69,7 +68,6 @@ export const CommandMenu = ({ links }: Props) => {
               </CommandItem>
             ))}
           </CommandGroup>
-          <CommandSeparator />
         </CommandList>
       </CommandDialog>
     </>
