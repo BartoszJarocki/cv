@@ -1,3 +1,5 @@
+const role = (name) => `oklch(var(--${name}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -17,38 +19,35 @@ module.exports = {
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: role("rule"),
+        input: role("rule"),
+        ring: role("ink"),
+        background: role("bg"),
+        foreground: role("ink"),
+        body: role("body"),
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: role("ink"),
+          foreground: role("bg"),
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: role("wash"),
+          foreground: role("ink"),
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: role("wash"),
+          foreground: role("faint"),
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: role("wash"),
+          foreground: role("ink"),
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: role("bg"),
+          foreground: role("ink"),
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: role("bg"),
+          foreground: role("ink"),
         },
       },
       borderRadius: {
