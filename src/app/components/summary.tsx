@@ -5,10 +5,6 @@ interface AboutProps {
   className?: string;
 }
 
-/**
- * Summary section component
- * Displays a summary of professional experience and goals
- */
 export function Summary({ summary, className }: AboutProps) {
   return (
     <Section className={className}>

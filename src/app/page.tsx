@@ -34,9 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Transform social links for command menu
- */
 function getCommandMenuLinks() {
   const links = [];
 
@@ -63,7 +60,6 @@ export default function ResumePage() {
     <>
       <script
         type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe for JSON-LD structured data
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
         }}

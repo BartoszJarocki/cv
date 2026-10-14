@@ -11,10 +11,6 @@ interface BadgeListProps {
   badges: readonly string[];
 }
 
-/**
- * Renders a list of badges for work experience
- * Handles both mobile and desktop layouts through className prop
- */
 function BadgeList({ className, badges }: BadgeListProps) {
   if (badges.length === 0) return null;
 
@@ -42,9 +38,6 @@ interface WorkPeriodProps {
   end?: WorkExperience["end"];
 }
 
-/**
- * Displays the work period in a consistent format
- */
 function WorkPeriod({ start, end }: WorkPeriodProps) {
   return (
     <div
@@ -61,9 +54,6 @@ interface CompanyLinkProps {
   link: WorkExperience["link"];
 }
 
-/**
- * Renders company name with optional link
- */
 function CompanyLink({ company, link }: CompanyLinkProps) {
   return (
     <a
@@ -82,10 +72,6 @@ interface WorkExperienceItemProps {
   work: WorkExperience;
 }
 
-/**
- * Individual work experience card component
- * Handles responsive layout for badges (mobile/desktop)
- */
 function WorkExperienceItem({ work }: WorkExperienceItemProps) {
   const { company, link, badges, title, start, end, description, highlights } =
     work;
@@ -135,10 +121,6 @@ interface WorkExperienceProps {
   work: (typeof RESUME_DATA)["work"];
 }
 
-/**
- * Main work experience section component
- * Renders a list of work experiences in chronological order
- */
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <Section>

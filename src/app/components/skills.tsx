@@ -7,9 +7,6 @@ interface SkillsListProps {
   className?: string;
 }
 
-/**
- * Renders a list of skills as badges
- */
 function SkillsList({ skills, className }: SkillsListProps) {
   return (
     <ul
@@ -32,10 +29,6 @@ interface SkillsProps {
   className?: string;
 }
 
-/**
- * Skills section component
- * Displays a list of professional skills as badges
- */
 export function Skills({ skills, className }: SkillsProps) {
   return (
     <Section className={className}>

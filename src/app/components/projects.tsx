@@ -14,9 +14,6 @@ interface ProjectLinkProps {
   link?: string;
 }
 
-/**
- * Renders project title with optional link and status indicator
- */
 function ProjectLink({ title, link }: ProjectLinkProps) {
   if (!link) {
     return <span>{title}</span>;
@@ -52,9 +49,6 @@ interface ProjectTagsProps {
   tags: readonly string[];
 }
 
-/**
- * Renders a list of technology tags used in the project
- */
 function ProjectTags({ tags }: ProjectTagsProps) {
   if (tags.length === 0) return null;
 
@@ -84,9 +78,6 @@ interface ProjectCardProps {
   link?: string;
 }
 
-/**
- * Card component displaying project information
- */
 function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
   return (
     <Card className="flex h-full flex-col overflow-hidden border p-3">
@@ -114,9 +105,6 @@ interface ProjectsProps {
   projects: (typeof RESUME_DATA)["projects"];
 }
 
-/**
- * Section component displaying all side projects
- */
 export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="scroll-mb-16 print:space-y-4">

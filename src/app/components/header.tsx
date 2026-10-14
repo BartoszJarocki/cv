@@ -7,7 +7,6 @@ import { XIcon } from "@/components/icons/x-icon";
 import { RESUME_DATA } from "@/data/resume-data";
 import type { IconType } from "@/lib/types";
 
-// Type-safe icon mapping
 const ICON_MAP: Record<
   IconType,
   React.ComponentType<React.SVGProps<SVGSVGElement>>
@@ -157,9 +156,6 @@ function PrintContact({ contact, personalWebsiteUrl }: PrintContactProps) {
   );
 }
 
-/**
- * Header component displaying personal information and contact details
- */
 export function Header() {
   return (
     <header className="flex items-center justify-between">
