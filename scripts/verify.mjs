@@ -1,5 +1,12 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { registerHooks } from "node:module";
+import module from "node:module";
+
+if (!module.registerHooks) {
+  console.error(
+    `pnpm verify needs Node 22.15 or later for module.registerHooks. This is Node ${process.version}.`
+  );
+  process.exit(1);
+}
 
 const stubImages = (url, context, nextLoad) =>
   url.endsWith(".jpg")
@@ -10,8 +17,8 @@ const loadTypeScriptAsModules = (url, context, nextLoad) =>
     url,
     url.endsWith(".ts") ? { ...context, format: "module-typescript" } : context
   );
-registerHooks({ load: stubImages });
-registerHooks({ load: loadTypeScriptAsModules });
+module.registerHooks({ load: stubImages });
+module.registerHooks({ load: loadTypeScriptAsModules });
 const { RESUME_DATA } = await import("../src/data/resume-data.ts");
 
 const read = (file) =>
