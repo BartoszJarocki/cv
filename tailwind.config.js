@@ -25,14 +25,6 @@ module.exports = {
         background: role("bg"),
         foreground: role("ink"),
         body: role("body"),
-        primary: {
-          DEFAULT: role("ink"),
-          foreground: role("bg"),
-        },
-        secondary: {
-          DEFAULT: role("wash"),
-          foreground: role("ink"),
-        },
         muted: {
           DEFAULT: role("wash"),
           foreground: role("faint"),
@@ -42,10 +34,6 @@ module.exports = {
           foreground: role("ink"),
         },
         popover: {
-          DEFAULT: role("bg"),
-          foreground: role("ink"),
-        },
-        card: {
           DEFAULT: role("bg"),
           foreground: role("ink"),
         },
