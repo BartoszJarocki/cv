@@ -96,6 +96,11 @@
   }
 }
 
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
 @media print {
   .animate-fade-in {
     animation: none !important;

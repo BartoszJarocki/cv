@@ -21,11 +21,11 @@ export default function ResumePage() {
         {JSON.stringify(structuredData)}
       </script>
       <main
-        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-11 md:p-16"
+        className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-0 md:p-16"
         id="main-content"
       >
         <section
-          className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4"
+          className="mx-auto w-full max-w-2xl space-y-8 print:max-w-none print:space-y-4"
           aria-label="Resume Content"
         >
           <div className="animate-fade-in" style={{ animationDelay: "0ms" }}>
