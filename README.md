@@ -78,14 +78,6 @@ replace `src/data/avatar.jpg` with your own square photo.
 
 styling uses tailwind css — customize colors in `tailwind.config.js` and global styles in `src/app/globals.css`.
 
-## docker
-
-```bash
-docker compose build     # build the container
-docker compose up -d     # run the container
-docker compose down      # stop the container
-```
-
 ## license
 
 MIT
