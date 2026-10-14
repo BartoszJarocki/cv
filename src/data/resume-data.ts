@@ -146,29 +146,20 @@ export const RESUME_DATA: ResumeData = {
       title: "Monito",
       techStack: ["TypeScript", "Next.js", "AI", "Browser Extension"],
       description: "Autonomous QA AI agent for web applications",
-      link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
-      },
+      link: "https://monito.dev/",
     },
     {
       title: "43frames",
       techStack: ["TypeScript", "Next.js", "AI"],
       description: "AI-powered image and video generation studio",
-      link: {
-        label: "43frames.com",
-        href: "https://43frames.com/",
-      },
+      link: "https://43frames.com/",
     },
     {
       title: "Minimalist CV",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       description:
         "Open source, print-friendly CV template. 9,600+ stars on GitHub",
-      link: {
-        label: "Minimalist CV",
-        href: "https://github.com/BartoszJarocki/cv",
-      },
+      link: "https://github.com/BartoszJarocki/cv",
     },
   ],
 };

@@ -125,7 +125,7 @@ export function Projects({ projects }: ProjectsProps) {
               title={project.title}
               description={project.description}
               tags={project.techStack}
-              link={project.link?.href}
+              link={project.link}
             />
           </article>
         ))}
