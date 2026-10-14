@@ -1,6 +1,6 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import Image from "next/image";
 import type React from "react";
-import { Avatar } from "@/components/avatar";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { XIcon } from "@/components/icons/x-icon";
 import { Button } from "@/components/ui/button";
@@ -188,11 +188,13 @@ export function Header() {
         />
       </div>
 
-      <Avatar
-        className="size-28 ring-1 ring-muted"
-        src={RESUME_DATA.avatarUrl}
+      <Image
+        className="size-28 shrink-0 rounded-xl bg-muted object-cover ring-1 ring-muted"
+        src={RESUME_DATA.avatar}
         alt={`${RESUME_DATA.name}'s profile picture`}
-        fallback={RESUME_DATA.initials}
+        width={112}
+        height={112}
+        preload={true}
       />
     </header>
   );
