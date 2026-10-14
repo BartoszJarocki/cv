@@ -1,9 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { RESUME_DATA } from "../data/resume-data";
+import { RESUME_DATA } from "@/data/resume-data";
+import { getCurrentRole, getPageTitle } from "@/lib/resume";
 
-export const alt = "Minimalist Resume";
+export const alt = getPageTitle(RESUME_DATA);
 export const size = {
   width: 1200,
   height: 630,
@@ -11,8 +12,18 @@ export const size = {
 
 export const contentType = "image/png";
 
+const readGeist = (file: string) =>
+  readFile(
+    join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans", file)
+  );
+
 export default async function Image() {
-  const avatar = await readFile(join(process.cwd(), "src/data/avatar.jpg"));
+  const [avatar, geistRegular, geistBold] = await Promise.all([
+    readFile(join(process.cwd(), "src/data/avatar.jpg")),
+    readGeist("Geist-Regular.ttf"),
+    readGeist("Geist-Bold.ttf"),
+  ]);
+  const currentRole = getCurrentRole(RESUME_DATA.work);
 
   return new ImageResponse(
     <div
@@ -23,6 +34,7 @@ export default async function Image() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        fontFamily: "Geist",
       }}
     >
       <div
@@ -48,40 +60,45 @@ export default async function Image() {
         <div
           style={{
             fontSize: "3rem",
-            fontWeight: "bold",
+            fontWeight: 700,
             color: "#333",
-            marginBottom: "1rem",
           }}
         >
           {RESUME_DATA.name}
         </div>
+        {currentRole && (
+          <div
+            style={{
+              fontSize: "1.75rem",
+              color: "#333",
+              marginTop: "0.5rem",
+            }}
+          >
+            {currentRole.title}
+          </div>
+        )}
         <div
           style={{
             fontSize: "1.5rem",
             color: "#666",
             maxWidth: "600px",
             lineHeight: "1.4",
+            marginTop: "1rem",
           }}
         >
           {RESUME_DATA.about}
         </div>
-        <div
-          style={{
-            display: "flex",
-            marginTop: "2rem",
-            gap: "1rem",
-          }}
-        >
-          {RESUME_DATA.personalWebsiteUrl && (
-            <div style={{ fontSize: "1rem", color: "#666" }}>
-              {RESUME_DATA.personalWebsiteUrl}
-            </div>
-          )}
+        <div style={{ fontSize: "1rem", color: "#666", marginTop: "2rem" }}>
+          {new URL(RESUME_DATA.siteUrl).host}
         </div>
       </div>
     </div>,
     {
       ...size,
+      fonts: [
+        { name: "Geist", data: geistRegular, weight: 400, style: "normal" },
+        { name: "Geist", data: geistBold, weight: 700, style: "normal" },
+      ],
     }
   );
 }
