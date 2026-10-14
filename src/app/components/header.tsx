@@ -1,7 +1,8 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import type React from "react";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { GitHubIcon } from "@/components/icons/github-icon";
+import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { XIcon } from "@/components/icons/x-icon";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
