@@ -48,6 +48,30 @@ const sectionHeadings = [
 
 const checks = [
   [
+    "exactly one <h1>",
+    () => {
+      const count = html.match(/<h1[\s>]/g)?.length ?? 0;
+      if (count !== 1) return `found ${count}`;
+    },
+  ],
+  [
+    "no list inside a heading",
+    () => {
+      const headings = [...html.matchAll(/<(h[1-6])\b[^>]*>(.*?)<\/\1>/gs)];
+      const nested = headings.filter(([, , inner]) =>
+        /<(ul|ol)[\s>]/.test(inner)
+      );
+      if (nested.length > 0) return `found ${nested.length}`;
+    },
+  ],
+  [
+    'no role="feed"',
+    () => {
+      const count = html.match(/role="feed"/g)?.length ?? 0;
+      if (count > 0) return `found ${count}`;
+    },
+  ],
+  [
     "JSON-LD parses",
     () => {
       if (jsonLdScripts.length === 0) return "no JSON-LD script";
