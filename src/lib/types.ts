@@ -41,6 +41,7 @@ export interface ResumeData {
   about: string;
   summary: string;
   avatar: StaticImageData;
+  siteUrl: string;
   personalWebsiteUrl?: string;
   contact: {
     email: string;

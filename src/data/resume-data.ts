@@ -10,6 +10,7 @@ export const RESUME_DATA: ResumeData = {
   summary:
     "Full Stack Engineer with 15+ years of experience and 10+ years working remotely. Building high-performance web applications, leading distributed teams, and creating open source tools used by thousands of developers.",
   avatar,
+  siteUrl: "https://cv.jarocki.me",
   personalWebsiteUrl: "https://jarocki.me",
   contact: {
     email: "bartosz.jarocki@hey.com",

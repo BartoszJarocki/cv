@@ -69,6 +69,7 @@ export const RESUME_DATA = {
   name: "Your Name",
   initials: "YN",
   location: "Your City, Country",
+  siteUrl: "https://cv.example.com", // where this CV is deployed
   about: "Brief description",
   summary: "Professional summary",
   // ... more fields
