@@ -86,10 +86,7 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
           <CardTitle className="text-base">
             <ProjectLink title={title} link={link} />
           </CardTitle>
-          <CardDescription
-            className="text-pretty font-mono text-xs print:text-[10px]"
-            aria-label="Project description"
-          >
+          <CardDescription className="text-pretty font-mono text-xs print:text-[10px]">
             {description}
           </CardDescription>
         </div>
@@ -111,11 +108,7 @@ export function Projects({ projects }: ProjectsProps) {
       <h2 className="text-xl font-bold" id="side-projects">
         Side projects
       </h2>
-      <div
-        className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2"
-        role="feed"
-        aria-labelledby="side-projects"
-      >
+      <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
         {projects.map((project) => (
           <article
             key={project.title}

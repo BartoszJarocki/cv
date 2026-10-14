@@ -24,22 +24,16 @@ interface EducationItemProps {
 
 function EducationItem({ education }: EducationItemProps) {
   const { school, start, end, degree } = education;
-  const schoolId = `education-${school.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
     <Card className="border-none">
       <CardHeader>
         <div className="flex items-center justify-between gap-x-2 text-base">
-          <h3 className="font-semibold leading-none" id={schoolId}>
-            {school}
-          </h3>
+          <h3 className="font-semibold leading-none">{school}</h3>
           <EducationPeriod start={start} end={end} />
         </div>
       </CardHeader>
-      <CardContent
-        className="mt-2 text-foreground/80 print:text-[12px]"
-        aria-labelledby={schoolId}
-      >
+      <CardContent className="mt-2 text-foreground/80 print:text-[12px]">
         {degree}
       </CardContent>
     </Card>
@@ -56,11 +50,7 @@ export function Education({ education }: EducationListProps) {
       <h2 className="text-xl font-bold" id="education-section">
         Education
       </h2>
-      <div
-        className="space-y-4"
-        role="feed"
-        aria-labelledby="education-section"
-      >
+      <div className="space-y-4">
         {education.map((item) => (
           <article key={item.school}>
             <EducationItem education={item} />

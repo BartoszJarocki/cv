@@ -127,11 +127,7 @@ export function WorkExperience({ work }: WorkExperienceProps) {
       <h2 className="text-xl font-bold" id="work-experience">
         Work Experience
       </h2>
-      <div
-        className="space-y-4 print:space-y-0"
-        role="feed"
-        aria-labelledby="work-experience"
-      >
+      <div className="space-y-4 print:space-y-0">
         {work.map((item) => (
           <article key={`${item.company}-${item.start}`}>
             <WorkExperienceItem work={item} />
