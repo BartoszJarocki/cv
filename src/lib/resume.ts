@@ -30,9 +30,9 @@ const decodeNonAscii = (text: string) =>
   });
 
 export function displayUrl(url: string): string {
-  const { host, pathname } = new URL(url);
-  const path = decodeNonAscii(pathname.replace(/\/$/, ""));
-  return `${host.replace(/^www\./, "")}${path}`;
+  const { host, pathname, search, hash } = new URL(url);
+  const rest = `${pathname.replace(/\/$/, "")}${search}${hash}`;
+  return `${host.replace(/^www\./, "")}${decodeNonAscii(rest)}`;
 }
 
 export function getContactLinks({
