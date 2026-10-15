@@ -3,6 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Command } from "cmdk";
 import { Search, X } from "lucide-react";
+import { useRef } from "react";
 import type { ContactLink } from "@/lib/resume";
 
 export interface CommandMenuDialogProps {
@@ -21,59 +22,74 @@ export const CommandMenuDialog = ({
   links,
   open,
   onOpenChange,
-}: CommandMenuDialogProps) => (
-  <Dialog.Root open={open} onOpenChange={onOpenChange}>
-    <Dialog.Portal>
-      <Dialog.Overlay className="fixed inset-0 z-50 bg-background/80 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 print:hidden" />
-      <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-hidden border bg-background shadow-lg duration-200 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=closed]:slide-out-to-left-1/2 motion-safe:data-[state=closed]:slide-out-to-top-[48%] motion-safe:data-[state=open]:slide-in-from-left-1/2 motion-safe:data-[state=open]:slide-in-from-top-[48%] print:hidden sm:rounded-lg">
-        <Dialog.Title className="sr-only">Command menu</Dialog.Title>
-        <Command
-          label="Search commands and links"
-          className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground"
+}: CommandMenuDialogProps) => {
+  const returnFocus = useRef<Element | null>(null);
+
+  return (
+    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-background/80 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 print:hidden" />
+        <Dialog.Content
+          onOpenAutoFocus={() => {
+            returnFocus.current = document.activeElement;
+          }}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            if (returnFocus.current instanceof HTMLElement) {
+              returnFocus.current.focus();
+            }
+          }}
+          className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-hidden border bg-background shadow-lg duration-200 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=closed]:slide-out-to-left-1/2 motion-safe:data-[state=closed]:slide-out-to-top-[48%] motion-safe:data-[state=open]:slide-in-from-left-1/2 motion-safe:data-[state=open]:slide-in-from-top-[48%] print:hidden sm:rounded-lg"
         >
-          <div className="flex items-center border-b px-3">
-            <Search className="mr-2 h-5 w-5 shrink-0 opacity-50" />
-            <Command.Input
-              placeholder="Type a command or search..."
-              className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
-            />
-          </div>
-          <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden">
-            <Command.Empty className="py-6 text-center text-sm">
-              No results found.
-            </Command.Empty>
-            <Command.Group heading="Actions" className={groupClassName}>
-              <Command.Item
-                className={itemClassName}
-                onSelect={() => {
-                  onOpenChange(false);
-                  window.print();
-                }}
-              >
-                Print
-              </Command.Item>
-            </Command.Group>
-            <Command.Group heading="Links" className={groupClassName}>
-              {links.map(({ href, label }) => (
+          <Dialog.Title className="sr-only">Command menu</Dialog.Title>
+          <Command
+            label="Search commands and links"
+            className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground"
+          >
+            <div className="flex items-center border-b px-3">
+              <Search className="mr-2 h-5 w-5 shrink-0 opacity-50" />
+              <Command.Input
+                placeholder="Type a command or search..."
+                className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
+              />
+            </div>
+            <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden">
+              <Command.Empty className="py-6 text-center text-sm">
+                No results found.
+              </Command.Empty>
+              <Command.Group heading="Actions" className={groupClassName}>
                 <Command.Item
-                  key={label}
                   className={itemClassName}
                   onSelect={() => {
                     onOpenChange(false);
-                    window.open(href, "_blank");
+                    window.print();
                   }}
                 >
-                  {label}
+                  Print
                 </Command.Item>
-              ))}
-            </Command.Group>
-          </Command.List>
-        </Command>
-        <Dialog.Close className="absolute right-3 top-3 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
-        </Dialog.Close>
-      </Dialog.Content>
-    </Dialog.Portal>
-  </Dialog.Root>
-);
+              </Command.Group>
+              <Command.Group heading="Links" className={groupClassName}>
+                {links.map(({ href, label }) => (
+                  <Command.Item
+                    key={label}
+                    className={itemClassName}
+                    onSelect={() => {
+                      onOpenChange(false);
+                      window.open(href, "_blank");
+                    }}
+                  >
+                    {label}
+                  </Command.Item>
+                ))}
+              </Command.Group>
+            </Command.List>
+          </Command>
+          <Dialog.Close className="absolute right-3 top-3 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+};
