@@ -21,14 +21,13 @@ const avatarTypes: Record<string, string> = {
   svg: "image/svg+xml",
 };
 
-// The import only yields a hashed URL, such as
-// /_next/static/media/avatar.<hash>.jpg?dpl=<id>, so read the file it names.
 async function readAvatar() {
-  const { pathname } = new URL(RESUME_DATA.avatar.src, "file:");
-  const [, name, extension] =
-    pathname.match(/([^/]+)\.[^./]+\.([^./]+)$/) ?? [];
-  const file = `src/data/${name}.${extension}`;
-  const type = extension && avatarTypes[extension];
+  const [path] = RESUME_DATA.avatar.src.split("?");
+  const media = path.match(
+    /(?<name>[^/]+)\.(?<hash>[^./]+)\.(?<extension>[^./]+)$/
+  )?.groups;
+  const file = `src/data/${media?.name}.${media?.extension}`;
+  const type = media && avatarTypes[media.extension];
   if (!type) {
     throw new Error(`The OG image can't draw ${file}. Use a JPEG, PNG or SVG.`);
   }
