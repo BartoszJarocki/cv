@@ -281,19 +281,37 @@ const checks = [
   [
     "tag separators keep the dot on the tag's line",
     () => {
-      const lists = html.match(
-        /<ul\b[^>]*aria-label="(?:Technologies used|List of skills)".*?<\/ul>/gs
-      );
-      const separators = (lists ?? []).flatMap((list) => [
-        ...list.matchAll(
-          /<span\b[^>]*aria-hidden="true"[^>]*>([^<]*)<\/span>/g
-        ),
-      ]);
-      const breaking = separators.filter(
-        ([, text]) => !text.startsWith("\u00a0")
-      );
-      if (breaking.length > 0)
-        return `${breaking.length} without a no-break space`;
+      const tagLists = {
+        "List of skills": [RESUME_DATA.skills],
+        "Technologies used": [
+          ...RESUME_DATA.work.map(({ badges }) => badges),
+          ...RESUME_DATA.projects.map(({ techStack }) => techStack),
+        ],
+      };
+      for (const [label, tagSets] of Object.entries(tagLists)) {
+        const filled = tagSets.filter((tags) => tags.length > 0);
+        const expected = filled.reduce((sum, tags) => sum + tags.length - 1, 0);
+        const lists =
+          html.match(
+            new RegExp(`<ul\\b[^>]*aria-label="${label}".*?</ul>`, "gs")
+          ) ?? [];
+        const separators = lists.flatMap((list) =>
+          [
+            ...list.matchAll(
+              /<span\b[^>]*aria-hidden="true"[^>]*>([^<]*)<\/span>/g
+            ),
+          ].map(([, text]) => text)
+        );
+        if (lists.length !== filled.length || separators.length !== expected) {
+          return `${lists.length} "${label}" lists with ${separators.length} separators, expected ${filled.length} with ${expected}`;
+        }
+        const breaking = separators.filter(
+          (text) => !text.startsWith("\u00a0")
+        );
+        if (breaking.length > 0) {
+          return `${breaking.length} "${label}" separators without a no-break space`;
+        }
+      }
     },
   ],
   [
