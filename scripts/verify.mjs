@@ -71,6 +71,28 @@ const showsUrl = (text, href) => {
   });
 };
 
+const headings = [...html.matchAll(/<h2\b[^>]*>(.*?)<\/h2>/gs)].map(
+  ([, text]) => decode(text)
+);
+const sections = new Map(
+  [
+    ...html.matchAll(
+      /<section\b[^>]*>\s*<h2\b[^>]*>(.*?)<\/h2>(.*?)<\/section>/gs
+    ),
+  ].map(([, heading, body]) => [decode(heading), body])
+);
+const hasData = (key) => RESUME_DATA[key].length > 0;
+const articles = (key) => {
+  if (!hasData(key)) return [];
+  const section = sections.get(SECTION_TITLES[key]);
+  if (section === undefined) {
+    throw new Error(`no "${SECTION_TITLES[key]}" section`);
+  }
+  return [...section.matchAll(/<article\b.*?<\/article>/gs)].map(
+    ([article]) => article
+  );
+};
+
 const checks = [
   [
     "exactly one <h1>",
@@ -119,12 +141,21 @@ const checks = [
       }
     },
   ],
-  ...Object.values(SECTION_TITLES).map((heading) => [
-    `"${heading}" heading renders`,
-    () => {
-      if (!html.includes(`>${heading}</h2>`)) return `no <h2>${heading}</h2>`;
-    },
-  ]),
+  ...Object.entries(SECTION_TITLES).map(([key, heading]) =>
+    hasData(key)
+      ? [
+          `"${heading}" heading renders`,
+          () => {
+            if (!headings.includes(heading)) return `no <h2>${heading}</h2>`;
+          },
+        ]
+      : [
+          `empty ${key} hides the "${heading}" heading`,
+          () => {
+            if (headings.includes(heading)) return `found <h2>${heading}</h2>`;
+          },
+        ]
+  ),
   [
     "canonical URL is siteUrl",
     () => {
@@ -177,12 +208,8 @@ const checks = [
   [
     "every project link prints a URL outside the heading that leads to it",
     () => {
-      const section = html.match(
-        new RegExp(`>${SECTION_TITLES.projects}</h2>(.*?)</section>`, "s")
-      )?.[1];
-      if (!section) return "no projects section";
       const missing = [];
-      for (const [article] of section.matchAll(/<article\b.*?<\/article>/gs)) {
+      for (const article of articles("projects")) {
         const [link] = hrefs(article);
         if (!link) continue;
         const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
@@ -226,17 +253,9 @@ const checks = [
   [
     "no entry lists its tags twice",
     () => {
-      const repeated = [SECTION_TITLES.work, SECTION_TITLES.projects].flatMap(
-        (name) => {
-          const section =
-            html.match(new RegExp(`>${name}</h2>(.*?)</section>`, "s"))?.[1] ??
-            "";
-          return [...section.matchAll(/<article\b.*?<\/article>/gs)].filter(
-            ([article]) =>
-              (article.match(/aria-label="Technologies used"/g)?.length ?? 0) >
-              1
-          );
-        }
+      const repeated = [...articles("work"), ...articles("projects")].filter(
+        (article) =>
+          (article.match(/aria-label="Technologies used"/g)?.length ?? 0) > 1
       );
       if (repeated.length > 0) return `${repeated.length} entries`;
     },
