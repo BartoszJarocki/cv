@@ -24,7 +24,12 @@ async function readAvatar() {
   const media = path.match(
     /(?<name>[^/]+)\.(?<hash>[^./]+)\.(?<extension>[^./]+)$/
   )?.groups;
-  const file = `src/data/${media?.name}.${media?.extension}`;
+  if (!media) {
+    throw new Error(
+      `The avatar ${RESUME_DATA.avatar.src} is not imported from an image file directly in src/data, so the OG image can't draw it.`
+    );
+  }
+  const file = `src/data/${media.name}.${media.extension}`;
   const bytes = await readFile(join(process.cwd(), file));
   const [type] =
     Object.entries(avatarSignatures).find(([, signature]) =>
