@@ -56,11 +56,13 @@ const isSiteUrl = (url) =>
 const hrefs = (fragment) =>
   [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
 
-const showsUrl = (text, href) => {
-  const rest = decodeURI(href).replace(/^https?:\/\/(www\.)?/, "");
-  const tail = rest.slice(text.length);
-  return rest.startsWith(text) && /^\/?([?#].*)?$/.test(tail);
+const destination = (url) => {
+  const { host, pathname, search, hash } = new URL(url);
+  return `${host.replace(/^www\./, "")}${pathname.replace(/\/$/, "")}${search}${hash}`;
 };
+const showsUrl = (text, href) =>
+  URL.canParse(`https://${text}`) &&
+  destination(`https://${text}`) === destination(href);
 
 const sectionHeadings = [
   "About",
@@ -174,7 +176,7 @@ const checks = [
     },
   ],
   [
-    "every project link prints its URL outside the heading",
+    "every project link prints a URL outside the heading that leads to it",
     () => {
       const section = html.match(/>Side projects<\/h2>(.*?)<\/section>/s)?.[1];
       if (!section) return "no projects section";
@@ -185,8 +187,8 @@ const checks = [
         const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
         const texts = [
           ...article.replace(heading, "").matchAll(/>([^<]+)</g),
-        ].map(([, text]) => text);
-        if (!heading || !texts.some((text) => showsUrl(text, link))) {
+        ].map(([, text]) => decode(text));
+        if (!heading || !texts.some((text) => showsUrl(text, decode(link)))) {
           missing.push(link);
         }
       }
