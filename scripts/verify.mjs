@@ -88,9 +88,15 @@ const articles = (key) => {
   if (section === undefined) {
     throw new Error(`no "${SECTION_TITLES[key]}" section`);
   }
-  return [...section.matchAll(/<article\b.*?<\/article>/gs)].map(
+  const found = [...section.matchAll(/<article\b.*?<\/article>/gs)].map(
     ([article]) => article
   );
+  if (found.length !== RESUME_DATA[key].length) {
+    throw new Error(
+      `${found.length} articles in "${SECTION_TITLES[key]}" for ${RESUME_DATA[key].length} entries`
+    );
+  }
+  return found;
 };
 
 const checks = [
@@ -210,14 +216,14 @@ const checks = [
     "every project link prints a URL outside the heading that leads to it",
     () => {
       const missing = [];
-      for (const article of articles("projects")) {
-        const [link] = hrefs(article);
+      for (const [index, article] of articles("projects").entries()) {
+        const { link } = RESUME_DATA.projects[index];
         if (!link) continue;
         const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
         const texts = [
           ...article.replace(heading, "").matchAll(/>([^<]+)</g),
         ].map(([, text]) => decode(text));
-        if (!heading || !texts.some((text) => showsUrl(text, decode(link)))) {
+        if (!heading || !texts.some((text) => showsUrl(text, link))) {
           missing.push(link);
         }
       }
@@ -252,13 +258,24 @@ const checks = [
     },
   ],
   [
-    "no entry lists its tags twice",
+    "each entry lists its tags once",
     () => {
-      const repeated = [...articles("work"), ...articles("projects")].filter(
-        (article) =>
-          (article.match(/aria-label="Technologies used"/g)?.length ?? 0) > 1
+      const entries = [
+        ...articles("work").map((article, index) => [
+          article,
+          RESUME_DATA.work[index].badges,
+        ]),
+        ...articles("projects").map((article, index) => [
+          article,
+          RESUME_DATA.projects[index].techStack,
+        ]),
+      ];
+      const wrong = entries.filter(
+        ([article, tags]) =>
+          (article.match(/aria-label="Technologies used"/g)?.length ?? 0) !==
+          (tags.length > 0 ? 1 : 0)
       );
-      if (repeated.length > 0) return `${repeated.length} entries`;
+      if (wrong.length > 0) return `${wrong.length} entries`;
     },
   ],
   [
