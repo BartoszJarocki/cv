@@ -1,3 +1,4 @@
+import { domainToUnicode } from "node:url";
 import type { ResumeData, SocialIcon, WorkEntry } from "@/lib/types";
 
 export type ContactIcon = SocialIcon | "globe" | "mail" | "phone";
@@ -30,9 +31,10 @@ const decodeNonAscii = (text: string) =>
   });
 
 export function displayUrl(url: string): string {
-  const { host, pathname, search, hash } = new URL(url);
+  const { hostname, port, pathname, search, hash } = new URL(url);
+  const host = domainToUnicode(hostname).replace(/^www\./, "");
   const rest = `${pathname.replace(/\/$/, "")}${search}${hash}`;
-  return `${host.replace(/^www\./, "")}${decodeNonAscii(rest)}`;
+  return `${host}${port ? `:${port}` : ""}${decodeNonAscii(rest)}`;
 }
 
 export function getContactLinks({
