@@ -38,7 +38,7 @@ export const CommandMenu = ({ links }: Props) => {
         to open the command menu
       </p>
       {open !== null && (
-        <CommandMenuDialog links={links} open={open} onOpenChange={setOpen} />
+        <CommandMenuDialog links={links} open={open} setOpen={setOpen} />
       )}
     </>
   );

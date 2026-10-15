@@ -4,12 +4,13 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Command } from "cmdk";
 import { Search, X } from "lucide-react";
 import { useRef } from "react";
+import { flushSync } from "react-dom";
 import type { ContactLink } from "@/lib/resume";
 
 export interface CommandMenuDialogProps {
   links: ContactLink[];
   open: boolean;
-  onOpenChange: (open: boolean) => void;
+  setOpen: (open: boolean | null) => void;
 }
 
 const groupClassName =
@@ -21,12 +22,12 @@ const itemClassName =
 export const CommandMenuDialog = ({
   links,
   open,
-  onOpenChange,
+  setOpen,
 }: CommandMenuDialogProps) => {
   const returnFocus = useRef<Element | null>(null);
 
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-background/80 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 print:hidden" />
         <Dialog.Content
@@ -61,7 +62,8 @@ export const CommandMenuDialog = ({
                 <Command.Item
                   className={itemClassName}
                   onSelect={() => {
-                    onOpenChange(false);
+                    // null unmounts the dialog now, so print never sees its scroll lock.
+                    flushSync(() => setOpen(null));
                     window.print();
                   }}
                 >
@@ -74,7 +76,7 @@ export const CommandMenuDialog = ({
                     key={label}
                     className={itemClassName}
                     onSelect={() => {
-                      onOpenChange(false);
+                      setOpen(false);
                       window.open(href, "_blank");
                     }}
                   >
