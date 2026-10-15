@@ -243,7 +243,18 @@ const checks = [
           .replace(buttons, "")
           .matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>[^<]+<\/a>/g),
       ].map(([, href]) => href);
-      const missing = hrefs(buttons).filter((href) => !printed.includes(href));
+      const links = hrefs(buttons);
+      const { personalWebsiteUrl, contact } = RESUME_DATA;
+      const contacts = [
+        personalWebsiteUrl,
+        contact.email,
+        contact.tel,
+        ...contact.social,
+      ].filter(Boolean);
+      if (links.length !== contacts.length) {
+        return `${links.length} contact links for ${contacts.length} contacts`;
+      }
+      const missing = links.filter((href) => !printed.includes(href));
       if (missing.length > 0) return `missing ${missing.join(", ")}`;
     },
   ],
