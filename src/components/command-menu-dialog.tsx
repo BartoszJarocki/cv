@@ -37,7 +37,7 @@ export const CommandMenuDialog = ({
           onCloseAutoFocus={(event) => {
             event.preventDefault();
             if (returnFocus.current instanceof HTMLElement) {
-              returnFocus.current.focus();
+              returnFocus.current.focus({ preventScroll: true });
             }
           }}
           className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-hidden border bg-background shadow-lg motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=closed]:slide-out-to-left-1/2 motion-safe:data-[state=closed]:slide-out-to-top-[48%] motion-safe:data-[state=open]:slide-in-from-left-1/2 motion-safe:data-[state=open]:slide-in-from-top-[48%] print:hidden sm:rounded-lg"
