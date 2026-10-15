@@ -27,7 +27,10 @@ export const CommandMenuDialog = ({
       <Dialog.Overlay className="fixed inset-0 z-50 bg-background/80 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 print:hidden" />
       <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-hidden border bg-background shadow-lg duration-200 motion-safe:data-[state=open]:animate-in motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0 motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=closed]:slide-out-to-left-1/2 motion-safe:data-[state=closed]:slide-out-to-top-[48%] motion-safe:data-[state=open]:slide-in-from-left-1/2 motion-safe:data-[state=open]:slide-in-from-top-[48%] print:hidden sm:rounded-lg">
         <Dialog.Title className="sr-only">Command menu</Dialog.Title>
-        <Command className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground">
+        <Command
+          label="Search commands and links"
+          className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground"
+        >
           <div className="flex items-center border-b px-3">
             <Search className="mr-2 h-5 w-5 shrink-0 opacity-50" />
             <Command.Input
