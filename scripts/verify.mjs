@@ -216,8 +216,9 @@ const checks = [
     "every project link prints a URL outside the heading that leads to it",
     () => {
       const missing = [];
+      const problems = [];
       for (const [index, article] of articles("projects").entries()) {
-        const { link } = RESUME_DATA.projects[index];
+        const { title, link } = RESUME_DATA.projects[index];
         if (!link) continue;
         const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
         const texts = [
@@ -226,8 +227,16 @@ const checks = [
         if (!heading || !texts.some((text) => showsUrl(text, link))) {
           missing.push(link);
         }
+        const links = hrefs(article).map(decode);
+        if (links.length !== 2) {
+          problems.push(`${title} has ${links.length} links, expected 2`);
+        }
+        for (const href of links.filter((href) => href !== link)) {
+          problems.push(`${title} links to ${href}`);
+        }
       }
-      if (missing.length > 0) return `missing ${missing.join(", ")}`;
+      if (missing.length > 0) problems.unshift(`missing ${missing.join(", ")}`);
+      if (problems.length > 0) return problems.join("; ");
     },
   ],
   [
