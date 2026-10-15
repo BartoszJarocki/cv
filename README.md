@@ -76,7 +76,7 @@ export const RESUME_DATA = {
 }
 ```
 
-replace `src/data/avatar.jpg` with your own square photo.
+replace `src/data/avatar.jpg` with your own square photo. for a png or svg, put the file in `src/data` and change the avatar import in `src/data/resume-data.ts`.
 
 styling uses tailwind css. the palette is six oklch color roles in `src/app/globals.css`, one set for light and one for dark. `tailwind.config.js` maps the tailwind color names onto those roles.
 
