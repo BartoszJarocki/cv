@@ -1,3 +1,4 @@
+import "server-only";
 import { domainToUnicode } from "node:url";
 import type { ResumeData, SocialIcon, WorkEntry } from "@/lib/types";
 
