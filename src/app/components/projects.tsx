@@ -1,6 +1,7 @@
 import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag-list";
+import { SECTION_TITLES } from "@/data/resume-data";
 import { displayUrl } from "@/lib/resume";
 import type { Project } from "@/lib/types";
 
@@ -67,7 +68,7 @@ interface ProjectsProps {
 export function Projects({ projects }: ProjectsProps) {
   return (
     <Section
-      title="Side projects"
+      title={SECTION_TITLES.projects}
       titleId="side-projects"
       className="scroll-mb-16"
     >

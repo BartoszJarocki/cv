@@ -19,7 +19,9 @@ const loadTypeScriptAsModules = (url, context, nextLoad) =>
   );
 module.registerHooks({ load: stubImages });
 module.registerHooks({ load: loadTypeScriptAsModules });
-const { RESUME_DATA } = await import("../src/data/resume-data.ts");
+const { RESUME_DATA, SECTION_TITLES } = await import(
+  "../src/data/resume-data.ts"
+);
 
 const read = (file) =>
   readFileSync(new URL(`../.next/server/app/${file}`, import.meta.url), "utf8");
@@ -69,14 +71,6 @@ const showsUrl = (text, href) => {
   });
 };
 
-const sectionHeadings = [
-  "About",
-  "Work Experience",
-  "Education",
-  "Skills",
-  "Side projects",
-];
-
 const checks = [
   [
     "exactly one <h1>",
@@ -125,7 +119,7 @@ const checks = [
       }
     },
   ],
-  ...sectionHeadings.map((heading) => [
+  ...Object.values(SECTION_TITLES).map((heading) => [
     `"${heading}" heading renders`,
     () => {
       if (!html.includes(`>${heading}</h2>`)) return `no <h2>${heading}</h2>`;
@@ -183,7 +177,9 @@ const checks = [
   [
     "every project link prints a URL outside the heading that leads to it",
     () => {
-      const section = html.match(/>Side projects<\/h2>(.*?)<\/section>/s)?.[1];
+      const section = html.match(
+        new RegExp(`>${SECTION_TITLES.projects}</h2>(.*?)</section>`, "s")
+      )?.[1];
       if (!section) return "no projects section";
       const missing = [];
       for (const [article] of section.matchAll(/<article\b.*?<\/article>/gs)) {
@@ -230,15 +226,18 @@ const checks = [
   [
     "no entry lists its tags twice",
     () => {
-      const repeated = ["Work Experience", "Side projects"].flatMap((name) => {
-        const section =
-          html.match(new RegExp(`>${name}</h2>(.*?)</section>`, "s"))?.[1] ??
-          "";
-        return [...section.matchAll(/<article\b.*?<\/article>/gs)].filter(
-          ([article]) =>
-            (article.match(/aria-label="Technologies used"/g)?.length ?? 0) > 1
-        );
-      });
+      const repeated = [SECTION_TITLES.work, SECTION_TITLES.projects].flatMap(
+        (name) => {
+          const section =
+            html.match(new RegExp(`>${name}</h2>(.*?)</section>`, "s"))?.[1] ??
+            "";
+          return [...section.matchAll(/<article\b.*?<\/article>/gs)].filter(
+            ([article]) =>
+              (article.match(/aria-label="Technologies used"/g)?.length ?? 0) >
+              1
+          );
+        }
+      );
       if (repeated.length > 0) return `${repeated.length} entries`;
     },
   ],
