@@ -56,13 +56,18 @@ const isSiteUrl = (url) =>
 const hrefs = (fragment) =>
   [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
 
-const destination = (url) => {
-  const { host, pathname, search, hash } = new URL(url);
-  return `${host.replace(/^www\./, "")}${pathname.replace(/\/$/, "")}${search}${hash}`;
+const showsUrl = (text, href) => {
+  const link = new URL(href);
+  return ["", "www."].some((www) => {
+    const shown = URL.parse(`${link.protocol}//${www}${text}`);
+    return (
+      shown?.host === link.host &&
+      [shown.pathname, `${shown.pathname}/`].includes(link.pathname) &&
+      shown.search === link.search &&
+      shown.hash === link.hash
+    );
+  });
 };
-const showsUrl = (text, href) =>
-  URL.canParse(`https://${text}`) &&
-  destination(`https://${text}`) === destination(href);
 
 const sectionHeadings = [
   "About",
