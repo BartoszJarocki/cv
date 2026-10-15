@@ -77,7 +77,7 @@ export const CommandMenuDialog = ({
                     className={itemClassName}
                     onSelect={() => {
                       setOpen(false);
-                      window.open(href, "_blank");
+                      window.open(href, "_blank", "noopener,noreferrer");
                     }}
                   >
                     {label}
