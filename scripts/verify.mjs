@@ -19,7 +19,9 @@ const loadTypeScriptAsModules = (url, context, nextLoad) =>
   );
 module.registerHooks({ load: stubImages });
 module.registerHooks({ load: loadTypeScriptAsModules });
-const { RESUME_DATA } = await import("../src/data/resume-data.ts");
+const { RESUME_DATA, SECTION_TITLES } = await import(
+  "../src/data/resume-data.ts"
+);
 
 const read = (file) =>
   readFileSync(new URL(`../.next/server/app/${file}`, import.meta.url), "utf8");
@@ -57,18 +59,45 @@ const hrefs = (fragment) =>
   [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(([, href]) => href);
 
 const showsUrl = (text, href) => {
-  const rest = decodeURI(href).replace(/^https?:\/\/(www\.)?/, "");
-  const tail = rest.slice(text.length);
-  return rest.startsWith(text) && /^\/?([?#].*)?$/.test(tail);
+  const link = new URL(href);
+  return ["", "www."].some((www) => {
+    const shown = URL.parse(`${link.protocol}//${www}${text}`);
+    return (
+      shown?.host === link.host &&
+      [shown.pathname, `${shown.pathname}/`].includes(link.pathname) &&
+      shown.search === link.search &&
+      shown.hash === link.hash
+    );
+  });
 };
 
-const sectionHeadings = [
-  "About",
-  "Work Experience",
-  "Education",
-  "Skills",
-  "Side projects",
-];
+const headings = [...html.matchAll(/<h2\b[^>]*>(.*?)<\/h2>/gs)].map(
+  ([, text]) => decode(text)
+);
+const sections = new Map(
+  [
+    ...html.matchAll(
+      /<section\b[^>]*>\s*<h2\b[^>]*>(.*?)<\/h2>(.*?)<\/section>/gs
+    ),
+  ].map(([, heading, body]) => [decode(heading), body])
+);
+const hasData = (key) => RESUME_DATA[key].length > 0;
+const articles = (key) => {
+  if (!hasData(key)) return [];
+  const section = sections.get(SECTION_TITLES[key]);
+  if (section === undefined) {
+    throw new Error(`no "${SECTION_TITLES[key]}" section`);
+  }
+  const found = [...section.matchAll(/<article\b.*?<\/article>/gs)].map(
+    ([article]) => article
+  );
+  if (found.length !== RESUME_DATA[key].length) {
+    throw new Error(
+      `${found.length} articles in "${SECTION_TITLES[key]}" for ${RESUME_DATA[key].length} entries`
+    );
+  }
+  return found;
+};
 
 const checks = [
   [
@@ -118,12 +147,21 @@ const checks = [
       }
     },
   ],
-  ...sectionHeadings.map((heading) => [
-    `"${heading}" heading renders`,
-    () => {
-      if (!html.includes(`>${heading}</h2>`)) return `no <h2>${heading}</h2>`;
-    },
-  ]),
+  ...Object.entries(SECTION_TITLES).map(([key, heading]) =>
+    hasData(key)
+      ? [
+          `"${heading}" heading renders`,
+          () => {
+            if (!headings.includes(heading)) return `no <h2>${heading}</h2>`;
+          },
+        ]
+      : [
+          `empty ${key} hides the "${heading}" heading`,
+          () => {
+            if (headings.includes(heading)) return `found <h2>${heading}</h2>`;
+          },
+        ]
+  ),
   [
     "canonical URL is siteUrl",
     () => {
@@ -142,7 +180,8 @@ const checks = [
     "twitter:creator matches the X link",
     () => {
       const x = RESUME_DATA.contact.social.find(({ icon }) => icon === "x");
-      const expected = x && `@${x.url.split("/").filter(Boolean).at(-1)}`;
+      const expected =
+        x && `@${new URL(x.url).pathname.split("/").find(Boolean)}`;
       const creator = meta("twitter:creator");
       if (creator !== expected) return `expected ${expected}, found ${creator}`;
     },
@@ -174,23 +213,30 @@ const checks = [
     },
   ],
   [
-    "every project link prints its URL outside the heading",
+    "every project link prints a URL outside the heading that leads to it",
     () => {
-      const section = html.match(/>Side projects<\/h2>(.*?)<\/section>/s)?.[1];
-      if (!section) return "no projects section";
       const missing = [];
-      for (const [article] of section.matchAll(/<article\b.*?<\/article>/gs)) {
-        const [link] = hrefs(article);
+      const problems = [];
+      for (const [index, article] of articles("projects").entries()) {
+        const { title, link } = RESUME_DATA.projects[index];
         if (!link) continue;
         const heading = article.match(/<h3\b.*?<\/h3>/s)?.[0] ?? "";
         const texts = [
           ...article.replace(heading, "").matchAll(/>([^<]+)</g),
-        ].map(([, text]) => text);
+        ].map(([, text]) => decode(text));
         if (!heading || !texts.some((text) => showsUrl(text, link))) {
           missing.push(link);
         }
+        const links = hrefs(article).map(decode);
+        if (links.length !== 2) {
+          problems.push(`${title} has ${links.length} links, expected 2`);
+        }
+        for (const href of links.filter((href) => href !== link)) {
+          problems.push(`${title} links to ${href}`);
+        }
       }
-      if (missing.length > 0) return `missing ${missing.join(", ")}`;
+      if (missing.length > 0) problems.unshift(`missing ${missing.join(", ")}`);
+      if (problems.length > 0) return problems.join("; ");
     },
   ],
   [
@@ -206,7 +252,27 @@ const checks = [
           .replace(buttons, "")
           .matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>[^<]+<\/a>/g),
       ].map(([, href]) => href);
-      const missing = hrefs(buttons).filter((href) => !printed.includes(href));
+      const links = hrefs(buttons);
+      const { personalWebsiteUrl, contact } = RESUME_DATA;
+      const contacts = [
+        personalWebsiteUrl,
+        contact.email && `mailto:${contact.email}`,
+        contact.tel && `tel:${contact.tel}`,
+        ...contact.social.map(({ url }) => url),
+      ].filter(Boolean);
+      if (links.length !== contacts.length) {
+        const shown = links.map(decode);
+        return [
+          `${links.length} contact links for ${contacts.length} contacts`,
+          ...contacts
+            .filter((href) => !shown.includes(href))
+            .map((href) => `no link for ${href}`),
+          ...shown
+            .filter((href) => !contacts.includes(href))
+            .map((href) => `extra link ${href}`),
+        ].join(", ");
+      }
+      const missing = links.filter((href) => !printed.includes(href));
       if (missing.length > 0) return `missing ${missing.join(", ")}`;
     },
   ],
@@ -221,36 +287,71 @@ const checks = [
     },
   ],
   [
-    "no entry lists its tags twice",
+    "each entry lists its tags once",
     () => {
-      const repeated = ["Work Experience", "Side projects"].flatMap((name) => {
-        const section =
-          html.match(new RegExp(`>${name}</h2>(.*?)</section>`, "s"))?.[1] ??
-          "";
-        return [...section.matchAll(/<article\b.*?<\/article>/gs)].filter(
-          ([article]) =>
-            (article.match(/aria-label="Technologies used"/g)?.length ?? 0) > 1
-        );
+      const entries = [
+        ...articles("work").map((article, index) => [
+          article,
+          RESUME_DATA.work[index].company,
+          RESUME_DATA.work[index].badges,
+        ]),
+        ...articles("projects").map((article, index) => [
+          article,
+          RESUME_DATA.projects[index].title,
+          RESUME_DATA.projects[index].techStack,
+        ]),
+      ];
+      const wrong = entries.flatMap(([article, name, tags]) => {
+        const found =
+          article.match(/aria-label="Technologies used"/g)?.length ?? 0;
+        const expected = tags.length > 0 ? 1 : 0;
+        return found === expected
+          ? []
+          : `${name} has ${found} "Technologies used" lists, expected ${expected}`;
       });
-      if (repeated.length > 0) return `${repeated.length} entries`;
+      if (wrong.length > 0) return wrong.join("; ");
     },
   ],
   [
     "tag separators keep the dot on the tag's line",
     () => {
-      const lists = html.match(
-        /<ul\b[^>]*aria-label="(?:Technologies used|List of skills)".*?<\/ul>/gs
-      );
-      const separators = (lists ?? []).flatMap((list) => [
-        ...list.matchAll(
-          /<span\b[^>]*aria-hidden="true"[^>]*>([^<]*)<\/span>/g
-        ),
-      ]);
-      const breaking = separators.filter(
-        ([, text]) => !text.startsWith("\u00a0")
-      );
-      if (breaking.length > 0)
-        return `${breaking.length} without a no-break space`;
+      const tagLists = {
+        "List of skills": [RESUME_DATA.skills],
+        "Technologies used": [
+          ...RESUME_DATA.work.map(({ badges }) => badges),
+          ...RESUME_DATA.projects.map(({ techStack }) => techStack),
+        ],
+      };
+      const problems = [];
+      for (const [label, tagSets] of Object.entries(tagLists)) {
+        const filled = tagSets.filter((tags) => tags.length > 0);
+        const expected = filled.reduce((sum, tags) => sum + tags.length - 1, 0);
+        const lists =
+          html.match(
+            new RegExp(`<ul\\b[^>]*aria-label="${label}".*?</ul>`, "gs")
+          ) ?? [];
+        const separators = lists.flatMap((list) =>
+          [
+            ...list.matchAll(
+              /<span\b[^>]*aria-hidden="true"[^>]*>([^<]*)<\/span>/g
+            ),
+          ].map(([, text]) => text)
+        );
+        if (lists.length !== filled.length || separators.length !== expected) {
+          problems.push(
+            `${lists.length} "${label}" lists with ${separators.length} separators, expected ${filled.length} with ${expected}`
+          );
+        }
+        const breaking = separators.filter(
+          (text) => !text.startsWith("\u00a0")
+        );
+        if (breaking.length > 0) {
+          problems.push(
+            `${breaking.length} "${label}" separators without a no-break space`
+          );
+        }
+      }
+      if (problems.length > 0) return problems.join("; ");
     },
   ],
   [

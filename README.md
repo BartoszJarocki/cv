@@ -50,7 +50,7 @@ src/
 │   └── page.tsx        # main resume page
 ├── components/         # shared components
 │   ├── icons/          # social icon components
-│   └── ui/             # shadcn/ui components
+│   └── ui/             # presentational components
 ├── data/               # resume data configuration
 │   └── resume-data.ts
 └── lib/                # utilities and types
@@ -76,7 +76,7 @@ export const RESUME_DATA = {
 }
 ```
 
-replace `src/data/avatar.jpg` with your own square photo.
+replace `src/data/avatar.jpg` with your own square photo, a jpeg or a png. to use another file name, put the file directly in `src/data` and change the avatar import in `src/data/resume-data.ts`.
 
 styling uses tailwind css. the palette is six oklch color roles in `src/app/globals.css`, one set for light and one for dark. `tailwind.config.js` maps the tailwind color names onto those roles.
 

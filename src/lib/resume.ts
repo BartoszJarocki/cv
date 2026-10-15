@@ -1,3 +1,5 @@
+import "server-only";
+import { domainToUnicode } from "node:url";
 import type { ResumeData, SocialIcon, WorkEntry } from "@/lib/types";
 
 export type ContactIcon = SocialIcon | "globe" | "mail" | "phone";
@@ -17,10 +19,20 @@ export function getPageTitle({ name, work }: ResumeData): string {
   return `${name} - ${getCurrentRole(work)?.title ?? "Resume"}`;
 }
 
+const decodeNonAsciiEscapes = (text: string) =>
+  text.replace(/(?:%[89A-F][0-9A-F])+/g, (escapes) => {
+    try {
+      return decodeURIComponent(escapes);
+    } catch {
+      return escapes;
+    }
+  });
+
 export function displayUrl(url: string): string {
-  const { host, pathname } = new URL(url);
-  const path = decodeURI(pathname).replace(/\/$/, "");
-  return `${host.replace(/^www\./, "")}${path}`;
+  const { hostname, port, pathname, search, hash } = new URL(url);
+  const host = domainToUnicode(hostname).replace(/^www\./, "");
+  const rest = `${pathname.replace(/\/$/, "")}${search}${hash}`;
+  return `${host}${port ? `:${port}` : ""}${decodeNonAsciiEscapes(rest)}`;
 }
 
 export function getContactLinks({

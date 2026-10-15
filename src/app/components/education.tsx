@@ -1,5 +1,6 @@
 import { DateRange } from "@/components/ui/date-range";
 import { Section } from "@/components/ui/section";
+import { SECTION_TITLES } from "@/data/resume-data";
 import type { EducationEntry } from "@/lib/types";
 
 interface EducationItemProps {
@@ -30,7 +31,7 @@ interface EducationListProps {
 
 export function Education({ education }: EducationListProps) {
   return (
-    <Section title="Education" titleId="education-section">
+    <Section title={SECTION_TITLES.education} titleId="education-section">
       <div className="space-y-4 print:space-y-1">
         {education.map((item) => (
           <article key={item.school} className="print:break-inside-avoid">

@@ -2,6 +2,7 @@ import { DateRange } from "@/components/ui/date-range";
 import { ExternalArrow } from "@/components/ui/external-arrow";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag-list";
+import { SECTION_TITLES } from "@/data/resume-data";
 import type { WorkEntry } from "@/lib/types";
 
 interface CompanyLinkProps {
@@ -70,7 +71,7 @@ interface WorkExperienceProps {
 
 export function WorkExperience({ work }: WorkExperienceProps) {
   return (
-    <Section title="Work Experience" titleId="work-experience">
+    <Section title={SECTION_TITLES.work} titleId="work-experience">
       <div className="space-y-8 print:space-y-1.5">
         {work.map((item) => (
           <article

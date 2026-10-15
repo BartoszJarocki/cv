@@ -163,3 +163,11 @@ export const RESUME_DATA: ResumeData = {
     },
   ],
 };
+
+export const SECTION_TITLES = {
+  summary: "About",
+  work: "Work Experience",
+  education: "Education",
+  skills: "Skills",
+  projects: "Side projects",
+} satisfies Partial<Record<keyof ResumeData, string>>;
