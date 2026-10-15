@@ -50,7 +50,7 @@ src/
 │   └── page.tsx        # main resume page
 ├── components/         # shared components
 │   ├── icons/          # social icon components
-│   └── ui/             # shadcn/ui components
+│   └── ui/             # presentational components
 ├── data/               # resume data configuration
 │   └── resume-data.ts
 └── lib/                # utilities and types
