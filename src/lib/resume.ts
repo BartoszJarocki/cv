@@ -18,10 +18,7 @@ export function getPageTitle({ name, work }: ResumeData): string {
   return `${name} - ${getCurrentRole(work)?.title ?? "Resume"}`;
 }
 
-// The URL parser re-encodes every non-ASCII character the same way, but a
-// decoded ASCII escape such as %25 can change the URL, so only escapes of
-// non-ASCII bytes are decoded.
-const decodeNonAscii = (text: string) =>
+const decodeNonAsciiEscapes = (text: string) =>
   text.replace(/(?:%[89A-F][0-9A-F])+/g, (escapes) => {
     try {
       return decodeURIComponent(escapes);
@@ -34,7 +31,7 @@ export function displayUrl(url: string): string {
   const { hostname, port, pathname, search, hash } = new URL(url);
   const host = domainToUnicode(hostname).replace(/^www\./, "");
   const rest = `${pathname.replace(/\/$/, "")}${search}${hash}`;
-  return `${host}${port ? `:${port}` : ""}${decodeNonAscii(rest)}`;
+  return `${host}${port ? `:${port}` : ""}${decodeNonAsciiEscapes(rest)}`;
 }
 
 export function getContactLinks({
