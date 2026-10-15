@@ -14,6 +14,28 @@ export const contentType = "image/png";
 
 const colors = { bg: "#fafaf8", ink: "#1a1815", body: "#4a4744" };
 
+const avatarTypes: Record<string, string> = {
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  png: "image/png",
+  svg: "image/svg+xml",
+};
+
+// The import only yields a hashed URL, such as
+// /_next/static/media/avatar.<hash>.jpg?dpl=<id>, so read the file it names.
+async function readAvatar() {
+  const { pathname } = new URL(RESUME_DATA.avatar.src, "file:");
+  const [, name, extension] =
+    pathname.match(/([^/]+)\.[^./]+\.([^./]+)$/) ?? [];
+  const file = `src/data/${name}.${extension}`;
+  const type = extension && avatarTypes[extension];
+  if (!type) {
+    throw new Error(`The OG image can't draw ${file}. Use a JPEG, PNG or SVG.`);
+  }
+  const bytes = await readFile(join(process.cwd(), file));
+  return `data:${type};base64,${bytes.toString("base64")}`;
+}
+
 const readGeist = (file: string) =>
   readFile(
     join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans", file)
@@ -21,7 +43,7 @@ const readGeist = (file: string) =>
 
 export default async function Image() {
   const [avatar, geistRegular, geistBold] = await Promise.all([
-    readFile(join(process.cwd(), "src/data/avatar.jpg")),
+    readAvatar(),
     readGeist("Geist-Regular.ttf"),
     readGeist("Geist-Bold.ttf"),
   ]);
@@ -50,7 +72,7 @@ export default async function Image() {
       >
         {/* biome-ignore lint/performance/noImgElement: ImageResponse context requires img element */}
         <img
-          src={`data:image/jpeg;base64,${avatar.toString("base64")}`}
+          src={avatar}
           alt={RESUME_DATA.name}
           style={{
             width: "150px",
