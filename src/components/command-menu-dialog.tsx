@@ -26,6 +26,11 @@ export const CommandMenuDialog = ({
 }: CommandMenuDialogProps) => {
   const returnFocus = useRef<Element | null>(null);
 
+  const unmountThenPrint = () => {
+    flushSync(() => setOpen(null));
+    window.print();
+  };
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal>
@@ -61,11 +66,7 @@ export const CommandMenuDialog = ({
               <Command.Group heading="Actions" className={groupClassName}>
                 <Command.Item
                   className={itemClassName}
-                  onSelect={() => {
-                    // null unmounts the dialog now, so print never sees its scroll lock.
-                    flushSync(() => setOpen(null));
-                    window.print();
-                  }}
+                  onSelect={unmountThenPrint}
                 >
                   Print
                 </Command.Item>
