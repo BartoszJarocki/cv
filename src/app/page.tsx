@@ -14,6 +14,16 @@ export default function ResumePage() {
   const commandMenuLinks = getContactLinks(RESUME_DATA).filter(
     ({ icon }) => icon !== "mail" && icon !== "phone"
   );
+  const sections = [
+    { key: "summary", content: <Summary summary={RESUME_DATA.summary} /> },
+    { key: "work", content: <WorkExperience work={RESUME_DATA.work} /> },
+    {
+      key: "education",
+      content: <Education education={RESUME_DATA.education} />,
+    },
+    { key: "skills", content: <Skills skills={RESUME_DATA.skills} /> },
+    { key: "projects", content: <Projects projects={RESUME_DATA.projects} /> },
+  ] as const;
 
   return (
     <>
@@ -32,35 +42,17 @@ export default function ResumePage() {
             <Header />
           </div>
 
-          <div className="space-y-8 print:space-y-3">
-            <div className="animate-fade-in" style={{ animationDelay: "75ms" }}>
-              <Summary summary={RESUME_DATA.summary} />
-            </div>
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "150ms" }}
-            >
-              <WorkExperience work={RESUME_DATA.work} />
-            </div>
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "225ms" }}
-            >
-              <Education education={RESUME_DATA.education} />
-            </div>
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "300ms" }}
-            >
-              <Skills skills={RESUME_DATA.skills} />
-            </div>
-            <div
-              className="animate-fade-in"
-              style={{ animationDelay: "375ms" }}
-            >
-              <Projects projects={RESUME_DATA.projects} />
-            </div>
-          </div>
+          {sections
+            .filter(({ key }) => RESUME_DATA[key].length > 0)
+            .map(({ key, content }, index) => (
+              <div
+                key={key}
+                className="animate-fade-in"
+                style={{ animationDelay: `${(index + 1) * 75}ms` }}
+              >
+                {content}
+              </div>
+            ))}
         </section>
 
         <CommandMenu links={commandMenuLinks} />
