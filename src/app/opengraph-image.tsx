@@ -14,11 +14,9 @@ export const contentType = "image/png";
 
 const colors = { bg: "#fafaf8", ink: "#1a1815", body: "#4a4744" };
 
-const avatarTypes: Record<string, string> = {
-  jpg: "image/jpeg",
-  jpeg: "image/jpeg",
-  png: "image/png",
-  svg: "image/svg+xml",
+const avatarSignatures = {
+  "image/jpeg": [0xff, 0xd8, 0xff],
+  "image/png": [0x89, 0x50, 0x4e, 0x47],
 };
 
 async function readAvatar() {
@@ -27,11 +25,16 @@ async function readAvatar() {
     /(?<name>[^/]+)\.(?<hash>[^./]+)\.(?<extension>[^./]+)$/
   )?.groups;
   const file = `src/data/${media?.name}.${media?.extension}`;
-  const type = media && avatarTypes[media.extension];
-  if (!type) {
-    throw new Error(`The OG image can't draw ${file}. Use a JPEG, PNG or SVG.`);
-  }
   const bytes = await readFile(join(process.cwd(), file));
+  const [type] =
+    Object.entries(avatarSignatures).find(([, signature]) =>
+      signature.every((byte, index) => bytes[index] === byte)
+    ) ?? [];
+  if (!type) {
+    throw new Error(
+      `${file} is not a JPEG or PNG, so the OG image can't draw it.`
+    );
+  }
   return `data:${type};base64,${bytes.toString("base64")}`;
 }
 
