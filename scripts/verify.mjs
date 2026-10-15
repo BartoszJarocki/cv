@@ -174,7 +174,8 @@ const checks = [
     "twitter:creator matches the X link",
     () => {
       const x = RESUME_DATA.contact.social.find(({ icon }) => icon === "x");
-      const expected = x && `@${x.url.split("/").filter(Boolean).at(-1)}`;
+      const expected =
+        x && `@${new URL(x.url).pathname.split("/").find(Boolean)}`;
       const creator = meta("twitter:creator");
       if (creator !== expected) return `expected ${expected}, found ${creator}`;
     },
