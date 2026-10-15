@@ -247,12 +247,21 @@ const checks = [
       const { personalWebsiteUrl, contact } = RESUME_DATA;
       const contacts = [
         personalWebsiteUrl,
-        contact.email,
-        contact.tel,
-        ...contact.social,
+        contact.email && `mailto:${contact.email}`,
+        contact.tel && `tel:${contact.tel}`,
+        ...contact.social.map(({ url }) => url),
       ].filter(Boolean);
       if (links.length !== contacts.length) {
-        return `${links.length} contact links for ${contacts.length} contacts`;
+        const shown = links.map(decode);
+        return [
+          `${links.length} contact links for ${contacts.length} contacts`,
+          ...contacts
+            .filter((href) => !shown.includes(href))
+            .map((href) => `no link for ${href}`),
+          ...shown
+            .filter((href) => !contacts.includes(href))
+            .map((href) => `extra link ${href}`),
+        ].join(", ");
       }
       const missing = links.filter((href) => !printed.includes(href));
       if (missing.length > 0) return `missing ${missing.join(", ")}`;
@@ -274,19 +283,24 @@ const checks = [
       const entries = [
         ...articles("work").map((article, index) => [
           article,
+          RESUME_DATA.work[index].company,
           RESUME_DATA.work[index].badges,
         ]),
         ...articles("projects").map((article, index) => [
           article,
+          RESUME_DATA.projects[index].title,
           RESUME_DATA.projects[index].techStack,
         ]),
       ];
-      const wrong = entries.filter(
-        ([article, tags]) =>
-          (article.match(/aria-label="Technologies used"/g)?.length ?? 0) !==
-          (tags.length > 0 ? 1 : 0)
-      );
-      if (wrong.length > 0) return `${wrong.length} entries`;
+      const wrong = entries.flatMap(([article, name, tags]) => {
+        const found =
+          article.match(/aria-label="Technologies used"/g)?.length ?? 0;
+        const expected = tags.length > 0 ? 1 : 0;
+        return found === expected
+          ? []
+          : `${name} has ${found} "Technologies used" lists, expected ${expected}`;
+      });
+      if (wrong.length > 0) return wrong.join("; ");
     },
   ],
   [
@@ -299,6 +313,7 @@ const checks = [
           ...RESUME_DATA.projects.map(({ techStack }) => techStack),
         ],
       };
+      const problems = [];
       for (const [label, tagSets] of Object.entries(tagLists)) {
         const filled = tagSets.filter((tags) => tags.length > 0);
         const expected = filled.reduce((sum, tags) => sum + tags.length - 1, 0);
@@ -314,15 +329,20 @@ const checks = [
           ].map(([, text]) => text)
         );
         if (lists.length !== filled.length || separators.length !== expected) {
-          return `${lists.length} "${label}" lists with ${separators.length} separators, expected ${filled.length} with ${expected}`;
+          problems.push(
+            `${lists.length} "${label}" lists with ${separators.length} separators, expected ${filled.length} with ${expected}`
+          );
         }
         const breaking = separators.filter(
           (text) => !text.startsWith("\u00a0")
         );
         if (breaking.length > 0) {
-          return `${breaking.length} "${label}" separators without a no-break space`;
+          problems.push(
+            `${breaking.length} "${label}" separators without a no-break space`
+          );
         }
       }
+      if (problems.length > 0) return problems.join("; ");
     },
   ],
   [
