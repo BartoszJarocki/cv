@@ -1,4 +1,4 @@
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { MapPinIcon, GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import type React from "react";
 import { GitHubIcon } from "@/components/icons/github-icon";
@@ -38,7 +38,7 @@ function LocationLink({ location, locationLink }: LocationLinkProps) {
         rel="noopener noreferrer"
         aria-label={`Location: ${location}`}
       >
-        <GlobeIcon className="size-3" aria-hidden="true" />
+        <MapPinIcon className="size-3" aria-hidden="true" />
         {location}
       </a>
     </p>
