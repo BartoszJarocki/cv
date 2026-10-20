@@ -1,4 +1,4 @@
-import { MapPinIcon, GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import type React from "react";
 import { GitHubIcon } from "@/components/icons/github-icon";
