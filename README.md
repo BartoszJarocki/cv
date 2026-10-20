@@ -8,6 +8,8 @@
 
 simple web app that renders a minimalist CV with print-friendly layout.
 
+maintained by an ai robot 🤖, with a human pressing merge.
+
 ## requirements
 
 - node 22.15 or later. `pnpm verify` refuses to run on older versions.
@@ -101,6 +103,8 @@ export const SECTION_TITLES = {
 `SECTION_TITLES`, in the same file, holds the section headings. to rename or translate a section, change its heading there. the page skips any section whose data is empty, such as `projects: []`.
 
 replace `src/data/avatar.jpg` with your own square photo, a jpeg or a png. to use another file name, put the file directly in `src/data` and change the avatar import in `src/data/resume-data.ts`.
+
+replace `src/app/favicon.ico` and `src/app/apple-icon.png` with your own icons. next.js links them by file name, so no config is needed.
 
 styling uses tailwind css. the palette is six oklch color roles in `src/app/globals.css`, one set for light and one for dark. `tailwind.config.js` maps the tailwind color names onto those roles. `src/app/opengraph-image.tsx` and the `themeColor` list in `src/app/layout.tsx` set their own hex colors, so a palette change in `globals.css` does not reach the share image or the browser theme color.
 
