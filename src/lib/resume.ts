@@ -1,8 +1,16 @@
 import "server-only";
 import { domainToUnicode } from "node:url";
+import { SECTION_TITLES } from "@/data/resume-data";
 import type { ResumeData, SocialIcon, WorkEntry } from "@/lib/types";
 
 export type ContactIcon = SocialIcon | "globe" | "mail" | "phone";
+
+export type SectionKey = keyof typeof SECTION_TITLES;
+
+export function getSections(data: ResumeData): SectionKey[] {
+  const keys = Object.keys(SECTION_TITLES) as SectionKey[];
+  return keys.filter((key) => data[key].length > 0);
+}
 
 export interface ContactLink {
   label: string;

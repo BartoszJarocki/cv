@@ -1,6 +1,7 @@
+import type React from "react";
 import { CommandMenu } from "@/components/command-menu";
 import { RESUME_DATA } from "@/data/resume-data";
-import { getContactLinks } from "@/lib/resume";
+import { getContactLinks, getSections, type SectionKey } from "@/lib/resume";
 import { generateResumeStructuredData } from "@/lib/structured-data";
 import { Education } from "./components/education";
 import { Header } from "./components/header";
@@ -14,16 +15,13 @@ export default function ResumePage() {
   const commandMenuLinks = getContactLinks(RESUME_DATA).filter(
     ({ icon }) => icon !== "mail" && icon !== "phone"
   );
-  const sections = [
-    { key: "summary", content: <Summary summary={RESUME_DATA.summary} /> },
-    { key: "work", content: <WorkExperience work={RESUME_DATA.work} /> },
-    {
-      key: "education",
-      content: <Education education={RESUME_DATA.education} />,
-    },
-    { key: "skills", content: <Skills skills={RESUME_DATA.skills} /> },
-    { key: "projects", content: <Projects projects={RESUME_DATA.projects} /> },
-  ] as const;
+  const content: Record<SectionKey, React.ReactNode> = {
+    summary: <Summary summary={RESUME_DATA.summary} />,
+    work: <WorkExperience work={RESUME_DATA.work} />,
+    education: <Education education={RESUME_DATA.education} />,
+    skills: <Skills skills={RESUME_DATA.skills} />,
+    projects: <Projects projects={RESUME_DATA.projects} />,
+  };
 
   return (
     <>
@@ -42,17 +40,15 @@ export default function ResumePage() {
             <Header />
           </div>
 
-          {sections
-            .filter(({ key }) => RESUME_DATA[key].length > 0)
-            .map(({ key, content }, index) => (
-              <div
-                key={key}
-                className="animate-fade-in"
-                style={{ animationDelay: `${(index + 1) * 75}ms` }}
-              >
-                {content}
-              </div>
-            ))}
+          {getSections(RESUME_DATA).map((key, index) => (
+            <div
+              key={key}
+              className="animate-fade-in"
+              style={{ animationDelay: `${(index + 1) * 75}ms` }}
+            >
+              {content[key]}
+            </div>
+          ))}
         </section>
 
         <CommandMenu links={commandMenuLinks} />
