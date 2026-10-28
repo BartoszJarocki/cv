@@ -38,7 +38,7 @@ pnpm format       # check code formatting with biome
 pnpm format:fix   # format code with biome
 pnpm check        # run both linting and formatting checks
 pnpm check:fix    # run both linting and formatting with auto-fix
-pnpm verify       # check the page that pnpm build prerendered
+pnpm verify       # check the page, text and markdown that pnpm build prerendered
 ```
 
 ## project structure
@@ -119,11 +119,25 @@ styling uses tailwind css. the palette is six oklch color roles in `src/app/glob
 
 ## text and markdown
 
-`curl https://cv.jarocki.me` prints the CV as 80-column text. httpie and xh get the same text. wget and browsers get the html page.
+the CV also comes as text for terminals and as markdown for ai agents:
 
-an ai agent, or any client, that sends `Accept: text/markdown` to `/` gets the CV as markdown. `/index.md` returns that markdown to any client. `/llms.txt` returns it with a paragraph that names these formats.
+```bash
+curl https://cv.jarocki.me                                # 80-column text
+curl -H "Accept: text/markdown" https://cv.jarocki.me     # markdown
+curl https://cv.jarocki.me/index.md                       # markdown, for any client
+curl https://cv.jarocki.me/llms.txt                       # markdown, with a note on the formats
+```
 
-the text and the markdown come from `src/data/resume-data.ts`, like the page, so they change when you edit it. `pnpm build` renders them as static files.
+- curl, httpie and xh get the text at `/`. wget and browsers get the html page.
+- the text uses ansi bold and dim. to page through it, pipe it to `less -R`.
+- ai agents that ask for markdown with `Accept: text/markdown` get it at `/`. the html page also links it with `<link rel="alternate" type="text/markdown">`.
+- `/index.txt` serves the text to any client, such as `wget -qO- https://cv.jarocki.me/index.txt`.
+
+the text and the markdown come from `src/data/resume-data.ts`, like the page, so they change when you edit it. `pnpm build` renders them as static files, and `pnpm verify` checks them against the data.
+
+the rewrites in `next.config.js` pick the version for `/`. to serve the text to another tool, add its user agent to the `user-agent` pattern there.
+
+to try it locally, run `pnpm dev` and `curl http://localhost:3000`.
 
 a plain `curl cv.jarocki.me` gets vercel's redirect from http to https and prints `Redirecting...`. use `https://`, or `curl -L`.
 
