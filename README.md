@@ -55,6 +55,12 @@ src/
 │   │   ├── skills.tsx
 │   │   ├── summary.tsx
 │   │   └── work-experience.tsx
+│   ├── index.md/
+│   │   └── route.ts    # the CV as markdown
+│   ├── index.txt/
+│   │   └── route.ts    # the CV as text, for curl
+│   ├── llms.txt/
+│   │   └── route.ts    # the markdown, with a note on the formats
 │   ├── apple-icon.png  # home screen icon
 │   ├── favicon.ico     # browser tab icon
 │   ├── globals.css     # color palette and base styles
@@ -72,8 +78,11 @@ src/
 │   ├── avatar.jpg      # your photo
 │   └── resume-data.ts
 └── lib/                # utilities and types
+    ├── document.ts     # the CV as blocks for the text and markdown
+    ├── markdown.ts
     ├── resume.ts
     ├── structured-data.ts
+    ├── text.ts
     ├── types.ts
     └── utils.ts
 ```
@@ -100,13 +109,23 @@ export const SECTION_TITLES = {
 }
 ```
 
-`SECTION_TITLES`, in the same file, holds the section headings. to rename or translate a section, change its heading there. the page skips any section whose data is empty, such as `projects: []`.
+`SECTION_TITLES`, in the same file, holds the section headings. to rename or translate a section, change its heading there. the sections appear in the order of its keys, and the page skips any section whose data is empty, such as `projects: []`.
 
 replace `src/data/avatar.jpg` with your own square photo, a jpeg or a png. to use another file name, put the file directly in `src/data` and change the avatar import in `src/data/resume-data.ts`.
 
 replace `src/app/favicon.ico` and `src/app/apple-icon.png` with your own icons. next.js links them by file name, so no config is needed.
 
 styling uses tailwind css. the palette is six oklch color roles in `src/app/globals.css`, one set for light and one for dark. `tailwind.config.js` maps the tailwind color names onto those roles. `src/app/opengraph-image.tsx` and the `themeColor` list in `src/app/layout.tsx` set their own hex colors, so a palette change in `globals.css` does not reach the share image or the browser theme color.
+
+## text and markdown
+
+`curl https://cv.jarocki.me` prints the CV as 80-column text. httpie and xh get the same text. wget and browsers get the html page.
+
+an ai agent, or any client, that sends `Accept: text/markdown` to `/` gets the CV as markdown. `/index.md` returns that markdown to any client. `/llms.txt` returns it with a paragraph that names these formats.
+
+the text and the markdown come from `src/data/resume-data.ts`, like the page, so they change when you edit it. `pnpm build` renders them as static files.
+
+a plain `curl cv.jarocki.me` gets vercel's redirect from http to https and prints `Redirecting...`. use `https://`, or `curl -L`.
 
 ## license
 
