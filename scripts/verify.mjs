@@ -99,6 +99,49 @@ const articles = (key) => {
   return found;
 };
 
+const styledText = read("index.txt.body");
+const text = styledText.replace(/\x1b\[[0-9;]*m/g, "");
+const markdown = read("index.md.body");
+const llms = read("llms.txt.body");
+const unescape = (md) => md.replace(/\\([!-/:-@[-`{-~])/g, "$1");
+const site = new URL(RESUME_DATA.siteUrl).origin;
+
+const dimLineAfterBlankLine = /(?<=\n\n) {2}\x1b\[2m([^\x1b\n]+)\x1b\[0m$/gm;
+const sectionHeadings = [
+  ["page", headings, (title) => title],
+  [
+    "text",
+    [...styledText.matchAll(dimLineAfterBlankLine)].map(([, title]) => title),
+    (title) => title.toLowerCase(),
+  ],
+  [
+    "markdown",
+    [...markdown.matchAll(/^## (.*)$/gm)].map(([, title]) => unescape(title)),
+    (title) => title,
+  ],
+];
+const showing = (title) =>
+  sectionHeadings
+    .filter(([, found, shown]) => found.includes(shown(title)))
+    .map(([version]) => version);
+
+const entryName = {
+  work: ({ company }) => company,
+  education: ({ school }) => school,
+  projects: ({ title }) => title,
+};
+const entryNames = Object.keys(SECTION_TITLES)
+  .filter((key) => key in entryName)
+  .flatMap((key) => RESUME_DATA[key].map(entryName[key]));
+
+const dataLinks = [
+  RESUME_DATA.locationLink,
+  RESUME_DATA.personalWebsiteUrl,
+  ...RESUME_DATA.contact.social.map(({ url }) => url),
+  ...RESUME_DATA.work.map(({ link }) => link),
+  ...RESUME_DATA.projects.map(({ link }) => link),
+].filter(Boolean);
+
 const checks = [
   [
     "exactly one <h1>",
@@ -150,18 +193,39 @@ const checks = [
   ...Object.entries(SECTION_TITLES).map(([key, heading]) =>
     hasData(key)
       ? [
-          `"${heading}" heading renders`,
+          `"${heading}" heading renders in the page, the text, and the markdown`,
           () => {
-            if (!headings.includes(heading)) return `no <h2>${heading}</h2>`;
+            const missing = sectionHeadings
+              .map(([version]) => version)
+              .filter((version) => !showing(heading).includes(version));
+            if (missing.length > 0) return `missing in ${missing.join(", ")}`;
           },
         ]
       : [
           `empty ${key} hides the "${heading}" heading`,
           () => {
-            if (headings.includes(heading)) return `found <h2>${heading}</h2>`;
+            if (showing(heading).length > 0) {
+              return `found in ${showing(heading).join(", ")}`;
+            }
           },
         ]
   ),
+  [
+    "the page, the text, and the markdown list the sections in one order",
+    () => {
+      const titles = Object.entries(SECTION_TITLES)
+        .filter(([key]) => hasData(key))
+        .map(([, title]) => title);
+      const wrong = sectionHeadings.filter(
+        ([, found, shown]) => found.join("\n") !== titles.map(shown).join("\n")
+      );
+      if (wrong.length > 0) {
+        return wrong
+          .map(([version, found]) => `${version} has ${found.join(", ")}`)
+          .join("; ");
+      }
+    },
+  ],
   [
     "canonical URL is siteUrl",
     () => {
@@ -385,6 +449,128 @@ const checks = [
       const fonts =
         html.match(/<link rel="preload" href="[^"]*" as="font"/g)?.length ?? 0;
       if (fonts !== 2) return `preloads ${fonts}`;
+    },
+  ],
+  [
+    "the text starts with the name in bold",
+    () => {
+      const first = styledText.split("\n").find((line) => line.trim());
+      if (!first?.startsWith("  \x1b[1m")) return `starts with ${first}`;
+      if (!text.trim().replace(/\s+/g, " ").startsWith(RESUME_DATA.name)) {
+        return `the first words are not ${RESUME_DATA.name}`;
+      }
+    },
+  ],
+  [
+    "the markdown starts with # and the name",
+    () => {
+      const first = unescape(markdown.split("\n")[0]);
+      if (first !== `# ${RESUME_DATA.name}`) return `starts with "${first}"`;
+    },
+  ],
+  [
+    "the text and the markdown show every company, school, and project in order",
+    () => {
+      const problems = [];
+      const words = text.replace(/\s+/g, " ");
+      let at = 0;
+      for (const name of entryNames) {
+        const found = words.indexOf(name, at);
+        if (found === -1) problems.push(`the text lacks ${name}`);
+        else at = found + name.length;
+      }
+      const titles = [...markdown.matchAll(/^### (.*)$/gm)].map(([, title]) =>
+        unescape(title.replace(/^\[(.*)\]\((?:<[^>]*>|[^)]*)\)$/, "$1"))
+      );
+      if (titles.join("\n") !== entryNames.join("\n")) {
+        problems.push(`the markdown has ${titles.join(", ")}`);
+      }
+      if (problems.length > 0) return problems.join("; ");
+    },
+  ],
+  [
+    "the text and the markdown show every link in the data",
+    () => {
+      const { email, tel } = RESUME_DATA.contact;
+      const words = text.split(/\s+/).filter((word) => {
+        const host = word.split(/[/?#]/)[0];
+        return host === host.toLowerCase();
+      });
+      const hrefs = [
+        email && `mailto:${email}`,
+        tel && `tel:${tel}`,
+        ...dataLinks,
+      ].filter(Boolean);
+      const missing = [
+        ...dataLinks
+          .filter((href) => !words.some((word) => showsUrl(word, href)))
+          .map((href) => `the text lacks ${href}`),
+        ...[email, tel]
+          .filter((value) => value && !words.includes(value))
+          .map((value) => `the text lacks ${value}`),
+        ...hrefs
+          .filter(
+            (href) =>
+              !markdown.includes(`](${href})`) &&
+              !markdown.includes(`](<${href}>)`)
+          )
+          .map((href) => `the markdown lacks ${href}`),
+      ];
+      if (missing.length > 0) return missing.join("; ");
+    },
+  ],
+  [
+    "no text line passes 80 columns, except a URL on its own",
+    () => {
+      const lines = text.split("\n");
+      if (!lines.some((line) => line.trim())) return "the text is empty";
+      const long = lines.filter(
+        (line) =>
+          [...line].length > 80 &&
+          !dataLinks.some((href) => showsUrl(line.trim(), href))
+      );
+      if (long.length > 0) {
+        return `${long.length} lines, the first is "${long[0].trim()}"`;
+      }
+    },
+  ],
+  [
+    "llms.txt is the markdown with a paragraph on the other formats after the blockquote",
+    () => {
+      const lines = llms.split("\n");
+      const [title, , quote, , formats] = lines;
+      const problems = [];
+      if (title !== markdown.split("\n")[0]) {
+        problems.push(`starts with ${title}`);
+      }
+      if (unescape(quote ?? "") !== `> ${RESUME_DATA.about}`) {
+        problems.push(`has ${quote} for the blockquote`);
+      }
+      for (const name of [
+        `curl ${site}`,
+        `${site}/index.md`,
+        "Accept: text/markdown",
+      ]) {
+        if (!formats?.includes(`\`${name}\``)) {
+          problems.push(`does not name ${name}`);
+        }
+      }
+      if ([...lines.slice(0, 4), ...lines.slice(6)].join("\n") !== markdown) {
+        problems.push("differs from the markdown outside that paragraph");
+      }
+      if (problems.length > 0) return problems.join("; ");
+    },
+  ],
+  [
+    "the page links its markdown version",
+    () => {
+      const href = html.match(
+        /<link rel="alternate" type="text\/markdown" href="([^"]*)"/
+      )?.[1];
+      const expected = new URL("/index.md", site).href;
+      if (href === undefined || new URL(href, site).href !== expected) {
+        return `alternate is ${href}`;
+      }
     },
   ],
 ];
